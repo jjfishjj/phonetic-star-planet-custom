@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10142b">
+  <meta name="description" content="諧音星球：用聲音線索與想像畫面，練習 12 種語言入門單字。">
+  <title>諧音星球｜把陌生聲音變成記得住的畫面</title>
+  <style>
+    :root{color-scheme:dark;--bg:#10142b;--panel:#191e39;--panel2:#202644;--line:rgba(221,230,255,.12);--text:#f4f6ff;--muted:#a3accb;--mint:#94f0d0;--yellow:#ffd78a;--lilac:#c5b5ff;--pink:#ffadd0;--shadow:0 24px 60px rgba(0,0,0,.25);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 84% 8%,rgba(120,98,208,.19),transparent 30%),radial-gradient(ellipse at 8% 32%,rgba(75,191,172,.09),transparent 26%),var(--bg);color:var(--text)}button{font:inherit;color:inherit;cursor:pointer}a{color:inherit;text-decoration:none}.shell{width:min(1160px,calc(100% - 44px));margin:auto}.topbar{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;font-weight:760;letter-spacing:.01em}.brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:linear-gradient(145deg,#a3f2d5,#d2c5ff);color:#181c37;font-size:19px;box-shadow:0 6px 20px rgba(148,240,208,.15)}.brand small{display:block;color:var(--muted);font-size:10px;font-weight:650;letter-spacing:.17em;margin-top:2px}.nav{display:flex;align-items:center;gap:26px;color:#c2c9e1;font-size:13px}.nav a:hover{color:var(--mint)}.profile-chip{display:flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--muted)}.profile-dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px var(--mint)}
+    .hero{display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:36px;padding:61px 0 48px;min-height:345px}.eyebrow{color:var(--mint);font-size:10px;letter-spacing:.22em;font-weight:750;text-transform:uppercase;display:flex;align-items:center;gap:9px}.eyebrow:before{content:"";width:20px;height:1px;background:var(--mint)}h1{font-size:clamp(36px,5vw,60px);letter-spacing:-.055em;line-height:1.12;margin:17px 0 15px;font-weight:780}.hero h1 span{color:var(--mint)}.hero-copy{color:#b0bad5;font-size:15px;line-height:1.85;max-width:490px;margin:0}.hero-actions{display:flex;gap:12px;align-items:center;margin-top:24px}.primary{background:var(--mint);color:#141a31;border:0;border-radius:12px;padding:13px 18px;font-size:13px;font-weight:760;box-shadow:0 10px 24px rgba(90,220,181,.15);transition:transform .2s,box-shadow .2s}.primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(90,220,181,.24)}.subtle-link{color:#b8c1db;font-size:13px;padding:10px}.subtle-link:hover{color:white}.hero-art{position:relative;min-height:230px;display:grid;place-items:center;overflow:hidden}.orbit{position:absolute;width:268px;height:268px;border:1px solid rgba(197,181,255,.2);border-radius:50%;transform:rotate(-24deg) scaleY(.36)}.orbit:after{content:"";position:absolute;inset:18px;border:1px dashed rgba(148,240,208,.16);border-radius:50%}.planet{position:relative;width:164px;height:164px;border-radius:50%;background:radial-gradient(circle at 30% 26%,#d0c7ff 0 5%,#9783e7 23%,#6156ab 62%,#3a3978 100%);box-shadow:inset -18px -14px 28px rgba(12,16,44,.38),0 0 65px rgba(153,130,255,.22);display:grid;place-items:center}.planet:before{content:"";position:absolute;width:196px;height:42px;border:8px solid rgba(148,240,208,.8);border-left-color:rgba(148,240,208,.36);border-right-color:rgba(148,240,208,.45);border-radius:50%;transform:rotate(-23deg);filter:drop-shadow(0 5px 8px rgba(148,240,208,.15))}.planet-emoji{font-size:52px;filter:drop-shadow(0 7px 10px rgba(20,18,49,.25))}.spark{position:absolute;color:var(--yellow);font-size:18px}.spark.one{top:30px;left:22%}.spark.two{right:17%;top:52px;color:var(--mint);font-size:12px}.spark.three{bottom:28px;right:24%;font-size:14px}.float-card{position:absolute;right:4%;bottom:17px;padding:12px 15px;background:rgba(29,35,67,.88);border:1px solid rgba(221,230,255,.16);box-shadow:var(--shadow);border-radius:14px;transform:rotate(4deg);backdrop-filter:blur(12px)}.float-card small{font-size:9px;letter-spacing:.14em;color:var(--muted)}.float-card strong{display:block;font-size:20px;margin:5px 0 2px}.float-card span{font-size:11px;color:var(--mint)}.hero-statline{display:flex;gap:22px;margin-top:22px;color:#8792b2;font-size:11px}.hero-statline b{color:#e9edfb;font-size:12px;margin-right:5px}
+    .stats{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:4px 0 60px}.stat{background:rgba(25,30,57,.86);padding:15px 18px;display:flex;align-items:center;gap:12px}.stat-icon{font-size:18px}.stat strong{display:block;font-size:15px}.stat small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:20px}.section-kicker{color:var(--mint);font-size:9px;letter-spacing:.2em;font-weight:750}.section-head h2{font-size:24px;letter-spacing:-.03em;margin:8px 0 0}.section-head p{margin:0;color:var(--muted);font-size:12px}.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}.filter{border:1px solid var(--line);background:transparent;color:#aeb8d3;border-radius:999px;padding:7px 12px;font-size:11px;transition:.2s}.filter:hover,.filter.active{color:#172039;background:var(--mint);border-color:var(--mint);font-weight:700}.deck-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.deck{position:relative;text-align:left;overflow:hidden;background:linear-gradient(135deg,rgba(34,40,75,.96),rgba(24,29,55,.97));border:1px solid var(--line);border-radius:16px;padding:15px;min-height:129px;transition:transform .18s,border-color .18s,background .18s}.deck:hover{transform:translateY(-3px);border-color:rgba(148,240,208,.5)}.deck.selected{border-color:var(--mint);box-shadow:inset 0 0 0 1px rgba(148,240,208,.14),0 10px 30px rgba(0,0,0,.16);background:linear-gradient(135deg,rgba(39,62,75,.94),rgba(28,34,61,.98))}.deck-top{display:flex;justify-content:space-between;align-items:center}.flag{font-size:23px;line-height:1}.deck-check{font-size:10px;color:var(--mint);opacity:0}.deck.selected .deck-check{opacity:1}.deck h3{font-size:14px;margin:13px 0 3px}.deck .native{font-size:11px;color:#b4bdd6}.deck-foot{display:flex;justify-content:space-between;margin-top:12px;color:#7f8aa9;font-size:10px}.deck-foot b{font-weight:600;color:#9ca7c4}.practice-wrap{margin:46px 0 0;padding:26px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,rgba(32,38,68,.9),rgba(24,29,54,.85));box-shadow:var(--shadow);position:relative;overflow:hidden}.practice-wrap:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-150px;top:-175px;border:1px solid rgba(197,181,255,.14);box-shadow:0 0 0 30px rgba(197,181,255,.025),0 0 0 60px rgba(197,181,255,.02);pointer-events:none}.practice-title{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:start;margin-bottom:19px}.practice-title h2{font-size:22px;margin:6px 0}.practice-title p{font-size:12px;color:var(--muted);margin:0}.deck-label{font-size:11px;background:rgba(148,240,208,.1);border:1px solid rgba(148,240,208,.21);color:var(--mint);border-radius:999px;padding:7px 10px;white-space:nowrap}.practice-body{display:grid;grid-template-columns:1fr 280px;gap:18px;position:relative;z-index:1}.flashcard{min-height:252px;border-radius:18px;background:radial-gradient(ellipse at 85% 10%,rgba(182,164,255,.17),transparent 42%),linear-gradient(135deg,#282f57,#1e2445);border:1px solid rgba(220,226,255,.14);padding:26px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.flashcard:before{content:"✦";position:absolute;right:26px;top:20px;color:rgba(255,215,138,.7);font-size:15px}.card-overline{font-size:9px;color:#9faacd;letter-spacing:.18em;text-transform:uppercase}.word{font-size:clamp(36px,6vw,56px);font-weight:760;letter-spacing:-.045em;margin:9px 0 3px;line-height:1.17;word-break:break-word}.roman{font-size:13px;color:var(--mint);letter-spacing:.03em}.phonetic-hint{font-size:12px;color:#dce1f2;margin-top:16px}.phonetic-hint b{color:var(--yellow);font-weight:650}.card-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:19px}.card-tip{font-size:10px;color:#929dbd}.icon-btn{width:36px;height:36px;display:grid;place-items:center;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#d8deef}.icon-btn:hover,.icon-btn.is-fav{color:var(--yellow);border-color:rgba(255,215,138,.45);background:rgba(255,215,138,.08)}.answer-panel{border:1px solid var(--line);border-radius:16px;padding:18px;background:rgba(18,23,45,.65);display:flex;flex-direction:column;justify-content:center;min-height:252px}.answer-panel .answer-label{font-size:9px;letter-spacing:.16em;color:#8995b6}.answer-panel h3{font-size:22px;margin:9px 0 7px}.answer-panel p{font-size:12px;color:#afb9d2;line-height:1.7;margin:0}.answer-panel .mnemonic{padding:12px;margin-top:15px;border-radius:12px;background:rgba(255,215,138,.075);border:1px solid rgba(255,215,138,.15);color:#e6d8b3;font-size:11px;line-height:1.7}.answer-panel .mnemonic b{color:var(--yellow)}.answer-panel.empty{align-items:center;text-align:center;color:#a3accb}.answer-panel.empty .hint-bulb{font-size:23px;margin-bottom:10px}.answer-actions{display:flex;gap:8px;margin-top:15px}.answer-actions .primary{flex:1;padding:11px 9px;font-size:11px}.secondary{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:11px;padding:10px 11px;font-size:11px;color:#d0d7e9}.secondary:hover{border-color:rgba(197,181,255,.5);background:rgba(197,181,255,.07)}.done-panel{display:none}.practice-footer{display:flex;justify-content:space-between;align-items:center;color:#8d98b7;font-size:10px;margin-top:14px}.progress-track{display:block;height:4px;background:rgba(255,255,255,.08);border-radius:4px;margin-top:7px;overflow:hidden}.progress-fill{height:100%;background:var(--mint);border-radius:4px;width:0;transition:width .25s}.notice{border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:29px 0 60px;background:rgba(21,26,49,.8);display:flex;gap:14px;align-items:start}.notice .lock{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:rgba(197,181,255,.1);color:var(--lilac);flex:none}.notice h3{font-size:12px;margin:0 0 4px}.notice p{font-size:11px;line-height:1.7;color:#9fa9c4;margin:0}.notice a{color:var(--mint)}footer{border-top:1px solid var(--line);padding:22px 0 34px;color:#7782a1;font-size:10px;display:flex;justify-content:space-between;gap:15px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:11px 15px;border-radius:12px;background:#effff8;color:#172039;font-size:12px;font-weight:700;box-shadow:var(--shadow);transition:.22s;z-index:10}.toast.show{transform:translate(-50%,0);opacity:1}.confetti{color:var(--yellow)}
+    @media(max-width:850px){.deck-grid{grid-template-columns:repeat(3,1fr)}.practice-body{grid-template-columns:1fr 240px}.hero{gap:10px}.hero-art{transform:scale(.9)}}
+    @media(max-width:640px){.shell{width:min(100% - 30px,520px)}.topbar{height:67px}.nav{gap:14px}.nav a:first-child{display:none}.profile-chip{padding:7px 9px}.hero{grid-template-columns:1fr;padding:38px 0 25px;gap:0;min-height:0}.hero-art{display:none}h1{font-size:39px}.hero-copy{font-size:13px}.hero-actions{margin-top:19px}.hero-statline{margin-top:18px}.stats{grid-template-columns:repeat(2,1fr);margin:0 0 43px}.stat{padding:12px}.section-head{align-items:start;flex-direction:column;gap:7px}.section-head h2{font-size:22px}.deck-grid{grid-template-columns:repeat(2,1fr);gap:9px}.deck{min-height:122px;padding:12px}.deck h3{font-size:13px;margin-top:11px}.practice-wrap{padding:17px;margin-top:36px;border-radius:18px}.practice-title{margin-bottom:15px}.practice-title h2{font-size:19px}.practice-title p{font-size:10px}.deck-label{font-size:9px;padding:6px 8px}.practice-body{grid-template-columns:1fr;gap:10px}.flashcard{min-height:224px;padding:20px}.answer-panel{min-height:174px;padding:15px}.answer-panel.empty{min-height:152px}.answer-panel h3{font-size:19px}.answer-panel .mnemonic{margin-top:10px;padding:10px}.card-bottom{margin-top:15px}.notice{margin:22px 0 39px;padding:14px}.notice p{font-size:10px}footer{font-size:9px;flex-direction:column;gap:6px;padding:17px 0 25px}}
+    @media(max-width:360px){.nav{gap:8px}.nav a{font-size:11px}.deck{padding:10px}.deck .native{font-size:10px}.filters{gap:5px}.filter{padding:6px 9px}}
+
+    .deck-tools{display:flex;gap:9px;margin:-2px 0 16px}.deck-tools .primary,.deck-tools .secondary{padding:10px 13px;font-size:11px}.deck-tools .secondary:disabled{opacity:.42;cursor:not-allowed}
+    .manager-dialog{width:min(920px,calc(100% - 28px));max-height:min(90vh,900px);padding:24px;border:1px solid rgba(221,230,255,.18);border-radius:22px;background:#171c35;color:var(--text);box-shadow:0 30px 90px rgba(0,0,0,.55);overflow:auto}.manager-dialog::backdrop{background:rgba(7,10,24,.76);backdrop-filter:blur(5px)}.modal-head{display:flex;justify-content:space-between;align-items:start;gap:14px;margin-bottom:18px}.modal-head h2{font-size:22px;margin:6px 0}.modal-head p{font-size:12px;color:var(--muted);margin:0}.modal-head .icon-btn{font-size:22px;flex:none}.manager-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:13px}.manager-panel{min-width:0;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025);padding:16px}.manager-panel h3{font-size:14px;margin:0 0 14px;display:flex;align-items:center;gap:8px}.manager-panel label{display:block;color:#c3cbe0;font-size:11px;margin:0 0 12px}.manager-panel input,.manager-panel textarea{display:block;width:100%;margin-top:6px;border:1px solid rgba(221,230,255,.15);border-radius:10px;background:#11162c;color:var(--text);font:inherit;font-size:12px;padding:10px 11px;outline:none}.manager-panel input:focus,.manager-panel textarea:focus{border-color:var(--mint);box-shadow:0 0 0 3px rgba(148,240,208,.08)}.manager-panel textarea{resize:vertical;line-height:1.55}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.dialog-hint,.privacy-note{font-size:10px;color:#949fbd;line-height:1.65}.modal-actions{display:flex;gap:8px;align-items:center;margin-top:12px}.modal-actions .primary,.modal-actions .secondary,.modal-actions .danger{font-size:11px;padding:10px 12px}.danger{border:1px solid rgba(255,130,150,.28);background:rgba(255,100,130,.08);border-radius:11px;color:#ffb2c2}.danger:hover{background:rgba(255,100,130,.15)}.count-pill{color:var(--mint);background:rgba(148,240,208,.08);border:1px solid rgba(148,240,208,.17);border-radius:999px;padding:4px 8px;font-size:9px;font-weight:600}.card-list{display:grid;gap:7px;max-height:190px;overflow:auto;margin-bottom:14px}.card-list-empty{color:#8994b1;font-size:11px;padding:12px;border:1px dashed var(--line);border-radius:11px}.custom-card-row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 10px;border:1px solid var(--line);border-radius:11px;background:rgba(17,22,44,.72)}.custom-card-main{min-width:0}.custom-card-main strong{display:block;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.custom-card-main small{display:block;color:#97a2c0;font-size:10px;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.custom-card-actions{display:flex;gap:5px;flex:none}.custom-card-actions button{border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.04);color:#c7cee2;padding:6px 8px;font-size:10px}.custom-card-actions button:hover{border-color:var(--mint);color:var(--mint)}.card-form{border-top:1px solid var(--line);padding-top:12px}.card-form h4{font-size:12px;margin:0 0 11px}.privacy-note{margin:14px 2px 0}
+    @media(max-width:640px){.deck-tools{margin-top:2px}.manager-dialog{padding:16px;border-radius:18px;max-height:92vh}.manager-grid{grid-template-columns:1fr;gap:10px}.manager-panel{padding:13px}.manager-panel h3{margin-bottom:10px}.modal-head h2{font-size:19px}.form-row{gap:7px}.card-list{max-height:150px}.deck-tools .primary,.deck-tools .secondary{flex:1}}
+  </style>
+</head>
+<body>
+  <header class="shell topbar">
+    <a class="brand" href="#top" aria-label="諧音星球首頁"><span class="brand-mark">✳</span><span>諧音星球<small>PHONETIC MEMORY STUDIO</small></span></a>
+    <nav class="nav" aria-label="主導覽"><a href="#decks">探索牌組</a><a href="#practice">開始練習</a><span class="profile-chip"><i class="profile-dot"></i><span id="headerProgress">今日 0 XP</span></span></nav>
+  </header>
+  <main id="top" class="shell">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div>
+        <div class="eyebrow">把陌生聲音，變成記得住的畫面</div>
+        <h1 id="heroTitle">聽見新單字，<br><span>腦中立刻有畫面。</span></h1>
+        <p class="hero-copy">選一種語言，翻開一張諧音卡。用熟悉的聲音線索和一點想像力，讓第一次聽見的單字留在記憶裡。</p>
+        <div class="hero-actions"><a class="primary" href="#decks">挑一副牌組 <span aria-hidden="true">↘</span></a><a class="subtle-link" href="#practice">看看怎麼玩</a></div>
+        <div class="hero-statline"><span><b>12</b> 種語言</span><span><b>38</b> 張入門示範卡</span><span><b>100%</b> 本機記錄</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="orbit"></div><span class="spark one">✦</span><span class="spark two">✧</span><span class="spark three">✦</span><div class="planet"><span class="planet-emoji">💬</span></div><div class="float-card"><small>WORD OF THE DAY</small><strong>bonjour</strong><span>蹦啾一下，說聲你好</span></div></div>
+    </section>
+    <section class="stats" aria-label="學習摘要">
+      <div class="stat"><span class="stat-icon">🌱</span><span><strong id="learnedStat">0 張</strong><small>已記住的卡牌</small></span></div>
+      <div class="stat"><span class="stat-icon">✨</span><span><strong id="xpStat">0 XP</strong><small>累積經驗值</small></span></div>
+      <div class="stat"><span class="stat-icon">♡</span><span><strong id="favoriteStat">0 張</strong><small>收藏卡牌</small></span></div>
+      <div class="stat"><span class="stat-icon">🪐</span><span><strong id="streakStat">第 1 天</strong><small>探索旅程</small></span></div>
+    </section>
+    <section id="decks" aria-labelledby="deckHeading">
+      <div class="section-head"><div><div class="section-kicker">CHOOSE A DECK</div><h2 id="deckHeading">今天想挑戰哪種聲音？</h2></div><p>選一個星球，從入門卡開始。</p></div>
+      <div class="filters" role="group" aria-label="篩選語言牌組">
+        <button class="filter active" data-filter="all">全部 <span id="allCount">12</span></button>
+        <button class="filter" data-filter="asia">亞洲 4</button>
+        <button class="filter" data-filter="europe">歐洲 6</button>
+        <button class="filter" data-filter="other">其他 2</button>
+        <button class="filter" data-filter="custom">自訂 <span id="customCount">0</span></button>
+      </div>
+      <div class="deck-tools"><button id="createDeckBtn" class="primary">＋ 建立自訂牌組</button><button id="manageDeckBtn" class="secondary" disabled>編輯已選牌組</button></div>
+      <div id="deckGrid" class="deck-grid"></div>
+    </section>
+    <section id="practice" class="practice-wrap" aria-labelledby="practiceHeading">
+      <div class="practice-title"><div><div class="section-kicker">YOUR DAILY FLIGHT</div><h2 id="practiceHeading">翻開一張，開始記憶</h2><p id="practiceSubtitle">先聽聽看，再用諧音線索把它記起來。</p></div><span id="currentDeckLabel" class="deck-label">🇬🇧 英語入門</span></div>
+      <div class="practice-body">
+        <article class="flashcard" aria-live="polite">
+          <div><div class="card-overline" id="cardCounter">CARD 01 / 05 · ENGLISH</div><div class="word" id="wordText">apple</div><div class="roman" id="romanText">/ˈæpəl/</div><div class="phonetic-hint">諧音提示：<b id="soundHint">阿婆</b></div></div>
+          <div class="card-bottom"><span class="card-tip" id="cardPrompt">先猜猜看它的意思是什麼？</span><div style="display:flex;gap:8px"><button id="speakBtn" class="icon-btn" aria-label="播放單字發音" title="播放發音">🔊</button><button id="favoriteBtn" class="icon-btn" aria-label="收藏此卡" title="收藏此卡">♡</button></div></div>
+        </article>
+        <aside id="answerPanel" class="answer-panel empty" aria-live="polite"><div class="hint-bulb">✦</div><span class="answer-label">READY WHEN YOU ARE</span><p style="margin-top:8px">用熟悉的聲音聯想陌生單字，<br>不確定也沒關係，翻開看看。</p><div class="answer-actions"><button id="revealBtn" class="primary">翻開答案</button></div></aside>
+      </div>
+      <div class="practice-footer"><span id="sessionProgressText">本組進度 0 / 5</span><span>點喇叭可播放原文發音</span></div><span class="progress-track"><i id="progressFill" class="progress-fill"></i></span>
+    </section>
+    <aside class="notice"><div class="lock">⌂</div><div><h3>你的練習只留在這台裝置</h3><p>作答紀錄與收藏只存在瀏覽器本機儲存，不會送到外部伺服器。諧音是記憶提示，發音以原文朗讀為準；不同口音的近似發音可能略有差異。</p></div></aside>
+  </main>
+
+  <dialog id="deckDialog" class="manager-dialog" aria-labelledby="dialogTitle">
+    <div class="modal-head"><div><div class="section-kicker">YOUR WORD COLLECTION</div><h2 id="dialogTitle">建立自訂牌組</h2><p id="dialogSubtitle">先取個名字；儲存後即可新增自己的詞彙卡。</p></div><button id="closeDialogBtn" class="icon-btn" aria-label="關閉管理視窗">×</button></div>
+    <div class="manager-grid">
+      <section class="manager-panel">
+        <h3>牌組資訊</h3>
+        <label>牌組名稱<input id="deckNameInput" maxlength="32" required placeholder="例如：旅行常用日語"></label>
+        <label>原文名稱<input id="deckNativeInput" maxlength="40" placeholder="例如：旅行日語"></label>
+        <div class="form-row"><label>圖示（可用 emoji）<input id="deckFlagInput" maxlength="8" value="📚" placeholder="📚"></label><label>朗讀語言代碼<input id="deckLangInput" maxlength="20" value="zh-TW" placeholder="例如 ja-JP"></label></div>
+        <p class="dialog-hint">牌組與學習紀錄只儲存在這個瀏覽器。語言代碼用於裝置內建的語音朗讀。</p>
+        <div class="modal-actions"><button id="saveDeckBtn" class="primary">儲存牌組資訊</button><button id="deleteDeckBtn" class="danger" hidden>刪除此牌組</button></div>
+      </section>
+      <section id="cardManagerPanel" class="manager-panel card-manager-panel">
+        <h3>詞彙卡 <span id="cardCountLabel" class="count-pill">0 張</span></h3>
+        <p id="cardManagerHint" class="dialog-hint">儲存牌組後，就能開始新增卡片。</p>
+        <div id="customCardList" class="card-list"></div>
+        <form id="cardForm" class="card-form">
+          <input id="editingCardId" type="hidden">
+          <h4 id="cardFormTitle">新增一張卡</h4>
+          <label>單字／詞彙<input id="cardWordInput" maxlength="80" required placeholder="例如：おはよう"></label>
+          <div class="form-row"><label>讀音／音標（選填）<input id="cardRomanInput" maxlength="80" placeholder="例如 ohayō"></label><label>諧音提示<input id="cardHintInput" maxlength="80" required placeholder="例如：哦嗨喲"></label></div>
+          <label>中文意思<input id="cardMeaningInput" maxlength="120" required placeholder="例如：早安"></label>
+          <label>記憶畫面（選填）<textarea id="cardCueInput" rows="2" maxlength="240" placeholder="用一句話把聲音和意思連在一起"></textarea></label>
+          <div class="modal-actions"><button id="saveCardBtn" class="primary" type="submit">新增卡片</button><button id="cancelCardEditBtn" class="secondary" type="button" hidden>取消編輯</button></div>
+        </form>
+      </section>
+    </div>
+    <p class="privacy-note">資料保存在目前裝置的瀏覽器；清除網站資料或更換瀏覽器可能會移除它們。</p>
+  </dialog>
+  <footer class="shell"><span>諧音星球 · 一次一張卡，讓世界更好記。</span><span>本頁為入門示範 · 進度儲存在此裝置</span></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+    const decks = [
+      {id:'en',name:'英語',native:'English',flag:'🇬🇧',region:'europe',lang:'en-US',cards:[
+        {word:'apple',roman:'/ˈæpəl/',hint:'阿婆',meaning:'蘋果',cue:'想像阿婆捧著一顆紅通通的蘋果。'},
+        {word:'water',roman:'/ˈwɔːtər/',hint:'我特地',meaning:'水',cue:'「我特地」倒了一杯冰涼的水給你。'},
+        {word:'book',roman:'/bʊk/',hint:'不哭',meaning:'書',cue:'不哭，翻開一本有趣的故事書。'},
+        {word:'star',roman:'/stɑːr/',hint:'死盯',meaning:'星星',cue:'晚上死盯著天空，就會看到閃亮的星星。'},
+        {word:'smile',roman:'/smaɪl/',hint:'司麥兒',meaning:'微笑',cue:'司麥兒一想到好事，就露出大大的微笑。'}
+      ]},
+      {id:'ja',name:'日語',native:'日本語',flag:'🇯🇵',region:'asia',lang:'ja-JP',cards:[
+        {word:'ねこ',roman:'neko',hint:'捏口',meaning:'貓',cue:'想像一隻貓咪伸爪子，輕輕「捏口」袋。'},
+        {word:'みず',roman:'mizu',hint:'米滋',meaning:'水',cue:'一粒米滋溜一下，掉進清涼的水裡。'},
+        {word:'ありがとう',roman:'arigatō',hint:'阿里嘎豆',meaning:'謝謝',cue:'想像阿里送來一顆感謝的小豆子。'}
+      ]},
+      {id:'ko',name:'韓語',native:'한국어',flag:'🇰🇷',region:'asia',lang:'ko-KR',cards:[
+        {word:'물',roman:'mul',hint:'木',meaning:'水',cue:'一棵小木苗最需要的，就是水。'},
+        {word:'사과',roman:'sagwa',hint:'撒瓜',meaning:'蘋果',cue:'把蘋果切開，籽像小瓜子一樣撒出來。'},
+        {word:'사랑',roman:'sarang',hint:'沙浪',meaning:'愛',cue:'想像愛像海浪，一波一波溫柔地湧來。'}
+      ]},
+      {id:'es',name:'西班牙語',native:'Español',flag:'🇪🇸',region:'europe',lang:'es-ES',cards:[
+        {word:'hola',roman:'/ˈola/',hint:'歐啦',meaning:'你好',cue:'揮揮手，開心地說聲「歐啦！」'},
+        {word:'agua',roman:'/ˈaɣwa/',hint:'啊瓜',meaning:'水',cue:'「啊，瓜田好熱！」快喝一口水。'},
+        {word:'gato',roman:'/ˈɡato/',hint:'嘎都',meaning:'貓',cue:'小貓「嘎都」一下跳上窗台。'}
+      ]},
+      {id:'fr',name:'法語',native:'Français',flag:'🇫🇷',region:'europe',lang:'fr-FR',cards:[
+        {word:'bonjour',roman:'/bɔ̃.ʒuʁ/',hint:'蹦啾',meaning:'你好／日安',cue:'早上見面，蹦蹦跳跳地說「啾，日安！」'},
+        {word:'merci',roman:'/mɛʁ.si/',hint:'梅西',meaning:'謝謝',cue:'收到幫忙，就說聲謝謝；梅西也向球迷致意。'},
+        {word:'chat',roman:'/ʃa/',hint:'夏',meaning:'貓',cue:'夏天的窗邊，貓咪懶洋洋地打盹。'}
+      ]},
+      {id:'de',name:'德語',native:'Deutsch',flag:'🇩🇪',region:'europe',lang:'de-DE',cards:[
+        {word:'hallo',roman:'/haˈloː/',hint:'哈囉',meaning:'你好',cue:'遇到朋友就笑著揮手說「哈囉」。'},
+        {word:'danke',roman:'/ˈdaŋkə/',hint:'當可',meaning:'謝謝',cue:'別人幫忙，當然可以說一聲謝謝。'},
+        {word:'Wasser',roman:'/ˈvasɐ/',hint:'娃色',meaning:'水',cue:'娃娃口渴了，遞一杯水給他。'}
+      ]},
+      {id:'ar',name:'阿拉伯語',native:'العربية',flag:'🇸🇦',region:'other',lang:'ar-SA',cards:[
+        {word:'مَرْحَبًا',roman:'marḥaban',hint:'馬哈班',meaning:'你好／歡迎',cue:'想像小馬歡快跑來，迎接新朋友。'},
+        {word:'شُكْرًا',roman:'shukran',hint:'書克然',meaning:'謝謝',cue:'收到一本書，開心地說聲謝謝。'},
+        {word:'سَلَام',roman:'salām',hint:'撒拉姆',meaning:'平安／問候',cue:'把祝福撒向每個人，願大家平安。'}
+      ]},
+      {id:'id',name:'印尼語',native:'Bahasa Indonesia',flag:'🇮🇩',region:'asia',lang:'id-ID',cards:[
+        {word:'halo',roman:'/ˈhalo/',hint:'哈囉',meaning:'你好',cue:'見到朋友，就說聲哈囉。'},
+        {word:'terima kasih',roman:'/tərima kasih/',hint:'特莉瑪卡西',meaning:'謝謝',cue:'特莉收到禮物，開心地說謝謝。'},
+        {word:'air',roman:'/ˈa.ir/',hint:'愛兒',meaning:'水',cue:'小孩口渴了，倒杯水給可愛的孩子。'}
+      ]},
+      {id:'th',name:'泰語',native:'ภาษาไทย',flag:'🇹🇭',region:'asia',lang:'th-TH',cards:[
+        {word:'สวัสดี',roman:'sawatdi',hint:'沙瓦滴',meaning:'你好',cue:'端上一杯沙瓦，笑著向朋友問好。'},
+        {word:'ขอบคุณ',roman:'khop khun',hint:'摳坤',meaning:'謝謝',cue:'敲敲門，謝謝坤坤送來的點心。'},
+        {word:'น้ำ',roman:'nam',hint:'南',meaning:'水',cue:'往南走去河邊，裝一瓶水。'}
+      ]},
+      {id:'vi',name:'越南語',native:'Tiếng Việt',flag:'🇻🇳',region:'other',lang:'vi-VN',cards:[
+        {word:'xin chào',roman:'/sin tɕaːw/',hint:'心招',meaning:'你好',cue:'帶著一顆熱情的心，招手和人問好。'},
+        {word:'cảm ơn',roman:'/kam ʔən/',hint:'敢恩',meaning:'謝謝',cue:'鼓起勇氣，感恩地道謝。'},
+        {word:'nước',roman:'/nɨək/',hint:'呢喔',meaning:'水',cue:'呢喔，天氣好熱，喝口水吧。'}
+      ]},
+      {id:'pt',name:'葡萄牙語',native:'Português',flag:'🇵🇹',region:'europe',lang:'pt-PT',cards:[
+        {word:'olá',roman:'/oˈla/',hint:'歐啦',meaning:'你好',cue:'向新朋友揮手，說聲「歐啦！」'},
+        {word:'obrigado',roman:'/oβɾiˈɡadu/',hint:'歐不理嘎度',meaning:'謝謝（男性說法）',cue:'歐，別客氣，謝謝你幫忙！'},
+        {word:'água',roman:'/ˈaɡwɐ/',hint:'阿瓜',meaning:'水',cue:'阿瓜跑累了，喝一口水休息。'}
+      ]},
+      {id:'it',name:'義大利語',native:'Italiano',flag:'🇮🇹',region:'europe',lang:'it-IT',cards:[
+        {word:'ciao',roman:'/ˈtʃao/',hint:'恰噢',meaning:'你好／再見',cue:'見面或道別，都可以笑著說「恰噢！」'},
+        {word:'grazie',roman:'/ˈɡrattsje/',hint:'格拉謝',meaning:'謝謝',cue:'格外感謝你，說聲謝謝。'},
+        {word:'acqua',roman:'/ˈakkwa/',hint:'阿瓜',meaning:'水',cue:'阿瓜端起水杯，咕嚕咕嚕喝一口。'}
+      ]}
+    ];
+
+    const STORE='phonetic-star-planet-v1';
+    const defaultState={learned:[],favorites:[],xp:0,reviewed:0,selected:'en',index:0,revealed:false,customDecks:[]};
+    function safeRead(){try{return JSON.parse(localStorage.getItem(STORE))}catch{return null}}
+    let state={...defaultState,...(safeRead()||{})};
+    if(!Array.isArray(state.learned))state.learned=[];
+    if(!Array.isArray(state.favorites))state.favorites=[];
+    if(!Array.isArray(state.customDecks))state.customDecks=[];
+    state.customDecks=state.customDecks.filter(d=>d&&typeof d.id==='string'&&Array.isArray(d.cards));
+    function save(){try{localStorage.setItem(STORE,JSON.stringify(state))}catch{showToast('瀏覽器儲存空間不足，資料尚未保存')}}
+    function allDecks(){return [...decks,...state.customDecks]}
+    function getDeck(){return allDecks().find(d=>d.id===state.selected)||decks[0]}
+    function isCustom(d){return state.customDecks.some(x=>x.id===d.id)}
+    function cardKey(d,index){return d.id+':'+(isCustom(d)?d.cards[index]?.id:index)}
+    function getCard(){const d=getDeck();return d.cards.length?d.cards[state.index%d.cards.length]:null}
+    function escapeHTML(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+    function newId(){return crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2)}
+    function renderFilters(){
+      const total=allDecks().length;
+      document.getElementById('allCount').textContent=total;
+      document.getElementById('customCount').textContent=state.customDecks.length;
+      document.querySelector('[data-filter="asia"]').textContent=`亞洲 ${decks.filter(d=>d.region==='asia').length}`;
+      document.querySelector('[data-filter="europe"]').textContent=`歐洲 ${decks.filter(d=>d.region==='europe').length}`;
+      document.querySelector('[data-filter="other"]').textContent=`其他 ${decks.filter(d=>d.region==='other').length}`;
+    }
+    function renderDecks(filter='all'){
+      renderFilters();
+      const grid=document.getElementById('deckGrid');
+      const list=allDecks().filter(d=>filter==='all'||(filter==='custom'?isCustom(d):d.region===filter));
+      grid.innerHTML=list.map(d=>{
+        const selected=d.id===state.selected;
+        const learnedCount=d.cards.filter((c,i)=>state.learned.includes(cardKey(d,i))).length;
+        return `<button class="deck ${selected?'selected':''}" data-deck="${escapeHTML(d.id)}" aria-pressed="${selected}"><span class="deck-top"><span class="flag">${escapeHTML(d.flag||'📚')}</span><span class="deck-check">● 已選擇</span></span><h3>${escapeHTML(d.name)}</h3><div class="native">${escapeHTML(d.native||'自訂牌組')}</div><div class="deck-foot"><span>${d.cards.length} 張${isCustom(d)?'自訂卡':'入門卡'}</span><b>${learnedCount}/${d.cards.length} 已記住</b></div></button>`
+      }).join('');
+      grid.querySelectorAll('[data-deck]').forEach(btn=>btn.addEventListener('click',()=>{state.selected=btn.dataset.deck;state.index=0;state.revealed=false;save();renderAll();document.getElementById('practice').scrollIntoView({behavior:'smooth',block:'start'})}));
+      const selectedDeck=getDeck();
+      const manage=document.getElementById('manageDeckBtn');
+      manage.disabled=!isCustom(selectedDeck);
+      manage.textContent=isCustom(selectedDeck)?`編輯「${selectedDeck.name}」`:'編輯已選牌組';
+    }
+    function renderPractice(){
+      const d=getDeck(),c=getCard(),label=document.getElementById('currentDeckLabel');
+      label.textContent=`${d.flag||'📚'} ${d.name}`;
+      document.getElementById('cardCounter').textContent=c?`CARD ${String(state.index+1).padStart(2,'0')} / ${String(d.cards.length).padStart(2,'0')} · ${(d.native||'CUSTOM').toUpperCase()}`:'CUSTOM DECK · EMPTY';
+      document.getElementById('wordText').textContent=c?c.word:'尚未新增卡片';
+      document.getElementById('romanText').textContent=c?(c.roman||''):'';
+      document.getElementById('soundHint').textContent=c?(c.hint||'尚未填寫'):'';
+      document.getElementById('wordText').dir=d.id==='ar'?'rtl':'auto';
+      const id=c?cardKey(d,state.index%d.cards.length):null;
+      const favorite=!!id&&state.favorites.includes(id),learned=!!id&&state.learned.includes(id);
+      const favBtn=document.getElementById('favoriteBtn');
+      favBtn.textContent=favorite?'♥':'♡';favBtn.classList.toggle('is-fav',favorite);favBtn.disabled=!c;
+      favBtn.setAttribute('aria-label',favorite?'取消收藏':'收藏此卡');
+      document.getElementById('speakBtn').disabled=!c;
+      document.getElementById('cardPrompt').textContent=c?(learned?'這張卡已記住，還可以再複習。':'先猜猜看它的意思是什麼？'):'先新增自己的詞彙卡，再開始練習。';
+      const panel=document.getElementById('answerPanel');
+      if(!c){panel.classList.add('empty');panel.innerHTML='<div class="hint-bulb">✦</div><span class="answer-label">READY WHEN YOU ARE</span><p style="margin-top:8px">這副牌組還沒有卡片，加入第一個詞彙就能開始。</p><div class="answer-actions"><button id="emptyManageBtn" class="primary">新增卡片</button></div>';document.getElementById('emptyManageBtn').addEventListener('click',()=>openManager(d.id))}
+      else if(state.revealed){panel.classList.remove('empty');panel.innerHTML=`<span class="answer-label">${learned?'REVIEW THIS CARD':'YOU GOT IT'}</span><h3>${escapeHTML(c.meaning)}</h3><p>${escapeHTML(d.name)} · ${escapeHTML(d.native||'自訂牌組')}　<span class="confetti">✦</span></p><div class="mnemonic"><b>記憶畫面</b><br>${escapeHTML(c.cue||'為這張卡想一個自己的聯想畫面吧。')}</div><div class="answer-actions"><button class="secondary" id="againBtn">再複習一次</button><button class="primary" id="knownBtn">${learned?'下一張':'記住了 ✓'}</button></div>`;
+        document.getElementById('againBtn').addEventListener('click',()=>{state.revealed=false;state.reviewed+=1;save();renderAll();showToast('已加入本次複習')});
+        document.getElementById('knownBtn').addEventListener('click',()=>{const key=cardKey(d,state.index%d.cards.length);if(!state.learned.includes(key)){state.learned.push(key);state.xp+=10}else{state.reviewed+=1}state.index=(state.index+1)%d.cards.length;state.revealed=false;save();renderAll();showToast('記憶已更新 +10 XP')});
+      }else{panel.classList.add('empty');panel.innerHTML='<div class="hint-bulb">✦</div><span class="answer-label">READY WHEN YOU ARE</span><p style="margin-top:8px">用熟悉的聲音聯想陌生單字，<br>不確定也沒關係，翻開看看。</p><div class="answer-actions"><button id="revealBtn" class="primary">翻開答案</button></div>';document.getElementById('revealBtn').addEventListener('click',()=>{state.revealed=true;save();renderPractice()})}
+      const completed=d.cards.filter((x,i)=>state.learned.includes(cardKey(d,i))).length;
+      document.getElementById('sessionProgressText').textContent=`本組進度 ${completed} / ${d.cards.length}`;
+      document.getElementById('progressFill').style.width=d.cards.length?`${Math.round(completed/d.cards.length*100)}%`:'0%';
+      document.getElementById('practiceSubtitle').textContent=`${d.name} · ${d.cards.length} 張${isCustom(d)?'自訂':'入門示範'}卡。先聽聽看，再用諧音線索把它記起來。`;
+    }
+    function renderStats(){document.getElementById('learnedStat').textContent=`${state.learned.length} 張`;document.getElementById('xpStat').textContent=`${state.xp} XP`;document.getElementById('favoriteStat').textContent=`${state.favorites.length} 張`;document.getElementById('headerProgress').textContent=`今日 ${state.xp} XP`;document.getElementById('streakStat').textContent=state.xp>0?'探索中':'第 1 天'}
+    function renderAll(){renderDecks(document.querySelector('.filter.active')?.dataset.filter||'all');renderPractice();renderStats()}
+    document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelector('.filter.active')?.classList.remove('active');btn.classList.add('active');renderDecks(btn.dataset.filter)}));
+
+    const dialog=document.getElementById('deckDialog');
+    let managerDeckId=null;
+    const $=id=>document.getElementById(id);
+    function openManager(deckId=null){
+      managerDeckId=deckId;
+      const d=deckId?state.customDecks.find(x=>x.id===deckId):null;
+      $('dialogTitle').textContent=d?'管理自訂牌組':'建立自訂牌組';
+      $('dialogSubtitle').textContent=d?'編輯牌組資訊、修改卡片內容，或刪除不需要的卡片。':'先取個名字；儲存後即可新增自己的詞彙卡。';
+      $('deckNameInput').value=d?.name||'';$('deckNativeInput').value=d?.native||'';$('deckFlagInput').value=d?.flag||'📚';$('deckLangInput').value=d?.lang||'zh-TW';
+      $('deleteDeckBtn').hidden=!d;
+      $('cardManagerPanel').classList.toggle('locked',!d);
+      $('cardForm').querySelectorAll('input,textarea,button').forEach(el=>{if(el.id!=='editingCardId')el.disabled=!d});
+      $('cardManagerHint').textContent=d?'點選卡片旁的編輯或刪除；新增後立即可在練習區使用。':'儲存牌組後，就能開始新增卡片。';
+      resetCardForm();renderCardList();dialog.showModal();
+      setTimeout(()=>$('deckNameInput').focus(),30);
+    }
+    function resetCardForm(){ $('editingCardId').value='';$('cardWordInput').value='';$('cardRomanInput').value='';$('cardHintInput').value='';$('cardMeaningInput').value='';$('cardCueInput').value='';$('cardFormTitle').textContent='新增一張卡';$('saveCardBtn').textContent='新增卡片';$('cancelCardEditBtn').hidden=true }
+    function renderCardList(){
+      const d=state.customDecks.find(x=>x.id===managerDeckId);
+      $('cardCountLabel').textContent=`${d?.cards.length||0} 張`;
+      const list=$('customCardList');
+      if(!d){list.innerHTML='<div class="card-list-empty">儲存牌組後，這裡會顯示卡片清單。</div>';return}
+      if(!d.cards.length){list.innerHTML='<div class="card-list-empty">還沒有卡片。用下方表單新增第一個詞彙。</div>';return}
+      list.innerHTML=d.cards.map(c=>`<div class="custom-card-row"><div class="custom-card-main"><strong>${escapeHTML(c.word)} <span style="color:#9aa5c1;font-weight:500">— ${escapeHTML(c.meaning)}</span></strong><small>諧音：${escapeHTML(c.hint)}${c.roman?' · '+escapeHTML(c.roman):''}</small></div><div class="custom-card-actions"><button type="button" data-edit-card="${escapeHTML(c.id)}">編輯</button><button type="button" data-delete-card="${escapeHTML(c.id)}">刪除</button></div></div>`).join('');
+      list.querySelectorAll('[data-edit-card]').forEach(btn=>btn.addEventListener('click',()=>{const card=d.cards.find(x=>x.id===btn.dataset.editCard);if(!card)return;$('editingCardId').value=card.id;$('cardWordInput').value=card.word;$('cardRomanInput').value=card.roman||'';$('cardHintInput').value=card.hint;$('cardMeaningInput').value=card.meaning;$('cardCueInput').value=card.cue||'';$('cardFormTitle').textContent='編輯這張卡';$('saveCardBtn').textContent='儲存卡片';$('cancelCardEditBtn').hidden=false;$('cardWordInput').focus()}));
+      list.querySelectorAll('[data-delete-card]').forEach(btn=>btn.addEventListener('click',()=>{const card=d.cards.find(x=>x.id===btn.dataset.deleteCard);if(!card||!confirm(`確定刪除「${card.word}」這張卡？`))return;d.cards=d.cards.filter(x=>x.id!==card.id);const key=d.id+':'+card.id;state.learned=state.learned.filter(x=>x!==key);state.favorites=state.favorites.filter(x=>x!==key);if(state.index>=d.cards.length)state.index=0;state.revealed=false;save();renderCardList();renderAll();showToast('卡片已刪除')}));
+    }
+    $('createDeckBtn').addEventListener('click',()=>openManager());
+    $('manageDeckBtn').addEventListener('click',()=>{const d=getDeck();if(isCustom(d))openManager(d.id)});
+    $('closeDialogBtn').addEventListener('click',()=>dialog.close());
+    $('saveDeckBtn').addEventListener('click',()=>{
+      const name=$('deckNameInput').value.trim();if(!name){$('deckNameInput').focus();$('deckNameInput').reportValidity();return}
+      const native=$('deckNativeInput').value.trim()||'自訂詞彙';
+      if(!managerDeckId){const d={id:'custom-'+newId(),name,native,flag:$('deckFlagInput').value.trim()||'📚',lang:$('deckLangInput').value.trim()||'zh-TW',region:'custom',cards:[]};state.customDecks.push(d);managerDeckId=d.id;state.selected=d.id;state.index=0;state.revealed=false;$('dialogTitle').textContent='管理自訂牌組';$('dialogSubtitle').textContent='牌組已建立，現在可以新增自己的詞彙卡。';$('deleteDeckBtn').hidden=false;$('cardForm').querySelectorAll('input,textarea,button').forEach(el=>{if(el.id!=='editingCardId')el.disabled=false});$('cardManagerHint').textContent='新增卡片後，就能在練習區翻答案、播放發音並累積進度。';$('cardManagerPanel').classList.remove('locked');showToast('牌組已建立，接著新增卡片')}
+      else{const d=state.customDecks.find(x=>x.id===managerDeckId);if(!d)return;d.name=name;d.native=native;d.flag=$('deckFlagInput').value.trim()||'📚';d.lang=$('deckLangInput').value.trim()||'zh-TW';showToast('牌組資訊已更新')}
+      save();renderCardList();renderAll();
+    });
+    $('deleteDeckBtn').addEventListener('click',()=>{const d=state.customDecks.find(x=>x.id===managerDeckId);if(!d||!confirm(`確定刪除「${d.name}」牌組及其中所有卡片？`))return;const prefix=d.id+':';state.customDecks=state.customDecks.filter(x=>x.id!==d.id);state.learned=state.learned.filter(x=>!x.startsWith(prefix));state.favorites=state.favorites.filter(x=>!x.startsWith(prefix));if(state.selected===d.id){state.selected='en';state.index=0}state.revealed=false;save();dialog.close();renderAll();showToast('牌組已刪除')});
+    $('cardForm').addEventListener('submit',event=>{event.preventDefault();const d=state.customDecks.find(x=>x.id===managerDeckId);if(!d){showToast('請先儲存牌組資訊');return}const word=$('cardWordInput').value.trim(),hint=$('cardHintInput').value.trim(),meaning=$('cardMeaningInput').value.trim();if(!word||!hint||!meaning)return;const card={id:$('editingCardId').value||newId(),word,roman:$('cardRomanInput').value.trim(),hint,meaning,cue:$('cardCueInput').value.trim()};const i=d.cards.findIndex(x=>x.id===card.id);if(i>=0){d.cards[i]=card;showToast('卡片已更新')}else{d.cards.push(card);showToast('卡片已新增')}state.selected=d.id;state.index=Math.max(0,d.cards.findIndex(x=>x.id===card.id));state.revealed=false;save();resetCardForm();renderCardList();renderAll()});
+    $('cancelCardEditBtn').addEventListener('click',resetCardForm);
+    $('favoriteBtn').addEventListener('click',()=>{const d=getDeck(),index=state.index%d.cards.length,id=cardKey(d,index),i=state.favorites.indexOf(id);if(i>=0){state.favorites.splice(i,1);showToast('已取消收藏')}else{state.favorites.push(id);showToast('已加入收藏')}save();renderAll()});
+    $('speakBtn').addEventListener('click',()=>{if(!('speechSynthesis'in window)){showToast('此瀏覽器暫不支援語音播放');return}const d=getDeck(),c=getCard();if(!c)return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(c.word);u.lang=d.lang||'zh-TW';u.rate=.84;window.speechSynthesis.speak(u)});
+    let toastTimer;function showToast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),1900)}
+    renderAll();
+  </script>
+</body>
+</html>
