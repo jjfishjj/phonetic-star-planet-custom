@@ -28,8 +28,12 @@ grant usage on schema auth to anon, authenticated;
 grant execute on function auth.uid() to anon, authenticated;
 SQL
 
-sudo -u postgres psql -X -v ON_ERROR_STOP=1 -d "$DB" < supabase/migrations/001_phonetic_admin.sql
+for migration in supabase/migrations/*.sql; do
+  sudo -u postgres psql -X -v ON_ERROR_STOP=1 -d "$DB" < "$migration"
+done
 sudo -u postgres psql -X -v ON_ERROR_STOP=1 -d "$DB" -c "insert into public.phonetic_admins(user_id) values ('00000000-0000-0000-0000-000000000001');"
 sudo -u postgres psql -X -v ON_ERROR_STOP=1 -d "$DB" < "$SEED_FILE"
-sudo -u postgres psql -X -v ON_ERROR_STOP=1 -d "$DB" < supabase/tests/001_phonetic.sql
+for test_file in supabase/tests/*.sql; do
+  sudo -u postgres psql -X -v ON_ERROR_STOP=1 -d "$DB" < "$test_file"
+done
 printf 'Local SQL verification passed in temporary database %s\n' "$DB"

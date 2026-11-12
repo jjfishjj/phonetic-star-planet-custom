@@ -58,7 +58,7 @@
     }
     const [decks, cards] = await Promise.all([
       pages('phonetic_decks','id,name,native,flag,region,lang,position','position.asc,id.asc'),
-      pages('phonetic_cards','id,deck_id,word,roman,hint,meaning,cue,position,legacy_index','deck_id.asc,position.asc,id.asc')
+      pages('phonetic_cards','id,deck_id,word,roman,hint,meaning,cue,position,legacy_index,topic,difficulty','deck_id.asc,position.asc,id.asc')
     ]);
     const byDeck = new Map();
     for (const d of decks) {

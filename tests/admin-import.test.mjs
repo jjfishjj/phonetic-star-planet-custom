@@ -2,12 +2,33 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import parser from '../shared/admin-import.js';
 
-const headers = ['單字','音標','諧音','中文意思','記憶畫面','發布','排序','id'];
+const headers = ['單字','音標','諧音','中文意思','記憶畫面','主題','難度','發布','排序','id'];
 
 test('parses Chinese headers and normalizes fields', () => {
-  const result = parser.parseRows([headers, ['bonjour','/bɔ̃/','蹦啾','你好','揮手打招呼','是','2','abc']]);
+  const result = parser.parseRows([headers, ['bonjour','/bɔ̃/','蹦啾','你好','揮手打招呼','飲食','挑戰','是','2','abc']]);
   assert.equal(result.errors.length, 0);
-  assert.deepEqual(result.rows[0], {word:'bonjour',roman:'/bɔ̃/',hint:'蹦啾',meaning:'你好',cue:'揮手打招呼',published:true,position:2,id:'abc',_row:2});
+  assert.deepEqual(result.rows[0], {word:'bonjour',roman:'/bɔ̃/',hint:'蹦啾',meaning:'你好',cue:'揮手打招呼',topic:'food',difficulty:3,published:true,position:2,id:'abc',_row:2});
+});
+
+test('accepts English headers and canonical tag slugs', () => {
+  const result = parser.parseRows([['word','hint','meaning','topic','difficulty'], ['hello','h','m','greetings','2']]);
+  assert.equal(result.errors.length, 0);
+  assert.equal(result.rows[0].topic, 'greetings');
+  assert.equal(result.rows[0].difficulty, 2);
+});
+
+test('rejects invalid topic and difficulty values', () => {
+  const result = parser.parseRows([['word','hint','meaning','topic','difficulty'], ['x','h','m','unknown','4']]);
+  assert.equal(result.errors.length, 2);
+  assert.ok(result.errors.some(e => e.message.includes('主題')));
+  assert.ok(result.errors.some(e => e.message.includes('難度')));
+});
+
+test('omits blank tags so RPC defaults or existing values remain intact', () => {
+  const result = parser.parseRows([['word','hint','meaning','topic','difficulty'], ['x','h','m','  ','']]);
+  assert.equal(result.errors.length, 0);
+  assert.equal(Object.hasOwn(result.rows[0], 'topic'), false);
+  assert.equal(Object.hasOwn(result.rows[0], 'difficulty'), false);
 });
 
 test('omits absent or blank publication status so update mode preserves drafts', () => {
@@ -68,4 +89,15 @@ test('conflicts are mode-specific', () => {
 test('CSV protects formula-like values', () => {
   assert.equal(parser.safeCsvCell('=1+1'), '"\'=1+1"');
   assert.match(parser.rowsToCsv([{word:'@cmd',hint:'h',meaning:'m'}]), /"'@cmd"/);
+});
+
+test('export includes canonical tags and can be parsed back', () => {
+  const rows = [{word:'hello', roman:'/h/', hint:'h', meaning:'你好', topic:'greetings', difficulty:2, published:true, position:4, id:'c1'}];
+  const sheet = parser.rowsToSheet(rows);
+  assert.deepEqual(sheet[0], ['word','roman','hint','meaning','cue','topic','difficulty','published','position','id']);
+  const parsed = parser.parseRows(sheet);
+  assert.equal(parsed.errors.length, 0);
+  assert.deepEqual(parsed.rows[0], {...rows[0], cue:'', _row: 2});
+  assert.match(parser.rowsToCsv(rows), /"topic"/);
+  assert.match(parser.rowsToCsv(rows), /"greetings"/);
 });

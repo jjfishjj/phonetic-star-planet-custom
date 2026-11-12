@@ -42,7 +42,7 @@ function restRange(req) {
   const limit = Number(u.searchParams.get('limit') || 1000);
   return [offset, offset + limit - 1];
 }
-async function installPublicRoutes(page, { cloud=false, xss=false, requests=null } = {}) {
+async function installPublicRoutes(page, { cloud=false, xss=false, requests=null, cards=null } = {}) {
   await page.route('**/supabase-config.js', r => r.fulfill({ status:200, contentType:'application/javascript', body:PUBLIC_CONFIG }));
   await page.route('**/rest/v1/**', async r => {
     const u = new URL(r.request().url());
@@ -53,7 +53,7 @@ async function installPublicRoutes(page, { cloud=false, xss=false, requests=null
     const limit = Number(u.searchParams.get('limit') || 1000);
     if (table === 'phonetic_decks') return json(r, [deck()], 200, {'content-range':'0-0/*'});
     if (table === 'phonetic_cards') {
-      const rows = Array.from({ length: 1200 }, (_, i) => card(`c-${i}`, i));
+      const rows = cards || Array.from({ length: 1200 }, (_, i) => card(`c-${i}`, i, {legacy_index:i, topic:i%2?'study':'food', difficulty:i%3+1}));
       if (xss) rows[0] = card('xss',0,{word:'<img src=x onerror=window.__xss=1>',meaning:'<b>not html</b>'});
       return json(r, rows.slice(offset, offset + limit));
     }
@@ -138,7 +138,7 @@ test('custom deck and card create/edit remain local and persist after reload', a
   } finally { await browser.close(); }
 });
 
-function authRoutes(page, { session=null, admin=false, invalid=false, cards=1201, draftIndex=-1, writes=[] } = {}) {
+function authRoutes(page, { session=null, admin=false, invalid=false, cards=1201, cardRows=null, draftIndex=-1, writes=[] } = {}) {
   return page.route('**/*', async r => {
     const req = r.request(), u = new URL(req.url());
     if (u.pathname.endsWith('/supabase-config.js')) return r.fulfill({status:200,contentType:'application/javascript',body:PUBLIC_CONFIG});
@@ -156,7 +156,7 @@ function authRoutes(page, { session=null, admin=false, invalid=false, cards=1201
       writes.push({kind:req.method(),table:'decks',body:req.postDataJSON()}); return json(r,[]);
     }
     if (u.pathname.includes('/rest/v1/phonetic_cards')) {
-      if (req.method()==='GET') { const [from,to]=restRange(req); const rows=Array.from({length:cards},(_,i)=>card(`admin-${i}`,i,{published:i!==draftIndex})).slice(from,to+1); return json(r,rows,200,{'content-range':`${from}-${from+rows.length-1}/${cards}`}); }
+      if (req.method()==='GET') { const [from,to]=restRange(req); const all=cardRows || Array.from({length:cards},(_,i)=>card(`admin-${i}`,i,{legacy_index:i,topic:i%2?'study':'food',difficulty:i%3+1,published:i!==draftIndex})); const rows=all.slice(from,to+1); return json(r,rows,200,{'content-range':`${from}-${from+rows.length-1}/${all.length}`}); }
       writes.push({kind:req.method(),table:'cards',body:req.postDataJSON()}); return json(r,[]);
     }
     return json(r,{});
@@ -186,6 +186,7 @@ test('admin session pages 1201 cards, writes whitelisted card fields, imports re
     await page.goto(project.url+'admin/',{waitUntil:'networkidle'});
     await page.fill('#emailInput','admin@example.test'); await page.fill('#passwordInput','password'); await page.click('#loginForm button'); await page.waitForLoadState('networkidle');
     await page.locator('#appState:not([hidden])').waitFor();
+    await page.locator('#cardCount').filter({hasText:'1201'}).waitFor();
     assert.equal(await page.locator('#cardCount').textContent(),'1201');
     assert.match(await page.locator('#pageInfo').textContent(),/第 1 \/ 61 頁/);
     await page.click('#nextPage'); assert.match(await page.locator('#pageInfo').textContent(),/第 2 \/ 61 頁/);
@@ -193,17 +194,17 @@ test('admin session pages 1201 cards, writes whitelisted card fields, imports re
     await page.locator('#cardTable tr').first().getByText('編輯').click();
     const editor=page.locator('.card-editor'); await editor.locator('[name=word]').fill('edited'); await editor.locator('[name=hint]').fill('提示'); await editor.locator('[name=meaning]').fill('意思'); await editor.locator('button[type=submit]').click();
     await page.locator('#cardTable').waitFor();
-    const cardWrite=writes.find(x=>x.table==='cards' && x.kind==='PATCH'); assert.ok(cardWrite); assert.deepEqual(Object.keys(cardWrite.body).sort(),['cue','hint','meaning','position','published','roman','word']);
+    const cardWrite=writes.find(x=>x.table==='cards' && x.kind==='PATCH'); assert.ok(cardWrite); assert.deepEqual(Object.keys(cardWrite.body).sort(),['cue','difficulty','hint','meaning','position','published','roman','topic','word']);
     await page.locator('#cardTable tr').first().getByText('取消發布').click();
     assert.ok(writes.filter(x=>x.table==='cards' && x.kind==='PATCH').length >= 2);
 
-    const xlsx = makeXlsx([['word','roman','hint','meaning','cue','published','position','id'],['imported','/i/','提示','匯入','畫面','true','3','']]);
+    const xlsx = makeXlsx([['word','roman','hint','meaning','cue','主題','難度','published','position','id'],['imported','/i/','提示','匯入','畫面','飲食','基礎','true','3','']]);
     await page.setInputFiles('#importFile',{name:'cards.xlsx',mimeType:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',buffer:xlsx});
     await page.locator('#importSummary').getByText('可以匯入').waitFor(); await page.click('#importBtn'); await page.locator('#toast').getByText(/匯入完成/).waitFor();
-    const rpc=writes.find(x=>x.kind==='rpc'); assert.equal(rpc.body.p_rows[0].word,'imported'); assert.equal(rpc.body.p_rows[0].position,3);
+    const rpc=writes.find(x=>x.kind==='rpc'); assert.equal(rpc.body.p_rows[0].word,'imported'); assert.equal(rpc.body.p_rows[0].position,3); assert.equal(rpc.body.p_rows[0].topic,'food'); assert.equal(rpc.body.p_rows[0].difficulty,2);
     const invalid=makeXlsx([['word','hint','meaning'],['bad','','x']]); await page.setInputFiles('#importFile',{name:'bad.xlsx',buffer:invalid}); await page.locator('#previewErrors').getByText(/缺少諧音/).waitFor(); assert.equal(await page.locator('#importBtn').isDisabled(),true);
     const downloadPromise=page.waitForEvent('download'); await page.click('#exportBtn'); const download=await downloadPromise; const file=await download.path(); assert.ok(file && fs.statSync(file).size>100);
-    const exported=readXlsx(file); assert.equal(exported[0].word,'cloud-0');
+    const exported=readXlsx(file); assert.equal(exported[0].word,'cloud-0'); assert.equal(exported[0].topic,'food'); assert.equal(exported[0].difficulty,1);
   } finally { await browser.close(); }
 });
 
@@ -240,3 +241,102 @@ function readXlsx(file) {
   const sandbox={}; vm.runInNewContext(fs.readFileSync(path.join(ROOT,'vendor/xlsx.full.min.js'),'utf8'),sandbox);
   const wb=sandbox.XLSX.read(fs.readFileSync(file),{type:'buffer'}); return sandbox.XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
 }
+
+
+test('public topic and difficulty filters use intersection, clear to restore, and show no-result state', async () => {
+  const {browser,page} = await freshPage();
+  const rows = [
+    card('c-0',0,{legacy_index:0,topic:'food',difficulty:1,word:'zero'}),
+    card('c-7',1,{legacy_index:7,topic:'study',difficulty:2,word:'seven'}),
+    card('c-42',2,{legacy_index:42,topic:'food',difficulty:2,word:'forty-two'})
+  ];
+  try {
+    await installPublicRoutes(page,{cloud:true,cards:rows});
+    await page.goto(project.url,{waitUntil:'networkidle'});
+    await page.locator('[data-deck="en"]').click();
+    await page.selectOption('#topicFilter','food');
+    assert.equal(await page.locator('#cardFilterSummary').textContent(),'顯示 2 / 3 張');
+    await page.selectOption('#difficultyFilter','2');
+    assert.equal(await page.locator('#cardFilterSummary').textContent(),'顯示 1 / 3 張');
+    assert.equal(await page.locator('#wordText').textContent(),'forty-two');
+    await page.selectOption('#topicFilter','study');
+    await page.selectOption('#difficultyFilter','1');
+    assert.equal(await page.locator('#wordText').textContent(),'沒有符合的卡片');
+    assert.match(await page.locator('#answerPanel').textContent(),/沒有交集/);
+    await page.click('#resetFiltersBtn');
+    assert.equal(await page.locator('#cardFilterSummary').textContent(),'顯示 3 / 3 張');
+    assert.equal(await page.locator('#wordText').textContent(),'seven');
+  } finally { await browser.close(); }
+});
+
+test('filtered learning and favorites persist by original legacy_index, and catalog reorder preserves card key', async () => {
+  const {browser,page} = await freshPage();
+  const rows = [
+    card('c-0',0,{legacy_index:0,topic:'food',difficulty:1,word:'zero'}),
+    card('c-7',1,{legacy_index:7,topic:'study',difficulty:2,word:'seven'}),
+    card('c-42',2,{legacy_index:42,topic:'food',difficulty:2,word:'forty-two'})
+  ];
+  try {
+    await installPublicRoutes(page,{cloud:true,cards:rows});
+    await page.goto(project.url,{waitUntil:'networkidle'}); await page.locator('[data-deck="en"]').click();
+    await page.selectOption('#topicFilter','food'); await page.selectOption('#difficultyFilter','2');
+    await page.click('#revealBtn'); await page.click('#knownBtn');
+    await page.click('#favoriteBtn');
+    let stored = await page.evaluate(() => JSON.parse(localStorage.getItem('phonetic-star-planet-v1')));
+    assert.deepEqual(stored.learned,['en:42']); assert.deepEqual(stored.favorites,['en:42']);
+    await page.selectOption('#difficultyFilter','all');
+    assert.equal(await page.locator('#wordText').textContent(),'forty-two');
+    await page.evaluate(() => window.PhoneticApp.applyCatalog([
+      {id:'en',name:'英語',native:'English',flag:'🇬🇧',region:'europe',lang:'en-US',published:true,cards:[
+        {id:'c-42',legacy_index:42,word:'forty-two',roman:'/42/',hint:'四十二',meaning:'42',cue:'',topic:'food',difficulty:2},
+        {id:'c-7',legacy_index:7,word:'seven',roman:'/7/',hint:'七',meaning:'7',cue:'',topic:'study',difficulty:2},
+        {id:'c-0',legacy_index:0,word:'zero',roman:'/0/',hint:'零',meaning:'0',cue:'',topic:'food',difficulty:1}
+      ]}
+    ]));
+    assert.equal(await page.locator('#wordText').textContent(),'forty-two');
+    stored = await page.evaluate(() => JSON.parse(localStorage.getItem('phonetic-star-planet-v1')));
+    assert.deepEqual(stored.learned,['en:42']); assert.deepEqual(stored.favorites,['en:42']);
+  } finally { await browser.close(); }
+});
+
+test('legacy custom deck without metadata survives and edited custom tags retain card id after reload', async () => {
+  const {browser,page} = await freshPage();
+  const old = {id:'custom-legacy',name:'舊牌組',native:'Legacy',flag:'📚',lang:'zh-TW',region:'custom',cards:[{id:'legacy-card',word:'hello',roman:'',hint:'哈囉',meaning:'你好',cue:''}]};
+  try {
+    await page.route('**/rest/v1/**',r=>r.abort('failed'));
+    await page.addInitScript(deck => { if (!localStorage.getItem('phonetic-star-planet-v1')) localStorage.setItem('phonetic-star-planet-v1',JSON.stringify({learned:[],favorites:[],xp:0,reviewed:0,selected:deck.id,index:0,revealed:false,customDecks:[deck]})); },old);
+    await page.goto(project.url,{waitUntil:'networkidle'}); await page.click('[data-deck="custom-legacy"]'); await page.click('#manageDeckBtn');
+    await page.locator('#customCardList').getByText('hello').waitFor();
+    await page.locator('#customCardList').getByText('編輯').click();
+    await page.waitForFunction(() => document.querySelector('#editingCardId').value === 'legacy-card');
+    await page.selectOption('#cardTopicInput','travel'); await page.selectOption('#cardDifficultyInput','3'); await page.click('#saveCardBtn');
+    let stored=await page.evaluate(() => JSON.parse(localStorage.getItem('phonetic-star-planet-v1')));
+    assert.equal(stored.customDecks[0].cards[0].id,'legacy-card'); assert.equal(stored.customDecks[0].cards[0].topic,'travel'); assert.equal(stored.customDecks[0].cards[0].difficulty,3);
+    await page.reload({waitUntil:'networkidle'}); await page.click('[data-deck="custom-legacy"]'); await page.click('#manageDeckBtn');
+    await page.locator('#customCardList').getByText('hello').waitFor();
+    stored=await page.evaluate(() => JSON.parse(localStorage.getItem('phonetic-star-planet-v1')));
+    assert.equal(stored.customDecks[0].cards[0].id,'legacy-card'); assert.equal(stored.customDecks[0].cards[0].topic,'travel'); assert.equal(stored.customDecks[0].cards[0].difficulty,3);
+  } finally { await browser.close(); }
+});
+
+test('admin topic and difficulty filters, card edit and publish toggle preserve tags', async () => {
+  const {browser,page}=await freshPage(); const writes=[];
+  const rows=[
+    card('admin-0',0,{topic:'food',difficulty:1,published:true}),
+    card('admin-1',1,{topic:'study',difficulty:2,published:false}),
+    card('admin-2',2,{topic:'food',difficulty:2,published:true})
+  ];
+  try {
+    await authRoutes(page,{session:session(),admin:true,cardRows:rows,writes}); await page.goto(project.url+'admin/',{waitUntil:'networkidle'});
+    await page.fill('#emailInput','admin@example.test'); await page.fill('#passwordInput','password'); await page.click('#loginForm button');
+    await page.locator('#appState:not([hidden])').waitFor(); await page.locator('#cardCount').filter({hasText:'3'}).waitFor();
+    assert.deepEqual(await page.locator('#cardTopicFilter option').evaluateAll(options=>options.map(o=>o.value)),['',...require('../shared/card-tags.js').TOPICS.map(t=>t.value)]);
+    await page.selectOption('#cardTopicFilter','food'); assert.equal(await page.locator('#cardCount').textContent(),'2');
+    await page.selectOption('#cardDifficultyFilter','2'); assert.equal(await page.locator('#cardCount').textContent(),'1');
+    await page.locator('#cardTable tr').first().getByText('編輯').click();
+    const editor=page.locator('.card-editor'); await editor.locator('[name=topic]').selectOption('travel'); await editor.locator('[name=difficulty]').selectOption('3'); await editor.locator('button[type=submit]').click();
+    const edited=writes.find(x=>x.table==='cards'&&x.kind==='PATCH'); assert.equal(edited.body.topic,'travel'); assert.equal(edited.body.difficulty,3); assert.equal(edited.body.published,true);
+    await page.locator('#cardTable tr').first().getByText('取消發布').click();
+    const toggles=writes.filter(x=>x.table==='cards'&&x.kind==='PATCH'); assert.equal(toggles.at(-1).body.topic,'food'); assert.equal(toggles.at(-1).body.difficulty,2); assert.equal(toggles.at(-1).body.published,false);
+  } finally { await browser.close(); }
+});
