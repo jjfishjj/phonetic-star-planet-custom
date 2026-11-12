@@ -1,0 +1,14 @@
+{
+  "name": "phonetic-star-planet",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "test": "npm run unit && npm run smoke",
+    "unit": "node --test tests/*.test.mjs",
+    "smoke": "node --test tests/browser-smoke.cjs",
+    "dev": "python3 -m http.server 4173"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}

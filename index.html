@@ -32,7 +32,7 @@
         <h1 id="heroTitle">聽見新單字，<br><span>腦中立刻有畫面。</span></h1>
         <p class="hero-copy">選一種語言，翻開一張諧音卡。用熟悉的聲音線索和一點想像力，讓第一次聽見的單字留在記憶裡。</p>
         <div class="hero-actions"><a class="primary" href="#decks">挑一副牌組 <span aria-hidden="true">↘</span></a><a class="subtle-link" href="#practice">看看怎麼玩</a></div>
-        <div class="hero-statline"><span><b>12</b> 種語言</span><span><b>1,200</b> 張入門詞卡</span><span><b>100%</b> 本機記錄</span></div>
+        <div class="hero-statline"><span><b id="publicDeckCount">12</b> 組公開牌組</span><span><b id="publicCardCount">1,200</b> 張詞卡</span><span><b>100%</b> 本機記錄</span></div>
       </div>
       <div class="hero-art" aria-hidden="true"><div class="orbit"></div><span class="spark one">✦</span><span class="spark two">✧</span><span class="spark three">✦</span><div class="planet"><span class="planet-emoji">💬</span></div><div class="float-card"><small>WORD OF THE DAY</small><strong>bonjour</strong><span>蹦啾一下，說聲你好</span></div></div>
     </section>
@@ -96,7 +96,7 @@
     </div>
     <p class="privacy-note">資料保存在目前裝置的瀏覽器；清除網站資料或更換瀏覽器可能會移除它們。</p>
   </dialog>
-  <footer class="shell"><span>諧音星球 · 一次一張卡，讓世界更好記。</span><span>12 種語言 × 每種 100 張詞卡 · 進度儲存在此裝置</span></footer>
+  <footer class="shell"><span>諧音星球 · 一次一張卡，讓世界更好記。 · <a href="./admin/">管理後台</a></span><span><span id="catalogStatus" role="status">使用內建牌組</span> · 進度儲存在此裝置</span></footer>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script>
     const decks = [
@@ -8632,9 +8632,9 @@
     state.customDecks=state.customDecks.filter(d=>d&&typeof d.id==='string'&&Array.isArray(d.cards));
     function save(){try{localStorage.setItem(STORE,JSON.stringify(state))}catch{showToast('瀏覽器儲存空間不足，資料尚未保存')}}
     function allDecks(){return [...decks,...state.customDecks]}
-    function getDeck(){return allDecks().find(d=>d.id===state.selected)||decks[0]}
+    function getDeck(){return allDecks().find(d=>d.id===state.selected)||allDecks()[0]||{id:'catalog-empty',name:'尚無已發布牌組',native:'',lang:'zh-TW',cards:[]}}
     function isCustom(d){return state.customDecks.some(x=>x.id===d.id)}
-    function cardKey(d,index){return d.id+':'+(isCustom(d)?d.cards[index]?.id:index)}
+    function cardKey(d,index){const c=d.cards[index];return d.id+':'+(isCustom(d)?c?.id:(c?.legacy_index??c?.id??index))}
     function getCard(){const d=getDeck();return d.cards.length?d.cards[state.index%d.cards.length]:null}
     function escapeHTML(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
     function newId(){return crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2)}
@@ -8642,6 +8642,8 @@
       const total=allDecks().length;
       document.getElementById('allCount').textContent=total;
       document.getElementById('customCount').textContent=state.customDecks.length;
+      document.getElementById('publicDeckCount').textContent=decks.length;
+      document.getElementById('publicCardCount').textContent=decks.reduce((n,d)=>n+d.cards.length,0).toLocaleString('zh-TW');
       document.querySelector('[data-filter="asia"]').textContent=`亞洲 ${decks.filter(d=>d.region==='asia').length}`;
       document.querySelector('[data-filter="europe"]').textContent=`歐洲 ${decks.filter(d=>d.region==='europe').length}`;
       document.querySelector('[data-filter="other"]').textContent=`其他 ${decks.filter(d=>d.region==='other').length}`;
@@ -8677,7 +8679,7 @@
       document.getElementById('speakBtn').disabled=!c;
       document.getElementById('cardPrompt').textContent=c?(learned?'這張卡已記住，還可以再複習。':'先猜猜看它的意思是什麼？'):'先新增自己的詞彙卡，再開始練習。';
       const panel=document.getElementById('answerPanel');
-      if(!c){panel.classList.add('empty');panel.innerHTML='<div class="hint-bulb">✦</div><span class="answer-label">READY WHEN YOU ARE</span><p style="margin-top:8px">這副牌組還沒有卡片，加入第一個詞彙就能開始。</p><div class="answer-actions"><button id="emptyManageBtn" class="primary">新增卡片</button></div>';document.getElementById('emptyManageBtn').addEventListener('click',()=>openManager(d.id))}
+      if(!c){panel.classList.add('empty');panel.innerHTML=isCustom(d)?'<div class="hint-bulb">✦</div><span class="answer-label">READY WHEN YOU ARE</span><p style="margin-top:8px">這副牌組還沒有卡片，加入第一個詞彙就能開始。</p><div class="answer-actions"><button id="emptyManageBtn" class="primary">新增卡片</button></div>':'<span class="answer-label">READY WHEN YOU ARE</span><p>目前沒有已發布的卡片，請先選擇其他牌組。</p>';document.getElementById('emptyManageBtn')?.addEventListener('click',()=>openManager(d.id))}
       else if(state.revealed){panel.classList.remove('empty');panel.innerHTML=`<span class="answer-label">${learned?'REVIEW THIS CARD':'YOU GOT IT'}</span><h3>${escapeHTML(c.meaning)}</h3><p>${escapeHTML(d.name)} · ${escapeHTML(d.native||'自訂牌組')}　<span class="confetti">✦</span></p><div class="mnemonic"><b>記憶畫面</b><br>${escapeHTML(c.cue||'為這張卡想一個自己的聯想畫面吧。')}</div><div class="answer-actions"><button class="secondary" id="againBtn">再複習一次</button><button class="primary" id="knownBtn">${learned?'下一張':'記住了 ✓'}</button></div>`;
         document.getElementById('againBtn').addEventListener('click',()=>{state.revealed=false;state.reviewed+=1;save();renderAll();showToast('已加入本次複習')});
         document.getElementById('knownBtn').addEventListener('click',()=>{const key=cardKey(d,state.index%d.cards.length);if(!state.learned.includes(key)){state.learned.push(key);state.xp+=10}else{state.reviewed+=1}state.index=(state.index+1)%d.cards.length;state.revealed=false;save();renderAll();showToast('記憶已更新 +10 XP')});
@@ -8734,7 +8736,16 @@
     $('favoriteBtn').addEventListener('click',()=>{const d=getDeck(),index=state.index%d.cards.length,id=cardKey(d,index),i=state.favorites.indexOf(id);if(i>=0){state.favorites.splice(i,1);showToast('已取消收藏')}else{state.favorites.push(id);showToast('已加入收藏')}save();renderAll()});
     $('speakBtn').addEventListener('click',()=>{if(!('speechSynthesis'in window)){showToast('此瀏覽器暫不支援語音播放');return}const d=getDeck(),c=getCard();if(!c)return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(c.word);u.lang=d.lang||'zh-TW';u.rate=.84;window.speechSynthesis.speak(u)});
     let toastTimer;function showToast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),1900)}
+    window.PhoneticApp={applyCatalog(nextDecks){
+      const previous=getDeck(),card=getCard(),key=card?cardKey(previous,state.index%previous.cards.length):null;
+      decks.splice(0,decks.length,...nextDecks);
+      if(!allDecks().some(d=>d.id===state.selected)){state.selected=allDecks()[0]?.id||'en';state.index=0;state.revealed=false}
+      else if(!isCustom(previous)){const d=getDeck(),index=d.cards.findIndex((c,i)=>cardKey(d,i)===key);state.index=index>=0?index:0;if(index<0)state.revealed=false}
+      renderAll();
+    }};
     renderAll();
   </script>
+  <script src="./supabase-config.js"></script>
+  <script src="./public-catalog.js"></script>
 </body>
 </html>
