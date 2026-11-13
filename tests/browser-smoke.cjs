@@ -350,12 +350,22 @@ test('unlearned practice mode filters by saved card IDs, advances as cards are l
   ];
   try {
     await installPublicRoutes(publicRun.page,{cloud:true,cards:rows});
-    await publicRun.page.addInitScript(initial => localStorage.setItem('phonetic-star-planet-v1',JSON.stringify(initial)),{
+    await publicRun.page.addInitScript(initial => {
+      if (!localStorage.getItem('phonetic-star-planet-v1')) localStorage.setItem('phonetic-star-planet-v1',JSON.stringify(initial));
+    },{
       learned:['en:0'],favorites:['en:7'],xp:30,reviewed:2,selected:'en',index:0,revealed:false,customDecks:[]
     });
     await publicRun.page.goto(project.url,{waitUntil:'networkidle'});
     await publicRun.page.click('#practiceModeBtn');
     assert.equal(await publicRun.page.locator('#practiceModeBtn').getAttribute('aria-pressed'),'true');
+    await publicRun.page.reload({waitUntil:'networkidle'});
+    assert.equal(await publicRun.page.locator('#practiceModeBtn').getAttribute('aria-pressed'),'true');
+    assert.equal(await publicRun.page.locator('#wordText').textContent(),'seven');
+    const reloadedState=await publicRun.page.evaluate(()=>JSON.parse(localStorage.getItem('phonetic-star-planet-v1')));
+    assert.equal(reloadedState.unlearnedOnly,true);
+    assert.deepEqual(reloadedState.learned,['en:0']);
+    assert.deepEqual(reloadedState.favorites,['en:7']);
+    assert.equal(reloadedState.xp,30);
     assert.equal(await publicRun.page.locator('#resetFiltersBtn').isDisabled(),false);
     assert.equal(await publicRun.page.locator('#cardFilterSummary').textContent(),'未記住 2 / 3 張');
     assert.equal(await publicRun.page.locator('#wordText').textContent(),'seven');
@@ -375,6 +385,7 @@ test('unlearned practice mode filters by saved card IDs, advances as cards are l
     assert.deepEqual(publicState.learned,['en:0','en:7','en:42']);
     assert.deepEqual(publicState.favorites,['en:7']);
     assert.equal(publicState.xp,50);
+    assert.equal(publicState.unlearnedOnly,false);
   } finally { await publicRun.browser.close(); }
 
   const customRun = await freshPage();

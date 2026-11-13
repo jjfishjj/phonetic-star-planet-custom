@@ -4,17 +4,18 @@
   const Tags = window.PhoneticCardTags;
   const $ = id => document.getElementById(id);
   const STORE = 'phonetic-star-planet-v1';
-  const defaultState = {learned:[], favorites:[], xp:0, reviewed:0, selected:'en', index:0, revealed:false, customDecks:[]};
+  const defaultState = {learned:[], favorites:[], xp:0, reviewed:0, selected:'en', index:0, revealed:false, unlearnedOnly:false, customDecks:[]};
   function safeRead() { try { return JSON.parse(localStorage.getItem(STORE)); } catch { return null; } }
   const state = {...defaultState, ...(safeRead() || {})};
   if (!Array.isArray(state.learned)) state.learned = [];
   if (!Array.isArray(state.favorites)) state.favorites = [];
   if (!Array.isArray(state.customDecks)) state.customDecks = [];
+  if (typeof state.unlearnedOnly !== 'boolean') state.unlearnedOnly = false;
   state.customDecks = state.customDecks.filter(d => d && typeof d.id === 'string' && Array.isArray(d.cards));
   if (!Number.isInteger(state.index) || state.index < 0) state.index = 0;
   // Filters are view preferences, not a migration of the persisted learning data.
   const cardFilters = {topic:'all', difficulty:'all'};
-  const practiceMode = {unlearned:false};
+  const practiceMode = {unlearned:state.unlearnedOnly};
   const hasCardFilters = () => cardFilters.topic !== 'all' || cardFilters.difficulty !== 'all';
   const hasAnyFilters = () => hasCardFilters() || practiceMode.unlearned;
   function save() { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch { showToast('瀏覽器儲存空間不足，資料尚未保存'); } }
@@ -41,7 +42,7 @@
     return entry || null;
   }
   function getCard() { return currentEntry()?.card || null; }
-  function resetFilters() { cardFilters.topic = 'all'; cardFilters.difficulty = 'all'; practiceMode.unlearned = false; }
+  function resetFilters() { cardFilters.topic = 'all'; cardFilters.difficulty = 'all'; practiceMode.unlearned = false; state.unlearnedOnly = false; }
   function escapeHTML(value) { return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
   function newId() { return crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2); }
 
@@ -161,7 +162,7 @@
     document.querySelector('.filter.active')?.classList.remove('active'); btn.classList.add('active'); renderDecks(btn.dataset.filter);
   }));
   function clearCardFilters() { resetFilters(); state.revealed=false; getCard(); save(); renderAll(); }
-  function togglePracticeMode() { practiceMode.unlearned=!practiceMode.unlearned; state.revealed=false; getCard(); save(); renderAll(); }
+  function togglePracticeMode() { practiceMode.unlearned=!practiceMode.unlearned; state.unlearnedOnly=practiceMode.unlearned; state.revealed=false; getCard(); save(); renderAll(); }
   $('resetFiltersBtn').addEventListener('click',clearCardFilters);
   $('practiceModeBtn').addEventListener('click',togglePracticeMode);
   for (const [id,key] of [['topicFilter','topic'],['difficultyFilter','difficulty']]) {
