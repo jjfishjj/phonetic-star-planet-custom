@@ -14,7 +14,9 @@
   if (!Number.isInteger(state.index) || state.index < 0) state.index = 0;
   // Filters are view preferences, not a migration of the persisted learning data.
   const cardFilters = {topic:'all', difficulty:'all'};
+  const practiceMode = {unlearned:false};
   const hasCardFilters = () => cardFilters.topic !== 'all' || cardFilters.difficulty !== 'all';
+  const hasAnyFilters = () => hasCardFilters() || practiceMode.unlearned;
   function save() { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch { showToast('瀏覽器儲存空間不足，資料尚未保存'); } }
   function allDecks() { return [...decks, ...state.customDecks]; }
   function getDeck() { return allDecks().find(d => d.id === state.selected) || allDecks()[0] || {id:'catalog-empty', name:'尚無已發布牌組', native:'', lang:'zh-TW', cards:[]}; }
@@ -22,6 +24,12 @@
   // Keep the original v1 identifiers, including legacy_index and custom-card UUIDs.
   function cardKey(d, index) { const c = d.cards[index]; return d.id + ':' + (isCustom(d) ? c?.id : (c?.legacy_index ?? c?.id ?? index)); }
   function activeEntries(d = getDeck()) {
+    return d.cards.map((card,index) => ({card,index})).filter(({card,index}) =>
+      (cardFilters.topic === 'all' || Tags.getTopic(card) === cardFilters.topic) &&
+      (cardFilters.difficulty === 'all' || Tags.getDifficulty(card) === Number(cardFilters.difficulty)) &&
+      (!practiceMode.unlearned || !state.learned.includes(cardKey(d,index))));
+  }
+  function matchingEntries(d = getDeck()) {
     return d.cards.map((card,index) => ({card,index})).filter(({card}) =>
       (cardFilters.topic === 'all' || Tags.getTopic(card) === cardFilters.topic) &&
       (cardFilters.difficulty === 'all' || Tags.getDifficulty(card) === Number(cardFilters.difficulty)));
@@ -33,7 +41,7 @@
     return entry || null;
   }
   function getCard() { return currentEntry()?.card || null; }
-  function resetFilters() { cardFilters.topic = 'all'; cardFilters.difficulty = 'all'; }
+  function resetFilters() { cardFilters.topic = 'all'; cardFilters.difficulty = 'all'; practiceMode.unlearned = false; }
   function escapeHTML(value) { return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
   function newId() { return crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2); }
 
@@ -73,7 +81,7 @@
     });
     select.value = selected;
   }
-  function renderCardFilters(d, entries) {
+  function renderCardFilters(d, entries, matching) {
     const topics = new Map(), difficulties = new Map();
     d.cards.forEach(c => {
       const topic = Tags.getTopic(c), difficulty = Tags.getDifficulty(c);
@@ -81,16 +89,21 @@
     });
     fillFilter($('topicFilter'), Tags.TOPICS, cardFilters.topic, '全部主題', topics, d.cards.length);
     fillFilter($('difficultyFilter'), Tags.DIFFICULTIES, cardFilters.difficulty, '全部難度', difficulties, d.cards.length);
-    $('cardFilterSummary').textContent = `顯示 ${entries.length} / ${d.cards.length} 張`;
-    $('resetFiltersBtn').disabled = !hasCardFilters();
+    $('cardFilterSummary').textContent = practiceMode.unlearned
+      ? `未記住 ${entries.length} / ${matching.length} 張`
+      : `顯示 ${entries.length} / ${d.cards.length} 張`;
+    $('practiceModeBtn').setAttribute('aria-pressed',String(practiceMode.unlearned));
+    $('practiceModeBtn').classList.toggle('mode-active',practiceMode.unlearned);
+    $('resetFiltersBtn').disabled = !hasAnyFilters();
   }
   function renderPractice() {
-    const d = getDeck(), entries = activeEntries(d), entry = currentEntry(d,entries), c = entry?.card;
+    const d = getDeck(), matching = matchingEntries(d), entries = activeEntries(d), entry = currentEntry(d,entries), c = entry?.card;
     const position = entry ? entries.findIndex(e => e.index === entry.index) : -1;
-    renderCardFilters(d,entries);
+    renderCardFilters(d,entries,matching);
     $('currentDeckLabel').textContent = `${d.flag||'📚'} ${d.name}`;
-    $('cardCounter').textContent = c ? `CARD ${String(position+1).padStart(2,'0')} / ${String(entries.length).padStart(2,'0')} · ${(d.native||'CUSTOM').toUpperCase()}` : (hasCardFilters() ? 'NO MATCHING CARDS' : 'DECK · EMPTY');
-    $('wordText').textContent = c ? c.word : (hasCardFilters() ? '沒有符合的卡片' : '尚未新增卡片');
+    const allMatchingRemembered = practiceMode.unlearned && matching.length > 0 && entries.length === 0;
+    $('cardCounter').textContent = c ? `CARD ${String(position+1).padStart(2,'0')} / ${String(entries.length).padStart(2,'0')} · ${(d.native||'CUSTOM').toUpperCase()}` : (allMatchingRemembered ? 'ALL MATCHING CARDS REMEMBERED' : (hasCardFilters() ? 'NO MATCHING CARDS' : 'DECK · EMPTY'));
+    $('wordText').textContent = c ? c.word : (allMatchingRemembered ? '都記住了！' : (hasCardFilters() ? '沒有符合的卡片' : '尚未新增卡片'));
     $('wordText').dir = d.id === 'ar' ? 'rtl' : 'auto';
     $('romanText').textContent = c ? (c.roman||'') : '';
     $('soundHint').textContent = c ? (c.hint||'尚未填寫') : '';
@@ -104,14 +117,17 @@
     const favorite = !!id && state.favorites.includes(id), learned = !!id && state.learned.includes(id);
     $('favoriteBtn').textContent = favorite ? '♥' : '♡'; $('favoriteBtn').classList.toggle('is-fav',favorite); $('favoriteBtn').disabled = !c;
     $('favoriteBtn').setAttribute('aria-label',favorite ? '取消收藏' : '收藏此卡'); $('speakBtn').disabled = !c;
-    $('cardPrompt').textContent = c ? (learned ? '這張卡已記住，還可以再複習。' : '先猜猜看它的意思是什麼？') : (hasCardFilters() ? '調整主題或難度，就能繼續練習。' : '先新增自己的詞彙卡，再開始練習。');
+    $('cardPrompt').textContent = c ? (learned ? '這張卡已記住，還可以再複習。' : '先猜猜看它的意思是什麼？') : (allMatchingRemembered ? '這個範圍的卡片都已記住。' : (hasCardFilters() ? '調整主題或難度，就能繼續練習。' : '先新增自己的詞彙卡，再開始練習。'));
     const panel = $('answerPanel');
     if (!c) {
       panel.classList.add('empty');
-      panel.innerHTML = hasCardFilters()
+      panel.innerHTML = allMatchingRemembered
+        ? '<div class="hint-bulb">✦</div><span class="answer-label">NICE WORK</span><p style="margin-top:8px">這個範圍的卡片都記住了！<br>可以切回全部卡片再次複習。</p><div class="answer-actions"><button id="emptyPracticeModeBtn" class="primary">練習全部卡片</button></div>'
+        : hasCardFilters()
         ? '<div class="hint-bulb">✦</div><span class="answer-label">TRY ANOTHER COMBINATION</span><p style="margin-top:8px">這個主題與難度沒有交集，<br>清除篩選即可回到整副牌組。</p><div class="answer-actions"><button id="emptyResetBtn" class="primary">清除篩選</button></div>'
         : isCustom(d) ? '<div class="hint-bulb">✦</div><span class="answer-label">READY WHEN YOU ARE</span><p style="margin-top:8px">這副牌組還沒有卡片，加入第一個詞彙就能開始。</p><div class="answer-actions"><button id="emptyManageBtn" class="primary">新增卡片</button></div>'
         : '<span class="answer-label">READY WHEN YOU ARE</span><p>目前沒有已發布的卡片，請先選擇其他牌組。</p>';
+      $('emptyPracticeModeBtn')?.addEventListener('click',togglePracticeMode);
       $('emptyManageBtn')?.addEventListener('click', () => openManager(d.id));
       $('emptyResetBtn')?.addEventListener('click', clearCardFilters);
     } else if (state.revealed) {
@@ -129,10 +145,12 @@
       panel.innerHTML = '<div class="hint-bulb">✦</div><span class="answer-label">READY WHEN YOU ARE</span><p style="margin-top:8px">用熟悉的聲音聯想陌生單字，<br>不確定也沒關係，翻開看看。</p><div class="answer-actions"><button id="revealBtn" class="primary">翻開答案</button></div>';
       $('revealBtn').addEventListener('click', () => { state.revealed=true; save(); renderPractice(); });
     }
-    const completed = entries.filter(e => state.learned.includes(cardKey(d,e.index))).length;
-    $('sessionProgressText').textContent = `${hasCardFilters()?'篩選進度':'本組進度'} ${completed} / ${entries.length}`;
-    $('progressFill').style.width = entries.length ? `${Math.round(completed/entries.length*100)}%` : '0%';
-    $('practiceSubtitle').textContent = `${d.name} · ${hasCardFilters()?`符合 ${entries.length} / ${d.cards.length} 張`:`${d.cards.length} 張${isCustom(d)?'自訂':'入門示範'}卡`}。先聽聽看，再用諧音線索把它記起來。`;
+    const completed = matching.filter(e => state.learned.includes(cardKey(d,e.index))).length;
+    $('sessionProgressText').textContent = practiceMode.unlearned
+      ? `未記住 ${entries.length} 張 · 已記住 ${completed} / ${matching.length}`
+      : `${hasCardFilters()?'篩選進度':'本組進度'} ${completed} / ${matching.length}`;
+    $('progressFill').style.width = matching.length ? `${Math.round(completed/matching.length*100)}%` : '0%';
+    $('practiceSubtitle').textContent = `${d.name} · ${practiceMode.unlearned?`只練未記住，剩 ${entries.length} 張`:(hasCardFilters()?`符合 ${entries.length} / ${d.cards.length} 張`:`${d.cards.length} 張${isCustom(d)?'自訂':'入門示範'}卡`)}。先聽聽看，再用諧音線索把它記起來。`;
   }
   function renderStats() {
     $('learnedStat').textContent=`${state.learned.length} 張`; $('xpStat').textContent=`${state.xp} XP`; $('favoriteStat').textContent=`${state.favorites.length} 張`;
@@ -143,7 +161,9 @@
     document.querySelector('.filter.active')?.classList.remove('active'); btn.classList.add('active'); renderDecks(btn.dataset.filter);
   }));
   function clearCardFilters() { resetFilters(); state.revealed=false; getCard(); save(); renderAll(); }
+  function togglePracticeMode() { practiceMode.unlearned=!practiceMode.unlearned; state.revealed=false; getCard(); save(); renderAll(); }
   $('resetFiltersBtn').addEventListener('click',clearCardFilters);
+  $('practiceModeBtn').addEventListener('click',togglePracticeMode);
   for (const [id,key] of [['topicFilter','topic'],['difficultyFilter','difficulty']]) {
     $(id).addEventListener('change', () => { cardFilters[key]=$(id).value; state.revealed=false; getCard(); save(); renderAll(); });
   }

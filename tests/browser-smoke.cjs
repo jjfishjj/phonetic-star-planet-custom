@@ -340,3 +340,62 @@ test('admin topic and difficulty filters, card edit and publish toggle preserve 
     const toggles=writes.filter(x=>x.table==='cards'&&x.kind==='PATCH'); assert.equal(toggles.at(-1).body.topic,'food'); assert.equal(toggles.at(-1).body.difficulty,2); assert.equal(toggles.at(-1).body.published,false);
   } finally { await browser.close(); }
 });
+
+test('unlearned practice mode filters by saved card IDs, advances as cards are learned, and supports custom decks', async () => {
+  const publicRun = await freshPage();
+  const rows = [
+    card('c-0',0,{legacy_index:0,topic:'food',difficulty:1,word:'zero'}),
+    card('c-7',1,{legacy_index:7,topic:'study',difficulty:2,word:'seven'}),
+    card('c-42',2,{legacy_index:42,topic:'food',difficulty:2,word:'forty-two'})
+  ];
+  try {
+    await installPublicRoutes(publicRun.page,{cloud:true,cards:rows});
+    await publicRun.page.addInitScript(initial => localStorage.setItem('phonetic-star-planet-v1',JSON.stringify(initial)),{
+      learned:['en:0'],favorites:['en:7'],xp:30,reviewed:2,selected:'en',index:0,revealed:false,customDecks:[]
+    });
+    await publicRun.page.goto(project.url,{waitUntil:'networkidle'});
+    await publicRun.page.click('#practiceModeBtn');
+    assert.equal(await publicRun.page.locator('#practiceModeBtn').getAttribute('aria-pressed'),'true');
+    assert.equal(await publicRun.page.locator('#resetFiltersBtn').isDisabled(),false);
+    assert.equal(await publicRun.page.locator('#cardFilterSummary').textContent(),'未記住 2 / 3 張');
+    assert.equal(await publicRun.page.locator('#wordText').textContent(),'seven');
+    await publicRun.page.click('#revealBtn'); await publicRun.page.click('#knownBtn');
+    assert.equal(await publicRun.page.locator('#wordText').textContent(),'forty-two');
+    await publicRun.page.click('#revealBtn'); await publicRun.page.click('#knownBtn');
+    assert.equal(await publicRun.page.locator('#wordText').textContent(),'都記住了！');
+    assert.equal(await publicRun.page.locator('#cardFilterSummary').textContent(),'未記住 0 / 3 張');
+    await publicRun.page.click('#emptyPracticeModeBtn');
+    assert.equal(await publicRun.page.locator('#practiceModeBtn').getAttribute('aria-pressed'),'false');
+    assert.equal(await publicRun.page.locator('#cardFilterSummary').textContent(),'顯示 3 / 3 張');
+    await publicRun.page.click('#practiceModeBtn');
+    await publicRun.page.click('#resetFiltersBtn');
+    assert.equal(await publicRun.page.locator('#practiceModeBtn').getAttribute('aria-pressed'),'false');
+    assert.equal(await publicRun.page.locator('#cardFilterSummary').textContent(),'顯示 3 / 3 張');
+    const publicState=await publicRun.page.evaluate(()=>JSON.parse(localStorage.getItem('phonetic-star-planet-v1')));
+    assert.deepEqual(publicState.learned,['en:0','en:7','en:42']);
+    assert.deepEqual(publicState.favorites,['en:7']);
+    assert.equal(publicState.xp,50);
+  } finally { await publicRun.browser.close(); }
+
+  const customRun = await freshPage();
+  const customDeck = {id:'custom-legacy',name:'自訂複習',native:'Custom',flag:'📚',lang:'zh-TW',region:'custom',cards:[
+    {id:'known-card',word:'already',roman:'',hint:'已會',meaning:'已記住',cue:'',topic:'study',difficulty:1},
+    {id:'new-card',word:'practice',roman:'',hint:'練習',meaning:'練習',cue:'',topic:'study',difficulty:1}
+  ]};
+  try {
+    await customRun.page.route('**/rest/v1/**',r=>r.abort('failed'));
+    await customRun.page.addInitScript(deck => localStorage.setItem('phonetic-star-planet-v1',JSON.stringify({
+      learned:['custom-legacy:known-card'],favorites:[],xp:0,reviewed:0,selected:deck.id,index:0,revealed:false,customDecks:[deck]
+    })),customDeck);
+    await customRun.page.goto(project.url,{waitUntil:'networkidle'});
+    await customRun.page.click('#practiceModeBtn');
+    assert.equal(await customRun.page.locator('#cardFilterSummary').textContent(),'未記住 1 / 2 張');
+    assert.equal(await customRun.page.locator('#wordText').textContent(),'practice');
+    await customRun.page.click('#revealBtn'); await customRun.page.click('#knownBtn');
+    assert.equal(await customRun.page.locator('#wordText').textContent(),'都記住了！');
+    const customState=await customRun.page.evaluate(()=>JSON.parse(localStorage.getItem('phonetic-star-planet-v1')));
+    assert.deepEqual(customState.learned,['custom-legacy:known-card','custom-legacy:new-card']);
+    assert.equal(customState.customDecks[0].cards.length,2);
+    assert.deepEqual(customState.customDecks[0].cards.map(c=>c.id),['known-card','new-card']);
+  } finally { await customRun.browser.close(); }
+});
