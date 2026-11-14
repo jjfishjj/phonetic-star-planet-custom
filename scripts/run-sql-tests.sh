@@ -3,8 +3,11 @@ set -euo pipefail
 
 DB="phonetic_star_planet_test_$$"
 SEED_FILE="${SEED_FILE:-supabase/seed.sql}"
-cleanup() { sudo -u postgres dropdb --if-exists "$DB" >/dev/null 2>&1 || true; }
+BACKFILL_FILE="$(mktemp /tmp/phonetic-backfill.XXXXXX.sql)"
+cleanup() { sudo -u postgres dropdb --if-exists "$DB" >/dev/null 2>&1 || true; rm -f "$BACKFILL_FILE"; }
 trap cleanup EXIT
+cat supabase/migrations/005_backfill_levels_examples.sql > "$BACKFILL_FILE"
+chmod 644 "$BACKFILL_FILE"
 
 if ! pg_lsclusters 16 main --no-header | grep -q ' online '; then
   sudo pg_ctlcluster 16 main start
@@ -34,6 +37,6 @@ done
 sudo -u postgres psql -X -v ON_ERROR_STOP=1 -d "$DB" -c "insert into public.phonetic_admins(user_id) values ('00000000-0000-0000-0000-000000000001');"
 sudo -u postgres psql -X -v ON_ERROR_STOP=1 -d "$DB" < "$SEED_FILE"
 for test_file in supabase/tests/*.sql; do
-  sudo -u postgres psql -X -v ON_ERROR_STOP=1 -d "$DB" < "$test_file"
+  sudo -u postgres psql -X -v ON_ERROR_STOP=1 -v backfill_file="$BACKFILL_FILE" -d "$DB" < "$test_file"
 done
 printf 'Local SQL verification passed in temporary database %s\n' "$DB"

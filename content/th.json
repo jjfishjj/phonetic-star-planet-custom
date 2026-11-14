@@ -1,0 +1,706 @@
+{
+  "deck_id": "th",
+  "level_scheme": "legacy",
+  "cards": [
+    {
+      "legacy_index": 0,
+      "word": "สวัสดี",
+      "proficiency_level": null,
+      "example_sentence": "สวัสดีครับ ผมชื่อสมชาย",
+      "example_translation": "你好，我叫頌猜。"
+    },
+    {
+      "legacy_index": 1,
+      "word": "ขอบคุณ",
+      "proficiency_level": null,
+      "example_sentence": "ขอบคุณสำหรับของขวัญนะครับ",
+      "example_translation": "謝謝你的禮物。"
+    },
+    {
+      "legacy_index": 2,
+      "word": "น้ำ",
+      "proficiency_level": null,
+      "example_sentence": "กรุณาดื่มน้ำให้มาก",
+      "example_translation": "請多喝水。"
+    },
+    {
+      "legacy_index": 3,
+      "word": "แมว",
+      "proficiency_level": null,
+      "example_sentence": "แมวกำลังนอนบนโซฟา",
+      "example_translation": "貓正在沙發上睡覺。"
+    },
+    {
+      "legacy_index": 4,
+      "word": "หมา",
+      "proficiency_level": null,
+      "example_sentence": "หมาของฉันชอบวิ่งในสวน",
+      "example_translation": "我的狗喜歡在公園跑步。"
+    },
+    {
+      "legacy_index": 5,
+      "word": "บ้าน",
+      "proficiency_level": null,
+      "example_sentence": "เย็นนี้ฉันจะกลับบ้านเร็ว",
+      "example_translation": "今天傍晚我會早點回家。"
+    },
+    {
+      "legacy_index": 6,
+      "word": "โรงเรียน",
+      "proficiency_level": null,
+      "example_sentence": "โรงเรียนอยู่ใกล้บ้านของฉัน",
+      "example_translation": "學校在我家附近。"
+    },
+    {
+      "legacy_index": 7,
+      "word": "ครู",
+      "proficiency_level": null,
+      "example_sentence": "ครูอธิบายบทเรียนอย่างชัดเจน",
+      "example_translation": "老師清楚地解釋課程。"
+    },
+    {
+      "legacy_index": 8,
+      "word": "นักเรียน",
+      "proficiency_level": null,
+      "example_sentence": "นักเรียนกำลังอ่านหนังสือ",
+      "example_translation": "學生正在讀書。"
+    },
+    {
+      "legacy_index": 9,
+      "word": "หนังสือ",
+      "proficiency_level": null,
+      "example_sentence": "หนังสือเล่มนี้น่าสนใจมาก",
+      "example_translation": "這本書很有趣。"
+    },
+    {
+      "legacy_index": 10,
+      "word": "ปากกา",
+      "proficiency_level": null,
+      "example_sentence": "ฉันใช้ปากกาเขียนจดหมาย",
+      "example_translation": "我用原子筆寫信。"
+    },
+    {
+      "legacy_index": 11,
+      "word": "โต๊ะ",
+      "proficiency_level": null,
+      "example_sentence": "แก้วน้ำอยู่บนโต๊ะ",
+      "example_translation": "水杯在桌子上。"
+    },
+    {
+      "legacy_index": 12,
+      "word": "เก้าอี้",
+      "proficiency_level": null,
+      "example_sentence": "เชิญนั่งบนเก้าอี้ครับ",
+      "example_translation": "請坐在椅子上。"
+    },
+    {
+      "legacy_index": 13,
+      "word": "ประตู",
+      "proficiency_level": null,
+      "example_sentence": "กรุณาปิดประตูด้วย",
+      "example_translation": "請把門關上。"
+    },
+    {
+      "legacy_index": 14,
+      "word": "หน้าต่าง",
+      "proficiency_level": null,
+      "example_sentence": "แสงแดดส่องเข้าทางหน้าต่าง",
+      "example_translation": "陽光從窗戶照進來。"
+    },
+    {
+      "legacy_index": 15,
+      "word": "ห้อง",
+      "proficiency_level": null,
+      "example_sentence": "ห้องนี้สะอาดและกว้าง",
+      "example_translation": "這個房間乾淨又寬敞。"
+    },
+    {
+      "legacy_index": 16,
+      "word": "ห้องน้ำ",
+      "proficiency_level": null,
+      "example_sentence": "ห้องน้ำอยู่ชั้นล่าง",
+      "example_translation": "洗手間在樓下。"
+    },
+    {
+      "legacy_index": 17,
+      "word": "เตียง",
+      "proficiency_level": null,
+      "example_sentence": "เด็กนอนหลับอยู่บนเตียง",
+      "example_translation": "孩子正在床上睡覺。"
+    },
+    {
+      "legacy_index": 18,
+      "word": "หมอน",
+      "proficiency_level": null,
+      "example_sentence": "หมอนใบนี้นุ่มมาก",
+      "example_translation": "這個枕頭很柔軟。"
+    },
+    {
+      "legacy_index": 19,
+      "word": "ผ้าห่ม",
+      "proficiency_level": null,
+      "example_sentence": "คืนนี้อากาศเย็น ฉันจึงใช้ผ้าห่ม",
+      "example_translation": "今晚天氣冷，所以我蓋毯子。"
+    },
+    {
+      "legacy_index": 20,
+      "word": "เสื้อ",
+      "proficiency_level": null,
+      "example_sentence": "เสื้อตัวนี้ใส่สบายมาก",
+      "example_translation": "這件衣服穿起來很舒服。"
+    },
+    {
+      "legacy_index": 21,
+      "word": "กางเกง",
+      "proficiency_level": null,
+      "example_sentence": "กางเกงตัวนี้ยาวเกินไป",
+      "example_translation": "這條褲子太長了。"
+    },
+    {
+      "legacy_index": 22,
+      "word": "รองเท้า",
+      "proficiency_level": null,
+      "example_sentence": "ฉันถอดรองเท้าก่อนเข้าบ้าน",
+      "example_translation": "我進家門前先脫鞋。"
+    },
+    {
+      "legacy_index": 23,
+      "word": "หมวก",
+      "proficiency_level": null,
+      "example_sentence": "เขาสวมหมวกกันแดด",
+      "example_translation": "他戴著遮陽帽。"
+    },
+    {
+      "legacy_index": 24,
+      "word": "กระเป๋า",
+      "proficiency_level": null,
+      "example_sentence": "กระเป๋าของฉันหนักมาก",
+      "example_translation": "我的包包很重。"
+    },
+    {
+      "legacy_index": 25,
+      "word": "รถ",
+      "proficiency_level": null,
+      "example_sentence": "รถจอดอยู่หน้าบ้าน",
+      "example_translation": "車停在房子前面。"
+    },
+    {
+      "legacy_index": 26,
+      "word": "รถไฟ",
+      "proficiency_level": null,
+      "example_sentence": "เรานั่งรถไฟไปเชียงใหม่",
+      "example_translation": "我們搭火車去清邁。"
+    },
+    {
+      "legacy_index": 27,
+      "word": "เครื่องบิน",
+      "proficiency_level": null,
+      "example_sentence": "เครื่องบินออกตอนเก้าโมง",
+      "example_translation": "飛機九點起飛。"
+    },
+    {
+      "legacy_index": 28,
+      "word": "จักรยาน",
+      "proficiency_level": null,
+      "example_sentence": "ฉันขี่จักรยานไปตลาด",
+      "example_translation": "我騎腳踏車去市場。"
+    },
+    {
+      "legacy_index": 29,
+      "word": "ถนน",
+      "proficiency_level": null,
+      "example_sentence": "ถนนเส้นนี้รถติดทุกเช้า",
+      "example_translation": "這條路每天早上都塞車。"
+    },
+    {
+      "legacy_index": 30,
+      "word": "ซ้าย",
+      "proficiency_level": null,
+      "example_sentence": "ธนาคารอยู่ทางซ้าย",
+      "example_translation": "銀行在左邊。"
+    },
+    {
+      "legacy_index": 31,
+      "word": "ขวา",
+      "proficiency_level": null,
+      "example_sentence": "ร้านกาแฟอยู่ทางขวา",
+      "example_translation": "咖啡店在右邊。"
+    },
+    {
+      "legacy_index": 32,
+      "word": "ตรง",
+      "proficiency_level": null,
+      "example_sentence": "เดินตรงไปแล้วเลี้ยวซ้าย",
+      "example_translation": "直走後左轉。"
+    },
+    {
+      "legacy_index": 33,
+      "word": "ใกล้",
+      "proficiency_level": null,
+      "example_sentence": "สถานีรถไฟอยู่ใกล้มาก",
+      "example_translation": "火車站非常近。"
+    },
+    {
+      "legacy_index": 34,
+      "word": "ไกล",
+      "proficiency_level": null,
+      "example_sentence": "บ้านของเขาอยู่ไกลจากที่นี่",
+      "example_translation": "他的家離這裡很遠。"
+    },
+    {
+      "legacy_index": 35,
+      "word": "ตลาด",
+      "proficiency_level": null,
+      "example_sentence": "ตลาดเปิดตั้งแต่เช้า",
+      "example_translation": "市場從早上就開門。"
+    },
+    {
+      "legacy_index": 36,
+      "word": "ร้านค้า",
+      "proficiency_level": null,
+      "example_sentence": "ร้านค้านี้ขายเสื้อผ้าสวยๆ",
+      "example_translation": "這家商店賣漂亮的衣服。"
+    },
+    {
+      "legacy_index": 37,
+      "word": "ราคา",
+      "proficiency_level": null,
+      "example_sentence": "ราคานี้แพงเกินไป",
+      "example_translation": "這個價格太貴了。"
+    },
+    {
+      "legacy_index": 38,
+      "word": "เงิน",
+      "proficiency_level": null,
+      "example_sentence": "ฉันไม่มีเงินสด",
+      "example_translation": "我沒有現金。"
+    },
+    {
+      "legacy_index": 39,
+      "word": "บัตร",
+      "proficiency_level": null,
+      "example_sentence": "กรุณาแสดงบัตรประชาชน",
+      "example_translation": "請出示身分證。"
+    },
+    {
+      "legacy_index": 40,
+      "word": "โรงพยาบาล",
+      "proficiency_level": null,
+      "example_sentence": "โรงพยาบาลอยู่ใกล้สถานี",
+      "example_translation": "醫院在車站附近。"
+    },
+    {
+      "legacy_index": 41,
+      "word": "หมอ",
+      "proficiency_level": null,
+      "example_sentence": "หมอตรวจคนไข้ตอนเช้า",
+      "example_translation": "醫生早上替病人看診。"
+    },
+    {
+      "legacy_index": 42,
+      "word": "ยา",
+      "proficiency_level": null,
+      "example_sentence": "อย่าลืมกินยาหลังอาหาร",
+      "example_translation": "別忘了飯後吃藥。"
+    },
+    {
+      "legacy_index": 43,
+      "word": "เจ็บ",
+      "proficiency_level": null,
+      "example_sentence": "แผลนี้เจ็บมาก",
+      "example_translation": "這個傷口很痛。"
+    },
+    {
+      "legacy_index": 44,
+      "word": "ป่วย",
+      "proficiency_level": null,
+      "example_sentence": "วันนี้ฉันป่วยจึงหยุดงาน",
+      "example_translation": "今天我生病，所以請假。"
+    },
+    {
+      "legacy_index": 45,
+      "word": "ระวัง",
+      "proficiency_level": null,
+      "example_sentence": "ระวังรถตอนข้ามถนน",
+      "example_translation": "過馬路時要小心車子。"
+    },
+    {
+      "legacy_index": 46,
+      "word": "อาหาร",
+      "proficiency_level": null,
+      "example_sentence": "อาหารไทยมีกลิ่นหอม",
+      "example_translation": "泰國食物香氣十足。"
+    },
+    {
+      "legacy_index": 47,
+      "word": "ข้าว",
+      "proficiency_level": null,
+      "example_sentence": "ฉันกินข้าวกับแกง",
+      "example_translation": "我吃飯配咖哩。"
+    },
+    {
+      "legacy_index": 48,
+      "word": "ก๋วยเตี๋ยว",
+      "proficiency_level": null,
+      "example_sentence": "ก๋วยเตี๋ยวร้านนี้อร่อยมาก",
+      "example_translation": "這家店的米粉湯很好吃。"
+    },
+    {
+      "legacy_index": 49,
+      "word": "เนื้อ",
+      "proficiency_level": null,
+      "example_sentence": "ฉันไม่กินเนื้อ",
+      "example_translation": "我不吃肉。"
+    },
+    {
+      "legacy_index": 50,
+      "word": "ปลา",
+      "proficiency_level": null,
+      "example_sentence": "ปลาตัวนี้สดมาก",
+      "example_translation": "這條魚很新鮮。"
+    },
+    {
+      "legacy_index": 51,
+      "word": "ไก่",
+      "proficiency_level": null,
+      "example_sentence": "แม่กำลังทำไก่ทอด",
+      "example_translation": "媽媽正在做炸雞。"
+    },
+    {
+      "legacy_index": 52,
+      "word": "หมู",
+      "proficiency_level": null,
+      "example_sentence": "เขาไม่กินหมู",
+      "example_translation": "他不吃豬肉。"
+    },
+    {
+      "legacy_index": 53,
+      "word": "ไข่",
+      "proficiency_level": null,
+      "example_sentence": "ฉันกินไข่ตอนเช้า",
+      "example_translation": "我早上吃蛋。"
+    },
+    {
+      "legacy_index": 54,
+      "word": "ผัก",
+      "proficiency_level": null,
+      "example_sentence": "เด็กควรกินผักทุกวัน",
+      "example_translation": "孩子應該每天吃蔬菜。"
+    },
+    {
+      "legacy_index": 55,
+      "word": "ผลไม้",
+      "proficiency_level": null,
+      "example_sentence": "ฉันชอบกินผลไม้สด",
+      "example_translation": "我喜歡吃新鮮水果。"
+    },
+    {
+      "legacy_index": 56,
+      "word": "กาแฟ",
+      "proficiency_level": null,
+      "example_sentence": "ตอนเช้าฉันดื่มกาแฟ",
+      "example_translation": "早上我喝咖啡。"
+    },
+    {
+      "legacy_index": 57,
+      "word": "ชา",
+      "proficiency_level": null,
+      "example_sentence": "คุณต้องการชาหรือกาแฟ",
+      "example_translation": "你要茶還是咖啡？"
+    },
+    {
+      "legacy_index": 58,
+      "word": "นม",
+      "proficiency_level": null,
+      "example_sentence": "เด็กดื่มนมทุกวัน",
+      "example_translation": "孩子每天喝牛奶。"
+    },
+    {
+      "legacy_index": 59,
+      "word": "น้ำตาล",
+      "proficiency_level": null,
+      "example_sentence": "อย่าใส่น้ำตาลมากเกินไป",
+      "example_translation": "不要放太多糖。"
+    },
+    {
+      "legacy_index": 60,
+      "word": "เผ็ด",
+      "proficiency_level": null,
+      "example_sentence": "อาหารจานนี้เผ็ดมาก",
+      "example_translation": "這道菜很辣。"
+    },
+    {
+      "legacy_index": 61,
+      "word": "หวาน",
+      "proficiency_level": null,
+      "example_sentence": "ขนมนี้หวานเกินไป",
+      "example_translation": "這個甜點太甜了。"
+    },
+    {
+      "legacy_index": 62,
+      "word": "เค็ม",
+      "proficiency_level": null,
+      "example_sentence": "ซุปนี้เค็มไปหน่อย",
+      "example_translation": "這碗湯有點鹹。"
+    },
+    {
+      "legacy_index": 63,
+      "word": "ร้อน",
+      "proficiency_level": null,
+      "example_sentence": "วันนี้อากาศร้อนมาก",
+      "example_translation": "今天天氣很熱。"
+    },
+    {
+      "legacy_index": 64,
+      "word": "เย็น",
+      "proficiency_level": null,
+      "example_sentence": "ตอนเย็นอากาศเย็นสบาย",
+      "example_translation": "傍晚天氣涼爽舒適。"
+    },
+    {
+      "legacy_index": 65,
+      "word": "อร่อย",
+      "proficiency_level": null,
+      "example_sentence": "อาหารร้านนี้อร่อยมาก",
+      "example_translation": "這家店的食物很好吃。"
+    },
+    {
+      "legacy_index": 66,
+      "word": "กิน",
+      "proficiency_level": null,
+      "example_sentence": "เด็กกำลังกินข้าว",
+      "example_translation": "孩子正在吃飯。"
+    },
+    {
+      "legacy_index": 67,
+      "word": "ดื่ม",
+      "proficiency_level": null,
+      "example_sentence": "กรุณาดื่มน้ำก่อนนอน",
+      "example_translation": "請在睡前喝水。"
+    },
+    {
+      "legacy_index": 68,
+      "word": "นอน",
+      "proficiency_level": null,
+      "example_sentence": "ฉันนอนตอนสี่ทุ่ม",
+      "example_translation": "我晚上十點睡覺。"
+    },
+    {
+      "legacy_index": 69,
+      "word": "ตื่น",
+      "proficiency_level": null,
+      "example_sentence": "ฉันตื่นตอนหกโมงเช้า",
+      "example_translation": "我早上六點醒來。"
+    },
+    {
+      "legacy_index": 70,
+      "word": "ไป",
+      "proficiency_level": null,
+      "example_sentence": "พรุ่งนี้เราจะไปทะเล",
+      "example_translation": "明天我們要去海邊。"
+    },
+    {
+      "legacy_index": 71,
+      "word": "มา",
+      "proficiency_level": null,
+      "example_sentence": "เชิญมานั่งด้วยกัน",
+      "example_translation": "請過來一起坐。"
+    },
+    {
+      "legacy_index": 72,
+      "word": "กลับ",
+      "proficiency_level": null,
+      "example_sentence": "ฉันจะกลับบ้านตอนเย็น",
+      "example_translation": "我傍晚會回家。"
+    },
+    {
+      "legacy_index": 73,
+      "word": "ทำงาน",
+      "proficiency_level": null,
+      "example_sentence": "พ่อทำงานที่โรงพยาบาล",
+      "example_translation": "爸爸在醫院工作。"
+    },
+    {
+      "legacy_index": 74,
+      "word": "เรียน",
+      "proficiency_level": null,
+      "example_sentence": "ฉันเรียนภาษาไทยทุกวัน",
+      "example_translation": "我每天學泰語。"
+    },
+    {
+      "legacy_index": 75,
+      "word": "อ่าน",
+      "proficiency_level": null,
+      "example_sentence": "เขาอ่านข่าวตอนเช้า",
+      "example_translation": "他早上讀新聞。"
+    },
+    {
+      "legacy_index": 76,
+      "word": "เขียน",
+      "proficiency_level": null,
+      "example_sentence": "นักเรียนเขียนการบ้าน",
+      "example_translation": "學生寫作業。"
+    },
+    {
+      "legacy_index": 77,
+      "word": "ฟัง",
+      "proficiency_level": null,
+      "example_sentence": "กรุณาฟังให้ดี",
+      "example_translation": "請仔細聽。"
+    },
+    {
+      "legacy_index": 78,
+      "word": "พูด",
+      "proficiency_level": null,
+      "example_sentence": "เขาพูดภาษาไทยได้ดี",
+      "example_translation": "他泰語說得很好。"
+    },
+    {
+      "legacy_index": 79,
+      "word": "ดู",
+      "proficiency_level": null,
+      "example_sentence": "เราดูหนังด้วยกัน",
+      "example_translation": "我們一起看電影。"
+    },
+    {
+      "legacy_index": 80,
+      "word": "รู้",
+      "proficiency_level": null,
+      "example_sentence": "ฉันรู้คำตอบแล้ว",
+      "example_translation": "我知道答案了。"
+    },
+    {
+      "legacy_index": 81,
+      "word": "เข้าใจ",
+      "proficiency_level": null,
+      "example_sentence": "ฉันเข้าใจคำอธิบายแล้ว",
+      "example_translation": "我了解這個解釋了。"
+    },
+    {
+      "legacy_index": 82,
+      "word": "ชอบ",
+      "proficiency_level": null,
+      "example_sentence": "ฉันชอบเพลงนี้มาก",
+      "example_translation": "我很喜歡這首歌。"
+    },
+    {
+      "legacy_index": 83,
+      "word": "รัก",
+      "proficiency_level": null,
+      "example_sentence": "แม่รักลูกมาก",
+      "example_translation": "媽媽非常愛孩子。"
+    },
+    {
+      "legacy_index": 84,
+      "word": "อยาก",
+      "proficiency_level": null,
+      "example_sentence": "ฉันอยากดื่มชา",
+      "example_translation": "我想喝茶。"
+    },
+    {
+      "legacy_index": 85,
+      "word": "มี",
+      "proficiency_level": null,
+      "example_sentence": "ฉันมีเวลาว่างวันนี้",
+      "example_translation": "我今天有空。"
+    },
+    {
+      "legacy_index": 86,
+      "word": "ไม่มี",
+      "proficiency_level": null,
+      "example_sentence": "วันนี้ไม่มีรถไฟ",
+      "example_translation": "今天沒有火車。"
+    },
+    {
+      "legacy_index": 87,
+      "word": "ใช่",
+      "proficiency_level": null,
+      "example_sentence": "ใช่ครับ นี่คือหนังสือของผม",
+      "example_translation": "對，這是我的書。"
+    },
+    {
+      "legacy_index": 88,
+      "word": "ไม่ใช่",
+      "proficiency_level": null,
+      "example_sentence": "ไม่ใช่ครับ นี่ไม่ใช่กระเป๋าของฉัน",
+      "example_translation": "不，這不是我的包包。"
+    },
+    {
+      "legacy_index": 89,
+      "word": "ดี",
+      "proficiency_level": null,
+      "example_sentence": "วันนี้เป็นวันที่ดี",
+      "example_translation": "今天是美好的一天。"
+    },
+    {
+      "legacy_index": 90,
+      "word": "ใหญ่",
+      "proficiency_level": null,
+      "example_sentence": "บ้านหลังนี้ใหญ่มาก",
+      "example_translation": "這棟房子很大。"
+    },
+    {
+      "legacy_index": 91,
+      "word": "เล็ก",
+      "proficiency_level": null,
+      "example_sentence": "ห้องนี้เล็กแต่สะอาด",
+      "example_translation": "這個房間小但很乾淨。"
+    },
+    {
+      "legacy_index": 92,
+      "word": "ใหม่",
+      "proficiency_level": null,
+      "example_sentence": "ฉันซื้อโทรศัพท์ใหม่",
+      "example_translation": "我買了新手機。"
+    },
+    {
+      "legacy_index": 93,
+      "word": "เก่า",
+      "proficiency_level": null,
+      "example_sentence": "เขาขับรถเก่าคันหนึ่ง",
+      "example_translation": "他開一輛舊車。"
+    },
+    {
+      "legacy_index": 94,
+      "word": "เร็ว",
+      "proficiency_level": null,
+      "example_sentence": "รถคันนี้วิ่งเร็วมาก",
+      "example_translation": "這輛車跑得很快。"
+    },
+    {
+      "legacy_index": 95,
+      "word": "ช้า",
+      "proficiency_level": null,
+      "example_sentence": "กรุณาเดินช้าๆ",
+      "example_translation": "請慢慢走。"
+    },
+    {
+      "legacy_index": 96,
+      "word": "วันนี้",
+      "proficiency_level": null,
+      "example_sentence": "วันนี้ฉันทำงานที่บ้าน",
+      "example_translation": "今天我在家工作。"
+    },
+    {
+      "legacy_index": 97,
+      "word": "พรุ่งนี้",
+      "proficiency_level": null,
+      "example_sentence": "พรุ่งนี้เรามีนัดกัน",
+      "example_translation": "我們明天有約。"
+    },
+    {
+      "legacy_index": 98,
+      "word": "เมื่อวาน",
+      "proficiency_level": null,
+      "example_sentence": "เมื่อวานฝนตกหนัก",
+      "example_translation": "昨天雨下得很大。"
+    },
+    {
+      "legacy_index": 99,
+      "word": "เช้า",
+      "proficiency_level": null,
+      "example_sentence": "เช้านี้ฉันตื่นเร็ว",
+      "example_translation": "今天早上我很早醒來。"
+    }
+  ]
+}

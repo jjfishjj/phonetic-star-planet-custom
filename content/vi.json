@@ -1,0 +1,706 @@
+{
+  "deck_id": "vi",
+  "level_scheme": "legacy",
+  "cards": [
+    {
+      "legacy_index": 0,
+      "word": "xin chào",
+      "proficiency_level": null,
+      "example_sentence": "Xin chào, bạn khỏe không?",
+      "example_translation": "你好，你還好嗎？"
+    },
+    {
+      "legacy_index": 1,
+      "word": "cảm ơn",
+      "proficiency_level": null,
+      "example_sentence": "Cảm ơn bạn đã giúp tôi.",
+      "example_translation": "謝謝你幫助我。"
+    },
+    {
+      "legacy_index": 2,
+      "word": "nước",
+      "proficiency_level": null,
+      "example_sentence": "Tôi uống một cốc nước.",
+      "example_translation": "我喝一杯水。"
+    },
+    {
+      "legacy_index": 3,
+      "word": "bạn",
+      "proficiency_level": null,
+      "example_sentence": "Bạn là bạn của tôi.",
+      "example_translation": "你是我的朋友。"
+    },
+    {
+      "legacy_index": 4,
+      "word": "tôi",
+      "proficiency_level": null,
+      "example_sentence": "Tôi đang học tiếng Việt.",
+      "example_translation": "我正在學越南語。"
+    },
+    {
+      "legacy_index": 5,
+      "word": "anh",
+      "proficiency_level": null,
+      "example_sentence": "Anh đang đọc sách.",
+      "example_translation": "哥哥正在看書。"
+    },
+    {
+      "legacy_index": 6,
+      "word": "chị",
+      "proficiency_level": null,
+      "example_sentence": "Chị đang nấu ăn.",
+      "example_translation": "姊姊正在做飯。"
+    },
+    {
+      "legacy_index": 7,
+      "word": "em",
+      "proficiency_level": null,
+      "example_sentence": "Em đang chơi ngoài sân.",
+      "example_translation": "弟弟正在院子裡玩。"
+    },
+    {
+      "legacy_index": 8,
+      "word": "ông",
+      "proficiency_level": null,
+      "example_sentence": "Ông thường ngồi đọc báo.",
+      "example_translation": "祖父常常坐著看報紙。"
+    },
+    {
+      "legacy_index": 9,
+      "word": "bà",
+      "proficiency_level": null,
+      "example_sentence": "Bà trồng hoa trước nhà.",
+      "example_translation": "祖母在家門前種花。"
+    },
+    {
+      "legacy_index": 10,
+      "word": "cha",
+      "proficiency_level": null,
+      "example_sentence": "Cha đi làm từ sớm.",
+      "example_translation": "爸爸一大早就去工作。"
+    },
+    {
+      "legacy_index": 11,
+      "word": "mẹ",
+      "proficiency_level": null,
+      "example_sentence": "Mẹ nấu cơm cho cả nhà.",
+      "example_translation": "媽媽煮飯給全家吃。"
+    },
+    {
+      "legacy_index": 12,
+      "word": "con",
+      "proficiency_level": null,
+      "example_sentence": "Con chào mẹ trước khi đi học.",
+      "example_translation": "孩子上學前向媽媽問好。"
+    },
+    {
+      "legacy_index": 13,
+      "word": "nhà",
+      "proficiency_level": null,
+      "example_sentence": "Nhà tôi ở gần trường.",
+      "example_translation": "我家在學校附近。"
+    },
+    {
+      "legacy_index": 14,
+      "word": "trường",
+      "proficiency_level": null,
+      "example_sentence": "Trường của tôi rất lớn.",
+      "example_translation": "我的學校很大。"
+    },
+    {
+      "legacy_index": 15,
+      "word": "lớp",
+      "proficiency_level": null,
+      "example_sentence": "Lớp tôi có hai mươi học sinh.",
+      "example_translation": "我的班級有二十名學生。"
+    },
+    {
+      "legacy_index": 16,
+      "word": "thầy",
+      "proficiency_level": null,
+      "example_sentence": "Thầy đang giảng bài.",
+      "example_translation": "男老師正在講課。"
+    },
+    {
+      "legacy_index": 17,
+      "word": "cô",
+      "proficiency_level": null,
+      "example_sentence": "Cô dạy chúng tôi tiếng Việt.",
+      "example_translation": "女老師教我們越南語。"
+    },
+    {
+      "legacy_index": 18,
+      "word": "sách",
+      "proficiency_level": null,
+      "example_sentence": "Tôi đọc sách mỗi tối.",
+      "example_translation": "我每天晚上看書。"
+    },
+    {
+      "legacy_index": 19,
+      "word": "bút",
+      "proficiency_level": null,
+      "example_sentence": "Tôi viết bằng bút xanh.",
+      "example_translation": "我用藍筆寫字。"
+    },
+    {
+      "legacy_index": 20,
+      "word": "bàn",
+      "proficiency_level": null,
+      "example_sentence": "Quyển sách nằm trên bàn.",
+      "example_translation": "那本書放在桌子上。"
+    },
+    {
+      "legacy_index": 21,
+      "word": "ghế",
+      "proficiency_level": null,
+      "example_sentence": "Tôi ngồi trên ghế.",
+      "example_translation": "我坐在椅子上。"
+    },
+    {
+      "legacy_index": 22,
+      "word": "cửa",
+      "proficiency_level": null,
+      "example_sentence": "Xin hãy đóng cửa.",
+      "example_translation": "請把門關上。"
+    },
+    {
+      "legacy_index": 23,
+      "word": "sổ",
+      "proficiency_level": null,
+      "example_sentence": "Tôi ghi chú vào sổ.",
+      "example_translation": "我把筆記寫在筆記本裡。"
+    },
+    {
+      "legacy_index": 24,
+      "word": "máy tính",
+      "proficiency_level": null,
+      "example_sentence": "Tôi làm việc bằng máy tính.",
+      "example_translation": "我用電腦工作。"
+    },
+    {
+      "legacy_index": 25,
+      "word": "điện thoại",
+      "proficiency_level": null,
+      "example_sentence": "Điện thoại của tôi đang sạc.",
+      "example_translation": "我的手機正在充電。"
+    },
+    {
+      "legacy_index": 26,
+      "word": "bếp",
+      "proficiency_level": null,
+      "example_sentence": "Mẹ đang ở trong bếp.",
+      "example_translation": "媽媽正在廚房裡。"
+    },
+    {
+      "legacy_index": 27,
+      "word": "phòng",
+      "proficiency_level": null,
+      "example_sentence": "Phòng này rất sạch.",
+      "example_translation": "這個房間很乾淨。"
+    },
+    {
+      "legacy_index": 28,
+      "word": "giường",
+      "proficiency_level": null,
+      "example_sentence": "Tôi ngủ trên giường.",
+      "example_translation": "我睡在床上。"
+    },
+    {
+      "legacy_index": 29,
+      "word": "đèn",
+      "proficiency_level": null,
+      "example_sentence": "Hãy bật đèn lên.",
+      "example_translation": "請把燈打開。"
+    },
+    {
+      "legacy_index": 30,
+      "word": "cửa sổ",
+      "proficiency_level": null,
+      "example_sentence": "Gió thổi qua cửa sổ.",
+      "example_translation": "風從窗戶吹進來。"
+    },
+    {
+      "legacy_index": 31,
+      "word": "đường",
+      "proficiency_level": null,
+      "example_sentence": "Con đường này rất rộng.",
+      "example_translation": "這條路很寬。"
+    },
+    {
+      "legacy_index": 32,
+      "word": "xe",
+      "proficiency_level": null,
+      "example_sentence": "Xe dừng trước nhà.",
+      "example_translation": "車停在房子前面。"
+    },
+    {
+      "legacy_index": 33,
+      "word": "xe máy",
+      "proficiency_level": null,
+      "example_sentence": "Tôi đi làm bằng xe máy.",
+      "example_translation": "我騎摩托車去上班。"
+    },
+    {
+      "legacy_index": 34,
+      "word": "xe đạp",
+      "proficiency_level": null,
+      "example_sentence": "Em đi học bằng xe đạp.",
+      "example_translation": "弟弟騎腳踏車上學。"
+    },
+    {
+      "legacy_index": 35,
+      "word": "ga",
+      "proficiency_level": null,
+      "example_sentence": "Tàu sắp đến ga.",
+      "example_translation": "火車快到車站了。"
+    },
+    {
+      "legacy_index": 36,
+      "word": "sân bay",
+      "proficiency_level": null,
+      "example_sentence": "Chúng tôi đến sân bay sớm.",
+      "example_translation": "我們很早就到機場。"
+    },
+    {
+      "legacy_index": 37,
+      "word": "biển",
+      "proficiency_level": null,
+      "example_sentence": "Biển hôm nay rất đẹp.",
+      "example_translation": "今天的海很美。"
+    },
+    {
+      "legacy_index": 38,
+      "word": "sông",
+      "proficiency_level": null,
+      "example_sentence": "Con sông chảy qua làng.",
+      "example_translation": "那條河流經村莊。"
+    },
+    {
+      "legacy_index": 39,
+      "word": "núi",
+      "proficiency_level": null,
+      "example_sentence": "Chúng tôi leo lên núi.",
+      "example_translation": "我們爬上山。"
+    },
+    {
+      "legacy_index": 40,
+      "word": "cây",
+      "proficiency_level": null,
+      "example_sentence": "Cây này cho nhiều bóng mát.",
+      "example_translation": "這棵樹提供很多陰涼。"
+    },
+    {
+      "legacy_index": 41,
+      "word": "hoa",
+      "proficiency_level": null,
+      "example_sentence": "Hoa trong vườn đang nở.",
+      "example_translation": "花園裡的花正在開。"
+    },
+    {
+      "legacy_index": 42,
+      "word": "trời",
+      "proficiency_level": null,
+      "example_sentence": "Trời hôm nay nhiều mây.",
+      "example_translation": "今天的天空多雲。"
+    },
+    {
+      "legacy_index": 43,
+      "word": "mưa",
+      "proficiency_level": null,
+      "example_sentence": "Chiều nay trời sẽ mưa.",
+      "example_translation": "今天下午會下雨。"
+    },
+    {
+      "legacy_index": 44,
+      "word": "gió",
+      "proficiency_level": null,
+      "example_sentence": "Gió thổi rất mạnh.",
+      "example_translation": "風刮得很強。"
+    },
+    {
+      "legacy_index": 45,
+      "word": "nắng",
+      "proficiency_level": null,
+      "example_sentence": "Nắng làm căn phòng ấm lên.",
+      "example_translation": "陽光讓房間暖和起來。"
+    },
+    {
+      "legacy_index": 46,
+      "word": "mây",
+      "proficiency_level": null,
+      "example_sentence": "Mây đang bay trên núi.",
+      "example_translation": "雲正飄過山上。"
+    },
+    {
+      "legacy_index": 47,
+      "word": "sáng",
+      "proficiency_level": null,
+      "example_sentence": "Buổi sáng tôi uống cà phê.",
+      "example_translation": "早上我喝咖啡。"
+    },
+    {
+      "legacy_index": 48,
+      "word": "trưa",
+      "proficiency_level": null,
+      "example_sentence": "Trưa nay chúng ta ăn cơm ở nhà.",
+      "example_translation": "今天中午我們在家吃飯。"
+    },
+    {
+      "legacy_index": 49,
+      "word": "chiều",
+      "proficiency_level": null,
+      "example_sentence": "Chiều tôi đi dạo trong công viên.",
+      "example_translation": "下午我在公園散步。"
+    },
+    {
+      "legacy_index": 50,
+      "word": "tối",
+      "proficiency_level": null,
+      "example_sentence": "Tối nay tôi ở nhà.",
+      "example_translation": "今晚我待在家裡。"
+    },
+    {
+      "legacy_index": 51,
+      "word": "hôm nay",
+      "proficiency_level": null,
+      "example_sentence": "Hôm nay tôi rất bận.",
+      "example_translation": "今天我很忙。"
+    },
+    {
+      "legacy_index": 52,
+      "word": "ngày mai",
+      "proficiency_level": null,
+      "example_sentence": "Ngày mai chúng ta sẽ gặp nhau.",
+      "example_translation": "明天我們會見面。"
+    },
+    {
+      "legacy_index": 53,
+      "word": "hôm qua",
+      "proficiency_level": null,
+      "example_sentence": "Hôm qua tôi đã đi chợ.",
+      "example_translation": "昨天我去了市場。"
+    },
+    {
+      "legacy_index": 54,
+      "word": "một",
+      "proficiency_level": null,
+      "example_sentence": "Tôi có một quyển sách mới.",
+      "example_translation": "我有一本新書。"
+    },
+    {
+      "legacy_index": 55,
+      "word": "hai",
+      "proficiency_level": null,
+      "example_sentence": "Tôi mua hai vé xem phim.",
+      "example_translation": "我買了兩張電影票。"
+    },
+    {
+      "legacy_index": 56,
+      "word": "ba",
+      "proficiency_level": null,
+      "example_sentence": "Ba người đang đợi bên ngoài.",
+      "example_translation": "三個人正在外面等候。"
+    },
+    {
+      "legacy_index": 57,
+      "word": "bốn",
+      "proficiency_level": null,
+      "example_sentence": "Bốn chiếc ghế ở trong phòng.",
+      "example_translation": "房間裡有四張椅子。"
+    },
+    {
+      "legacy_index": 58,
+      "word": "năm",
+      "proficiency_level": null,
+      "example_sentence": "Tôi đã sống ở đây năm năm.",
+      "example_translation": "我已經在這裡住了五年。"
+    },
+    {
+      "legacy_index": 59,
+      "word": "sáu",
+      "proficiency_level": null,
+      "example_sentence": "Sáu quả táo ở trên bàn.",
+      "example_translation": "桌上有六顆蘋果。"
+    },
+    {
+      "legacy_index": 60,
+      "word": "bảy",
+      "proficiency_level": null,
+      "example_sentence": "Bảy ngày nữa là đến kỳ nghỉ.",
+      "example_translation": "再過七天就是假期。"
+    },
+    {
+      "legacy_index": 61,
+      "word": "tám",
+      "proficiency_level": null,
+      "example_sentence": "Tôi mua tám quả cam.",
+      "example_translation": "我買了八顆橘子。"
+    },
+    {
+      "legacy_index": 62,
+      "word": "chín",
+      "proficiency_level": null,
+      "example_sentence": "Chín quả trứng đã chín.",
+      "example_translation": "九顆蛋已經熟了。"
+    },
+    {
+      "legacy_index": 63,
+      "word": "mười",
+      "proficiency_level": null,
+      "example_sentence": "Mười học sinh đứng thành hàng.",
+      "example_translation": "十名學生排成一列。"
+    },
+    {
+      "legacy_index": 64,
+      "word": "nhiều",
+      "proficiency_level": null,
+      "example_sentence": "Có nhiều người ở chợ.",
+      "example_translation": "市場裡有很多人。"
+    },
+    {
+      "legacy_index": 65,
+      "word": "ít",
+      "proficiency_level": null,
+      "example_sentence": "Tôi chỉ có ít thời gian.",
+      "example_translation": "我只有一點時間。"
+    },
+    {
+      "legacy_index": 66,
+      "word": "lớn",
+      "proficiency_level": null,
+      "example_sentence": "Con voi rất lớn.",
+      "example_translation": "大象很大。"
+    },
+    {
+      "legacy_index": 67,
+      "word": "nhỏ",
+      "proficiency_level": null,
+      "example_sentence": "Con mèo nhỏ đang ngủ.",
+      "example_translation": "小貓正在睡覺。"
+    },
+    {
+      "legacy_index": 68,
+      "word": "dài",
+      "proficiency_level": null,
+      "example_sentence": "Con đường này dài quá.",
+      "example_translation": "這條路太長了。"
+    },
+    {
+      "legacy_index": 69,
+      "word": "ngắn",
+      "proficiency_level": null,
+      "example_sentence": "Bài kiểm tra này ngắn.",
+      "example_translation": "這份測驗很短。"
+    },
+    {
+      "legacy_index": 70,
+      "word": "tốt",
+      "proficiency_level": null,
+      "example_sentence": "Món ăn này rất tốt cho sức khỏe.",
+      "example_translation": "這道菜對健康很好。"
+    },
+    {
+      "legacy_index": 71,
+      "word": "xấu",
+      "proficiency_level": null,
+      "example_sentence": "Thời tiết hôm nay thật xấu.",
+      "example_translation": "今天的天氣真糟。"
+    },
+    {
+      "legacy_index": 72,
+      "word": "mới",
+      "proficiency_level": null,
+      "example_sentence": "Tôi vừa mua một chiếc áo mới.",
+      "example_translation": "我剛買了一件新衣服。"
+    },
+    {
+      "legacy_index": 73,
+      "word": "ăn",
+      "proficiency_level": null,
+      "example_sentence": "Tôi ăn sáng lúc bảy giờ.",
+      "example_translation": "我七點吃早餐。"
+    },
+    {
+      "legacy_index": 74,
+      "word": "uống",
+      "proficiency_level": null,
+      "example_sentence": "Bạn nên uống nhiều nước.",
+      "example_translation": "你應該多喝水。"
+    },
+    {
+      "legacy_index": 75,
+      "word": "ngủ",
+      "proficiency_level": null,
+      "example_sentence": "Em bé ngủ rất ngon.",
+      "example_translation": "嬰兒睡得很香。"
+    },
+    {
+      "legacy_index": 76,
+      "word": "đi",
+      "proficiency_level": null,
+      "example_sentence": "Tôi đi đến trường bằng xe đạp.",
+      "example_translation": "我騎腳踏車去學校。"
+    },
+    {
+      "legacy_index": 77,
+      "word": "đến",
+      "proficiency_level": null,
+      "example_sentence": "Tàu đến ga lúc tám giờ.",
+      "example_translation": "火車八點到車站。"
+    },
+    {
+      "legacy_index": 78,
+      "word": "về",
+      "proficiency_level": null,
+      "example_sentence": "Tôi về nhà sau giờ làm.",
+      "example_translation": "我下班後回家。"
+    },
+    {
+      "legacy_index": 79,
+      "word": "nhìn",
+      "proficiency_level": null,
+      "example_sentence": "Hãy nhìn bức tranh này.",
+      "example_translation": "請看這幅畫。"
+    },
+    {
+      "legacy_index": 80,
+      "word": "nghe",
+      "proficiency_level": null,
+      "example_sentence": "Tôi nghe nhạc mỗi ngày.",
+      "example_translation": "我每天聽音樂。"
+    },
+    {
+      "legacy_index": 81,
+      "word": "nói",
+      "proficiency_level": null,
+      "example_sentence": "Cô ấy nói rất chậm.",
+      "example_translation": "她說得很慢。"
+    },
+    {
+      "legacy_index": 82,
+      "word": "đọc",
+      "proficiency_level": null,
+      "example_sentence": "Tôi đọc báo vào buổi sáng.",
+      "example_translation": "我早上看報紙。"
+    },
+    {
+      "legacy_index": 83,
+      "word": "viết",
+      "proficiency_level": null,
+      "example_sentence": "Tôi viết thư cho bạn.",
+      "example_translation": "我寫信給朋友。"
+    },
+    {
+      "legacy_index": 84,
+      "word": "mua",
+      "proficiency_level": null,
+      "example_sentence": "Mẹ muốn mua rau.",
+      "example_translation": "媽媽想買蔬菜。"
+    },
+    {
+      "legacy_index": 85,
+      "word": "bán",
+      "proficiency_level": null,
+      "example_sentence": "Cửa hàng bán trái cây tươi.",
+      "example_translation": "商店賣新鮮水果。"
+    },
+    {
+      "legacy_index": 86,
+      "word": "làm",
+      "proficiency_level": null,
+      "example_sentence": "Tôi làm bài tập sau bữa tối.",
+      "example_translation": "我晚餐後做作業。"
+    },
+    {
+      "legacy_index": 87,
+      "word": "học",
+      "proficiency_level": null,
+      "example_sentence": "Em học tiếng Việt ở trường.",
+      "example_translation": "弟弟在學校學越南語。"
+    },
+    {
+      "legacy_index": 88,
+      "word": "yêu",
+      "proficiency_level": null,
+      "example_sentence": "Tôi yêu gia đình của mình.",
+      "example_translation": "我愛我的家人。"
+    },
+    {
+      "legacy_index": 89,
+      "word": "thích",
+      "proficiency_level": null,
+      "example_sentence": "Tôi thích nghe nhạc Việt.",
+      "example_translation": "我喜歡聽越南音樂。"
+    },
+    {
+      "legacy_index": 90,
+      "word": "muốn",
+      "proficiency_level": null,
+      "example_sentence": "Tôi muốn ăn phở.",
+      "example_translation": "我想吃越南河粉。"
+    },
+    {
+      "legacy_index": 91,
+      "word": "biết",
+      "proficiency_level": null,
+      "example_sentence": "Bạn biết đường đến ga không?",
+      "example_translation": "你知道去車站的路嗎？"
+    },
+    {
+      "legacy_index": 92,
+      "word": "xin lỗi",
+      "proficiency_level": null,
+      "example_sentence": "Xin lỗi, tôi đến muộn.",
+      "example_translation": "對不起，我遲到了。"
+    },
+    {
+      "legacy_index": 93,
+      "word": "tạm biệt",
+      "proficiency_level": null,
+      "example_sentence": "Tạm biệt và hẹn gặp lại.",
+      "example_translation": "再見，下次見。"
+    },
+    {
+      "legacy_index": 94,
+      "word": "vui",
+      "proficiency_level": null,
+      "example_sentence": "Các em chơi rất vui.",
+      "example_translation": "孩子們玩得很開心。"
+    },
+    {
+      "legacy_index": 95,
+      "word": "đói",
+      "proficiency_level": null,
+      "example_sentence": "Tôi đói nên muốn ăn cơm.",
+      "example_translation": "我餓了，所以想吃飯。"
+    },
+    {
+      "legacy_index": 96,
+      "word": "khỏe",
+      "proficiency_level": null,
+      "example_sentence": "Sau khi nghỉ ngơi, tôi thấy khỏe hơn.",
+      "example_translation": "休息後，我覺得更有精神了。"
+    },
+    {
+      "legacy_index": 97,
+      "word": "bác sĩ",
+      "proficiency_level": null,
+      "example_sentence": "Bác sĩ khám cho bệnh nhân.",
+      "example_translation": "醫生為病人看診。"
+    },
+    {
+      "legacy_index": 98,
+      "word": "cơm",
+      "proficiency_level": null,
+      "example_sentence": "Tôi ăn cơm với rau.",
+      "example_translation": "我配蔬菜吃飯。"
+    },
+    {
+      "legacy_index": 99,
+      "word": "phở",
+      "proficiency_level": null,
+      "example_sentence": "Phở nóng rất ngon vào buổi sáng.",
+      "example_translation": "早上吃熱呼呼的越南河粉很美味。"
+    }
+  ]
+}

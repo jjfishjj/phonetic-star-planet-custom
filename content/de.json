@@ -1,0 +1,706 @@
+{
+  "deck_id": "de",
+  "level_scheme": "cefr",
+  "cards": [
+    {
+      "legacy_index": 0,
+      "word": "hallo",
+      "proficiency_level": "A1",
+      "example_sentence": "Hallo, wie geht es dir?",
+      "example_translation": "你好，你過得怎麼樣？"
+    },
+    {
+      "legacy_index": 1,
+      "word": "danke",
+      "proficiency_level": "A1",
+      "example_sentence": "Danke für deine Hilfe.",
+      "example_translation": "謝謝你的幫忙。"
+    },
+    {
+      "legacy_index": 2,
+      "word": "Wasser",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich trinke jeden Morgen Wasser.",
+      "example_translation": "我每天早上喝水。"
+    },
+    {
+      "legacy_index": 3,
+      "word": "bitte",
+      "proficiency_level": "A1",
+      "example_sentence": "Ein Glas Wasser, bitte.",
+      "example_translation": "請給我一杯水。"
+    },
+    {
+      "legacy_index": 4,
+      "word": "tschüss",
+      "proficiency_level": "A1",
+      "example_sentence": "Tschüss, bis morgen!",
+      "example_translation": "掰掰，明天見！"
+    },
+    {
+      "legacy_index": 5,
+      "word": "ja",
+      "proficiency_level": "A1",
+      "example_sentence": "Ja, ich komme mit.",
+      "example_translation": "好，我一起去。"
+    },
+    {
+      "legacy_index": 6,
+      "word": "nein",
+      "proficiency_level": "A1",
+      "example_sentence": "Nein, das ist nicht mein Buch.",
+      "example_translation": "不，那不是我的書。"
+    },
+    {
+      "legacy_index": 7,
+      "word": "Entschuldigung",
+      "proficiency_level": "A2",
+      "example_sentence": "Entschuldigung, können Sie mir helfen?",
+      "example_translation": "不好意思，您可以幫我嗎？"
+    },
+    {
+      "legacy_index": 8,
+      "word": "gut",
+      "proficiency_level": "A1",
+      "example_sentence": "Heute geht es mir gut.",
+      "example_translation": "我今天過得很好。"
+    },
+    {
+      "legacy_index": 9,
+      "word": "schlecht",
+      "proficiency_level": "A1",
+      "example_sentence": "Das Wetter ist heute schlecht.",
+      "example_translation": "今天的天氣很差。"
+    },
+    {
+      "legacy_index": 10,
+      "word": "heute",
+      "proficiency_level": "A1",
+      "example_sentence": "Heute arbeite ich zu Hause.",
+      "example_translation": "我今天在家工作。"
+    },
+    {
+      "legacy_index": 11,
+      "word": "morgen",
+      "proficiency_level": "A1",
+      "example_sentence": "Morgen fahre ich nach Berlin.",
+      "example_translation": "我明天要去柏林。"
+    },
+    {
+      "legacy_index": 12,
+      "word": "gestern",
+      "proficiency_level": "A1",
+      "example_sentence": "Gestern habe ich einen Film gesehen.",
+      "example_translation": "我昨天看了一部電影。"
+    },
+    {
+      "legacy_index": 13,
+      "word": "jetzt",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich muss jetzt gehen.",
+      "example_translation": "我現在必須走了。"
+    },
+    {
+      "legacy_index": 14,
+      "word": "später",
+      "proficiency_level": "A1",
+      "example_sentence": "Wir sprechen später darüber.",
+      "example_translation": "我們晚點再談這件事。"
+    },
+    {
+      "legacy_index": 15,
+      "word": "immer",
+      "proficiency_level": "A1",
+      "example_sentence": "Er kommt immer pünktlich.",
+      "example_translation": "他總是準時到。"
+    },
+    {
+      "legacy_index": 16,
+      "word": "nie",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich trinke nie Kaffee.",
+      "example_translation": "我從不喝咖啡。"
+    },
+    {
+      "legacy_index": 17,
+      "word": "sehr",
+      "proficiency_level": "A1",
+      "example_sentence": "Der Kuchen ist sehr lecker.",
+      "example_translation": "這個蛋糕非常好吃。"
+    },
+    {
+      "legacy_index": 18,
+      "word": "auch",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich möchte auch einen Tee.",
+      "example_translation": "我也想要一杯茶。"
+    },
+    {
+      "legacy_index": 19,
+      "word": "nur",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich habe nur zehn Euro dabei.",
+      "example_translation": "我身上只有十歐元。"
+    },
+    {
+      "legacy_index": 20,
+      "word": "hier",
+      "proficiency_level": "A1",
+      "example_sentence": "Bitte warten Sie hier.",
+      "example_translation": "請在這裡等。"
+    },
+    {
+      "legacy_index": 21,
+      "word": "dort",
+      "proficiency_level": "A1",
+      "example_sentence": "Der Bahnhof ist dort drüben.",
+      "example_translation": "火車站就在那邊。"
+    },
+    {
+      "legacy_index": 22,
+      "word": "wer",
+      "proficiency_level": "A1",
+      "example_sentence": "Wer steht vor der Tür?",
+      "example_translation": "誰站在門外？"
+    },
+    {
+      "legacy_index": 23,
+      "word": "was",
+      "proficiency_level": "A1",
+      "example_sentence": "Was möchtest du essen?",
+      "example_translation": "你想吃什麼？"
+    },
+    {
+      "legacy_index": 24,
+      "word": "wo",
+      "proficiency_level": "A1",
+      "example_sentence": "Wo ist die nächste Bushaltestelle?",
+      "example_translation": "最近的公車站在哪裡？"
+    },
+    {
+      "legacy_index": 25,
+      "word": "wann",
+      "proficiency_level": "A1",
+      "example_sentence": "Wann beginnt der Kurs?",
+      "example_translation": "課程什麼時候開始？"
+    },
+    {
+      "legacy_index": 26,
+      "word": "warum",
+      "proficiency_level": "A1",
+      "example_sentence": "Warum bist du heute müde?",
+      "example_translation": "你今天為什麼累？"
+    },
+    {
+      "legacy_index": 27,
+      "word": "wie",
+      "proficiency_level": "A1",
+      "example_sentence": "Wie heißt du?",
+      "example_translation": "你叫什麼名字？"
+    },
+    {
+      "legacy_index": 28,
+      "word": "eins",
+      "proficiency_level": "A1",
+      "example_sentence": "Eins plus eins ist zwei.",
+      "example_translation": "一加一等於二。"
+    },
+    {
+      "legacy_index": 29,
+      "word": "zwei",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich habe zwei Brüder.",
+      "example_translation": "我有兩個兄弟。"
+    },
+    {
+      "legacy_index": 30,
+      "word": "drei",
+      "proficiency_level": "A1",
+      "example_sentence": "Auf dem Tisch liegen drei Äpfel.",
+      "example_translation": "桌上有三顆蘋果。"
+    },
+    {
+      "legacy_index": 31,
+      "word": "vier",
+      "proficiency_level": "A1",
+      "example_sentence": "Wir kaufen vier Flaschen Wasser.",
+      "example_translation": "我們買四瓶水。"
+    },
+    {
+      "legacy_index": 32,
+      "word": "fünf",
+      "proficiency_level": "A1",
+      "example_sentence": "Das Kind zählt bis fünf.",
+      "example_translation": "那個孩子數到五。"
+    },
+    {
+      "legacy_index": 33,
+      "word": "zehn",
+      "proficiency_level": "A1",
+      "example_sentence": "Die Klasse hat zehn Schüler.",
+      "example_translation": "這個班有十名學生。"
+    },
+    {
+      "legacy_index": 34,
+      "word": "Mann",
+      "proficiency_level": "A1",
+      "example_sentence": "Der Mann wartet an der Haltestelle.",
+      "example_translation": "那位男人在公車站等候。"
+    },
+    {
+      "legacy_index": 35,
+      "word": "Frau",
+      "proficiency_level": "A1",
+      "example_sentence": "Die Frau liest eine Zeitung.",
+      "example_translation": "那位女士正在看報紙。"
+    },
+    {
+      "legacy_index": 36,
+      "word": "Kind",
+      "proficiency_level": "A1",
+      "example_sentence": "Das Kind spielt im Garten.",
+      "example_translation": "那個孩子在花園裡玩。"
+    },
+    {
+      "legacy_index": 37,
+      "word": "Freund",
+      "proficiency_level": "A1",
+      "example_sentence": "Mein Freund wohnt in Hamburg.",
+      "example_translation": "我的男性朋友住在漢堡。"
+    },
+    {
+      "legacy_index": 38,
+      "word": "Familie",
+      "proficiency_level": "A1",
+      "example_sentence": "Meine Familie isst sonntags zusammen.",
+      "example_translation": "我的家人星期日一起吃飯。"
+    },
+    {
+      "legacy_index": 39,
+      "word": "Mutter",
+      "proficiency_level": "A1",
+      "example_sentence": "Meine Mutter kocht heute Suppe.",
+      "example_translation": "我媽媽今天煮湯。"
+    },
+    {
+      "legacy_index": 40,
+      "word": "Vater",
+      "proficiency_level": "A1",
+      "example_sentence": "Mein Vater repariert das Fahrrad.",
+      "example_translation": "我爸爸正在修腳踏車。"
+    },
+    {
+      "legacy_index": 41,
+      "word": "Bruder",
+      "proficiency_level": "A1",
+      "example_sentence": "Mein Bruder spielt gern Fußball.",
+      "example_translation": "我弟弟很喜歡踢足球。"
+    },
+    {
+      "legacy_index": 42,
+      "word": "Schwester",
+      "proficiency_level": "A1",
+      "example_sentence": "Meine Schwester lernt Deutsch.",
+      "example_translation": "我妹妹正在學德語。"
+    },
+    {
+      "legacy_index": 43,
+      "word": "Haus",
+      "proficiency_level": "A1",
+      "example_sentence": "Unser Haus hat einen kleinen Garten.",
+      "example_translation": "我們的房子有一座小花園。"
+    },
+    {
+      "legacy_index": 44,
+      "word": "Wohnung",
+      "proficiency_level": "A1",
+      "example_sentence": "Die Wohnung liegt im dritten Stock.",
+      "example_translation": "這間公寓位於三樓。"
+    },
+    {
+      "legacy_index": 45,
+      "word": "Zimmer",
+      "proficiency_level": "A1",
+      "example_sentence": "Mein Zimmer ist heute sauber.",
+      "example_translation": "我的房間今天很乾淨。"
+    },
+    {
+      "legacy_index": 46,
+      "word": "Tür",
+      "proficiency_level": "A1",
+      "example_sentence": "Bitte schließen Sie die Tür.",
+      "example_translation": "請把門關上。"
+    },
+    {
+      "legacy_index": 47,
+      "word": "Fenster",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich öffne morgens das Fenster.",
+      "example_translation": "我早上會打開窗戶。"
+    },
+    {
+      "legacy_index": 48,
+      "word": "Tisch",
+      "proficiency_level": "A1",
+      "example_sentence": "Das Buch liegt auf dem Tisch.",
+      "example_translation": "書放在桌子上。"
+    },
+    {
+      "legacy_index": 49,
+      "word": "Stuhl",
+      "proficiency_level": "A1",
+      "example_sentence": "Der Stuhl ist leider kaputt.",
+      "example_translation": "這張椅子很可惜壞了。"
+    },
+    {
+      "legacy_index": 50,
+      "word": "Bett",
+      "proficiency_level": "A1",
+      "example_sentence": "Das Kind liegt schon im Bett.",
+      "example_translation": "孩子已經躺在床上了。"
+    },
+    {
+      "legacy_index": 51,
+      "word": "Schlüssel",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich finde meinen Schlüssel nicht.",
+      "example_translation": "我找不到我的鑰匙。"
+    },
+    {
+      "legacy_index": 52,
+      "word": "Buch",
+      "proficiency_level": "A1",
+      "example_sentence": "Dieses Buch ist sehr interessant.",
+      "example_translation": "這本書很有趣。"
+    },
+    {
+      "legacy_index": 53,
+      "word": "Stift",
+      "proficiency_level": "A1",
+      "example_sentence": "Kann ich deinen Stift benutzen?",
+      "example_translation": "我可以用你的筆嗎？"
+    },
+    {
+      "legacy_index": 54,
+      "word": "Handy",
+      "proficiency_level": "A1",
+      "example_sentence": "Mein Handy liegt in der Tasche.",
+      "example_translation": "我的手機在包包裡。"
+    },
+    {
+      "legacy_index": 55,
+      "word": "Computer",
+      "proficiency_level": "A1",
+      "example_sentence": "Der Computer ist heute sehr langsam.",
+      "example_translation": "這台電腦今天非常慢。"
+    },
+    {
+      "legacy_index": 56,
+      "word": "Auto",
+      "proficiency_level": "A1",
+      "example_sentence": "Wir fahren mit dem Auto zur Arbeit.",
+      "example_translation": "我們開車去上班。"
+    },
+    {
+      "legacy_index": 57,
+      "word": "Zug",
+      "proficiency_level": "A1",
+      "example_sentence": "Der Zug fährt um acht Uhr ab.",
+      "example_translation": "火車八點出發。"
+    },
+    {
+      "legacy_index": 58,
+      "word": "Bus",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich nehme den Bus ins Zentrum.",
+      "example_translation": "我要搭公車去市中心。"
+    },
+    {
+      "legacy_index": 59,
+      "word": "Fahrrad",
+      "proficiency_level": "A1",
+      "example_sentence": "Im Sommer fahre ich oft Fahrrad.",
+      "example_translation": "夏天我常騎腳踏車。"
+    },
+    {
+      "legacy_index": 60,
+      "word": "Straße",
+      "proficiency_level": "A1",
+      "example_sentence": "Die Straße ist wegen des Marktes gesperrt.",
+      "example_translation": "這條街因為市集而封閉。"
+    },
+    {
+      "legacy_index": 61,
+      "word": "Stadt",
+      "proficiency_level": "A1",
+      "example_sentence": "Berlin ist eine große Stadt.",
+      "example_translation": "柏林是一座大城市。"
+    },
+    {
+      "legacy_index": 62,
+      "word": "Bahnhof",
+      "proficiency_level": "A1",
+      "example_sentence": "Wir treffen uns vor dem Bahnhof.",
+      "example_translation": "我們在火車站前碰面。"
+    },
+    {
+      "legacy_index": 63,
+      "word": "Flughafen",
+      "proficiency_level": "A1",
+      "example_sentence": "Der Flughafen ist weit vom Zentrum entfernt.",
+      "example_translation": "機場離市中心很遠。"
+    },
+    {
+      "legacy_index": 64,
+      "word": "links",
+      "proficiency_level": "A1",
+      "example_sentence": "An der Ecke gehen Sie links.",
+      "example_translation": "到了街角請向左走。"
+    },
+    {
+      "legacy_index": 65,
+      "word": "rechts",
+      "proficiency_level": "A1",
+      "example_sentence": "Die Apotheke ist gleich rechts.",
+      "example_translation": "藥局就在右手邊。"
+    },
+    {
+      "legacy_index": 66,
+      "word": "geradeaus",
+      "proficiency_level": "A1",
+      "example_sentence": "Gehen Sie hier geradeaus.",
+      "example_translation": "請從這裡直走。"
+    },
+    {
+      "legacy_index": 67,
+      "word": "Essen",
+      "proficiency_level": "A1",
+      "example_sentence": "Das Essen im Restaurant schmeckt gut.",
+      "example_translation": "餐廳的食物很好吃。"
+    },
+    {
+      "legacy_index": 68,
+      "word": "Brot",
+      "proficiency_level": "A1",
+      "example_sentence": "Zum Frühstück esse ich gern Brot.",
+      "example_translation": "我早餐喜歡吃麵包。"
+    },
+    {
+      "legacy_index": 69,
+      "word": "Reis",
+      "proficiency_level": "A1",
+      "example_sentence": "Heute gibt es Reis mit Gemüse.",
+      "example_translation": "今天有米飯配蔬菜。"
+    },
+    {
+      "legacy_index": 70,
+      "word": "Apfel",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich esse jeden Tag einen Apfel.",
+      "example_translation": "我每天吃一顆蘋果。"
+    },
+    {
+      "legacy_index": 71,
+      "word": "Banane",
+      "proficiency_level": "A1",
+      "example_sentence": "Das Kind schält eine Banane.",
+      "example_translation": "孩子正在剝一根香蕉。"
+    },
+    {
+      "legacy_index": 72,
+      "word": "Milch",
+      "proficiency_level": "A1",
+      "example_sentence": "Die Milch steht im Kühlschrank.",
+      "example_translation": "牛奶放在冰箱裡。"
+    },
+    {
+      "legacy_index": 73,
+      "word": "Kaffee",
+      "proficiency_level": "A1",
+      "example_sentence": "Morgens trinke ich gern Kaffee.",
+      "example_translation": "我早上喜歡喝咖啡。"
+    },
+    {
+      "legacy_index": 74,
+      "word": "Tee",
+      "proficiency_level": "A1",
+      "example_sentence": "Möchtest du noch einen Tee?",
+      "example_translation": "你還想喝一杯茶嗎？"
+    },
+    {
+      "legacy_index": 75,
+      "word": "Zucker",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich nehme keinen Zucker in den Tee.",
+      "example_translation": "我喝茶不加糖。"
+    },
+    {
+      "legacy_index": 76,
+      "word": "Salz",
+      "proficiency_level": "A1",
+      "example_sentence": "Die Suppe braucht etwas Salz.",
+      "example_translation": "這碗湯需要加一點鹽。"
+    },
+    {
+      "legacy_index": 77,
+      "word": "Frühstück",
+      "proficiency_level": "A1",
+      "example_sentence": "Das Frühstück steht schon auf dem Tisch.",
+      "example_translation": "早餐已經放在桌上了。"
+    },
+    {
+      "legacy_index": 78,
+      "word": "Mittagessen",
+      "proficiency_level": "A1",
+      "example_sentence": "Zum Mittagessen esse ich eine Suppe.",
+      "example_translation": "午餐我喝一碗湯。"
+    },
+    {
+      "legacy_index": 79,
+      "word": "Abendessen",
+      "proficiency_level": "A1",
+      "example_sentence": "Wir kochen heute gemeinsam Abendessen.",
+      "example_translation": "我們今天一起煮晚餐。"
+    },
+    {
+      "legacy_index": 80,
+      "word": "Restaurant",
+      "proficiency_level": "A1",
+      "example_sentence": "Das Restaurant öffnet um sechs Uhr.",
+      "example_translation": "這間餐廳六點開門。"
+    },
+    {
+      "legacy_index": 81,
+      "word": "Speisekarte",
+      "proficiency_level": "A1",
+      "example_sentence": "Darf ich bitte die Speisekarte sehen?",
+      "example_translation": "請問我可以看菜單嗎？"
+    },
+    {
+      "legacy_index": 82,
+      "word": "zahlen",
+      "proficiency_level": "A1",
+      "example_sentence": "Wir möchten jetzt zahlen.",
+      "example_translation": "我們現在想付款。"
+    },
+    {
+      "legacy_index": 83,
+      "word": "kaufen",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich möchte ein neues Hemd kaufen.",
+      "example_translation": "我想買一件新襯衫。"
+    },
+    {
+      "legacy_index": 84,
+      "word": "verkaufen",
+      "proficiency_level": "A2",
+      "example_sentence": "Sie verkaufen frisches Gemüse auf dem Markt.",
+      "example_translation": "他們在市場上賣新鮮蔬菜。"
+    },
+    {
+      "legacy_index": 85,
+      "word": "Geld",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich habe nicht genug Geld dabei.",
+      "example_translation": "我身上沒有帶足夠的錢。"
+    },
+    {
+      "legacy_index": 86,
+      "word": "Preis",
+      "proficiency_level": "A1",
+      "example_sentence": "Der Preis ist auf dem Etikett angegeben.",
+      "example_translation": "價格標示在標籤上。"
+    },
+    {
+      "legacy_index": 87,
+      "word": "teuer",
+      "proficiency_level": "A1",
+      "example_sentence": "Dieses Hotel ist für uns zu teuer.",
+      "example_translation": "這間飯店對我們來說太貴了。"
+    },
+    {
+      "legacy_index": 88,
+      "word": "billig",
+      "proficiency_level": "A1",
+      "example_sentence": "Auf dem Markt ist das Obst billig.",
+      "example_translation": "市場上的水果很便宜。"
+    },
+    {
+      "legacy_index": 89,
+      "word": "groß",
+      "proficiency_level": "A1",
+      "example_sentence": "Der Hund ist schon sehr groß.",
+      "example_translation": "這隻狗已經很大了。"
+    },
+    {
+      "legacy_index": 90,
+      "word": "klein",
+      "proficiency_level": "A1",
+      "example_sentence": "Die Wohnung hat eine kleine Küche.",
+      "example_translation": "這間公寓有一個小廚房。"
+    },
+    {
+      "legacy_index": 91,
+      "word": "neu",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich habe ein neues Fahrrad.",
+      "example_translation": "我有一台新的腳踏車。"
+    },
+    {
+      "legacy_index": 92,
+      "word": "alt",
+      "proficiency_level": "A1",
+      "example_sentence": "Mein Großvater ist schon alt.",
+      "example_translation": "我的祖父已經年紀很大了。"
+    },
+    {
+      "legacy_index": 93,
+      "word": "warm",
+      "proficiency_level": "A1",
+      "example_sentence": "Die Suppe ist noch warm.",
+      "example_translation": "湯還是熱的。"
+    },
+    {
+      "legacy_index": 94,
+      "word": "kalt",
+      "proficiency_level": "A1",
+      "example_sentence": "Heute ist es draußen sehr kalt.",
+      "example_translation": "今天外面非常冷。"
+    },
+    {
+      "legacy_index": 95,
+      "word": "schön",
+      "proficiency_level": "A1",
+      "example_sentence": "Der Park ist im Frühling besonders schön.",
+      "example_translation": "公園在春天特別漂亮。"
+    },
+    {
+      "legacy_index": 96,
+      "word": "schnell",
+      "proficiency_level": "A1",
+      "example_sentence": "Der Zug ist schneller als der Bus.",
+      "example_translation": "火車比公車快。"
+    },
+    {
+      "legacy_index": 97,
+      "word": "langsam",
+      "proficiency_level": "A1",
+      "example_sentence": "Bitte sprechen Sie langsam.",
+      "example_translation": "請您說慢一點。"
+    },
+    {
+      "legacy_index": 98,
+      "word": "müde",
+      "proficiency_level": "A1",
+      "example_sentence": "Nach der Arbeit bin ich oft müde.",
+      "example_translation": "下班後我常常很累。"
+    },
+    {
+      "legacy_index": 99,
+      "word": "hungrig",
+      "proficiency_level": "A1",
+      "example_sentence": "Ich bin hungrig und möchte etwas essen.",
+      "example_translation": "我餓了，想吃點東西。"
+    }
+  ]
+}

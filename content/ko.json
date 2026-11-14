@@ -1,0 +1,706 @@
+{
+  "deck_id": "ko",
+  "level_scheme": "topik",
+  "cards": [
+    {
+      "legacy_index": 0,
+      "word": "물",
+      "proficiency_level": "1",
+      "example_sentence": "물을 매일 충분히 마셔요.",
+      "example_translation": "每天都要充分喝水。"
+    },
+    {
+      "legacy_index": 1,
+      "word": "사과",
+      "proficiency_level": "1",
+      "example_sentence": "아침에 사과를 하나 먹었어요.",
+      "example_translation": "早上吃了一顆蘋果。"
+    },
+    {
+      "legacy_index": 2,
+      "word": "사랑",
+      "proficiency_level": "2",
+      "example_sentence": "가족의 사랑이 큰 힘이 돼요.",
+      "example_translation": "家人的愛會成為很大的力量。"
+    },
+    {
+      "legacy_index": 3,
+      "word": "안녕하세요",
+      "proficiency_level": "1",
+      "example_sentence": "선생님께 안녕하세요라고 인사했어요.",
+      "example_translation": "我向老師說您好。"
+    },
+    {
+      "legacy_index": 4,
+      "word": "감사합니다",
+      "proficiency_level": "1",
+      "example_sentence": "도와주셔서 감사합니다.",
+      "example_translation": "謝謝您的幫忙。"
+    },
+    {
+      "legacy_index": 5,
+      "word": "미안해요",
+      "proficiency_level": "1",
+      "example_sentence": "늦어서 미안해요.",
+      "example_translation": "對不起，我遲到了。"
+    },
+    {
+      "legacy_index": 6,
+      "word": "괜찮아요",
+      "proficiency_level": "1",
+      "example_sentence": "조금 늦어도 괜찮아요.",
+      "example_translation": "晚一點也沒關係。"
+    },
+    {
+      "legacy_index": 7,
+      "word": "네",
+      "proficiency_level": "1",
+      "example_sentence": "네, 알겠습니다.",
+      "example_translation": "好的，我知道了。"
+    },
+    {
+      "legacy_index": 8,
+      "word": "아니요",
+      "proficiency_level": "1",
+      "example_sentence": "아니요, 저는 학생이 아니에요.",
+      "example_translation": "不是，我不是學生。"
+    },
+    {
+      "legacy_index": 9,
+      "word": "주세요",
+      "proficiency_level": "1",
+      "example_sentence": "김치찌개 하나 주세요.",
+      "example_translation": "請給我一份泡菜鍋。"
+    },
+    {
+      "legacy_index": 10,
+      "word": "실례합니다",
+      "proficiency_level": "2",
+      "example_sentence": "실례합니다, 화장실이 어디예요?",
+      "example_translation": "不好意思，洗手間在哪裡？"
+    },
+    {
+      "legacy_index": 11,
+      "word": "잠시만요",
+      "proficiency_level": "2",
+      "example_sentence": "잠시만요, 곧 갈게요.",
+      "example_translation": "請稍等，我馬上就去。"
+    },
+    {
+      "legacy_index": 12,
+      "word": "안녕히 가세요",
+      "proficiency_level": "1",
+      "example_sentence": "먼저 가세요. 안녕히 가세요.",
+      "example_translation": "您先走，請慢走。"
+    },
+    {
+      "legacy_index": 13,
+      "word": "안녕히 계세요",
+      "proficiency_level": "2",
+      "example_sentence": "저는 먼저 갈게요. 안녕히 계세요.",
+      "example_translation": "我先走了，請留步。"
+    },
+    {
+      "legacy_index": 14,
+      "word": "집",
+      "proficiency_level": "1",
+      "example_sentence": "저녁에는 집에서 쉬어요.",
+      "example_translation": "晚上在家休息。"
+    },
+    {
+      "legacy_index": 15,
+      "word": "학교",
+      "proficiency_level": "1",
+      "example_sentence": "학교에 버스를 타고 가요.",
+      "example_translation": "我搭公車去學校。"
+    },
+    {
+      "legacy_index": 16,
+      "word": "회사",
+      "proficiency_level": "1",
+      "example_sentence": "회사에서 새로운 일을 시작했어요.",
+      "example_translation": "我在公司開始了新工作。"
+    },
+    {
+      "legacy_index": 17,
+      "word": "친구",
+      "proficiency_level": "1",
+      "example_sentence": "주말에 친구를 만나요.",
+      "example_translation": "週末和朋友見面。"
+    },
+    {
+      "legacy_index": 18,
+      "word": "가족",
+      "proficiency_level": "1",
+      "example_sentence": "가족과 함께 저녁을 먹어요.",
+      "example_translation": "和家人一起吃晚餐。"
+    },
+    {
+      "legacy_index": 19,
+      "word": "사람",
+      "proficiency_level": "1",
+      "example_sentence": "길에 사람이 많아요.",
+      "example_translation": "路上的人很多。"
+    },
+    {
+      "legacy_index": 20,
+      "word": "아이",
+      "proficiency_level": "1",
+      "example_sentence": "아이가 공원에서 놀고 있어요.",
+      "example_translation": "孩子正在公園玩。"
+    },
+    {
+      "legacy_index": 21,
+      "word": "남자",
+      "proficiency_level": "1",
+      "example_sentence": "그 남자는 우리 선생님이에요.",
+      "example_translation": "那位男士是我們的老師。"
+    },
+    {
+      "legacy_index": 22,
+      "word": "여자",
+      "proficiency_level": "1",
+      "example_sentence": "그 여자는 제 언니예요.",
+      "example_translation": "那位女士是我的姊姊。"
+    },
+    {
+      "legacy_index": 23,
+      "word": "이름",
+      "proficiency_level": "1",
+      "example_sentence": "이름을 종이에 써 주세요.",
+      "example_translation": "請把名字寫在紙上。"
+    },
+    {
+      "legacy_index": 24,
+      "word": "나이",
+      "proficiency_level": "2",
+      "example_sentence": "나이를 물어봐도 돼요?",
+      "example_translation": "可以問年齡嗎？"
+    },
+    {
+      "legacy_index": 25,
+      "word": "오늘",
+      "proficiency_level": "1",
+      "example_sentence": "오늘은 날씨가 좋아요.",
+      "example_translation": "今天的天氣很好。"
+    },
+    {
+      "legacy_index": 26,
+      "word": "내일",
+      "proficiency_level": "1",
+      "example_sentence": "내일 다시 만나요.",
+      "example_translation": "明天再見。"
+    },
+    {
+      "legacy_index": 27,
+      "word": "어제",
+      "proficiency_level": "1",
+      "example_sentence": "어제 친구와 영화를 봤어요.",
+      "example_translation": "昨天和朋友看了電影。"
+    },
+    {
+      "legacy_index": 28,
+      "word": "시간",
+      "proficiency_level": "2",
+      "example_sentence": "시간이 없어서 택시를 탔어요.",
+      "example_translation": "因為沒有時間，所以搭了計程車。"
+    },
+    {
+      "legacy_index": 29,
+      "word": "아침",
+      "proficiency_level": "1",
+      "example_sentence": "아침에 빵과 커피를 먹어요.",
+      "example_translation": "早上吃麵包、喝咖啡。"
+    },
+    {
+      "legacy_index": 30,
+      "word": "저녁",
+      "proficiency_level": "1",
+      "example_sentence": "저녁에 가족과 식사해요.",
+      "example_translation": "晚上和家人吃飯。"
+    },
+    {
+      "legacy_index": 31,
+      "word": "밤",
+      "proficiency_level": "1",
+      "example_sentence": "밤에는 별이 잘 보여요.",
+      "example_translation": "晚上很清楚看得到星星。"
+    },
+    {
+      "legacy_index": 32,
+      "word": "지금",
+      "proficiency_level": "1",
+      "example_sentence": "지금 바로 출발할게요.",
+      "example_translation": "我現在馬上出發。"
+    },
+    {
+      "legacy_index": 33,
+      "word": "나중에",
+      "proficiency_level": "2",
+      "example_sentence": "나중에 다시 전화할게요.",
+      "example_translation": "我稍後再打電話。"
+    },
+    {
+      "legacy_index": 34,
+      "word": "여기",
+      "proficiency_level": "1",
+      "example_sentence": "여기에 앉아도 돼요?",
+      "example_translation": "可以坐在這裡嗎？"
+    },
+    {
+      "legacy_index": 35,
+      "word": "거기",
+      "proficiency_level": "1",
+      "example_sentence": "거기에 우산이 있어요.",
+      "example_translation": "那裡有一把傘。"
+    },
+    {
+      "legacy_index": 36,
+      "word": "어디",
+      "proficiency_level": "1",
+      "example_sentence": "화장실이 어디에 있어요?",
+      "example_translation": "洗手間在哪裡？"
+    },
+    {
+      "legacy_index": 37,
+      "word": "무엇",
+      "proficiency_level": "2",
+      "example_sentence": "무엇을 먹고 싶어요?",
+      "example_translation": "你想吃什麼？"
+    },
+    {
+      "legacy_index": 38,
+      "word": "왜",
+      "proficiency_level": "2",
+      "example_sentence": "왜 늦었어요?",
+      "example_translation": "為什麼遲到了？"
+    },
+    {
+      "legacy_index": 39,
+      "word": "누구",
+      "proficiency_level": "1",
+      "example_sentence": "문 앞에 누구 있어요?",
+      "example_translation": "門前有誰？"
+    },
+    {
+      "legacy_index": 40,
+      "word": "어떻게",
+      "proficiency_level": "2",
+      "example_sentence": "이 문제를 어떻게 풀어요?",
+      "example_translation": "這道題要怎麼解？"
+    },
+    {
+      "legacy_index": 41,
+      "word": "먹다",
+      "proficiency_level": "1",
+      "example_sentence": "저는 아침을 먹어요.",
+      "example_translation": "我吃早餐。"
+    },
+    {
+      "legacy_index": 42,
+      "word": "마시다",
+      "proficiency_level": "1",
+      "example_sentence": "물을 자주 마셔요.",
+      "example_translation": "我常常喝水。"
+    },
+    {
+      "legacy_index": 43,
+      "word": "가다",
+      "proficiency_level": "1",
+      "example_sentence": "주말에 부산에 가요.",
+      "example_translation": "週末去釜山。"
+    },
+    {
+      "legacy_index": 44,
+      "word": "오다",
+      "proficiency_level": "1",
+      "example_sentence": "친구가 우리 집에 와요.",
+      "example_translation": "朋友來我家。"
+    },
+    {
+      "legacy_index": 45,
+      "word": "보다",
+      "proficiency_level": "1",
+      "example_sentence": "주말에 영화를 봐요.",
+      "example_translation": "週末看電影。"
+    },
+    {
+      "legacy_index": 46,
+      "word": "듣다",
+      "proficiency_level": "1",
+      "example_sentence": "음악을 들으며 걸어요.",
+      "example_translation": "一邊聽音樂一邊走路。"
+    },
+    {
+      "legacy_index": 47,
+      "word": "말하다",
+      "proficiency_level": "1",
+      "example_sentence": "천천히 말해 주세요.",
+      "example_translation": "請慢慢說。"
+    },
+    {
+      "legacy_index": 48,
+      "word": "읽다",
+      "proficiency_level": "1",
+      "example_sentence": "매일 책을 읽어요.",
+      "example_translation": "每天讀書。"
+    },
+    {
+      "legacy_index": 49,
+      "word": "쓰다",
+      "proficiency_level": "1",
+      "example_sentence": "연필로 이름을 써요.",
+      "example_translation": "用鉛筆寫名字。"
+    },
+    {
+      "legacy_index": 50,
+      "word": "배우다",
+      "proficiency_level": "1",
+      "example_sentence": "한국어를 열심히 배워요.",
+      "example_translation": "努力學韓語。"
+    },
+    {
+      "legacy_index": 51,
+      "word": "공부하다",
+      "proficiency_level": "1",
+      "example_sentence": "도서관에서 공부해요.",
+      "example_translation": "在圖書館讀書。"
+    },
+    {
+      "legacy_index": 52,
+      "word": "일하다",
+      "proficiency_level": "1",
+      "example_sentence": "아버지는 병원에서 일해요.",
+      "example_translation": "爸爸在醫院工作。"
+    },
+    {
+      "legacy_index": 53,
+      "word": "자다",
+      "proficiency_level": "1",
+      "example_sentence": "밤 열한 시에 자요.",
+      "example_translation": "晚上十一點睡覺。"
+    },
+    {
+      "legacy_index": 54,
+      "word": "일어나다",
+      "proficiency_level": "1",
+      "example_sentence": "매일 일곱 시에 일어나요.",
+      "example_translation": "每天七點起床。"
+    },
+    {
+      "legacy_index": 55,
+      "word": "만나다",
+      "proficiency_level": "1",
+      "example_sentence": "토요일에 친구를 만나요.",
+      "example_translation": "星期六和朋友見面。"
+    },
+    {
+      "legacy_index": 56,
+      "word": "사다",
+      "proficiency_level": "1",
+      "example_sentence": "시장에 가서 과일을 사요.",
+      "example_translation": "去市場買水果。"
+    },
+    {
+      "legacy_index": 57,
+      "word": "팔다",
+      "proficiency_level": "1",
+      "example_sentence": "가게에서 빵을 팔아요.",
+      "example_translation": "在店裡賣麵包。"
+    },
+    {
+      "legacy_index": 58,
+      "word": "열다",
+      "proficiency_level": "1",
+      "example_sentence": "창문을 열어 주세요.",
+      "example_translation": "請打開窗戶。"
+    },
+    {
+      "legacy_index": 59,
+      "word": "닫다",
+      "proficiency_level": "1",
+      "example_sentence": "나가기 전에 문을 닫아요.",
+      "example_translation": "出門前把門關上。"
+    },
+    {
+      "legacy_index": 60,
+      "word": "앉다",
+      "proficiency_level": "1",
+      "example_sentence": "여기 앉으세요.",
+      "example_translation": "請坐這裡。"
+    },
+    {
+      "legacy_index": 61,
+      "word": "서다",
+      "proficiency_level": "1",
+      "example_sentence": "횡단보도 앞에 서 있어요.",
+      "example_translation": "站在斑馬線前。"
+    },
+    {
+      "legacy_index": 62,
+      "word": "걷다",
+      "proficiency_level": "1",
+      "example_sentence": "공원에서 천천히 걸어요.",
+      "example_translation": "在公園慢慢走路。"
+    },
+    {
+      "legacy_index": 63,
+      "word": "뛰다",
+      "proficiency_level": "1",
+      "example_sentence": "버스를 잡으려고 뛰었어요.",
+      "example_translation": "為了趕上公車而跑了起來。"
+    },
+    {
+      "legacy_index": 64,
+      "word": "좋다",
+      "proficiency_level": "1",
+      "example_sentence": "오늘 기분이 좋아요.",
+      "example_translation": "今天心情很好。"
+    },
+    {
+      "legacy_index": 65,
+      "word": "싫다",
+      "proficiency_level": "1",
+      "example_sentence": "저는 매운 음식을 싫어해요.",
+      "example_translation": "我不喜歡辣的食物。"
+    },
+    {
+      "legacy_index": 66,
+      "word": "크다",
+      "proficiency_level": "1",
+      "example_sentence": "이 가방은 너무 커요.",
+      "example_translation": "這個包包太大了。"
+    },
+    {
+      "legacy_index": 67,
+      "word": "작다",
+      "proficiency_level": "1",
+      "example_sentence": "방이 작지만 편안해요.",
+      "example_translation": "房間雖小但很舒適。"
+    },
+    {
+      "legacy_index": 68,
+      "word": "많다",
+      "proficiency_level": "1",
+      "example_sentence": "주말에는 할 일이 많아요.",
+      "example_translation": "週末有很多事情要做。"
+    },
+    {
+      "legacy_index": 69,
+      "word": "적다",
+      "proficiency_level": "1",
+      "example_sentence": "남은 시간이 적어요.",
+      "example_translation": "剩下的時間很少。"
+    },
+    {
+      "legacy_index": 70,
+      "word": "빠르다",
+      "proficiency_level": "1",
+      "example_sentence": "이 기차는 정말 빨라요.",
+      "example_translation": "這班火車真的很快。"
+    },
+    {
+      "legacy_index": 71,
+      "word": "느리다",
+      "proficiency_level": "1",
+      "example_sentence": "시계가 느리게 가요.",
+      "example_translation": "時鐘走得很慢。"
+    },
+    {
+      "legacy_index": 72,
+      "word": "쉽다",
+      "proficiency_level": "1",
+      "example_sentence": "이 문제는 생각보다 쉬워요.",
+      "example_translation": "這道題比想像中容易。"
+    },
+    {
+      "legacy_index": 73,
+      "word": "어렵다",
+      "proficiency_level": "2",
+      "example_sentence": "한국어 문법은 조금 어려워요.",
+      "example_translation": "韓語文法有點難。"
+    },
+    {
+      "legacy_index": 74,
+      "word": "덥다",
+      "proficiency_level": "1",
+      "example_sentence": "오늘은 날씨가 더워요.",
+      "example_translation": "今天的天氣很熱。"
+    },
+    {
+      "legacy_index": 75,
+      "word": "춥다",
+      "proficiency_level": "1",
+      "example_sentence": "겨울에는 날씨가 추워요.",
+      "example_translation": "冬天天氣很冷。"
+    },
+    {
+      "legacy_index": 76,
+      "word": "맛있다",
+      "proficiency_level": "1",
+      "example_sentence": "이 음식은 정말 맛있어요.",
+      "example_translation": "這道食物真的很好吃。"
+    },
+    {
+      "legacy_index": 77,
+      "word": "맛없다",
+      "proficiency_level": "1",
+      "example_sentence": "이 국은 너무 맛없어요.",
+      "example_translation": "這碗湯太難吃了。"
+    },
+    {
+      "legacy_index": 78,
+      "word": "예쁘다",
+      "proficiency_level": "1",
+      "example_sentence": "꽃이 정말 예뻐요.",
+      "example_translation": "花真的很漂亮。"
+    },
+    {
+      "legacy_index": 79,
+      "word": "멋있다",
+      "proficiency_level": "1",
+      "example_sentence": "그 배우는 정말 멋있어요.",
+      "example_translation": "那位演員真的很帥。"
+    },
+    {
+      "legacy_index": 80,
+      "word": "아프다",
+      "proficiency_level": "1",
+      "example_sentence": "감기에 걸려서 몸이 아파요.",
+      "example_translation": "因為感冒，身體不舒服。"
+    },
+    {
+      "legacy_index": 81,
+      "word": "피곤하다",
+      "proficiency_level": "1",
+      "example_sentence": "오늘은 너무 피곤해요.",
+      "example_translation": "今天太累了。"
+    },
+    {
+      "legacy_index": 82,
+      "word": "행복하다",
+      "proficiency_level": "2",
+      "example_sentence": "가족과 함께 있으면 행복해요.",
+      "example_translation": "和家人在一起就很幸福。"
+    },
+    {
+      "legacy_index": 83,
+      "word": "바쁘다",
+      "proficiency_level": "1",
+      "example_sentence": "이번 주는 일이 바빠요.",
+      "example_translation": "這週工作很忙。"
+    },
+    {
+      "legacy_index": 84,
+      "word": "조용하다",
+      "proficiency_level": "1",
+      "example_sentence": "도서관은 아주 조용해요.",
+      "example_translation": "圖書館非常安靜。"
+    },
+    {
+      "legacy_index": 85,
+      "word": "시끄럽다",
+      "proficiency_level": "2",
+      "example_sentence": "밖이 너무 시끄러워요.",
+      "example_translation": "外面太吵了。"
+    },
+    {
+      "legacy_index": 86,
+      "word": "비",
+      "proficiency_level": "1",
+      "example_sentence": "아침부터 비가 와요.",
+      "example_translation": "從早上開始就在下雨。"
+    },
+    {
+      "legacy_index": 87,
+      "word": "눈",
+      "proficiency_level": "1",
+      "example_sentence": "겨울에는 눈이 많이 와요.",
+      "example_translation": "冬天常常下很多雪。"
+    },
+    {
+      "legacy_index": 88,
+      "word": "바람",
+      "proficiency_level": "1",
+      "example_sentence": "바람이 많이 불어요.",
+      "example_translation": "風刮得很大。"
+    },
+    {
+      "legacy_index": 89,
+      "word": "하늘",
+      "proficiency_level": "1",
+      "example_sentence": "오늘 하늘이 맑아요.",
+      "example_translation": "今天天空很晴朗。"
+    },
+    {
+      "legacy_index": 90,
+      "word": "바다",
+      "proficiency_level": "1",
+      "example_sentence": "여름에는 바다에 가고 싶어요.",
+      "example_translation": "夏天想去海邊。"
+    },
+    {
+      "legacy_index": 91,
+      "word": "산",
+      "proficiency_level": "1",
+      "example_sentence": "주말에 산에 올라갔어요.",
+      "example_translation": "週末爬了山。"
+    },
+    {
+      "legacy_index": 92,
+      "word": "길",
+      "proficiency_level": "1",
+      "example_sentence": "이 길로 계속 가세요.",
+      "example_translation": "請沿著這條路繼續走。"
+    },
+    {
+      "legacy_index": 93,
+      "word": "왼쪽",
+      "proficiency_level": "1",
+      "example_sentence": "은행은 왼쪽에 있어요.",
+      "example_translation": "銀行在左邊。"
+    },
+    {
+      "legacy_index": 94,
+      "word": "오른쪽",
+      "proficiency_level": "1",
+      "example_sentence": "편의점은 오른쪽에 있어요.",
+      "example_translation": "便利商店在右邊。"
+    },
+    {
+      "legacy_index": 95,
+      "word": "앞",
+      "proficiency_level": "1",
+      "example_sentence": "앞에 큰 건물이 보여요.",
+      "example_translation": "前面看得到一棟大樓。"
+    },
+    {
+      "legacy_index": 96,
+      "word": "뒤",
+      "proficiency_level": "1",
+      "example_sentence": "제 뒤에 줄을 서세요.",
+      "example_translation": "請排在我後面。"
+    },
+    {
+      "legacy_index": 97,
+      "word": "위",
+      "proficiency_level": "1",
+      "example_sentence": "책상 위에 컵이 있어요.",
+      "example_translation": "桌子上面有杯子。"
+    },
+    {
+      "legacy_index": 98,
+      "word": "아래",
+      "proficiency_level": "1",
+      "example_sentence": "의자 아래에 가방이 있어요.",
+      "example_translation": "椅子下面有包包。"
+    },
+    {
+      "legacy_index": 99,
+      "word": "물건",
+      "proficiency_level": "2",
+      "example_sentence": "잃어버린 물건을 찾았어요.",
+      "example_translation": "找到了遺失的物品。"
+    }
+  ]
+}

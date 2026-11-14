@@ -94,10 +94,51 @@ test('CSV protects formula-like values', () => {
 test('export includes canonical tags and can be parsed back', () => {
   const rows = [{word:'hello', roman:'/h/', hint:'h', meaning:'你好', topic:'greetings', difficulty:2, published:true, position:4, id:'c1'}];
   const sheet = parser.rowsToSheet(rows);
-  assert.deepEqual(sheet[0], ['word','roman','hint','meaning','cue','topic','difficulty','published','position','id']);
+  assert.deepEqual(sheet[0], ['word','roman','hint','meaning','cue','topic','difficulty','proficiency_level','example_sentence','example_translation','published','position','id']);
   const parsed = parser.parseRows(sheet);
   assert.equal(parsed.errors.length, 0);
-  assert.deepEqual(parsed.rows[0], {...rows[0], cue:'', _row: 2});
+  assert.deepEqual(parsed.rows[0], {...rows[0], cue:'', example_sentence:'', example_translation:'', _row: 2});
+  assert.equal(Object.hasOwn(parsed.rows[0], 'proficiency_level'), false);
   assert.match(parser.rowsToCsv(rows), /"topic"/);
   assert.match(parser.rowsToCsv(rows), /"greetings"/);
+});
+
+
+test('roundtrips proficiency and paired examples using aliases', () => {
+  const sheet = [['單字','諧音','中文意思','程度','原文例句','繁中翻譯'], ['hola','歐啦','你好','A1','Hola, Ana.','你好，安娜。']];
+  const parsed = parser.parseRows(sheet, {deck:{lang:'es'}});
+  assert.equal(parsed.errors.length, 0);
+  assert.deepEqual(parsed.rows[0], {word:'hola',hint:'歐啦',meaning:'你好',proficiency_level:'A1',example_sentence:'Hola, Ana.',example_translation:'你好，安娜。',_row:2});
+  const exported = parser.rowsToSheet(parsed.rows);
+  const reparsed = parser.parseRows(exported, {deck:{lang:'es'}});
+  assert.equal(reparsed.errors.length, 0);
+  assert.equal(reparsed.rows[0].proficiency_level, 'A1');
+  assert.equal(reparsed.rows[0].example_translation, '你好，安娜。');
+});
+
+test('validates levels against selected CEFR, JLPT, TOPIK and legacy schemes', () => {
+  assert.equal(parser.parseRows([['word','hint','meaning','proficiency_level'],['x','h','m','N5']], {deck:{lang:'en'}}).errors.length, 1);
+  assert.equal(parser.parseRows([['word','hint','meaning','proficiency_level'],['x','h','m','N5']], {deck:{lang:'ja'}}).errors.length, 0);
+  assert.equal(parser.parseRows([['word','hint','meaning','proficiency_level'],['x','h','m','6']], {deck:{lang:'ko'}}).errors.length, 0);
+  assert.equal(parser.parseRows([['word','hint','meaning','proficiency_level'],['x','h','m','4']], {deck:{lang:'id'}}).errors.length, 1);
+  assert.equal(parser.parseRows([['word','hint','meaning','proficiency_level'],['x','h','m','1']], {deck:{lang:'id'}}).errors.length, 1);
+});
+
+test('requires paired examples but permits both explicit blanks to clear', () => {
+  const one = parser.parseRows([['word','hint','meaning','example_sentence','example_translation'],['x','h','m','Hello','']]);
+  assert.ok(one.errors.some(e => e.message.includes('成對')));
+  const blank = parser.parseRows([['word','hint','meaning','example_sentence','example_translation'],['x','h','m','','']]);
+  assert.equal(blank.errors.length, 0);
+  assert.deepEqual([blank.rows[0].example_sentence, blank.rows[0].example_translation], ['', '']);
+  const omitted = parser.parseRows([['word','hint','meaning','proficiency_level'],['x','h','m','']]);
+  assert.equal(omitted.errors.length, 0);
+  assert.equal(Object.hasOwn(omitted.rows[0], 'proficiency_level'), false);
+});
+
+test('legacy difficulty remains 1-3 and does not require proficiency', () => {
+  const good = parser.parseRows([['word','hint','meaning','difficulty'],['x','h','m','挑戰']], {deck:{lang:'vi'}});
+  assert.equal(good.errors.length, 0);
+  assert.equal(good.rows[0].difficulty, 3);
+  const bad = parser.parseRows([['word','hint','meaning','difficulty'],['x','h','m','4']], {deck:{lang:'vi'}});
+  assert.equal(bad.errors.length, 1);
 });

@@ -1,0 +1,706 @@
+{
+  "deck_id": "id",
+  "level_scheme": "legacy",
+  "cards": [
+    {
+      "legacy_index": 0,
+      "word": "halo",
+      "proficiency_level": null,
+      "example_sentence": "Halo, apa kabar?",
+      "example_translation": "你好嗎？"
+    },
+    {
+      "legacy_index": 1,
+      "word": "terima kasih",
+      "proficiency_level": null,
+      "example_sentence": "Terima kasih atas bantuanmu.",
+      "example_translation": "謝謝你的幫忙。"
+    },
+    {
+      "legacy_index": 2,
+      "word": "air",
+      "proficiency_level": null,
+      "example_sentence": "Saya minum air setelah berlari.",
+      "example_translation": "我跑步後喝水。"
+    },
+    {
+      "legacy_index": 3,
+      "word": "selamat pagi",
+      "proficiency_level": null,
+      "example_sentence": "Selamat pagi, Bu Guru.",
+      "example_translation": "老師，早安。"
+    },
+    {
+      "legacy_index": 4,
+      "word": "selamat malam",
+      "proficiency_level": null,
+      "example_sentence": "Selamat malam, sampai jumpa besok.",
+      "example_translation": "晚安，明天見。"
+    },
+    {
+      "legacy_index": 5,
+      "word": "sampai jumpa",
+      "proficiency_level": null,
+      "example_sentence": "Sampai jumpa di sekolah besok.",
+      "example_translation": "明天在學校見。"
+    },
+    {
+      "legacy_index": 6,
+      "word": "tolong",
+      "proficiency_level": null,
+      "example_sentence": "Tolong bukakan pintunya.",
+      "example_translation": "請幫忙開門。"
+    },
+    {
+      "legacy_index": 7,
+      "word": "maaf",
+      "proficiency_level": null,
+      "example_sentence": "Maaf, saya terlambat.",
+      "example_translation": "抱歉，我遲到了。"
+    },
+    {
+      "legacy_index": 8,
+      "word": "permisi",
+      "proficiency_level": null,
+      "example_sentence": "Permisi, boleh saya lewat?",
+      "example_translation": "借過，我可以通過嗎？"
+    },
+    {
+      "legacy_index": 9,
+      "word": "ya",
+      "proficiency_level": null,
+      "example_sentence": "Ya, saya setuju.",
+      "example_translation": "好，我同意。"
+    },
+    {
+      "legacy_index": 10,
+      "word": "tidak",
+      "proficiency_level": null,
+      "example_sentence": "Tidak, saya tidak lapar.",
+      "example_translation": "不，我不餓。"
+    },
+    {
+      "legacy_index": 11,
+      "word": "mungkin",
+      "proficiency_level": null,
+      "example_sentence": "Mungkin dia datang sore ini.",
+      "example_translation": "他可能今天下午會來。"
+    },
+    {
+      "legacy_index": 12,
+      "word": "tentu",
+      "proficiency_level": null,
+      "example_sentence": "Tentu, saya akan membantu.",
+      "example_translation": "當然，我會幫忙。"
+    },
+    {
+      "legacy_index": 13,
+      "word": "apa kabar?",
+      "proficiency_level": null,
+      "example_sentence": "Apa kabar hari ini?",
+      "example_translation": "你今天好嗎？"
+    },
+    {
+      "legacy_index": 14,
+      "word": "nama saya...",
+      "proficiency_level": null,
+      "example_sentence": "Nama saya Rina.",
+      "example_translation": "我的名字是莉娜。"
+    },
+    {
+      "legacy_index": 15,
+      "word": "siapa?",
+      "proficiency_level": null,
+      "example_sentence": "Siapa yang mengetuk pintu?",
+      "example_translation": "誰在敲門？"
+    },
+    {
+      "legacy_index": 16,
+      "word": "apa?",
+      "proficiency_level": null,
+      "example_sentence": "Apa yang kamu cari?",
+      "example_translation": "你在找什麼？"
+    },
+    {
+      "legacy_index": 17,
+      "word": "di mana?",
+      "proficiency_level": null,
+      "example_sentence": "Di mana stasiun kereta?",
+      "example_translation": "火車站在哪裡？"
+    },
+    {
+      "legacy_index": 18,
+      "word": "kapan?",
+      "proficiency_level": null,
+      "example_sentence": "Kapan kamu pulang?",
+      "example_translation": "你什麼時候回家？"
+    },
+    {
+      "legacy_index": 19,
+      "word": "mengapa?",
+      "proficiency_level": null,
+      "example_sentence": "Mengapa kamu menangis?",
+      "example_translation": "你為什麼哭？"
+    },
+    {
+      "legacy_index": 20,
+      "word": "berapa?",
+      "proficiency_level": null,
+      "example_sentence": "Berapa harga buku ini?",
+      "example_translation": "這本書多少錢？"
+    },
+    {
+      "legacy_index": 21,
+      "word": "saya",
+      "proficiency_level": null,
+      "example_sentence": "Saya tinggal di Taipei.",
+      "example_translation": "我住在臺北。"
+    },
+    {
+      "legacy_index": 22,
+      "word": "kamu",
+      "proficiency_level": null,
+      "example_sentence": "Kamu sudah makan?",
+      "example_translation": "你吃飯了嗎？"
+    },
+    {
+      "legacy_index": 23,
+      "word": "dia",
+      "proficiency_level": null,
+      "example_sentence": "Dia sedang membaca buku.",
+      "example_translation": "他正在看書。"
+    },
+    {
+      "legacy_index": 24,
+      "word": "kami",
+      "proficiency_level": null,
+      "example_sentence": "Kami pergi tanpa kamu.",
+      "example_translation": "我們不包含你一起去。"
+    },
+    {
+      "legacy_index": 25,
+      "word": "kita",
+      "proficiency_level": null,
+      "example_sentence": "Kita belajar bersama malam ini.",
+      "example_translation": "我們今晚一起學習。"
+    },
+    {
+      "legacy_index": 26,
+      "word": "mereka",
+      "proficiency_level": null,
+      "example_sentence": "Mereka bermain di taman.",
+      "example_translation": "他們在公園玩。"
+    },
+    {
+      "legacy_index": 27,
+      "word": "ini",
+      "proficiency_level": null,
+      "example_sentence": "Buku ini sangat menarik.",
+      "example_translation": "這本書很有趣。"
+    },
+    {
+      "legacy_index": 28,
+      "word": "itu",
+      "proficiency_level": null,
+      "example_sentence": "Saya memilih kursi itu.",
+      "example_translation": "我選那張椅子。"
+    },
+    {
+      "legacy_index": 29,
+      "word": "besar",
+      "proficiency_level": null,
+      "example_sentence": "Rumah itu sangat besar.",
+      "example_translation": "那棟房子很大。"
+    },
+    {
+      "legacy_index": 30,
+      "word": "kecil",
+      "proficiency_level": null,
+      "example_sentence": "Kamar ini cukup kecil.",
+      "example_translation": "這個房間相當小。"
+    },
+    {
+      "legacy_index": 31,
+      "word": "panjang",
+      "proficiency_level": null,
+      "example_sentence": "Jalan ini sangat panjang.",
+      "example_translation": "這條路很長。"
+    },
+    {
+      "legacy_index": 32,
+      "word": "pendek",
+      "proficiency_level": null,
+      "example_sentence": "Pidatonya sangat pendek.",
+      "example_translation": "他的演講很短。"
+    },
+    {
+      "legacy_index": 33,
+      "word": "baru",
+      "proficiency_level": null,
+      "example_sentence": "Saya membeli sepatu baru.",
+      "example_translation": "我買了新鞋。"
+    },
+    {
+      "legacy_index": 34,
+      "word": "lama",
+      "proficiency_level": null,
+      "example_sentence": "Kami tinggal di hotel lama.",
+      "example_translation": "我們住在老飯店。"
+    },
+    {
+      "legacy_index": 35,
+      "word": "baik",
+      "proficiency_level": null,
+      "example_sentence": "Hari ini cuacanya baik.",
+      "example_translation": "今天天氣很好。"
+    },
+    {
+      "legacy_index": 36,
+      "word": "buruk",
+      "proficiency_level": null,
+      "example_sentence": "Cuaca buruk menunda penerbangan.",
+      "example_translation": "糟糕的天氣讓航班延誤。"
+    },
+    {
+      "legacy_index": 37,
+      "word": "panas",
+      "proficiency_level": null,
+      "example_sentence": "Sup ini masih panas.",
+      "example_translation": "這碗湯還很熱。"
+    },
+    {
+      "legacy_index": 38,
+      "word": "dingin",
+      "proficiency_level": null,
+      "example_sentence": "Air kolam itu dingin.",
+      "example_translation": "那座池塘的水很冷。"
+    },
+    {
+      "legacy_index": 39,
+      "word": "cepat",
+      "proficiency_level": null,
+      "example_sentence": "Kereta ini sangat cepat.",
+      "example_translation": "這班火車很快。"
+    },
+    {
+      "legacy_index": 40,
+      "word": "lambat",
+      "proficiency_level": null,
+      "example_sentence": "Internet di sini lambat.",
+      "example_translation": "這裡的網路很慢。"
+    },
+    {
+      "legacy_index": 41,
+      "word": "mudah",
+      "proficiency_level": null,
+      "example_sentence": "Soal ini mudah bagi saya.",
+      "example_translation": "這題對我來說很容易。"
+    },
+    {
+      "legacy_index": 42,
+      "word": "sulit",
+      "proficiency_level": null,
+      "example_sentence": "Bahasa Indonesia tidak sulit.",
+      "example_translation": "印尼語並不難。"
+    },
+    {
+      "legacy_index": 43,
+      "word": "rumah",
+      "proficiency_level": null,
+      "example_sentence": "Saya pulang ke rumah sore ini.",
+      "example_translation": "我今天下午回家。"
+    },
+    {
+      "legacy_index": 44,
+      "word": "kamar",
+      "proficiency_level": null,
+      "example_sentence": "Kamar saya bersih dan nyaman.",
+      "example_translation": "我的房間乾淨又舒適。"
+    },
+    {
+      "legacy_index": 45,
+      "word": "pintu",
+      "proficiency_level": null,
+      "example_sentence": "Tolong tutup pintu itu.",
+      "example_translation": "請關上那扇門。"
+    },
+    {
+      "legacy_index": 46,
+      "word": "jendela",
+      "proficiency_level": null,
+      "example_sentence": "Saya membuka jendela pagi tadi.",
+      "example_translation": "我今天早上打開窗戶。"
+    },
+    {
+      "legacy_index": 47,
+      "word": "meja",
+      "proficiency_level": null,
+      "example_sentence": "Buku itu ada di atas meja.",
+      "example_translation": "那本書在桌上。"
+    },
+    {
+      "legacy_index": 48,
+      "word": "kursi",
+      "proficiency_level": null,
+      "example_sentence": "Silakan duduk di kursi ini.",
+      "example_translation": "請坐這張椅子。"
+    },
+    {
+      "legacy_index": 49,
+      "word": "buku",
+      "proficiency_level": null,
+      "example_sentence": "Saya membaca buku sebelum tidur.",
+      "example_translation": "我睡前看書。"
+    },
+    {
+      "legacy_index": 50,
+      "word": "pena",
+      "proficiency_level": null,
+      "example_sentence": "Pena ini milik saya.",
+      "example_translation": "這支筆是我的。"
+    },
+    {
+      "legacy_index": 51,
+      "word": "tas",
+      "proficiency_level": null,
+      "example_sentence": "Tas saya tertinggal di bus.",
+      "example_translation": "我的包包忘在公車上了。"
+    },
+    {
+      "legacy_index": 52,
+      "word": "kunci",
+      "proficiency_level": null,
+      "example_sentence": "Kunci rumah ada di meja.",
+      "example_translation": "房子的鑰匙在桌上。"
+    },
+    {
+      "legacy_index": 53,
+      "word": "telepon",
+      "proficiency_level": null,
+      "example_sentence": "Telepon saya berdering terus.",
+      "example_translation": "我的電話一直響。"
+    },
+    {
+      "legacy_index": 54,
+      "word": "komputer",
+      "proficiency_level": null,
+      "example_sentence": "Komputer kantor sedang diperbaiki.",
+      "example_translation": "辦公室的電腦正在維修。"
+    },
+    {
+      "legacy_index": 55,
+      "word": "mobil",
+      "proficiency_level": null,
+      "example_sentence": "Ayah mencuci mobil setiap minggu.",
+      "example_translation": "爸爸每週洗車。"
+    },
+    {
+      "legacy_index": 56,
+      "word": "sepeda",
+      "proficiency_level": null,
+      "example_sentence": "Saya pergi ke pasar dengan sepeda.",
+      "example_translation": "我騎腳踏車去市場。"
+    },
+    {
+      "legacy_index": 57,
+      "word": "jalan",
+      "proficiency_level": null,
+      "example_sentence": "Jalan ini menuju ke pusat kota.",
+      "example_translation": "這條路通往市中心。"
+    },
+    {
+      "legacy_index": 58,
+      "word": "kota",
+      "proficiency_level": null,
+      "example_sentence": "Kota itu ramai pada malam hari.",
+      "example_translation": "那座城市晚上很熱鬧。"
+    },
+    {
+      "legacy_index": 59,
+      "word": "sekolah",
+      "proficiency_level": null,
+      "example_sentence": "Anak-anak pergi ke sekolah pagi-pagi.",
+      "example_translation": "孩子們一大早就去學校。"
+    },
+    {
+      "legacy_index": 60,
+      "word": "kantor",
+      "proficiency_level": null,
+      "example_sentence": "Saya bekerja di kantor pusat.",
+      "example_translation": "我在總公司辦公室工作。"
+    },
+    {
+      "legacy_index": 61,
+      "word": "toko",
+      "proficiency_level": null,
+      "example_sentence": "Toko itu buka pukul sembilan.",
+      "example_translation": "那家商店九點開門。"
+    },
+    {
+      "legacy_index": 62,
+      "word": "pasar",
+      "proficiency_level": null,
+      "example_sentence": "Kami membeli sayur di pasar.",
+      "example_translation": "我們在市場買蔬菜。"
+    },
+    {
+      "legacy_index": 63,
+      "word": "rumah sakit",
+      "proficiency_level": null,
+      "example_sentence": "Dia dibawa ke rumah sakit.",
+      "example_translation": "他被送到醫院。"
+    },
+    {
+      "legacy_index": 64,
+      "word": "stasiun",
+      "proficiency_level": null,
+      "example_sentence": "Kami menunggu kereta di stasiun.",
+      "example_translation": "我們在車站等火車。"
+    },
+    {
+      "legacy_index": 65,
+      "word": "bandara",
+      "proficiency_level": null,
+      "example_sentence": "Pesawat tiba di bandara siang ini.",
+      "example_translation": "飛機今天中午抵達機場。"
+    },
+    {
+      "legacy_index": 66,
+      "word": "restoran",
+      "proficiency_level": null,
+      "example_sentence": "Restoran itu menyajikan makanan lokal.",
+      "example_translation": "那間餐廳供應當地料理。"
+    },
+    {
+      "legacy_index": 67,
+      "word": "kafe",
+      "proficiency_level": null,
+      "example_sentence": "Kami bertemu di kafe dekat kantor.",
+      "example_translation": "我們在辦公室附近的咖啡館見面。"
+    },
+    {
+      "legacy_index": 68,
+      "word": "tandas",
+      "proficiency_level": null,
+      "example_sentence": "Di mana letak tandas?",
+      "example_translation": "廁所在哪裡？"
+    },
+    {
+      "legacy_index": 69,
+      "word": "tangan",
+      "proficiency_level": null,
+      "example_sentence": "Tangannya terluka saat memasak.",
+      "example_translation": "他煮飯時手受傷了。"
+    },
+    {
+      "legacy_index": 70,
+      "word": "kaki",
+      "proficiency_level": null,
+      "example_sentence": "Kaki saya sakit setelah berjalan jauh.",
+      "example_translation": "我走很遠的路後腳很痛。"
+    },
+    {
+      "legacy_index": 71,
+      "word": "kepala",
+      "proficiency_level": null,
+      "example_sentence": "Kepala saya terasa pusing.",
+      "example_translation": "我覺得頭很暈。"
+    },
+    {
+      "legacy_index": 72,
+      "word": "mata",
+      "proficiency_level": null,
+      "example_sentence": "Mata saya perih karena debu.",
+      "example_translation": "我的眼睛因灰塵而刺痛。"
+    },
+    {
+      "legacy_index": 73,
+      "word": "telinga",
+      "proficiency_level": null,
+      "example_sentence": "Telinga saya sakit sejak kemarin.",
+      "example_translation": "我的耳朵從昨天起就痛。"
+    },
+    {
+      "legacy_index": 74,
+      "word": "mulut",
+      "proficiency_level": null,
+      "example_sentence": "Jangan berbicara dengan mulut penuh.",
+      "example_translation": "不要嘴裡塞滿東西說話。"
+    },
+    {
+      "legacy_index": 75,
+      "word": "hidung",
+      "proficiency_level": null,
+      "example_sentence": "Hidungnya memerah karena cuaca dingin.",
+      "example_translation": "他的鼻子因天氣冷而發紅。"
+    },
+    {
+      "legacy_index": 76,
+      "word": "rambut",
+      "proficiency_level": null,
+      "example_sentence": "Rambutnya dipotong pendek.",
+      "example_translation": "他的頭髮剪短了。"
+    },
+    {
+      "legacy_index": 77,
+      "word": "baju",
+      "proficiency_level": null,
+      "example_sentence": "Baju ini cocok untuk pesta.",
+      "example_translation": "這件上衣適合參加派對。"
+    },
+    {
+      "legacy_index": 78,
+      "word": "celana",
+      "proficiency_level": null,
+      "example_sentence": "Celana hitam itu nyaman dipakai.",
+      "example_translation": "那件黑褲子穿起來很舒服。"
+    },
+    {
+      "legacy_index": 79,
+      "word": "sepatu",
+      "proficiency_level": null,
+      "example_sentence": "Sepatu ini terlalu sempit.",
+      "example_translation": "這雙鞋太窄了。"
+    },
+    {
+      "legacy_index": 80,
+      "word": "topi",
+      "proficiency_level": null,
+      "example_sentence": "Saya memakai topi di bawah matahari.",
+      "example_translation": "我在陽光下戴帽子。"
+    },
+    {
+      "legacy_index": 81,
+      "word": "makan",
+      "proficiency_level": null,
+      "example_sentence": "Kami makan bersama di rumah.",
+      "example_translation": "我們在家一起吃飯。"
+    },
+    {
+      "legacy_index": 82,
+      "word": "minum",
+      "proficiency_level": null,
+      "example_sentence": "Jangan lupa minum air.",
+      "example_translation": "別忘了喝水。"
+    },
+    {
+      "legacy_index": 83,
+      "word": "nasi",
+      "proficiency_level": null,
+      "example_sentence": "Saya makan nasi dengan ayam.",
+      "example_translation": "我吃雞肉配白飯。"
+    },
+    {
+      "legacy_index": 84,
+      "word": "roti",
+      "proficiency_level": null,
+      "example_sentence": "Roti ini baru dipanggang.",
+      "example_translation": "這個麵包是剛烤好的。"
+    },
+    {
+      "legacy_index": 85,
+      "word": "sayur",
+      "proficiency_level": null,
+      "example_sentence": "Ibu menambahkan sayur ke sup.",
+      "example_translation": "媽媽把蔬菜加進湯裡。"
+    },
+    {
+      "legacy_index": 86,
+      "word": "daging",
+      "proficiency_level": null,
+      "example_sentence": "Kami membeli daging segar.",
+      "example_translation": "我們買了新鮮的肉。"
+    },
+    {
+      "legacy_index": 87,
+      "word": "ikan",
+      "proficiency_level": null,
+      "example_sentence": "Ikan itu dimasak dengan bumbu.",
+      "example_translation": "那條魚用香料料理。"
+    },
+    {
+      "legacy_index": 88,
+      "word": "telur",
+      "proficiency_level": null,
+      "example_sentence": "Saya merebus telur untuk sarapan.",
+      "example_translation": "我煮蛋當早餐。"
+    },
+    {
+      "legacy_index": 89,
+      "word": "buah",
+      "proficiency_level": null,
+      "example_sentence": "Buah segar baik untuk kesehatan.",
+      "example_translation": "新鮮水果對健康有益。"
+    },
+    {
+      "legacy_index": 90,
+      "word": "kopi",
+      "proficiency_level": null,
+      "example_sentence": "Ayah minum kopi setiap pagi.",
+      "example_translation": "爸爸每天早上喝咖啡。"
+    },
+    {
+      "legacy_index": 91,
+      "word": "teh",
+      "proficiency_level": null,
+      "example_sentence": "Nenek suka minum teh hangat.",
+      "example_translation": "奶奶喜歡喝溫茶。"
+    },
+    {
+      "legacy_index": 92,
+      "word": "gula",
+      "proficiency_level": null,
+      "example_sentence": "Tambahkan sedikit gula ke dalam teh.",
+      "example_translation": "在茶裡加一點糖。"
+    },
+    {
+      "legacy_index": 93,
+      "word": "garam",
+      "proficiency_level": null,
+      "example_sentence": "Sup ini kurang garam.",
+      "example_translation": "這碗湯鹽不夠。"
+    },
+    {
+      "legacy_index": 94,
+      "word": "enak",
+      "proficiency_level": null,
+      "example_sentence": "Masakanmu sangat enak.",
+      "example_translation": "你做的菜非常美味。"
+    },
+    {
+      "legacy_index": 95,
+      "word": "suka",
+      "proficiency_level": null,
+      "example_sentence": "Saya suka membaca pada malam hari.",
+      "example_translation": "我喜歡在晚上閱讀。"
+    },
+    {
+      "legacy_index": 96,
+      "word": "senang",
+      "proficiency_level": null,
+      "example_sentence": "Anak itu senang mendapat hadiah.",
+      "example_translation": "那個孩子收到禮物很開心。"
+    },
+    {
+      "legacy_index": 97,
+      "word": "sedih",
+      "proficiency_level": null,
+      "example_sentence": "Dia sedih karena kehilangan kucingnya.",
+      "example_translation": "他因為弄丟貓而難過。"
+    },
+    {
+      "legacy_index": 98,
+      "word": "bekerja",
+      "proficiency_level": null,
+      "example_sentence": "Saya bekerja dari rumah hari ini.",
+      "example_translation": "我今天在家工作。"
+    },
+    {
+      "legacy_index": 99,
+      "word": "belajar",
+      "proficiency_level": null,
+      "example_sentence": "Mereka belajar bahasa Indonesia bersama.",
+      "example_translation": "他們一起學習印尼語。"
+    }
+  ]
+}

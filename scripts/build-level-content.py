@@ -1,0 +1,119 @@
+#!/usr/bin/env python3
+"""Merge reviewed content metadata without changing original cards or progress identifiers."""
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+ALLOWED = {
+    'cefr': {'A1', 'A2', 'B1', 'B2', 'C1', 'C2'},
+    'jlpt': {'N5', 'N4', 'N3', 'N2', 'N1'},
+    'topik': {'1', '2', '3', '4', '5', '6'},
+    'legacy': {None},
+}
+CARD_KEYS = {'legacy_index', 'word', 'proficiency_level', 'example_sentence', 'example_translation'}
+FIELDS = ('proficiency_level', 'example_sentence', 'example_translation')
+
+
+def scheme(deck: dict) -> str:
+    lang = (deck.get('lang') or deck['id']).lower().replace('_', '-').split('-')[0]
+    if lang in {'en', 'es', 'fr', 'de', 'pt', 'it'}:
+        return 'cefr'
+    return {'ja': 'jlpt', 'ko': 'topik'}.get(lang, 'legacy')
+
+
+def embedded(path: Path) -> tuple[str, list[dict], int, int]:
+    text = path.read_text(encoding='utf-8')
+    start = text.index('const decks =') + len('const decks =')
+    while text[start].isspace():
+        start += 1
+    decks, end = json.JSONDecoder().raw_decode(text[start:])
+    return text, decks, start, start + end
+
+
+def read_content(deck: dict) -> list[dict]:
+    path = ROOT / 'content' / f"{deck['id']}.json"
+    data = json.loads(path.read_text(encoding='utf-8'))
+    expected_scheme = scheme(deck)
+    if data.get('deck_id') != deck['id'] or data.get('level_scheme') != expected_scheme:
+        raise ValueError(f'{path}: deck or scheme mismatch')
+    rows = data.get('cards', [])
+    if len(rows) != len(deck['cards']) or len(rows) != 100:
+        raise ValueError(f'{path}: expected 100 matching cards')
+    for i, (row, card) in enumerate(zip(rows, deck['cards'])):
+        if set(row) != CARD_KEYS or row['legacy_index'] != i or row['word'] != card['word']:
+            raise ValueError(f'{path}: original card mismatch at {i}')
+        if row['proficiency_level'] not in ALLOWED[expected_scheme]:
+            raise ValueError(f'{path}: invalid level at {i}: {row["proficiency_level"]!r}')
+        for field in ('example_sentence', 'example_translation'):
+            value = row[field]
+            if not isinstance(value, str) or not value.strip() or len(value) > 500:
+                raise ValueError(f'{path}: invalid {field} at {i}')
+            if any(markup in value for markup in ('<script', '```', '{{secret:')):
+                raise ValueError(f'{path}: unexpected markup at {i}')
+    return rows
+
+
+def sql_string(value: str) -> str:
+    return "'" + value.replace("'", "''") + "'"
+
+
+def update_statement(deck: dict, rows: list[dict]) -> str:
+    payload = json.dumps(rows, ensure_ascii=False, separators=(',', ':'))
+    return f"""-- {deck['id']}: exact original deck/index/word match; existing authored metadata wins.
+with content as (
+  select * from jsonb_to_recordset({sql_string(payload)}::jsonb)
+  as x(legacy_index integer, word text, proficiency_level text, example_sentence text, example_translation text)
+)
+update public.phonetic_cards as c
+set proficiency_level = coalesce(c.proficiency_level, x.proficiency_level),
+    example_sentence = case when btrim(c.example_sentence) = '' and btrim(c.example_translation) = '' then x.example_sentence else c.example_sentence end,
+    example_translation = case when btrim(c.example_sentence) = '' and btrim(c.example_translation) = '' then x.example_translation else c.example_translation end
+from content as x
+where c.deck_id = {sql_string(deck['id'])}
+  and c.legacy_index = x.legacy_index and c.word = x.word
+  and ((c.proficiency_level is null and x.proficiency_level is not null)
+       or (btrim(c.example_sentence) = '' and btrim(c.example_translation) = ''));
+"""
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--check', action='store_true', help='Validate generated files without writing')
+    parser.add_argument('--parts-dir', type=Path, help='Optional private SQL parts for dashboard uploads')
+    args = parser.parse_args()
+    source = ROOT / 'index.html'
+    text, decks, start, end = embedded(source)
+    if len(decks) != 12:
+        raise ValueError('expected 12 decks')
+    statements = []
+    changed = 0
+    for deck in decks:
+        rows = read_content(deck)
+        for card, row in zip(deck['cards'], rows):
+            for field in FIELDS:
+                if args.check and card.get(field) != row[field]:
+                    raise ValueError(f'embedded data is stale: {deck["id"]} {row["legacy_index"]} {field}')
+                if card.get(field) != row[field]:
+                    changed += 1
+                card[field] = row[field]
+        statement = update_statement(deck, rows)
+        statements.append(statement)
+        if args.parts_dir and not args.check:
+            args.parts_dir.mkdir(parents=True, exist_ok=True)
+            (args.parts_dir / f"{deck['id']}.sql").write_text('begin;\n' + statement + '\ncommit;\n', encoding='utf-8')
+    backfill = '-- Generated by scripts/build-level-content.py. Additive, guarded original-card backfill.\n-- Apply 004 first. Never reseed a live database.\nbegin;\n\n' + '\n'.join(statements) + '\ncommit;\n'
+    output = ROOT / 'supabase/migrations/005_backfill_levels_examples.sql'
+    if args.check:
+        if not output.exists() or output.read_text(encoding='utf-8') != backfill:
+            raise ValueError('generated 005 backfill is stale')
+    else:
+        source.write_text(text[:start] + json.dumps(decks, ensure_ascii=False, indent=2) + text[end:], encoding='utf-8')
+        output.write_text(backfill, encoding='utf-8')
+    print(f'Validated 12 decks / 1,200 example pairs; {changed} embedded metadata fields updated.')
+
+
+if __name__ == '__main__':
+    main()

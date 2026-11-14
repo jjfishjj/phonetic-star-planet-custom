@@ -58,7 +58,7 @@
     }
     const [decks, cards] = await Promise.all([
       pages('phonetic_decks','id,name,native,flag,region,lang,position','position.asc,id.asc'),
-      pages('phonetic_cards','id,deck_id,word,roman,hint,meaning,cue,position,legacy_index,topic,difficulty','deck_id.asc,position.asc,id.asc')
+      pages('phonetic_cards','id,deck_id,word,roman,hint,meaning,cue,position,legacy_index,topic,difficulty,proficiency_level,example_sentence,example_translation','deck_id.asc,position.asc,id.asc')
     ]);
     const byDeck = new Map();
     for (const d of decks) {
@@ -69,7 +69,12 @@
       const deck = byDeck.get(c.deck_id);
       if (!deck) continue; // A deck may be unpublished between the two anonymous requests.
       if (typeof c.word !== 'string' || typeof c.hint !== 'string' || typeof c.meaning !== 'string') throw new Error('Invalid card');
-      deck.cards.push(c);
+      if (c.proficiency_level != null && typeof c.proficiency_level !== 'string') throw new Error('Invalid card level');
+      for (const field of ['example_sentence','example_translation']) {
+        if (c[field] !== undefined && (typeof c[field] !== 'string' || c[field].length > 500)) throw new Error('Invalid card example');
+      }
+      deck.cards.push({...c, proficiency_level:c.proficiency_level ?? null,
+        example_sentence:c.example_sentence ?? '', example_translation:c.example_translation ?? ''});
     }
     return Array.from(byDeck.values());
   }

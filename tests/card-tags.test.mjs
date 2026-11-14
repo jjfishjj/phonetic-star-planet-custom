@@ -16,8 +16,8 @@ test('stable tag vocabulary canonicalizes labels and rejects unknown values',()=
 });
 test('all 1200 bundled cards have valid metadata while keeping the 12 original decks',()=>{
   const text=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
-  const start=text.indexOf('const decks = ')+14,end=text.indexOf(';',start);
-  const decks=JSON.parse(text.slice(start,end));
+  const match=text.match(/const decks\s*=\s*([\s\S]*?)\s*;\s*<\/script>/);
+  const decks=JSON.parse(match[1]);
   assert.deepEqual(decks.map(d=>d.id),['en','ja','ko','es','fr','de','ar','id','th','vi','pt','it']);
   let count=0;
   for(const d of decks){assert.equal(d.cards.length,100);for(const c of d.cards){

@@ -1,0 +1,706 @@
+{
+  "deck_id": "ja",
+  "level_scheme": "jlpt",
+  "cards": [
+    {
+      "legacy_index": 0,
+      "word": "ねこ",
+      "proficiency_level": "N5",
+      "example_sentence": "これはねこです。",
+      "example_translation": "這是一隻貓。"
+    },
+    {
+      "legacy_index": 1,
+      "word": "みず",
+      "proficiency_level": "N5",
+      "example_sentence": "水を一杯ください。",
+      "example_translation": "請給我一杯水。"
+    },
+    {
+      "legacy_index": 2,
+      "word": "ありがとう",
+      "proficiency_level": "N5",
+      "example_sentence": "手伝ってくれて、ありがとう。",
+      "example_translation": "謝謝你幫忙。"
+    },
+    {
+      "legacy_index": 3,
+      "word": "こんにちは",
+      "proficiency_level": "N5",
+      "example_sentence": "こんにちは、お元気ですか。",
+      "example_translation": "你好，你好嗎？"
+    },
+    {
+      "legacy_index": 4,
+      "word": "おはよう",
+      "proficiency_level": "N5",
+      "example_sentence": "おはよう、よく眠れましたか。",
+      "example_translation": "早安，你睡得好嗎？"
+    },
+    {
+      "legacy_index": 5,
+      "word": "こんばんは",
+      "proficiency_level": "N5",
+      "example_sentence": "こんばんは、今日もお疲れさまでした。",
+      "example_translation": "晚上好，今天也辛苦了。"
+    },
+    {
+      "legacy_index": 6,
+      "word": "さようなら",
+      "proficiency_level": "N5",
+      "example_sentence": "また会いましょう、さようなら。",
+      "example_translation": "再見，我們下次再見。"
+    },
+    {
+      "legacy_index": 7,
+      "word": "すみません",
+      "proficiency_level": "N5",
+      "example_sentence": "すみません、駅はどこですか。",
+      "example_translation": "不好意思，請問車站在哪裡？"
+    },
+    {
+      "legacy_index": 8,
+      "word": "おねがいします",
+      "proficiency_level": "N5",
+      "example_sentence": "これをお願いします。",
+      "example_translation": "麻煩您給我這個。"
+    },
+    {
+      "legacy_index": 9,
+      "word": "ともだち",
+      "proficiency_level": "N5",
+      "example_sentence": "週末はともだちと映画を見ます。",
+      "example_translation": "週末和朋友一起看電影。"
+    },
+    {
+      "legacy_index": 10,
+      "word": "かぞく",
+      "proficiency_level": "N5",
+      "example_sentence": "かぞくと晩ご飯を食べます。",
+      "example_translation": "和家人一起吃晚餐。"
+    },
+    {
+      "legacy_index": 11,
+      "word": "おとうさん",
+      "proficiency_level": "N5",
+      "example_sentence": "おとうさんは毎朝新聞を読みます。",
+      "example_translation": "爸爸每天早上看報紙。"
+    },
+    {
+      "legacy_index": 12,
+      "word": "おかあさん",
+      "proficiency_level": "N5",
+      "example_sentence": "おかあさんは料理が上手です。",
+      "example_translation": "媽媽很會做菜。"
+    },
+    {
+      "legacy_index": 13,
+      "word": "こども",
+      "proficiency_level": "N5",
+      "example_sentence": "こどもが公園で遊んでいます。",
+      "example_translation": "孩子正在公園玩。"
+    },
+    {
+      "legacy_index": 14,
+      "word": "いえ",
+      "proficiency_level": "N5",
+      "example_sentence": "私のいえは駅の近くです。",
+      "example_translation": "我家在車站附近。"
+    },
+    {
+      "legacy_index": 15,
+      "word": "へや",
+      "proficiency_level": "N5",
+      "example_sentence": "へやをきれいに掃除しました。",
+      "example_translation": "我把房間打掃乾淨了。"
+    },
+    {
+      "legacy_index": 16,
+      "word": "つくえ",
+      "proficiency_level": "N5",
+      "example_sentence": "つくえの上に本があります。",
+      "example_translation": "書桌上有一本書。"
+    },
+    {
+      "legacy_index": 17,
+      "word": "まど",
+      "proficiency_level": "N5",
+      "example_sentence": "まどを開けてもいいですか。",
+      "example_translation": "可以打開窗戶嗎？"
+    },
+    {
+      "legacy_index": 18,
+      "word": "かぎ",
+      "proficiency_level": "N4",
+      "example_sentence": "かぎをなくしてしまいました。",
+      "example_translation": "我不小心把鑰匙弄丟了。"
+    },
+    {
+      "legacy_index": 19,
+      "word": "けいたい",
+      "proficiency_level": "N4",
+      "example_sentence": "けいたいを家に忘れました。",
+      "example_translation": "我把手機忘在家裡了。"
+    },
+    {
+      "legacy_index": 20,
+      "word": "ほん",
+      "proficiency_level": "N5",
+      "example_sentence": "図書館でほんを読みます。",
+      "example_translation": "在圖書館讀書。"
+    },
+    {
+      "legacy_index": 21,
+      "word": "えんぴつ",
+      "proficiency_level": "N5",
+      "example_sentence": "えんぴつで名前を書いてください。",
+      "example_translation": "請用鉛筆寫名字。"
+    },
+    {
+      "legacy_index": 22,
+      "word": "きょう",
+      "proficiency_level": "N5",
+      "example_sentence": "きょうは学校へ行きます。",
+      "example_translation": "今天要去學校。"
+    },
+    {
+      "legacy_index": 23,
+      "word": "あした",
+      "proficiency_level": "N5",
+      "example_sentence": "あした友達が来ます。",
+      "example_translation": "明天朋友會來。"
+    },
+    {
+      "legacy_index": 24,
+      "word": "きのう",
+      "proficiency_level": "N5",
+      "example_sentence": "きのう映画を見ました。",
+      "example_translation": "昨天看了電影。"
+    },
+    {
+      "legacy_index": 25,
+      "word": "いま",
+      "proficiency_level": "N5",
+      "example_sentence": "いま何時ですか。",
+      "example_translation": "現在幾點？"
+    },
+    {
+      "legacy_index": 26,
+      "word": "あさ",
+      "proficiency_level": "N5",
+      "example_sentence": "あさ六時に起きます。",
+      "example_translation": "早上六點起床。"
+    },
+    {
+      "legacy_index": 27,
+      "word": "ひる",
+      "proficiency_level": "N5",
+      "example_sentence": "ひるに駅で会いましょう。",
+      "example_translation": "中午在車站見吧。"
+    },
+    {
+      "legacy_index": 28,
+      "word": "よる",
+      "proficiency_level": "N5",
+      "example_sentence": "よるは本を読みます。",
+      "example_translation": "晚上會看書。"
+    },
+    {
+      "legacy_index": 29,
+      "word": "まいにち",
+      "proficiency_level": "N5",
+      "example_sentence": "まいにち日本語を勉強します。",
+      "example_translation": "每天學日文。"
+    },
+    {
+      "legacy_index": 30,
+      "word": "しゅうまつ",
+      "proficiency_level": "N5",
+      "example_sentence": "しゅうまつは家で休みます。",
+      "example_translation": "週末在家休息。"
+    },
+    {
+      "legacy_index": 31,
+      "word": "じかん",
+      "proficiency_level": "N5",
+      "example_sentence": "時間がありません。",
+      "example_translation": "沒有時間。"
+    },
+    {
+      "legacy_index": 32,
+      "word": "たべもの",
+      "proficiency_level": "N5",
+      "example_sentence": "好きなたべものは何ですか。",
+      "example_translation": "你喜歡的食物是什麼？"
+    },
+    {
+      "legacy_index": 33,
+      "word": "ごはん",
+      "proficiency_level": "N5",
+      "example_sentence": "ごはんを一緒に食べませんか。",
+      "example_translation": "要不要一起吃飯？"
+    },
+    {
+      "legacy_index": 34,
+      "word": "あさごはん",
+      "proficiency_level": "N5",
+      "example_sentence": "あさごはんにパンを食べます。",
+      "example_translation": "早餐吃麵包。"
+    },
+    {
+      "legacy_index": 35,
+      "word": "ひるごはん",
+      "proficiency_level": "N5",
+      "example_sentence": "ひるごはんは学校で食べます。",
+      "example_translation": "午餐在學校吃。"
+    },
+    {
+      "legacy_index": 36,
+      "word": "ばんごはん",
+      "proficiency_level": "N5",
+      "example_sentence": "ばんごはんは七時です。",
+      "example_translation": "晚餐是七點。"
+    },
+    {
+      "legacy_index": 37,
+      "word": "おちゃ",
+      "proficiency_level": "N5",
+      "example_sentence": "おちゃをどうぞ。",
+      "example_translation": "請喝茶。"
+    },
+    {
+      "legacy_index": 38,
+      "word": "コーヒー",
+      "proficiency_level": "N5",
+      "example_sentence": "朝はコーヒーを飲みます。",
+      "example_translation": "早上喝咖啡。"
+    },
+    {
+      "legacy_index": 39,
+      "word": "おさけ",
+      "proficiency_level": "N5",
+      "example_sentence": "おさけは飲みません。",
+      "example_translation": "我不喝酒。"
+    },
+    {
+      "legacy_index": 40,
+      "word": "パン",
+      "proficiency_level": "N5",
+      "example_sentence": "パンを二つ買いました。",
+      "example_translation": "我買了兩個麵包。"
+    },
+    {
+      "legacy_index": 41,
+      "word": "たまご",
+      "proficiency_level": "N5",
+      "example_sentence": "たまごを三つください。",
+      "example_translation": "請給我三顆雞蛋。"
+    },
+    {
+      "legacy_index": 42,
+      "word": "にく",
+      "proficiency_level": "N5",
+      "example_sentence": "昼に肉を食べました。",
+      "example_translation": "中午吃了肉。"
+    },
+    {
+      "legacy_index": 43,
+      "word": "さかな",
+      "proficiency_level": "N5",
+      "example_sentence": "魚を焼いています。",
+      "example_translation": "正在烤魚。"
+    },
+    {
+      "legacy_index": 44,
+      "word": "やさい",
+      "proficiency_level": "N5",
+      "example_sentence": "毎日やさいを食べましょう。",
+      "example_translation": "每天一起吃蔬菜吧。"
+    },
+    {
+      "legacy_index": 45,
+      "word": "くだもの",
+      "proficiency_level": "N4",
+      "example_sentence": "くだものを冷蔵庫に入れました。",
+      "example_translation": "把水果放進冰箱了。"
+    },
+    {
+      "legacy_index": 46,
+      "word": "りんご",
+      "proficiency_level": "N5",
+      "example_sentence": "りんごを一つ食べました。",
+      "example_translation": "吃了一顆蘋果。"
+    },
+    {
+      "legacy_index": 47,
+      "word": "おいしい",
+      "proficiency_level": "N5",
+      "example_sentence": "この料理はおいしいです。",
+      "example_translation": "這道菜很好吃。"
+    },
+    {
+      "legacy_index": 48,
+      "word": "まずい",
+      "proficiency_level": "N5",
+      "example_sentence": "このスープはまずいです。",
+      "example_translation": "這碗湯很難喝。"
+    },
+    {
+      "legacy_index": 49,
+      "word": "みせ",
+      "proficiency_level": "N5",
+      "example_sentence": "あの店はいつも混んでいます。",
+      "example_translation": "那間店總是很擁擠。"
+    },
+    {
+      "legacy_index": 50,
+      "word": "レストラン",
+      "proficiency_level": "N5",
+      "example_sentence": "駅の近くにレストランがあります。",
+      "example_translation": "車站附近有一家餐廳。"
+    },
+    {
+      "legacy_index": 51,
+      "word": "メニュー",
+      "proficiency_level": "N5",
+      "example_sentence": "メニューを見せてください。",
+      "example_translation": "請讓我看看菜單。"
+    },
+    {
+      "legacy_index": 52,
+      "word": "おかね",
+      "proficiency_level": "N5",
+      "example_sentence": "おかねを払います。",
+      "example_translation": "我來付錢。"
+    },
+    {
+      "legacy_index": 53,
+      "word": "いくら",
+      "proficiency_level": "N5",
+      "example_sentence": "これはいくらですか。",
+      "example_translation": "這個多少錢？"
+    },
+    {
+      "legacy_index": 54,
+      "word": "やすい",
+      "proficiency_level": "N5",
+      "example_sentence": "この靴は安いです。",
+      "example_translation": "這雙鞋很便宜。"
+    },
+    {
+      "legacy_index": 55,
+      "word": "たかい",
+      "proficiency_level": "N5",
+      "example_sentence": "その時計は高いです。",
+      "example_translation": "那支手錶很貴。"
+    },
+    {
+      "legacy_index": 56,
+      "word": "えき",
+      "proficiency_level": "N5",
+      "example_sentence": "えきで電車を待っています。",
+      "example_translation": "我正在車站等電車。"
+    },
+    {
+      "legacy_index": 57,
+      "word": "でんしゃ",
+      "proficiency_level": "N4",
+      "example_sentence": "毎朝でんしゃで通勤します。",
+      "example_translation": "每天早上搭電車通勤。"
+    },
+    {
+      "legacy_index": 58,
+      "word": "くるま",
+      "proficiency_level": "N5",
+      "example_sentence": "くるまで海へ行きました。",
+      "example_translation": "我開車去了海邊。"
+    },
+    {
+      "legacy_index": 59,
+      "word": "じてんしゃ",
+      "proficiency_level": "N5",
+      "example_sentence": "じてんしゃで学校へ行きます。",
+      "example_translation": "騎自行車去學校。"
+    },
+    {
+      "legacy_index": 60,
+      "word": "バス",
+      "proficiency_level": "N4",
+      "example_sentence": "バスに乗り遅れました。",
+      "example_translation": "我沒趕上公車。"
+    },
+    {
+      "legacy_index": 61,
+      "word": "ひこうき",
+      "proficiency_level": "N5",
+      "example_sentence": "ひこうきで東京へ行きます。",
+      "example_translation": "搭飛機去東京。"
+    },
+    {
+      "legacy_index": 62,
+      "word": "くうこう",
+      "proficiency_level": "N5",
+      "example_sentence": "くうこうまでタクシーで行きます。",
+      "example_translation": "搭計程車到機場。"
+    },
+    {
+      "legacy_index": 63,
+      "word": "きっぷ",
+      "proficiency_level": "N4",
+      "example_sentence": "きっぷを買ってから乗ります。",
+      "example_translation": "買票後再上車。"
+    },
+    {
+      "legacy_index": 64,
+      "word": "みち",
+      "proficiency_level": "N4",
+      "example_sentence": "このみちは駅へ続いています。",
+      "example_translation": "這條路通往車站。"
+    },
+    {
+      "legacy_index": 65,
+      "word": "あるく",
+      "proficiency_level": "N5",
+      "example_sentence": "駅まで歩きます。",
+      "example_translation": "走路到車站。"
+    },
+    {
+      "legacy_index": 66,
+      "word": "はしる",
+      "proficiency_level": "N5",
+      "example_sentence": "毎朝公園をはしります。",
+      "example_translation": "每天早上在公園跑步。"
+    },
+    {
+      "legacy_index": 67,
+      "word": "いく",
+      "proficiency_level": "N5",
+      "example_sentence": "明日京都へいきます。",
+      "example_translation": "明天去京都。"
+    },
+    {
+      "legacy_index": 68,
+      "word": "くる",
+      "proficiency_level": "N5",
+      "example_sentence": "友達が家にきます。",
+      "example_translation": "朋友會來家裡。"
+    },
+    {
+      "legacy_index": 69,
+      "word": "かえる",
+      "proficiency_level": "N5",
+      "example_sentence": "五時に家へかえります。",
+      "example_translation": "五點回家。"
+    },
+    {
+      "legacy_index": 70,
+      "word": "みる",
+      "proficiency_level": "N5",
+      "example_sentence": "テレビをみます。",
+      "example_translation": "看電視。"
+    },
+    {
+      "legacy_index": 71,
+      "word": "きく",
+      "proficiency_level": "N5",
+      "example_sentence": "音楽をききます。",
+      "example_translation": "聽音樂。"
+    },
+    {
+      "legacy_index": 72,
+      "word": "はなす",
+      "proficiency_level": "N5",
+      "example_sentence": "日本語で友達とはなします。",
+      "example_translation": "用日文和朋友聊天。"
+    },
+    {
+      "legacy_index": 73,
+      "word": "よむ",
+      "proficiency_level": "N5",
+      "example_sentence": "毎晩本をよみます。",
+      "example_translation": "每天晚上讀書。"
+    },
+    {
+      "legacy_index": 74,
+      "word": "かく",
+      "proficiency_level": "N5",
+      "example_sentence": "ノートに答えをかきます。",
+      "example_translation": "在筆記本上寫答案。"
+    },
+    {
+      "legacy_index": 75,
+      "word": "たべる",
+      "proficiency_level": "N5",
+      "example_sentence": "朝ご飯をたべます。",
+      "example_translation": "吃早餐。"
+    },
+    {
+      "legacy_index": 76,
+      "word": "のむ",
+      "proficiency_level": "N5",
+      "example_sentence": "水をのみます。",
+      "example_translation": "喝水。"
+    },
+    {
+      "legacy_index": 77,
+      "word": "ねる",
+      "proficiency_level": "N5",
+      "example_sentence": "毎晩十一時にねます。",
+      "example_translation": "每天晚上十一點睡覺。"
+    },
+    {
+      "legacy_index": 78,
+      "word": "おきる",
+      "proficiency_level": "N5",
+      "example_sentence": "七時におきます。",
+      "example_translation": "七點起床。"
+    },
+    {
+      "legacy_index": 79,
+      "word": "する",
+      "proficiency_level": "N5",
+      "example_sentence": "宿題をします。",
+      "example_translation": "做作業。"
+    },
+    {
+      "legacy_index": 80,
+      "word": "わかる",
+      "proficiency_level": "N5",
+      "example_sentence": "この説明がわかります。",
+      "example_translation": "我懂這個說明。"
+    },
+    {
+      "legacy_index": 81,
+      "word": "しる",
+      "proficiency_level": "N5",
+      "example_sentence": "その話をしっています。",
+      "example_translation": "我知道那件事。"
+    },
+    {
+      "legacy_index": 82,
+      "word": "すき",
+      "proficiency_level": "N5",
+      "example_sentence": "私は犬がすきです。",
+      "example_translation": "我喜歡狗。"
+    },
+    {
+      "legacy_index": 83,
+      "word": "きらい",
+      "proficiency_level": "N5",
+      "example_sentence": "私は辛い料理がきらいです。",
+      "example_translation": "我不喜歡辣的料理。"
+    },
+    {
+      "legacy_index": 84,
+      "word": "おおきい",
+      "proficiency_level": "N5",
+      "example_sentence": "おおきい箱を運びます。",
+      "example_translation": "搬運大箱子。"
+    },
+    {
+      "legacy_index": 85,
+      "word": "ちいさい",
+      "proficiency_level": "N5",
+      "example_sentence": "ちいさいかばんがほしいです。",
+      "example_translation": "我想要小包包。"
+    },
+    {
+      "legacy_index": 86,
+      "word": "あたらしい",
+      "proficiency_level": "N5",
+      "example_sentence": "あたらしい靴を買いました。",
+      "example_translation": "我買了新鞋。"
+    },
+    {
+      "legacy_index": 87,
+      "word": "ふるい",
+      "proficiency_level": "N5",
+      "example_sentence": "これはふるい写真です。",
+      "example_translation": "這是一張老照片。"
+    },
+    {
+      "legacy_index": 88,
+      "word": "あつい",
+      "proficiency_level": "N5",
+      "example_sentence": "今日はとてもあついです。",
+      "example_translation": "今天非常熱。"
+    },
+    {
+      "legacy_index": 89,
+      "word": "さむい",
+      "proficiency_level": "N5",
+      "example_sentence": "外はさむいです。",
+      "example_translation": "外面很冷。"
+    },
+    {
+      "legacy_index": 90,
+      "word": "はやい",
+      "proficiency_level": "N5",
+      "example_sentence": "この電車ははやいです。",
+      "example_translation": "這班電車很快。"
+    },
+    {
+      "legacy_index": 91,
+      "word": "おそい",
+      "proficiency_level": "N5",
+      "example_sentence": "帰るのがおそいです。",
+      "example_translation": "回去得很晚。"
+    },
+    {
+      "legacy_index": 92,
+      "word": "あかるい",
+      "proficiency_level": "N5",
+      "example_sentence": "この部屋はあかるいです。",
+      "example_translation": "這個房間很明亮。"
+    },
+    {
+      "legacy_index": 93,
+      "word": "くらい",
+      "proficiency_level": "N4",
+      "example_sentence": "夜道はくらいので気をつけてください。",
+      "example_translation": "夜路很暗，請小心。"
+    },
+    {
+      "legacy_index": 94,
+      "word": "げんき",
+      "proficiency_level": "N5",
+      "example_sentence": "祖父はとてもげんきです。",
+      "example_translation": "祖父非常有精神。"
+    },
+    {
+      "legacy_index": 95,
+      "word": "いそがしい",
+      "proficiency_level": "N5",
+      "example_sentence": "今日は仕事がいそがしいです。",
+      "example_translation": "今天工作很忙。"
+    },
+    {
+      "legacy_index": 96,
+      "word": "きれい",
+      "proficiency_level": "N5",
+      "example_sentence": "この公園はきれいです。",
+      "example_translation": "這座公園很漂亮又乾淨。"
+    },
+    {
+      "legacy_index": 97,
+      "word": "しずか",
+      "proficiency_level": "N5",
+      "example_sentence": "図書館はしずかです。",
+      "example_translation": "圖書館很安靜。"
+    },
+    {
+      "legacy_index": 98,
+      "word": "だいじょうぶ",
+      "proficiency_level": "N5",
+      "example_sentence": "大丈夫です、心配しないでください。",
+      "example_translation": "沒問題，請不要擔心。"
+    },
+    {
+      "legacy_index": 99,
+      "word": "ちょっと",
+      "proficiency_level": "N5",
+      "example_sentence": "ちょっと待ってください。",
+      "example_translation": "請稍等一下。"
+    }
+  ]
+}

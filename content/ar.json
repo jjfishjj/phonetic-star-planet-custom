@@ -1,0 +1,706 @@
+{
+  "deck_id": "ar",
+  "level_scheme": "legacy",
+  "cards": [
+    {
+      "legacy_index": 0,
+      "word": "مَرْحَبًا",
+      "proficiency_level": null,
+      "example_sentence": "مَرْحَبًا، يا صديقي.",
+      "example_translation": "你好，我的朋友。"
+    },
+    {
+      "legacy_index": 1,
+      "word": "شُكْرًا",
+      "proficiency_level": null,
+      "example_sentence": "شُكْرًا على مساعدتك.",
+      "example_translation": "謝謝你的幫忙。"
+    },
+    {
+      "legacy_index": 2,
+      "word": "سَلَام",
+      "proficiency_level": null,
+      "example_sentence": "سَلَامٌ عَلَيْكُمْ.",
+      "example_translation": "願你們平安。"
+    },
+    {
+      "legacy_index": 3,
+      "word": "صَبَاحُ الخَيْرِ",
+      "proficiency_level": null,
+      "example_sentence": "صَبَاحُ الخَيْرِ يا أستاذ.",
+      "example_translation": "老師，早安。"
+    },
+    {
+      "legacy_index": 4,
+      "word": "مَسَاءُ الخَيْرِ",
+      "proficiency_level": null,
+      "example_sentence": "مَسَاءُ الخَيْرِ يا أختي.",
+      "example_translation": "姊姊，晚上好。"
+    },
+    {
+      "legacy_index": 5,
+      "word": "مَعَ السَّلَامَةِ",
+      "proficiency_level": null,
+      "example_sentence": "مَعَ السَّلَامَةِ، نَرَاكَ غَدًا.",
+      "example_translation": "再見，我們明天見。"
+    },
+    {
+      "legacy_index": 6,
+      "word": "مِنْ فَضْلِكَ",
+      "proficiency_level": null,
+      "example_sentence": "مِنْ فَضْلِكَ، أَعْطِنِيَ الْمَاءَ.",
+      "example_translation": "請你把水給我。"
+    },
+    {
+      "legacy_index": 7,
+      "word": "مِنْ فَضْلِكِ",
+      "proficiency_level": null,
+      "example_sentence": "مِنْ فَضْلِكِ، أَغْلِقِي النَّافِذَةَ.",
+      "example_translation": "請妳把窗戶關上。"
+    },
+    {
+      "legacy_index": 8,
+      "word": "عَفْوًا",
+      "proficiency_level": null,
+      "example_sentence": "عَفْوًا، أَيْنَ الْمَطَارُ؟",
+      "example_translation": "不好意思，機場在哪裡？"
+    },
+    {
+      "legacy_index": 9,
+      "word": "نَعَمْ",
+      "proficiency_level": null,
+      "example_sentence": "نَعَمْ، أَنَا مُسْتَعِدٌّ.",
+      "example_translation": "好的，我準備好了。"
+    },
+    {
+      "legacy_index": 10,
+      "word": "لَا",
+      "proficiency_level": null,
+      "example_sentence": "لَا، لَسْتُ مُتْعَبًا.",
+      "example_translation": "不，我不累。"
+    },
+    {
+      "legacy_index": 11,
+      "word": "رُبَّمَا",
+      "proficiency_level": null,
+      "example_sentence": "رُبَّمَا نَذْهَبُ غَدًا.",
+      "example_translation": "我們也許明天去。"
+    },
+    {
+      "legacy_index": 12,
+      "word": "لَوْ سَمَحْتَ",
+      "proficiency_level": null,
+      "example_sentence": "لَوْ سَمَحْتَ، أَيْنَ الْمَحَطَّةُ؟",
+      "example_translation": "請問，車站在哪裡？"
+    },
+    {
+      "legacy_index": 13,
+      "word": "كَيْفَ حَالُكَ؟",
+      "proficiency_level": null,
+      "example_sentence": "كَيْفَ حَالُكَ الْيَوْمَ؟",
+      "example_translation": "你今天好嗎？"
+    },
+    {
+      "legacy_index": 14,
+      "word": "أَنَا بِخَيْرٍ",
+      "proficiency_level": null,
+      "example_sentence": "أَنَا بِخَيْرٍ، شُكْرًا.",
+      "example_translation": "我很好，謝謝。"
+    },
+    {
+      "legacy_index": 15,
+      "word": "مَا اسْمُكَ؟",
+      "proficiency_level": null,
+      "example_sentence": "مَا اسْمُكَ؟",
+      "example_translation": "你叫什麼名字？"
+    },
+    {
+      "legacy_index": 16,
+      "word": "اسْمِي",
+      "proficiency_level": null,
+      "example_sentence": "اسْمِي عَلِيٌّ.",
+      "example_translation": "我的名字是阿里。"
+    },
+    {
+      "legacy_index": 17,
+      "word": "مِنْ أَيْنَ أَنْتَ؟",
+      "proficiency_level": null,
+      "example_sentence": "مِنْ أَيْنَ أَنْتَ؟",
+      "example_translation": "你來自哪裡？"
+    },
+    {
+      "legacy_index": 18,
+      "word": "أَنَا مِنْ ...",
+      "proficiency_level": null,
+      "example_sentence": "أَنَا مِنْ تَايْوَانَ.",
+      "example_translation": "我來自臺灣。"
+    },
+    {
+      "legacy_index": 19,
+      "word": "مَا هَذَا؟",
+      "proficiency_level": null,
+      "example_sentence": "مَا هَذَا عَلَى الطَّاوِلَةِ؟",
+      "example_translation": "桌上這是什麼？"
+    },
+    {
+      "legacy_index": 20,
+      "word": "مَنْ؟",
+      "proficiency_level": null,
+      "example_sentence": "مَنْ طَرَقَ الْبَابَ؟",
+      "example_translation": "誰敲了門？"
+    },
+    {
+      "legacy_index": 21,
+      "word": "أَيْنَ؟",
+      "proficiency_level": null,
+      "example_sentence": "أَيْنَ كِتَابِي؟",
+      "example_translation": "我的書在哪裡？"
+    },
+    {
+      "legacy_index": 22,
+      "word": "مَتَى؟",
+      "proficiency_level": null,
+      "example_sentence": "مَتَى يَبْدَأُ الدَّرْسُ؟",
+      "example_translation": "課程什麼時候開始？"
+    },
+    {
+      "legacy_index": 23,
+      "word": "لِمَاذَا؟",
+      "proficiency_level": null,
+      "example_sentence": "لِمَاذَا أَنْتَ حَزِينٌ؟",
+      "example_translation": "你為什麼難過？"
+    },
+    {
+      "legacy_index": 24,
+      "word": "كَمْ؟",
+      "proficiency_level": null,
+      "example_sentence": "كَمْ سِعْرُ هَذَا؟",
+      "example_translation": "這個多少錢？"
+    },
+    {
+      "legacy_index": 25,
+      "word": "مَاذَا تُرِيدُ؟",
+      "proficiency_level": null,
+      "example_sentence": "مَاذَا تُرِيدُ أَنْ تَأْكُلَ؟",
+      "example_translation": "你想吃什麼？"
+    },
+    {
+      "legacy_index": 26,
+      "word": "أُرِيدُ",
+      "proficiency_level": null,
+      "example_sentence": "أُرِيدُ كَأْسًا مِنَ الْمَاءِ.",
+      "example_translation": "我想要一杯水。"
+    },
+    {
+      "legacy_index": 27,
+      "word": "لَا أُرِيدُ",
+      "proficiency_level": null,
+      "example_sentence": "لَا أُرِيدُ سُكَّرًا فِي الشَّايِ.",
+      "example_translation": "我不想在茶裡加糖。"
+    },
+    {
+      "legacy_index": 28,
+      "word": "أَفْهَمُ",
+      "proficiency_level": null,
+      "example_sentence": "أَفْهَمُ السُّؤَالَ الآنَ.",
+      "example_translation": "我現在懂這個問題。"
+    },
+    {
+      "legacy_index": 29,
+      "word": "لَا أَفْهَمُ",
+      "proficiency_level": null,
+      "example_sentence": "لَا أَفْهَمُ هَذِهِ الْكَلِمَةَ.",
+      "example_translation": "我不懂這個詞。"
+    },
+    {
+      "legacy_index": 30,
+      "word": "تَكَلَّمْ بِبُطْءٍ",
+      "proficiency_level": null,
+      "example_sentence": "تَكَلَّمْ بِبُطْءٍ، مِنْ فَضْلِكَ.",
+      "example_translation": "請你慢慢說。"
+    },
+    {
+      "legacy_index": 31,
+      "word": "أَعِدْ مِنْ فَضْلِكَ",
+      "proficiency_level": null,
+      "example_sentence": "أَعِدْ مِنْ فَضْلِكَ، لَمْ أَسْمَعْ.",
+      "example_translation": "請再說一次，我沒聽到。"
+    },
+    {
+      "legacy_index": 32,
+      "word": "مَا مَعْنَى هَذَا؟",
+      "proficiency_level": null,
+      "example_sentence": "مَا مَعْنَى هَذَا؟",
+      "example_translation": "這是什麼意思？"
+    },
+    {
+      "legacy_index": 33,
+      "word": "اِسْمَحْ لِي",
+      "proficiency_level": null,
+      "example_sentence": "اِسْمَحْ لِي أَنْ أَمُرَّ.",
+      "example_translation": "請讓我通過。"
+    },
+    {
+      "legacy_index": 34,
+      "word": "أُحِبُّ",
+      "proficiency_level": null,
+      "example_sentence": "أُحِبُّ الْقَهْوَةَ فِي الصَّبَاحِ.",
+      "example_translation": "我喜歡早上喝咖啡。"
+    },
+    {
+      "legacy_index": 35,
+      "word": "لَا أُحِبُّ",
+      "proficiency_level": null,
+      "example_sentence": "لَا أُحِبُّ الطَّعَامَ الْحَارَّ.",
+      "example_translation": "我不喜歡辣的食物。"
+    },
+    {
+      "legacy_index": 36,
+      "word": "جَيِّدٌ",
+      "proficiency_level": null,
+      "example_sentence": "هَذَا كِتَابٌ جَيِّدٌ.",
+      "example_translation": "這是一本好書。"
+    },
+    {
+      "legacy_index": 37,
+      "word": "مُمْتَازٌ",
+      "proficiency_level": null,
+      "example_sentence": "كَانَتْ النَّتِيجَةُ مُمْتَازَةً.",
+      "example_translation": "結果非常優秀。"
+    },
+    {
+      "legacy_index": 38,
+      "word": "كَبِيرٌ",
+      "proficiency_level": null,
+      "example_sentence": "هَذَا الْبَيْتُ كَبِيرٌ.",
+      "example_translation": "這棟房子很大。"
+    },
+    {
+      "legacy_index": 39,
+      "word": "صَغِيرٌ",
+      "proficiency_level": null,
+      "example_sentence": "لَدَيَّ كَلْبٌ صَغِيرٌ.",
+      "example_translation": "我有一隻小狗。"
+    },
+    {
+      "legacy_index": 40,
+      "word": "جَدِيدٌ",
+      "proficiency_level": null,
+      "example_sentence": "هَذَا هَاتِفٌ جَدِيدٌ.",
+      "example_translation": "這是一支新手機。"
+    },
+    {
+      "legacy_index": 41,
+      "word": "قَدِيمٌ",
+      "proficiency_level": null,
+      "example_sentence": "زُرْنَا مَسْجِدًا قَدِيمًا.",
+      "example_translation": "我們參觀了一座古老的清真寺。"
+    },
+    {
+      "legacy_index": 42,
+      "word": "سَرِيعٌ",
+      "proficiency_level": null,
+      "example_sentence": "هَذَا الْقِطَارُ سَرِيعٌ.",
+      "example_translation": "這列火車很快。"
+    },
+    {
+      "legacy_index": 43,
+      "word": "بَطِيءٌ",
+      "proficiency_level": null,
+      "example_sentence": "الْحَافِلَةُ بَطِيئَةٌ الْيَوْمَ.",
+      "example_translation": "公車今天很慢。"
+    },
+    {
+      "legacy_index": 44,
+      "word": "سَهْلٌ",
+      "proficiency_level": null,
+      "example_sentence": "هَذَا التَّمْرِينُ سَهْلٌ.",
+      "example_translation": "這個練習很容易。"
+    },
+    {
+      "legacy_index": 45,
+      "word": "صَعْبٌ",
+      "proficiency_level": null,
+      "example_sentence": "الِامْتِحَانُ صَعْبٌ جِدًّا.",
+      "example_translation": "考試非常難。"
+    },
+    {
+      "legacy_index": 46,
+      "word": "مَاءٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَشْرَبُ مَاءً بَارِدًا.",
+      "example_translation": "我喝冰水。"
+    },
+    {
+      "legacy_index": 47,
+      "word": "طَعَامٌ",
+      "proficiency_level": null,
+      "example_sentence": "الطَّعَامُ جَاهِزٌ.",
+      "example_translation": "食物準備好了。"
+    },
+    {
+      "legacy_index": 48,
+      "word": "خُبْزٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَكَلْتُ خُبْزًا طَازَجًا.",
+      "example_translation": "我吃了新鮮的麵包。"
+    },
+    {
+      "legacy_index": 49,
+      "word": "أَرُزٌّ",
+      "proficiency_level": null,
+      "example_sentence": "أُفَضِّلُ الأَرُزَّ مَعَ الْخُضَارِ.",
+      "example_translation": "我比較喜歡吃配蔬菜的米飯。"
+    },
+    {
+      "legacy_index": 50,
+      "word": "لَحْمٌ",
+      "proficiency_level": null,
+      "example_sentence": "هَذَا اللَّحْمُ طَيِّبٌ.",
+      "example_translation": "這肉很好吃。"
+    },
+    {
+      "legacy_index": 51,
+      "word": "دَجَاجٌ",
+      "proficiency_level": null,
+      "example_sentence": "تَأْكُلُ الْقِطَّةُ دَجَاجًا.",
+      "example_translation": "貓正在吃雞肉。"
+    },
+    {
+      "legacy_index": 52,
+      "word": "سَمَكٌ",
+      "proficiency_level": null,
+      "example_sentence": "السَّمَكُ فِي الْمَاءِ.",
+      "example_translation": "魚在水裡。"
+    },
+    {
+      "legacy_index": 53,
+      "word": "فَاكِهَةٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَشْتَرِي فَاكِهَةً مِنَ السُّوقِ.",
+      "example_translation": "我從市場買水果。"
+    },
+    {
+      "legacy_index": 54,
+      "word": "تُفَّاحٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَكَلْتُ تُفَّاحَةً حُلْوَةً.",
+      "example_translation": "我吃了一顆甜蘋果。"
+    },
+    {
+      "legacy_index": 55,
+      "word": "مَوْزٌ",
+      "proficiency_level": null,
+      "example_sentence": "أُرِيدُ مَوْزَةً وَاحِدَةً.",
+      "example_translation": "我想要一根香蕉。"
+    },
+    {
+      "legacy_index": 56,
+      "word": "قَهْوَةٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَشْرَبُ قَهْوَةً سَاخِنَةً.",
+      "example_translation": "我喝熱咖啡。"
+    },
+    {
+      "legacy_index": 57,
+      "word": "شَايٌ",
+      "proficiency_level": null,
+      "example_sentence": "هَلْ تُرِيدُ شَايًا؟",
+      "example_translation": "你想喝茶嗎？"
+    },
+    {
+      "legacy_index": 58,
+      "word": "حَلِيبٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَشْرَبُ حَلِيبًا كُلَّ صَبَاحٍ.",
+      "example_translation": "我每天早上喝牛奶。"
+    },
+    {
+      "legacy_index": 59,
+      "word": "سُكَّرٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَضَعُ سُكَّرًا فِي الشَّايِ.",
+      "example_translation": "我在茶裡加糖。"
+    },
+    {
+      "legacy_index": 60,
+      "word": "مِلْحٌ",
+      "proficiency_level": null,
+      "example_sentence": "هَذَا الطَّعَامُ يَحْتَاجُ إِلَى مِلْحٍ.",
+      "example_translation": "這道菜需要加鹽。"
+    },
+    {
+      "legacy_index": 61,
+      "word": "بَيْتٌ",
+      "proficiency_level": null,
+      "example_sentence": "بَيْتِي قَرِيبٌ مِنَ الْمَدْرَسَةِ.",
+      "example_translation": "我家離學校很近。"
+    },
+    {
+      "legacy_index": 62,
+      "word": "غُرْفَةٌ",
+      "proficiency_level": null,
+      "example_sentence": "غُرْفَتِي نَظِيفَةٌ.",
+      "example_translation": "我的房間很乾淨。"
+    },
+    {
+      "legacy_index": 63,
+      "word": "بَابٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَغْلِقِ الْبَابَ، مِنْ فَضْلِكَ.",
+      "example_translation": "請把門關上。"
+    },
+    {
+      "legacy_index": 64,
+      "word": "نَافِذَةٌ",
+      "proficiency_level": null,
+      "example_sentence": "فَتَحْتُ النَّافِذَةَ.",
+      "example_translation": "我打開了窗戶。"
+    },
+    {
+      "legacy_index": 65,
+      "word": "كُرْسِيٌّ",
+      "proficiency_level": null,
+      "example_sentence": "اجْلِسْ عَلَى الْكُرْسِيِّ.",
+      "example_translation": "請坐在椅子上。"
+    },
+    {
+      "legacy_index": 66,
+      "word": "طَاوِلَةٌ",
+      "proficiency_level": null,
+      "example_sentence": "الْكِتَابُ عَلَى الطَّاوِلَةِ.",
+      "example_translation": "書在桌子上。"
+    },
+    {
+      "legacy_index": 67,
+      "word": "سَرِيرٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَنَامُ فِي سَرِيرِي مُبَكِّرًا.",
+      "example_translation": "我很早就在床上睡覺。"
+    },
+    {
+      "legacy_index": 68,
+      "word": "مِفْتَاحٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَضَعُ الْمِفْتَاحَ فِي جَيْبِي.",
+      "example_translation": "我把鑰匙放進口袋。"
+    },
+    {
+      "legacy_index": 69,
+      "word": "كِتَابٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَقْرَأُ كِتَابًا جَدِيدًا.",
+      "example_translation": "我讀一本新書。"
+    },
+    {
+      "legacy_index": 70,
+      "word": "قَلَمٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَكْتُبُ بِقَلَمٍ أَزْرَقَ.",
+      "example_translation": "我用藍筆寫字。"
+    },
+    {
+      "legacy_index": 71,
+      "word": "وَرَقَةٌ",
+      "proficiency_level": null,
+      "example_sentence": "اُكْتُبْ ذَلِكَ عَلَى وَرَقَةٍ.",
+      "example_translation": "請把那個寫在紙上。"
+    },
+    {
+      "legacy_index": 72,
+      "word": "هَاتِفٌ",
+      "proficiency_level": null,
+      "example_sentence": "هَاتِفِي فِي الْحَقِيبَةِ.",
+      "example_translation": "我的手機在包包裡。"
+    },
+    {
+      "legacy_index": 73,
+      "word": "حَاسُوبٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَسْتَعْمِلُ حَاسُوبِي فِي الْعَمَلِ.",
+      "example_translation": "我在工作時使用電腦。"
+    },
+    {
+      "legacy_index": 74,
+      "word": "سَيَّارَةٌ",
+      "proficiency_level": null,
+      "example_sentence": "سَيَّارَتِي أَمَامَ الْبَيْتِ.",
+      "example_translation": "我的車在房子前面。"
+    },
+    {
+      "legacy_index": 75,
+      "word": "حَافِلَةٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَرْكَبُ الْحَافِلَةَ كُلَّ يَوْمٍ.",
+      "example_translation": "我每天搭公車。"
+    },
+    {
+      "legacy_index": 76,
+      "word": "قِطَارٌ",
+      "proficiency_level": null,
+      "example_sentence": "يَصِلُ الْقِطَارُ فِي السَّاعَةِ الثَّامِنَةِ.",
+      "example_translation": "火車在八點抵達。"
+    },
+    {
+      "legacy_index": 77,
+      "word": "طَائِرَةٌ",
+      "proficiency_level": null,
+      "example_sentence": "تُحَلِّقُ الطَّائِرَةُ فَوْقَ الْمَدِينَةِ.",
+      "example_translation": "飛機飛過城市上空。"
+    },
+    {
+      "legacy_index": 78,
+      "word": "مَطَارٌ",
+      "proficiency_level": null,
+      "example_sentence": "نَذْهَبُ إِلَى الْمَطَارِ مُبَكِّرًا.",
+      "example_translation": "我們很早去機場。"
+    },
+    {
+      "legacy_index": 79,
+      "word": "فُنْدُقٌ",
+      "proficiency_level": null,
+      "example_sentence": "حَجَزْتُ غُرْفَةً فِي فُنْدُقٍ.",
+      "example_translation": "我在飯店訂了一間房。"
+    },
+    {
+      "legacy_index": 80,
+      "word": "مَدْرَسَةٌ",
+      "proficiency_level": null,
+      "example_sentence": "تَفْتَحُ الْمَدْرَسَةُ أَبْوَابَهَا صَبَاحًا.",
+      "example_translation": "學校早上開門。"
+    },
+    {
+      "legacy_index": 81,
+      "word": "جَامِعَةٌ",
+      "proficiency_level": null,
+      "example_sentence": "تَدْرُسُ أُخْتِي فِي جَامِعَةٍ كَبِيرَةٍ.",
+      "example_translation": "我姊姊在一所大學讀書。"
+    },
+    {
+      "legacy_index": 82,
+      "word": "مَكْتَبٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَعْمَلُ فِي مَكْتَبٍ صَغِيرٍ.",
+      "example_translation": "我在一間小辦公室工作。"
+    },
+    {
+      "legacy_index": 83,
+      "word": "مَسْجِدٌ",
+      "proficiency_level": null,
+      "example_sentence": "يَذْهَبُ أَبِي إِلَى الْمَسْجِدِ.",
+      "example_translation": "我爸爸去清真寺。"
+    },
+    {
+      "legacy_index": 84,
+      "word": "سُوقٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَشْتَرِي الْخُضَارَ مِنَ السُّوقِ.",
+      "example_translation": "我從市場買蔬菜。"
+    },
+    {
+      "legacy_index": 85,
+      "word": "مَطْعَمٌ",
+      "proficiency_level": null,
+      "example_sentence": "نَتَنَاوَلُ الْعَشَاءَ فِي مَطْعَمٍ.",
+      "example_translation": "我們在餐廳吃晚餐。"
+    },
+    {
+      "legacy_index": 86,
+      "word": "مَسْتَشْفًى",
+      "proficiency_level": null,
+      "example_sentence": "ذَهَبَ الْمَرِيضُ إِلَى الْمُسْتَشْفَى.",
+      "example_translation": "病人去了醫院。"
+    },
+    {
+      "legacy_index": 87,
+      "word": "صَيْدَلِيَّةٌ",
+      "proficiency_level": null,
+      "example_sentence": "أَشْتَرِي الدَّوَاءَ مِنَ الصَّيْدَلِيَّةِ.",
+      "example_translation": "我從藥局買藥。"
+    },
+    {
+      "legacy_index": 88,
+      "word": "شَارِعٌ",
+      "proficiency_level": null,
+      "example_sentence": "هَذَا شَارِعٌ مُزْدَحِمٌ.",
+      "example_translation": "這是一條擁擠的街道。"
+    },
+    {
+      "legacy_index": 89,
+      "word": "يَمِينٌ",
+      "proficiency_level": null,
+      "example_sentence": "الْمَتْجَرُ عَلَى الْيَمِينِ.",
+      "example_translation": "商店在右邊。"
+    },
+    {
+      "legacy_index": 90,
+      "word": "يَسَارٌ",
+      "proficiency_level": null,
+      "example_sentence": "الْمَكْتَبَةُ عَلَى الْيَسَارِ.",
+      "example_translation": "圖書館在左邊。"
+    },
+    {
+      "legacy_index": 91,
+      "word": "أَمَامَ",
+      "proficiency_level": null,
+      "example_sentence": "السَّيَّارَةُ أَمَامَ الْبَيْتِ.",
+      "example_translation": "車在房子前面。"
+    },
+    {
+      "legacy_index": 92,
+      "word": "خَلْفَ",
+      "proficiency_level": null,
+      "example_sentence": "الْحَدِيقَةُ خَلْفَ الْمَدْرَسَةِ.",
+      "example_translation": "公園在學校後面。"
+    },
+    {
+      "legacy_index": 93,
+      "word": "فَوْقَ",
+      "proficiency_level": null,
+      "example_sentence": "الطَّائِرَةُ فَوْقَ السَّحَابِ.",
+      "example_translation": "飛機在雲朵上方。"
+    },
+    {
+      "legacy_index": 94,
+      "word": "تَحْتَ",
+      "proficiency_level": null,
+      "example_sentence": "الْحِذَاءُ تَحْتَ السَّرِيرِ.",
+      "example_translation": "鞋子在床底下。"
+    },
+    {
+      "legacy_index": 95,
+      "word": "الْيَوْمَ",
+      "proficiency_level": null,
+      "example_sentence": "أَنَا مَشْغُولٌ الْيَوْمَ.",
+      "example_translation": "我今天很忙。"
+    },
+    {
+      "legacy_index": 96,
+      "word": "غَدًا",
+      "proficiency_level": null,
+      "example_sentence": "سَأَزُورُكَ غَدًا.",
+      "example_translation": "我明天會去拜訪你。"
+    },
+    {
+      "legacy_index": 97,
+      "word": "أَمْسِ",
+      "proficiency_level": null,
+      "example_sentence": "ذَهَبْتُ إِلَى السُّوقِ أَمْسِ.",
+      "example_translation": "我昨天去了市場。"
+    },
+    {
+      "legacy_index": 98,
+      "word": "الآنَ",
+      "proficiency_level": null,
+      "example_sentence": "أَنَا أَدْرُسُ الآنَ.",
+      "example_translation": "我現在正在讀書。"
+    },
+    {
+      "legacy_index": 99,
+      "word": "صَبَاحًا",
+      "proficiency_level": null,
+      "example_sentence": "أَسْتَيْقِظُ صَبَاحًا كُلَّ يَوْمٍ.",
+      "example_translation": "我每天早上起床。"
+    }
+  ]
+}

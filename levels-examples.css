@@ -1,0 +1,11 @@
+/* Additive styles for graded vocabulary and bilingual example sentences. */
+.example-block{margin-top:16px;padding:13px;border:1px solid rgba(148,240,208,.2);border-radius:12px;background:rgba(148,240,208,.045);min-width:0}
+.example-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--mint);font-size:11px;margin-bottom:7px}
+.sentence-speak{font:inherit;font-size:10px;border:1px solid rgba(148,240,208,.25);border-radius:8px;padding:6px 9px;color:var(--mint);background:rgba(148,240,208,.06);min-height:30px;flex:none}
+.sentence-speak:hover,.sentence-speak:focus-visible{border-color:var(--mint);background:rgba(148,240,208,.12)}
+.answer-panel .example-sentence{font-size:14px;line-height:1.75;color:var(--text);overflow-wrap:anywhere;text-align:start}
+.answer-panel .example-translation{font-size:11px;line-height:1.75;color:#b9c5d7;margin-top:8px;overflow-wrap:anywhere}
+.answer-panel .example-missing{font-size:10px;color:var(--muted);margin-top:14px}
+.answer-panel,.flashcard{min-width:0}.answer-panel h3{overflow-wrap:anywhere}.native{overflow-wrap:anywhere}
+.card-filter-result small{max-width:285px;line-height:1.6}.manager-panel textarea{min-height:64px}
+@media(max-width:640px){.example-block{margin-top:12px;padding:12px}.answer-panel .example-sentence{font-size:15px}.answer-panel .example-translation{font-size:12px}.sentence-speak{min-height:34px;padding:7px 11px}.card-filter-result small{max-width:none}}

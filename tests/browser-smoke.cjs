@@ -34,7 +34,7 @@ test.before(async () => startServer());
 test.after(async () => stopServer());
 
 function deck(id='en', i=0) { return { id, name: i ? `Deck ${i}` : '英語', native:'English', flag:'🇬🇧', region:'europe', lang:'en-US', position:i, published:true }; }
-function card(id, i, extra={}) { return { id, deck_id:'en', word:`cloud-${i}`, roman:'/cloud/', hint:'雲', meaning:'雲', cue:'看見雲', position:i, published:true, ...extra }; }
+function card(id, i, extra={}) { return { id, deck_id:'en', word:`cloud-${i}`, roman:'/cloud/', hint:'雲', meaning:'雲', cue:'看見雲', position:i, published:true, proficiency_level:({1:'A1',2:'A2',3:'B1'})[extra.difficulty||1], example_sentence:'A cloud is here.', example_translation:'這裡有一朵雲。', ...extra }; }
 function json(res, body, status=200, headers={}) { res.fulfill({ status, contentType:'application/json', headers, body:JSON.stringify(body) }); }
 function restRange(req) {
   const u = new URL(req.url());
@@ -125,9 +125,13 @@ test('custom deck and card create/edit remain local and persist after reload', a
     await page.fill('#deckNativeInput','Trip');
     await page.click('#saveDeckBtn');
     await page.locator('#deckGrid [data-deck^="custom-"]').waitFor();
-    await page.fill('#cardWordInput','bonjour'); await page.fill('#cardHintInput','蹦啾'); await page.fill('#cardMeaningInput','你好');
+    await page.fill('#cardWordInput','bonjour'); await page.fill('#cardHintInput','蹦啾'); await page.fill('#cardMeaningInput','你好'); await page.fill('#cardExampleInput','Bonjour, Ana.'); await page.fill('#cardExampleTranslationInput','   ');
     await page.click('#saveCardBtn');
-    await page.locator('#customCardList').getByText('bonjour').waitFor();
+    assert.equal(await page.locator('#customCardList .custom-card-row').count(),0);
+    await page.locator('#toast').getByText('請填寫原文例句與繁中翻譯').waitFor();
+    await page.fill('#cardExampleTranslationInput','你好，安娜。');
+    await page.click('#saveCardBtn');
+    await page.locator('#customCardList strong').filter({hasText:'bonjour'}).waitFor();
     await page.locator('#customCardList').getByText('編輯').click();
     await page.fill('#cardMeaningInput','您好'); await page.click('#saveCardBtn');
     assert.equal(await page.locator('#customCardList').getByText('您好').count(), 1);
@@ -194,7 +198,7 @@ test('admin session pages 1201 cards, writes whitelisted card fields, imports re
     await page.locator('#cardTable tr').first().getByText('編輯').click();
     const editor=page.locator('.card-editor'); await editor.locator('[name=word]').fill('edited'); await editor.locator('[name=hint]').fill('提示'); await editor.locator('[name=meaning]').fill('意思'); await editor.locator('button[type=submit]').click();
     await page.locator('#cardTable').waitFor();
-    const cardWrite=writes.find(x=>x.table==='cards' && x.kind==='PATCH'); assert.ok(cardWrite); assert.deepEqual(Object.keys(cardWrite.body).sort(),['cue','difficulty','hint','meaning','position','published','roman','topic','word']);
+    const cardWrite=writes.find(x=>x.table==='cards' && x.kind==='PATCH'); assert.ok(cardWrite); assert.deepEqual(Object.keys(cardWrite.body).sort(),['cue','difficulty','example_sentence','example_translation','hint','meaning','position','proficiency_level','published','roman','topic','word']);
     await page.locator('#cardTable tr').first().getByText('取消發布').click();
     assert.ok(writes.filter(x=>x.table==='cards' && x.kind==='PATCH').length >= 2);
 
@@ -204,7 +208,7 @@ test('admin session pages 1201 cards, writes whitelisted card fields, imports re
     const rpc=writes.find(x=>x.kind==='rpc'); assert.equal(rpc.body.p_rows[0].word,'imported'); assert.equal(rpc.body.p_rows[0].position,3); assert.equal(rpc.body.p_rows[0].topic,'food'); assert.equal(rpc.body.p_rows[0].difficulty,2);
     const invalid=makeXlsx([['word','hint','meaning'],['bad','','x']]); await page.setInputFiles('#importFile',{name:'bad.xlsx',buffer:invalid}); await page.locator('#previewErrors').getByText(/缺少諧音/).waitFor(); assert.equal(await page.locator('#importBtn').isDisabled(),true);
     const downloadPromise=page.waitForEvent('download'); await page.click('#exportBtn'); const download=await downloadPromise; const file=await download.path(); assert.ok(file && fs.statSync(file).size>100);
-    const exported=readXlsx(file); assert.equal(exported[0].word,'cloud-0'); assert.equal(exported[0].topic,'food'); assert.equal(exported[0].difficulty,1);
+    const exported=readXlsx(file); assert.equal(exported[0].word,'cloud-0'); assert.equal(exported[0].topic,'food'); assert.equal(exported[0].difficulty,1); assert.equal(exported[0].proficiency_level,'A1'); assert.equal(exported[0].example_sentence,'A cloud is here.');
   } finally { await browser.close(); }
 });
 
@@ -256,11 +260,11 @@ test('public topic and difficulty filters use intersection, clear to restore, an
     await page.locator('[data-deck="en"]').click();
     await page.selectOption('#topicFilter','food');
     assert.equal(await page.locator('#cardFilterSummary').textContent(),'顯示 2 / 3 張');
-    await page.selectOption('#difficultyFilter','2');
+    await page.selectOption('#difficultyFilter','A2');
     assert.equal(await page.locator('#cardFilterSummary').textContent(),'顯示 1 / 3 張');
     assert.equal(await page.locator('#wordText').textContent(),'forty-two');
     await page.selectOption('#topicFilter','study');
-    await page.selectOption('#difficultyFilter','1');
+    await page.selectOption('#difficultyFilter','A1');
     assert.equal(await page.locator('#wordText').textContent(),'沒有符合的卡片');
     assert.match(await page.locator('#answerPanel').textContent(),/沒有交集/);
     await page.click('#resetFiltersBtn');
@@ -279,7 +283,7 @@ test('filtered learning and favorites persist by original legacy_index, and cata
   try {
     await installPublicRoutes(page,{cloud:true,cards:rows});
     await page.goto(project.url,{waitUntil:'networkidle'}); await page.locator('[data-deck="en"]').click();
-    await page.selectOption('#topicFilter','food'); await page.selectOption('#difficultyFilter','2');
+    await page.selectOption('#topicFilter','food'); await page.selectOption('#difficultyFilter','A2');
     await page.click('#revealBtn'); await page.click('#knownBtn');
     await page.click('#favoriteBtn');
     let stored = await page.evaluate(() => JSON.parse(localStorage.getItem('phonetic-star-planet-v1')));
@@ -306,14 +310,14 @@ test('legacy custom deck without metadata survives and edited custom tags retain
     await page.route('**/rest/v1/**',r=>r.abort('failed'));
     await page.addInitScript(deck => { if (!localStorage.getItem('phonetic-star-planet-v1')) localStorage.setItem('phonetic-star-planet-v1',JSON.stringify({learned:[],favorites:[],xp:0,reviewed:0,selected:deck.id,index:0,revealed:false,customDecks:[deck]})); },old);
     await page.goto(project.url,{waitUntil:'networkidle'}); await page.click('[data-deck="custom-legacy"]'); await page.click('#manageDeckBtn');
-    await page.locator('#customCardList').getByText('hello').waitFor();
+    await page.locator('#customCardList strong').filter({hasText:'hello'}).waitFor();
     await page.locator('#customCardList').getByText('編輯').click();
     await page.waitForFunction(() => document.querySelector('#editingCardId').value === 'legacy-card');
-    await page.selectOption('#cardTopicInput','travel'); await page.selectOption('#cardDifficultyInput','3'); await page.click('#saveCardBtn');
+    await page.selectOption('#cardTopicInput','travel'); await page.selectOption('#cardDifficultyInput','3'); await page.fill('#cardExampleInput','Hello, Ana.'); await page.fill('#cardExampleTranslationInput','你好，安娜。'); await page.click('#saveCardBtn');
     let stored=await page.evaluate(() => JSON.parse(localStorage.getItem('phonetic-star-planet-v1')));
     assert.equal(stored.customDecks[0].cards[0].id,'legacy-card'); assert.equal(stored.customDecks[0].cards[0].topic,'travel'); assert.equal(stored.customDecks[0].cards[0].difficulty,3);
     await page.reload({waitUntil:'networkidle'}); await page.click('[data-deck="custom-legacy"]'); await page.click('#manageDeckBtn');
-    await page.locator('#customCardList').getByText('hello').waitFor();
+    await page.locator('#customCardList strong').filter({hasText:'hello'}).waitFor();
     stored=await page.evaluate(() => JSON.parse(localStorage.getItem('phonetic-star-planet-v1')));
     assert.equal(stored.customDecks[0].cards[0].id,'legacy-card'); assert.equal(stored.customDecks[0].cards[0].topic,'travel'); assert.equal(stored.customDecks[0].cards[0].difficulty,3);
   } finally { await browser.close(); }
@@ -332,12 +336,12 @@ test('admin topic and difficulty filters, card edit and publish toggle preserve 
     await page.locator('#appState:not([hidden])').waitFor(); await page.locator('#cardCount').filter({hasText:'3'}).waitFor();
     assert.deepEqual(await page.locator('#cardTopicFilter option').evaluateAll(options=>options.map(o=>o.value)),['',...require('../shared/card-tags.js').TOPICS.map(t=>t.value)]);
     await page.selectOption('#cardTopicFilter','food'); assert.equal(await page.locator('#cardCount').textContent(),'2');
-    await page.selectOption('#cardDifficultyFilter','2'); assert.equal(await page.locator('#cardCount').textContent(),'1');
+    await page.selectOption('#cardLevelFilter','A2'); assert.equal(await page.locator('#cardCount').textContent(),'1');
     await page.locator('#cardTable tr').first().getByText('編輯').click();
-    const editor=page.locator('.card-editor'); await editor.locator('[name=topic]').selectOption('travel'); await editor.locator('[name=difficulty]').selectOption('3'); await editor.locator('button[type=submit]').click();
-    const edited=writes.find(x=>x.table==='cards'&&x.kind==='PATCH'); assert.equal(edited.body.topic,'travel'); assert.equal(edited.body.difficulty,3); assert.equal(edited.body.published,true);
-    await page.locator('#cardTable tr').first().getByText('取消發布').click();
-    const toggles=writes.filter(x=>x.table==='cards'&&x.kind==='PATCH'); assert.equal(toggles.at(-1).body.topic,'food'); assert.equal(toggles.at(-1).body.difficulty,2); assert.equal(toggles.at(-1).body.published,false);
+    const editor=page.locator('.card-editor'); await editor.locator('[name=topic]').selectOption('travel'); await editor.locator('[name=proficiency_level]').selectOption('B1'); await editor.locator('button[type=submit]').click(); await editor.waitFor({state:'detached'});
+    const edited=writes.find(x=>x.table==='cards'&&x.kind==='PATCH'); assert.equal(edited.body.topic,'travel'); assert.equal(edited.body.difficulty,2); assert.equal(edited.body.proficiency_level,'B1'); assert.equal(edited.body.example_sentence,'A cloud is here.'); assert.equal(edited.body.published,true);
+    await page.locator('#cardTable tr').first().getByText('取消發布').click(); await page.locator('#toast').getByText('發布狀態已更新。').waitFor();
+    const toggles=writes.filter(x=>x.table==='cards'&&x.kind==='PATCH'); assert.equal(toggles.at(-1).body.topic,'food'); assert.equal(toggles.at(-1).body.difficulty,2); assert.equal(toggles.at(-1).body.published,false); assert.equal(toggles.at(-1).body.proficiency_level,'A2'); assert.equal(toggles.at(-1).body.example_translation,'這裡有一朵雲。');
   } finally { await browser.close(); }
 });
 
@@ -409,4 +413,61 @@ test('unlearned practice mode filters by saved card IDs, advances as cards are l
     assert.equal(customState.customDecks[0].cards.length,2);
     assert.deepEqual(customState.customDecks[0].cards.map(c=>c.id),['known-card','new-card']);
   } finally { await customRun.browser.close(); }
+});
+
+
+test('bundled scheme filters and bilingual examples work on mobile, including RTL Arabic', async()=>{
+  const {browser,page}=await freshPage();
+  try{
+    await page.setViewportSize({width:390,height:844});
+    await page.route('**/rest/v1/**',r=>r.abort('failed'));
+    await page.goto(project.url,{waitUntil:'networkidle'});
+    const cases=[
+      {id:'en',levels:['A1','A2','B1','B2','C1','C2'],lang:'en-US'},
+      {id:'ja',levels:['N5','N4','N3','N2','N1'],lang:'ja-JP'},
+      {id:'ko',levels:['1','2','3','4','5','6'],lang:'ko-KR'},
+      {id:'ar',levels:['1','2','3'],lang:'ar-SA'}
+    ];
+    for(const item of cases){
+      await page.click(`[data-deck="${item.id}"]`);
+      assert.deepEqual(await page.locator('#difficultyFilter option').evaluateAll(options=>options.map(o=>o.value)),['all',...item.levels]);
+      await page.click('#revealBtn');
+      const sentence=page.locator('.example-sentence'),translation=page.locator('.example-translation');
+      assert.ok((await sentence.textContent()).trim());assert.ok((await translation.textContent()).trim());
+      assert.equal(await sentence.getAttribute('lang'),item.lang);
+      assert.equal(await sentence.getAttribute('dir'),'auto');
+      assert.equal(await page.locator('#speakSentenceBtn').count(),1);
+      if(item.id==='ar')assert.equal(await sentence.evaluate(el=>getComputedStyle(el).direction),'rtl');
+      assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1));
+    }
+  }finally{await browser.close();}
+});
+
+test('example sentences and translations are displayed as text, never executable markup',async()=>{
+  const {browser,page}=await freshPage();
+  const sentence='<img src=x onerror=window.__sentenceXss=1>';
+  const translation='<script>window.__sentenceXss=2</script>';
+  try{
+    await installPublicRoutes(page,{cloud:true,cards:[card('xss-example',0,{legacy_index:0,example_sentence:sentence,example_translation:translation})]});
+    await page.goto(project.url,{waitUntil:'networkidle'});await page.click('#revealBtn');
+    assert.equal(await page.locator('.example-sentence').textContent(),sentence);
+    assert.equal(await page.locator('.example-translation').textContent(),translation);
+    assert.equal(await page.locator('#answerPanel img,#answerPanel script').count(),0);
+    assert.equal(await page.evaluate(()=>window.__sentenceXss),undefined);
+  }finally{await browser.close();}
+});
+
+test('admin CSV export imports with UTF-8 examples and selected proficiency level intact',async()=>{
+  const {browser,page}=await freshPage();const writes=[];
+  try{
+    await authRoutes(page,{session:session(),admin:true,cards:2,writes});
+    await page.goto(project.url+'admin/',{waitUntil:'networkidle'});
+    await page.fill('#emailInput','admin@example.test');await page.fill('#passwordInput','password');await page.click('#loginForm button');
+    await page.locator('#appState:not([hidden])').waitFor();await page.locator('#cardCount').filter({hasText:'2'}).waitFor();
+    const downloading=page.waitForEvent('download');await page.click('#csvExportBtn');const download=await downloading;const file=await download.path();
+    const csv=fs.readFileSync(file,'utf8');assert.ok(csv.startsWith('\ufeff'));assert.match(csv,/"proficiency_level"/);assert.match(csv,/這裡有一朵雲/);
+    await page.check('input[name="importMode"][value="update"]');await page.setInputFiles('#importFile',{name:'exported.csv',mimeType:'text/csv',buffer:fs.readFileSync(file)});
+    await page.locator('#importSummary').getByText('可以匯入').waitFor();await page.click('#importBtn');await page.locator('#toast').getByText(/匯入完成/).waitFor();
+    const rpc=writes.find(w=>w.kind==='rpc');assert.equal(rpc.body.p_rows[0].proficiency_level,'A1');assert.equal(rpc.body.p_rows[0].example_translation,'這裡有一朵雲。');
+  }finally{await browser.close();}
 });
