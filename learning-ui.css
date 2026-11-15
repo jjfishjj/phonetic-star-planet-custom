@@ -2,7 +2,7 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(190px, 320px) minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
   align-items: end;
   margin: 0 0 17px;
@@ -34,6 +34,17 @@
   font-size: 10px;
   line-height: 1.6;
 }
+.vark-prompt {
+  margin: 14px 0;
+  padding: 12px 13px;
+  border: 1px solid rgba(197, 181, 255, .22);
+  border-radius: 12px;
+  background: rgba(197, 181, 255, .055);
+}
+.vark-prompt > div { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.vark-prompt b { color: #e8e0ff; font-size: 11px; }
+.vark-prompt small { color: #aeb7d0; font-size: 10px; line-height: 1.5; text-align: right; }
+.vark-prompt p { margin: 8px 0 0; color: #d7dcef; font-size: 12px; line-height: 1.7; }
 .learning-analysis {
   position: relative;
   z-index: 1;

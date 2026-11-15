@@ -17,7 +17,7 @@ const advanced={
   ja:{scheme:'jlpt',levels:['N3','N2','N1'],counts:{N3:14,N2:13,N1:13},count:40},
   ko:{scheme:'topik',levels:['3','4','5','6'],counts:{3:12,4:12,5:12,6:12},count:48}
 };
-const keys=['word','roman','hint','meaning','cue','topic','difficulty','proficiency_level','example_sentence','example_translation'];
+const keys=['word','roman','hint','meaning','cue','topic','difficulty','proficiency_level','example_sentence','example_translation','cue_visual','cue_auditory','cue_read_write','cue_kinesthetic'];
 const norm=s=>String(s).normalize('NFKC').trim().toLocaleLowerCase();
 
 test('eight advanced sources add 376 complete cards without changing the original 1200',()=>{

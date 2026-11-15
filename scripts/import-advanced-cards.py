@@ -21,6 +21,7 @@ BASE_FIELDS = (
     "id", "deck_id", "legacy_index", "word", "roman", "hint", "meaning",
     "cue", "position", "published", "topic", "difficulty", "created_at",
     "proficiency_level", "example_sentence", "example_translation",
+    "cue_visual", "cue_auditory", "cue_read_write", "cue_kinesthetic",
 )
 ADVANCED_DECKS = ("en", "es", "fr", "de", "pt", "it", "ja", "ko")
 EXPECTED_SOURCE_COUNTS = {"en": 48, "es": 48, "fr": 48, "de": 48, "pt": 48, "it": 48, "ja": 40, "ko": 48}
@@ -28,6 +29,7 @@ EXPECTED_TOTAL_CARDS = 1576
 SOURCE_FIELDS = (
     "word", "roman", "hint", "meaning", "cue", "topic", "difficulty",
     "proficiency_level", "example_sentence", "example_translation",
+    "cue_visual", "cue_auditory", "cue_read_write", "cue_kinesthetic",
 )
 
 

@@ -12,7 +12,11 @@
       "proficiency_level": "B1",
       "roman": "/viˈziɲu/",
       "topic": "people",
-      "word": "vizinho"
+      "word": "vizinho",
+      "cue_visual": "先把「兩戶陽台相鄰，鄰居隔著欄杆互相招手。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「鄰居；附近的」。",
+      "cue_auditory": "先用裝置播放「vizinho」，跟讀一次，再把諧音「聽起來像「微子妞」，想像隔壁的小妞來敲門。」說出來，最後說出「鄰居；附近的」。",
+      "cue_read_write": "看一遍「vizinho」與「鄰居；附近的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「兩戶陽台相鄰，鄰居隔著欄杆互相招手。」，邊做邊說「vizinho」與「鄰居；附近的」。"
     },
     {
       "cue": "超市貨架前，手在兩種果醬之間猶豫後拿起一瓶。",
@@ -24,7 +28,11 @@
       "proficiency_level": "B1",
       "roman": "/ɨʃkuˈʎer/",
       "topic": "actions",
-      "word": "escolher"
+      "word": "escolher",
+      "cue_visual": "先把「超市貨架前，手在兩種果醬之間猶豫後拿起一瓶。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「選擇；挑選」。",
+      "cue_auditory": "先用裝置播放「escolher」，跟讀一次，再把諧音「像「一時哭了」，想像選不定時急得哭了。」說出來，最後說出「選擇；挑選」。",
+      "cue_read_write": "看一遍「escolher」與「選擇；挑選」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「超市貨架前，手在兩種果醬之間猶豫後拿起一瓶。」，邊做邊說「escolher」與「選擇；挑選」。"
     },
     {
       "cue": "昏暗車站裡，燈亮後終於看懂告示牌。",
@@ -36,7 +44,11 @@
       "proficiency_level": "B1",
       "roman": "/pɨrseˈber/",
       "topic": "study",
-      "word": "perceber"
+      "word": "perceber",
+      "cue_visual": "先把「昏暗車站裡，燈亮後終於看懂告示牌。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「理解；察覺」。",
+      "cue_auditory": "先用裝置播放「perceber」，跟讀一次，再把諧音「像「偏識別」，想像突然辨認出熟人的臉。」說出來，最後說出「理解；察覺」。",
+      "cue_read_write": "看一遍「perceber」與「理解；察覺」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「昏暗車站裡，燈亮後終於看懂告示牌。」，邊做邊說「perceber」與「理解；察覺」。"
     },
     {
       "cue": "兩個人勾起小指，在日曆上圈出約定日期。",
@@ -48,7 +60,11 @@
       "proficiency_level": "B1",
       "roman": "/prumeˈter/",
       "topic": "expressions",
-      "word": "prometer"
+      "word": "prometer",
+      "cue_visual": "先把「兩個人勾起小指，在日曆上圈出約定日期。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「承諾；答應」。",
+      "cue_auditory": "先用裝置播放「prometer」，跟讀一次，再把諧音「像「不落地」，想像把承諾牢牢放在地上。」說出來，最後說出「承諾；答應」。",
+      "cue_read_write": "看一遍「prometer」與「承諾；答應」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「兩個人勾起小指，在日曆上圈出約定日期。」，邊做邊說「prometer」與「承諾；答應」。"
     },
     {
       "cue": "舊相片旁的空椅子，夕陽下讓人想起遠方親友。",
@@ -60,7 +76,11 @@
       "proficiency_level": "B1",
       "roman": "/sawˈðaðɨ/",
       "topic": "general",
-      "word": "saudade"
+      "word": "saudade",
+      "cue_visual": "先把「舊相片旁的空椅子，夕陽下讓人想起遠方親友。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「對離去的人事物的深切思念」。",
+      "cue_auditory": "先用裝置播放「saudade」，跟讀一次，再把諧音「像「想到底」，想念一個人想到心底。」說出來，最後說出「對離去的人事物的深切思念」。",
+      "cue_read_write": "看一遍「saudade」與「對離去的人事物的深切思念」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「舊相片旁的空椅子，夕陽下讓人想起遠方親友。」，邊做邊說「saudade」與「對離去的人事物的深切思念」。"
     },
     {
       "cue": "森林小徑沒有車聲，只有清風和鳥鳴。",
@@ -72,7 +92,11 @@
       "proficiency_level": "B1",
       "roman": "/ɐ̃biˈjẽtɨ/",
       "topic": "nature",
-      "word": "ambiente"
+      "word": "ambiente",
+      "cue_visual": "先把「森林小徑沒有車聲，只有清風和鳥鳴。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「環境；氛圍」。",
+      "cue_auditory": "先用裝置播放「ambiente」，跟讀一次，再把諧音「像「安靜的」，想像安靜環境中的空氣。」說出來，最後說出「環境；氛圍」。",
+      "cue_read_write": "看一遍「ambiente」與「環境；氛圍」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「森林小徑沒有車聲，只有清風和鳥鳴。」，邊做邊說「ambiente」與「環境；氛圍」。"
     },
     {
       "cue": "路人忽然停步，指著鞋底脫線的小裂口。",
@@ -84,7 +108,11 @@
       "proficiency_level": "B1",
       "roman": "/ʁɨpɐˈɾaɾ/",
       "topic": "actions",
-      "word": "reparar"
+      "word": "reparar",
+      "cue_visual": "先把「路人忽然停步，指著鞋底脫線的小裂口。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「注意到；修理」。",
+      "cue_auditory": "先用裝置播放「reparar」，跟讀一次，再把諧音「像「立刻看」，想像立刻注意到牆上的裂縫。」說出來，最後說出「注意到；修理」。",
+      "cue_read_write": "看一遍「reparar」與「注意到；修理」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「路人忽然停步，指著鞋底脫線的小裂口。」，邊做邊說「reparar」與「注意到；修理」。"
     },
     {
       "cue": "滿桌剩菜被倒進垃圾桶，旁邊的人露出惋惜表情。",
@@ -96,7 +124,11 @@
       "proficiency_level": "B1",
       "roman": "/dɨʃpɨɾˈdisju/",
       "topic": "general",
-      "word": "desperdício"
+      "word": "desperdício",
+      "cue_visual": "先把「滿桌剩菜被倒進垃圾桶，旁邊的人露出惋惜表情。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「浪費；浪費的事物」。",
+      "cue_auditory": "先用裝置播放「desperdício」，跟讀一次，再把諧音「像「丟出去」，想像把還能用的食物丟出去。」說出來，最後說出「浪費；浪費的事物」。",
+      "cue_read_write": "看一遍「desperdício」與「浪費；浪費的事物」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「滿桌剩菜被倒進垃圾桶，旁邊的人露出惋惜表情。」，邊做邊說「desperdício」與「浪費；浪費的事物」。"
     },
     {
       "cue": "球員看著計分板，教練用力拍手肯定他的表現。",
@@ -108,7 +140,11 @@
       "proficiency_level": "B2",
       "roman": "/dɨzɐ̃ˈpeɲu/",
       "topic": "study",
-      "word": "desempenho"
+      "word": "desempenho",
+      "cue_visual": "先把「球員看著計分板，教練用力拍手肯定他的表現。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「表現；績效」。",
+      "cue_auditory": "先用裝置播放「desempenho」，跟讀一次，再把諧音「像「得勝一扭」，想像表現好到扭身慶祝勝利。」說出來，最後說出「表現；績效」。",
+      "cue_read_write": "看一遍「desempenho」與「表現；績效」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「球員看著計分板，教練用力拍手肯定他的表現。」，邊做邊說「desempenho」與「表現；績效」。"
     },
     {
       "cue": "一座準時響起的老鐘，大家放心依照它安排工作。",
@@ -120,7 +156,11 @@
       "proficiency_level": "B2",
       "roman": "/fiˈavɛl/",
       "topic": "descriptions",
-      "word": "fiável"
+      "word": "fiável",
+      "cue_visual": "先把「一座準時響起的老鐘，大家放心依照它安排工作。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「可靠的；可信賴的」。",
+      "cue_auditory": "先用裝置播放「fiável」，跟讀一次，再把諧音「像「非要」，想像可靠的人非要準時做到承諾。」說出來，最後說出「可靠的；可信賴的」。",
+      "cue_read_write": "看一遍「fiável」與「可靠的；可信賴的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「一座準時響起的老鐘，大家放心依照它安排工作。」，邊做邊說「fiável」與「可靠的；可信賴的」。"
     },
     {
       "cue": "一把巨大的傘覆蓋不同年齡和背景的人。",
@@ -132,7 +172,11 @@
       "proficiency_level": "B2",
       "roman": "/ɐbɾɐ̃ˈʒer/",
       "topic": "general",
-      "word": "abranger"
+      "word": "abranger",
+      "cue_visual": "先把「一把巨大的傘覆蓋不同年齡和背景的人。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「涵蓋；包括」。",
+      "cue_auditory": "先用裝置播放「abranger」，跟讀一次，再把諧音「像「阿伯掌」，想像一雙大手把許多事物一把涵蓋。」說出來，最後說出「涵蓋；包括」。",
+      "cue_read_write": "看一遍「abranger」與「涵蓋；包括」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「一把巨大的傘覆蓋不同年齡和背景的人。」，邊做邊說「abranger」與「涵蓋；包括」。"
     },
     {
       "cue": "購物者看著塑膠包裝，清醒地改選可重複使用的袋子。",
@@ -144,7 +188,11 @@
       "proficiency_level": "B2",
       "roman": "/kõʃiˈẽtɨ/",
       "topic": "descriptions",
-      "word": "consciente"
+      "word": "consciente",
+      "cue_visual": "先把「購物者看著塑膠包裝，清醒地改選可重複使用的袋子。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「意識到的；有意識的」。",
+      "cue_auditory": "先用裝置播放「consciente」，跟讀一次，再把諧音「像「控心的」，想像能控制內心而清醒判斷。」說出來，最後說出「意識到的；有意識的」。",
+      "cue_read_write": "看一遍「consciente」與「意識到的；有意識的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「購物者看著塑膠包裝，清醒地改選可重複使用的袋子。」，邊做邊說「consciente」與「意識到的；有意識的」。"
     },
     {
       "cue": "幼苗長成樹，旁邊的團隊也把新計畫逐步完成。",
@@ -156,7 +204,11 @@
       "proficiency_level": "B2",
       "roman": "/dɨzẽvolˈver/",
       "topic": "actions",
-      "word": "desenvolver"
+      "word": "desenvolver",
+      "cue_visual": "先把「幼苗長成樹，旁邊的團隊也把新計畫逐步完成。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「發展；開發」。",
+      "cue_auditory": "先用裝置播放「desenvolver」，跟讀一次，再把諧音「像「展開來」，想像卷軸逐步展開成完整計畫。」說出來，最後說出「發展；開發」。",
+      "cue_read_write": "看一遍「desenvolver」與「發展；開發」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「幼苗長成樹，旁邊的團隊也把新計畫逐步完成。」，邊做邊說「desenvolver」與「發展；開發」。"
     },
     {
       "cue": "夜裡的人反覆看手機，等待重要檢查結果。",
@@ -168,7 +220,11 @@
       "proficiency_level": "B2",
       "roman": "/prɨukupɐˈsɐ̃w/",
       "topic": "general",
-      "word": "preocupação"
+      "word": "preocupação",
+      "cue_visual": "先把「夜裡的人反覆看手機，等待重要檢查結果。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「擔心；憂慮」。",
+      "cue_auditory": "先用裝置播放「preocupação」，跟讀一次，再把諧音「像「怕有況」，想像擔心事情會有不好的狀況。」說出來，最後說出「擔心；憂慮」。",
+      "cue_read_write": "看一遍「preocupação」與「擔心；憂慮」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「夜裡的人反覆看手機，等待重要檢查結果。」，邊做邊說「preocupação」與「擔心；憂慮」。"
     },
     {
       "cue": "圖書館的書架、電腦和人員一起支援學生完成研究。",
@@ -180,7 +236,11 @@
       "proficiency_level": "B2",
       "roman": "/ʁɨˈkuɾsu/",
       "topic": "study",
-      "word": "recurso"
+      "word": "recurso",
+      "cue_visual": "先把「圖書館的書架、電腦和人員一起支援學生完成研究。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「資源；手段」。",
+      "cue_auditory": "先用裝置播放「recurso」，跟讀一次，再把諧音「像「力庫」，想像倉庫裡儲存解決問題的資源。」說出來，最後說出「資源；手段」。",
+      "cue_read_write": "看一遍「recurso」與「資源；手段」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「圖書館的書架、電腦和人員一起支援學生完成研究。」，邊做邊說「recurso」與「資源；手段」。"
     },
     {
       "cue": "登山者望著陡峭山壁，繫緊鞋帶準備攀登。",
@@ -192,7 +252,11 @@
       "proficiency_level": "B2",
       "roman": "/dɨzɐˈfiu/",
       "topic": "actions",
-      "word": "desafio"
+      "word": "desafio",
+      "cue_visual": "先把「登山者望著陡峭山壁，繫緊鞋帶準備攀登。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「挑戰；艱鉅任務」。",
+      "cue_auditory": "先用裝置播放「desafio」，跟讀一次，再把諧音「像「得勝呼」，想像接受挑戰後喊出勝利聲。」說出來，最後說出「挑戰；艱鉅任務」。",
+      "cue_read_write": "看一遍「desafio」與「挑戰；艱鉅任務」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「登山者望著陡峭山壁，繫緊鞋帶準備攀登。」，邊做邊說「desafio」與「挑戰；艱鉅任務」。"
     },
     {
       "cue": "會議中手機播放私人錄音，全桌人低頭沉默。",
@@ -204,7 +268,11 @@
       "proficiency_level": "C1",
       "roman": "/kõʃtrɐ̃ʒiˈmẽtu/",
       "topic": "general",
-      "word": "constrangimento"
+      "word": "constrangimento",
+      "cue_visual": "先把「會議中手機播放私人錄音，全桌人低頭沉默。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「尷尬；難堪」。",
+      "cue_auditory": "先用裝置播放「constrangimento」，跟讀一次，再把諧音「像「控場僵硬」，想像尷尬時全場突然僵住。」說出來，最後說出「尷尬；難堪」。",
+      "cue_read_write": "看一遍「constrangimento」與「尷尬；難堪」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「會議中手機播放私人錄音，全桌人低頭沉默。」，邊做邊說「constrangimento」與「尷尬；難堪」。"
     },
     {
       "cue": "偵探把時間線拼好，找到一個可信的犯案說法。",
@@ -216,7 +284,11 @@
       "proficiency_level": "C1",
       "roman": "/plɐwˈzivɛl/",
       "topic": "general",
-      "word": "plausível"
+      "word": "plausível",
+      "cue_visual": "先把「偵探把時間線拼好，找到一個可信的犯案說法。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「似乎合理可信的」。",
+      "cue_auditory": "先用裝置播放「plausível」，跟讀一次，再把諧音「像「怕有事」，想像一個聽來合理的解釋讓人不再擔心。」說出來，最後說出「似乎合理可信的」。",
+      "cue_read_write": "看一遍「plausível」與「似乎合理可信的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「偵探把時間線拼好，找到一個可信的犯案說法。」，邊做邊說「plausível」與「似乎合理可信的」。"
     },
     {
       "cue": "冰山露出水面的部分下，水底還有巨大的形體。",
@@ -228,7 +300,11 @@
       "proficiency_level": "C1",
       "roman": "/subʒɐˈsẽtɨ/",
       "topic": "descriptions",
-      "word": "subjacente"
+      "word": "subjacente",
+      "cue_visual": "先把「冰山露出水面的部分下，水底還有巨大的形體。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「潛在的；根本的」。",
+      "cue_auditory": "先用裝置播放「subjacente」，跟讀一次，再把諧音「像「深藏線」，想像表面事件下藏著一條深層線索。」說出來，最後說出「潛在的；根本的」。",
+      "cue_read_write": "看一遍「subjacente」與「潛在的；根本的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「冰山露出水面的部分下，水底還有巨大的形體。」，邊做邊說「subjacente」與「潛在的；根本的」。"
     },
     {
       "cue": "登山者繞過落石，沿著另一條小徑繼續前進。",
@@ -240,7 +316,11 @@
       "proficiency_level": "C1",
       "roman": "/kõtuɾˈnaɾ/",
       "topic": "actions",
-      "word": "contornar"
+      "word": "contornar",
+      "cue_visual": "先把「登山者繞過落石，沿著另一條小徑繼續前進。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「繞過；迴避；設法克服」。",
+      "cue_auditory": "先用裝置播放「contornar」，跟讀一次，再把諧音「像「繞土拿」，想像繞過土堆去拿另一側的東西。」說出來，最後說出「繞過；迴避；設法克服」。",
+      "cue_read_write": "看一遍「contornar」與「繞過；迴避；設法克服」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「登山者繞過落石，沿著另一條小徑繼續前進。」，邊做邊說「contornar」與「繞過；迴避；設法克服」。"
     },
     {
       "cue": "辯論結束後，一個有充分證據的論點贏得全場支持。",
@@ -252,7 +332,11 @@
       "proficiency_level": "C1",
       "roman": "/prɨvɐlɨˈseɾ/",
       "topic": "general",
-      "word": "prevalecer"
+      "word": "prevalecer",
+      "cue_visual": "先把「辯論結束後，一個有充分證據的論點贏得全場支持。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「勝出；占上風；普遍存在」。",
+      "cue_auditory": "先用裝置播放「prevalecer」，跟讀一次，再把諧音「像「偏要勝」，想像某種觀點偏偏勝過其他觀點。」說出來，最後說出「勝出；占上風；普遍存在」。",
+      "cue_read_write": "看一遍「prevalecer」與「勝出；占上風；普遍存在」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「辯論結束後，一個有充分證據的論點贏得全場支持。」，邊做邊說「prevalecer」與「勝出；占上風；普遍存在」。"
     },
     {
       "cue": "司機在濃霧中放慢速度，與前車保持更遠距離。",
@@ -264,7 +348,11 @@
       "proficiency_level": "C1",
       "roman": "/pɾuˈdẽsjɐ/",
       "topic": "descriptions",
-      "word": "prudência"
+      "word": "prudência",
+      "cue_visual": "先把「司機在濃霧中放慢速度，與前車保持更遠距離。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「審慎；謹慎」。",
+      "cue_auditory": "先用裝置播放「prudência」，跟讀一次，再把諧音「像「不惹事呀」，想像行動前先謹慎以免惹事。」說出來，最後說出「審慎；謹慎」。",
+      "cue_read_write": "看一遍「prudência」與「審慎；謹慎」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「司機在濃霧中放慢速度，與前車保持更遠距離。」，邊做邊說「prudência」與「審慎；謹慎」。"
     },
     {
       "cue": "一架歪向某一邊的天平，顯示評估沒有保持中立。",
@@ -276,7 +364,11 @@
       "proficiency_level": "C1",
       "roman": "/ˈvjɛʃ/",
       "topic": "general",
-      "word": "viés"
+      "word": "viés",
+      "cue_visual": "先把「一架歪向某一邊的天平，顯示評估沒有保持中立。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「偏見；偏差」。",
+      "cue_auditory": "先用裝置播放「viés」，跟讀一次，再把諧音「像「偏斜」，想像秤的一端偏斜，提醒人有偏見。」說出來，最後說出「偏見；偏差」。",
+      "cue_read_write": "看一遍「viés」與「偏見；偏差」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「一架歪向某一邊的天平，顯示評估沒有保持中立。」，邊做邊說「viés」與「偏見；偏差」。"
     },
     {
       "cue": "工人把沉重基石一塊塊砌好，房屋才穩固升起。",
@@ -288,7 +380,11 @@
       "proficiency_level": "C1",
       "roman": "/ɐlisɨrˈsaɾ/",
       "topic": "study",
-      "word": "alicerçar"
+      "word": "alicerçar",
+      "cue_visual": "先把「工人把沉重基石一塊塊砌好，房屋才穩固升起。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「奠定基礎；以……為依據」。",
+      "cue_auditory": "先用裝置播放「alicerçar」，跟讀一次，再把諧音「像「立石啊」，想像用石頭立好建築的基礎。」說出來，最後說出「奠定基礎；以……為依據」。",
+      "cue_read_write": "看一遍「alicerçar」與「奠定基礎；以……為依據」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「工人把沉重基石一塊塊砌好，房屋才穩固升起。」，邊做邊說「alicerçar」與「奠定基礎；以……為依據」。"
     },
     {
       "cue": "作家只用藍色墨水寫作，這成了他人人皆知的獨特習慣。",
@@ -300,7 +396,11 @@
       "proficiency_level": "C2",
       "roman": "/idjusiŋkɾɐˈziɐ/",
       "topic": "people",
-      "word": "idiossincrasia"
+      "word": "idiossincrasia",
+      "cue_visual": "先把「作家只用藍色墨水寫作，這成了他人人皆知的獨特習慣。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「特有習性；個人癖好」。",
+      "cue_auditory": "先用裝置播放「idiossincrasia」，跟讀一次，再把諧音「像「一點怪癖」，想像每個人都有一點獨特怪癖。」說出來，最後說出「特有習性；個人癖好」。",
+      "cue_read_write": "看一遍「idiossincrasia」與「特有習性；個人癖好」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「作家只用藍色墨水寫作，這成了他人人皆知的獨特習慣。」，邊做邊說「idiossincrasia」與「特有習性；個人癖好」。"
     },
     {
       "cue": "巨大的時鐘齒輪不停轉動，無論誰都無法讓它停下。",
@@ -312,7 +412,11 @@
       "proficiency_level": "C2",
       "roman": "/inɨzuˈɾavɛl/",
       "topic": "time",
-      "word": "inexorável"
+      "word": "inexorável",
+      "cue_visual": "先把「巨大的時鐘齒輪不停轉動，無論誰都無法讓它停下。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「無法阻止或改變的；無情的」。",
+      "cue_auditory": "先用裝置播放「inexorável」，跟讀一次，再把諧音「像「一直走啊」，想像不可阻擋的時間一直向前走。」說出來，最後說出「無法阻止或改變的；無情的」。",
+      "cue_read_write": "看一遍「inexorável」與「無法阻止或改變的；無情的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「巨大的時鐘齒輪不停轉動，無論誰都無法讓它停下。」，邊做邊說「inexorável」與「無法阻止或改變的；無情的」。"
     },
     {
       "cue": "同一艘船在晴天與暴風雨之間航行，經歷命運起伏。",
@@ -324,7 +428,11 @@
       "proficiency_level": "C2",
       "roman": "/visiˈsituðɨ/",
       "topic": "general",
-      "word": "vicissitude"
+      "word": "vicissitude",
+      "cue_visual": "先把「同一艘船在晴天與暴風雨之間航行，經歷命運起伏。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「變遷；人生的盛衰起伏」。",
+      "cue_auditory": "先用裝置播放「vicissitude」，跟讀一次，再把諧音「像「微細變數」，想像人生充滿微細而反覆的變數。」說出來，最後說出「變遷；人生的盛衰起伏」。",
+      "cue_read_write": "看一遍「vicissitude」與「變遷；人生的盛衰起伏」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「同一艘船在晴天與暴風雨之間航行，經歷命運起伏。」，邊做邊說「vicissitude」與「變遷；人生的盛衰起伏」。"
     },
     {
       "cue": "研究員拿放大鏡逐行檢查泛黃手稿的字跡。",
@@ -336,7 +444,11 @@
       "proficiency_level": "C2",
       "roman": "/pɨɾʃkɾuˈtaɾ/",
       "topic": "study",
-      "word": "perscrutar"
+      "word": "perscrutar",
+      "cue_visual": "先把「研究員拿放大鏡逐行檢查泛黃手稿的字跡。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「仔細查察；深入探究」。",
+      "cue_auditory": "先用裝置播放「perscrutar」，跟讀一次，再把諧音「像「仔細看它」，想像把文件看得極其仔細。」說出來，最後說出「仔細查察；深入探究」。",
+      "cue_read_write": "看一遍「perscrutar」與「仔細查察；深入探究」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「研究員拿放大鏡逐行檢查泛黃手稿的字跡。」，邊做邊說「perscrutar」與「仔細查察；深入探究」。"
     },
     {
       "cue": "一疊數據和簽名文件，把模糊承諾變成看得見的方案。",
@@ -348,7 +460,11 @@
       "proficiency_level": "C2",
       "roman": "/kõsubstɐ̃siˈaɾ/",
       "topic": "general",
-      "word": "consubstanciar"
+      "word": "consubstanciar",
+      "cue_visual": "先把「一疊數據和簽名文件，把模糊承諾變成看得見的方案。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「具體體現；使成為有形依據」。",
+      "cue_auditory": "先用裝置播放「consubstanciar」，跟讀一次，再把諧音「像「共實在」，想像抽象主張和具體證據合而為一。」說出來，最後說出「具體體現；使成為有形依據」。",
+      "cue_read_write": "看一遍「consubstanciar」與「具體體現；使成為有形依據」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「一疊數據和簽名文件，把模糊承諾變成看得見的方案。」，邊做邊說「consubstanciar」與「具體體現；使成為有形依據」。"
     },
     {
       "cue": "實驗瓶貼著無害標籤，研究員安心地把它放回架上。",
@@ -360,7 +476,11 @@
       "proficiency_level": "C2",
       "roman": "/iˈnɔkwu/",
       "topic": "descriptions",
-      "word": "inócuo"
+      "word": "inócuo",
+      "cue_visual": "先把「實驗瓶貼著無害標籤，研究員安心地把它放回架上。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「無害的；不起作用的」。",
+      "cue_auditory": "先用裝置播放「inócuo」，跟讀一次，再把諧音「像「一口無」，想像吃了一口卻完全沒有傷害。」說出來，最後說出「無害的；不起作用的」。",
+      "cue_read_write": "看一遍「inócuo」與「無害的；不起作用的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「實驗瓶貼著無害標籤，研究員安心地把它放回架上。」，邊做邊說「inócuo」與「無害的；不起作用的」。"
     },
     {
       "cue": "記者追問關鍵數字，發言人卻繞圈子談別的事。",
@@ -372,7 +492,11 @@
       "proficiency_level": "C2",
       "roman": "/tɨɾʒivɨɾˈsaɾ/",
       "topic": "general",
-      "word": "tergiversar"
+      "word": "tergiversar",
+      "cue_visual": "先把「記者追問關鍵數字，發言人卻繞圈子談別的事。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「含糊其辭；閃避問題」。",
+      "cue_auditory": "先用裝置播放「tergiversar」，跟讀一次，再把諧音「像「推來轉去」，想像回答問題時不斷推託轉移。」說出來，最後說出「含糊其辭；閃避問題」。",
+      "cue_read_write": "看一遍「tergiversar」與「含糊其辭；閃避問題」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「記者追問關鍵數字，發言人卻繞圈子談別的事。」，邊做邊說「tergiversar」與「含糊其辭；閃避問題」。"
     },
     {
       "cue": "評審從眾多履歷中選出最適合主持專案的人。",
@@ -384,7 +508,11 @@
       "proficiency_level": "C2",
       "roman": "/iˈdɔnju/",
       "topic": "people",
-      "word": "idóneo"
+      "word": "idóneo",
+      "cue_visual": "先把「評審從眾多履歷中選出最適合主持專案的人。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「適任的；合宜的；可靠的」。",
+      "cue_auditory": "先用裝置播放「idóneo」，跟讀一次，再把諧音「像「一定能」，想像合適人選一定能勝任任務。」說出來，最後說出「適任的；合宜的；可靠的」。",
+      "cue_read_write": "看一遍「idóneo」與「適任的；合宜的；可靠的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「評審從眾多履歷中選出最適合主持專案的人。」，邊做邊說「idóneo」與「適任的；合宜的；可靠的」。"
     },
     {
       "word": "sugerir",
@@ -396,7 +524,11 @@
       "difficulty": 3,
       "proficiency_level": "B1",
       "example_sentence": "Posso sugerir um restaurante perto da estação?",
-      "example_translation": "我可以推薦車站附近的一間餐廳嗎？"
+      "example_translation": "我可以推薦車站附近的一間餐廳嗎？",
+      "cue_visual": "先把「朋友提出幾個週末活動的想法，請你從中挑選。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「建議；提出意見」。",
+      "cue_auditory": "先用裝置播放「sugerir」，跟讀一次，再把諧音「像「速記」，想像快速記下別人的建議。」說出來，最後說出「建議；提出意見」。",
+      "cue_read_write": "看一遍「sugerir」與「建議；提出意見」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「朋友提出幾個週末活動的想法，請你從中挑選。」，邊做邊說「sugerir」與「建議；提出意見」。"
     },
     {
       "word": "melhorar",
@@ -408,7 +540,11 @@
       "difficulty": 3,
       "proficiency_level": "B1",
       "example_sentence": "Quero melhorar a minha pronúncia.",
-      "example_translation": "我想改善自己的發音。"
+      "example_translation": "我想改善自己的發音。",
+      "cue_visual": "先把「每天練習後，學生的發音逐漸進步。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「改善；變得更好」。",
+      "cue_auditory": "先用裝置播放「melhorar」，跟讀一次，再把諧音「像「沒流啦」，想像把漏水的地方修好，情況就改善了。」說出來，最後說出「改善；變得更好」。",
+      "cue_read_write": "看一遍「melhorar」與「改善；變得更好」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「每天練習後，學生的發音逐漸進步。」，邊做邊說「melhorar」與「改善；變得更好」。"
     },
     {
       "word": "combinar",
@@ -420,7 +556,11 @@
       "difficulty": 3,
       "proficiency_level": "B1",
       "example_sentence": "Combinámos encontrar-nos às dez.",
-      "example_translation": "我們約好十點見面。"
+      "example_translation": "我們約好十點見面。",
+      "cue_visual": "先把「兩位朋友討論後，約好星期六早上見面。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「約定；搭配；相配」。",
+      "cue_auditory": "先用裝置播放「combinar」，跟讀一次，再把諧音「像「共比哪」，想像大家一起比較後約定時間。」說出來，最後說出「約定；搭配；相配」。",
+      "cue_read_write": "看一遍「combinar」與「約定；搭配；相配」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「兩位朋友討論後，約好星期六早上見面。」，邊做邊說「combinar」與「約定；搭配；相配」。"
     },
     {
       "word": "alcançar",
@@ -432,7 +572,11 @@
       "difficulty": 3,
       "proficiency_level": "B1",
       "example_sentence": "A equipa alcançou o seu objetivo.",
-      "example_translation": "這支團隊達成了目標。"
+      "example_translation": "這支團隊達成了目標。",
+      "cue_visual": "先把「跑者最後加速，終於抵達終點並完成目標。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「達到；抵達；實現」。",
+      "cue_auditory": "先用裝置播放「alcançar」，跟讀一次，再把諧音「像「阿郎上」，想像伸手向上終於拿到高處的東西。」說出來，最後說出「達到；抵達；實現」。",
+      "cue_read_write": "看一遍「alcançar」與「達到；抵達；實現」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「跑者最後加速，終於抵達終點並完成目標。」，邊做邊說「alcançar」與「達到；抵達；實現」。"
     },
     {
       "word": "esclarecer",
@@ -444,7 +588,11 @@
       "difficulty": 3,
       "proficiency_level": "B2",
       "example_sentence": "Gostaria de esclarecer uma dúvida.",
-      "example_translation": "我想澄清一個疑問。"
+      "example_translation": "我想澄清一個疑問。",
+      "cue_visual": "先把「會議主持人逐點解釋規則，消除大家的疑問。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「澄清；說明」。",
+      "cue_auditory": "先用裝置播放「esclarecer」，跟讀一次，再把諧音「像「一時可了」，想像把疑問說清楚後，事情就明白了。」說出來，最後說出「澄清；說明」。",
+      "cue_read_write": "看一遍「esclarecer」與「澄清；說明」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「會議主持人逐點解釋規則，消除大家的疑問。」，邊做邊說「esclarecer」與「澄清；說明」。"
     },
     {
       "word": "contribuir",
@@ -456,7 +604,11 @@
       "difficulty": 3,
       "proficiency_level": "B2",
       "example_sentence": "Todos podem contribuir para o projeto.",
-      "example_translation": "每個人都可以為這個專案作出貢獻。"
+      "example_translation": "每個人都可以為這個專案作出貢獻。",
+      "cue_visual": "先把「每位成員都分享專長，讓團隊順利完成計畫。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「貢獻；促成」。",
+      "cue_auditory": "先用裝置播放「contribuir」，跟讀一次，再把諧音「像「共同出力」，想像每個人都出一份力完成工作。」說出來，最後說出「貢獻；促成」。",
+      "cue_read_write": "看一遍「contribuir」與「貢獻；促成」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「每位成員都分享專長，讓團隊順利完成計畫。」，邊做邊說「contribuir」與「貢獻；促成」。"
     },
     {
       "word": "sustentável",
@@ -468,7 +620,11 @@
       "difficulty": 3,
       "proficiency_level": "B2",
       "example_sentence": "A cidade procura soluções de transporte sustentável.",
-      "example_translation": "這座城市正在尋找可持續的交通方案。"
+      "example_translation": "這座城市正在尋找可持續的交通方案。",
+      "cue_visual": "先把「商店改用可重複使用的容器，減少一次性包裝。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「可持續的；不破壞環境的」。",
+      "cue_auditory": "先用裝置播放「sustentável」，跟讀一次，再把諧音「像「守成它」，想像用能長久維持的方式守護環境。」說出來，最後說出「可持續的；不破壞環境的」。",
+      "cue_read_write": "看一遍「sustentável」與「可持續的；不破壞環境的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「商店改用可重複使用的容器，減少一次性包裝。」，邊做邊說「sustentável」與「可持續的；不破壞環境的」。"
     },
     {
       "word": "prazo",
@@ -480,7 +636,11 @@
       "difficulty": 3,
       "proficiency_level": "B2",
       "example_sentence": "O prazo para a inscrição termina amanhã.",
-      "example_translation": "報名期限明天截止。"
+      "example_translation": "報名期限明天截止。",
+      "cue_visual": "先把「日曆上圈著交件日期，提醒大家不要錯過期限。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「期限；時限」。",
+      "cue_auditory": "先用裝置播放「prazo」，跟讀一次，再把諧音「像「不拉走」，想像在期限前不能把工作拖走。」說出來，最後說出「期限；時限」。",
+      "cue_read_write": "看一遍「prazo」與「期限；時限」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「日曆上圈著交件日期，提醒大家不要錯過期限。」，邊做邊說「prazo」與「期限；時限」。"
     },
     {
       "word": "criterioso",
@@ -492,7 +652,11 @@
       "difficulty": 3,
       "proficiency_level": "C1",
       "example_sentence": "Ela é uma leitora criteriosa e atenta.",
-      "example_translation": "她是一位審慎而專注的讀者。"
+      "example_translation": "她是一位審慎而專注的讀者。",
+      "cue_visual": "先把「編輯逐項核對資料後，才決定哪些內容可以刊登。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「審慎的；有判斷力的」。",
+      "cue_auditory": "先用裝置播放「criterioso」，跟讀一次，再把諧音「像「可挑的」，想像做事前仔細挑選並檢查每個細節。」說出來，最後說出「審慎的；有判斷力的」。",
+      "cue_read_write": "看一遍「criterioso」與「審慎的；有判斷力的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「編輯逐項核對資料後，才決定哪些內容可以刊登。」，邊做邊說「criterioso」與「審慎的；有判斷力的」。"
     },
     {
       "word": "controverso",
@@ -504,7 +668,11 @@
       "difficulty": 3,
       "proficiency_level": "C1",
       "example_sentence": "A decisão foi bastante controversa.",
-      "example_translation": "這項決定相當有爭議。"
+      "example_translation": "這項決定相當有爭議。",
+      "cue_visual": "先把「新政策公布後，社會上出現支持與反對的聲音。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「有爭議的」。",
+      "cue_auditory": "先用裝置播放「controverso」，跟讀一次，再把諧音「像「控訴我」，想像一個議題引發正反兩方爭論。」說出來，最後說出「有爭議的」。",
+      "cue_read_write": "看一遍「controverso」與「有爭議的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「新政策公布後，社會上出現支持與反對的聲音。」，邊做邊說「controverso」與「有爭議的」。"
     },
     {
       "word": "inerente",
@@ -516,7 +684,11 @@
       "difficulty": 3,
       "proficiency_level": "C1",
       "example_sentence": "O risco é inerente a este tipo de atividade.",
-      "example_translation": "這類活動本身就有固有的風險。"
+      "example_translation": "這類活動本身就有固有的風險。",
+      "cue_visual": "先把「討論工作時，也要考量這項任務本身固有的風險。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「固有的；內在的」。",
+      "cue_auditory": "先用裝置播放「inerente」，跟讀一次，再把諧音「像「一定的」，想像某種特質本來就包含在事物裡。」說出來，最後說出「固有的；內在的」。",
+      "cue_read_write": "看一遍「inerente」與「固有的；內在的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「討論工作時，也要考量這項任務本身固有的風險。」，邊做邊說「inerente」與「固有的；內在的」。"
     },
     {
       "word": "viabilizar",
@@ -528,7 +700,11 @@
       "difficulty": 3,
       "proficiency_level": "C1",
       "example_sentence": "O financiamento pode viabilizar a construção da escola.",
-      "example_translation": "這筆資金可以促成學校的興建。"
+      "example_translation": "這筆資金可以促成學校的興建。",
+      "cue_visual": "先把「新的經費讓這項社區計畫有機會真正實施。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「使可行；促成」。",
+      "cue_auditory": "先用裝置播放「viabilizar」，跟讀一次，再把諧音「像「為了實現」，想像找到資金讓計畫變得可行。」說出來，最後說出「使可行；促成」。",
+      "cue_read_write": "看一遍「viabilizar」與「使可行；促成」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「新的經費讓這項社區計畫有機會真正實施。」，邊做邊說「viabilizar」與「使可行；促成」。"
     },
     {
       "word": "ubíquo",
@@ -540,7 +716,11 @@
       "difficulty": 3,
       "proficiency_level": "C2",
       "example_sentence": "A publicidade digital tornou-se ubíqua.",
-      "example_translation": "數位廣告已變得無所不在。"
+      "example_translation": "數位廣告已變得無所不在。",
+      "cue_visual": "先把「在城市裡，手機和無線網路已經普遍存在。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「無所不在的；到處都有的」。",
+      "cue_auditory": "先用裝置播放「ubíquo」，跟讀一次，再把諧音「像「無比酷」，想像某種現象到處可見，酷得無所不在。」說出來，最後說出「無所不在的；到處都有的」。",
+      "cue_read_write": "看一遍「ubíquo」與「無所不在的；到處都有的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「在城市裡，手機和無線網路已經普遍存在。」，邊做邊說「ubíquo」與「無所不在的；到處都有的」。"
     },
     {
       "word": "inefável",
@@ -552,7 +732,11 @@
       "difficulty": 3,
       "proficiency_level": "C2",
       "example_sentence": "Sentiu uma alegria inefável ao reencontrar a família.",
-      "example_translation": "與家人重逢時，他感到難以言喻的喜悅。"
+      "example_translation": "與家人重逢時，他感到難以言喻的喜悅。",
+      "cue_visual": "先把「看到多年未見的家人時，心中湧起難以形容的喜悅。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「難以言喻的；無法形容的」。",
+      "cue_auditory": "先用裝置播放「inefável」，跟讀一次，再把諧音「像「一念發不出」，想像感受太深，反而難以用言語表達。」說出來，最後說出「難以言喻的；無法形容的」。",
+      "cue_read_write": "看一遍「inefável」與「難以言喻的；無法形容的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「看到多年未見的家人時，心中湧起難以形容的喜悅。」，邊做邊說「inefável」與「難以言喻的；無法形容的」。"
     },
     {
       "word": "condescendente",
@@ -564,7 +748,11 @@
       "difficulty": 3,
       "proficiency_level": "C2",
       "example_sentence": "O seu tom condescendente irritou os colegas.",
-      "example_translation": "他居高臨下的語氣惹惱了同事。"
+      "example_translation": "他居高臨下的語氣惹惱了同事。",
+      "cue_visual": "先把「主管用居高臨下的口吻回答新同事，讓對方感到不舒服。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「居高臨下的；自以為是的」。",
+      "cue_auditory": "先用裝置播放「condescendente」，跟讀一次，再把諧音「像「看低先」，想像說話者自以為高人一等，語氣帶有輕視。」說出來，最後說出「居高臨下的；自以為是的」。",
+      "cue_read_write": "看一遍「condescendente」與「居高臨下的；自以為是的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「主管用居高臨下的口吻回答新同事，讓對方感到不舒服。」，邊做邊說「condescendente」與「居高臨下的；自以為是的」。"
     },
     {
       "word": "peremptório",
@@ -576,7 +764,11 @@
       "difficulty": 3,
       "proficiency_level": "C2",
       "example_sentence": "A diretora deu uma resposta peremptória.",
-      "example_translation": "主管給了一個斬釘截鐵的回答。"
+      "example_translation": "主管給了一個斬釘截鐵的回答。",
+      "cue_visual": "先把「發言人用非常明確的語氣表示，截止日期不會改變。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「斬釘截鐵的；不容置疑的」。",
+      "cue_auditory": "先用裝置播放「peremptório」，跟讀一次，再把諧音「像「必然通過」，想像語氣斬釘截鐵，不容反駁。」說出來，最後說出「斬釘截鐵的；不容置疑的」。",
+      "cue_read_write": "看一遍「peremptório」與「斬釘截鐵的；不容置疑的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「發言人用非常明確的語氣表示，截止日期不會改變。」，邊做邊說「peremptório」與「斬釘截鐵的；不容置疑的」。"
     }
   ]
 }

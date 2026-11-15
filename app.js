@@ -9,6 +9,16 @@
   const VOICE_STORE = 'phonetic-star-planet-voice-v1';
   function safeReadVoices() { try { const value=JSON.parse(localStorage.getItem(VOICE_STORE)); return value && typeof value==='object' && !Array.isArray(value) ? value : {}; } catch { return {}; } }
   const voicePreferences = safeReadVoices();
+  const VARK_STORE = 'phonetic-star-planet-vark-v1';
+  const VARK_MODES = {
+    normal:{label:'一般提示',field:null,prompt:''},
+    visual:{label:'視覺 Visual',field:'cue_visual',prompt:'把聲音和意思連成一個畫面。'},
+    auditory:{label:'聽覺 Auditory',field:'cue_auditory',prompt:'先聽原文發音，再用聲音線索聯想意思。'},
+    read_write:{label:'讀／寫 Read/Write',field:'cue_read_write',prompt:'讀出拼字與意思，或自己寫下關鍵聯想。'},
+    kinesthetic:{label:'動作／操作 Kinesthetic',field:'cue_kinesthetic',prompt:'用安全的小動作或操作，把聲音和意思連起來。'}
+  };
+  function safeReadVarkMode() { try { const value=localStorage.getItem(VARK_STORE); return Object.hasOwn(VARK_MODES,value) ? value : 'normal'; } catch { return 'normal'; } }
+  let varkMode=safeReadVarkMode();
   const speechApi = window.speechSynthesis || null;
   let deviceVoices = [];
   const languageKey = language => String(language||'zh-TW').trim().replace(/_/g,'-').split('-')[0].toLowerCase();
@@ -134,6 +144,7 @@
   function renderPractice() {
     const d = getDeck(), matching = matchingEntries(d), entries = activeEntries(d), entry = currentEntry(d,entries), c = entry?.card;
     refreshVoiceOptions(d);
+    $('varkModeSelect').value=varkMode;
     const position = entry ? entries.findIndex(e => e.index === entry.index) : -1;
     renderCardFilters(d,entries,matching);
     $('currentDeckLabel').textContent = `${d.flag||'📚'} ${d.name}`;
@@ -168,10 +179,19 @@
       $('emptyResetBtn')?.addEventListener('click', clearCardFilters);
     } else if (state.revealed) {
       panel.classList.remove('empty');
+      const selectedMode=VARK_MODES[varkMode], specificCue=selectedMode.field ? String(c[selectedMode.field]||'').trim() : '';
       const example = c.example_sentence && c.example_translation
         ? `<section class="example-block" aria-label="短例句與繁中翻譯"><div class="example-heading"><b>短例句</b><button id="speakSentenceBtn" class="sentence-speak" aria-label="播放例句發音" title="朗讀例句">朗讀</button></div><p class="example-sentence" lang="${escapeHTML(d.lang||'zh-TW')}" dir="auto">${escapeHTML(c.example_sentence)}</p><p class="example-translation" lang="zh-Hant">${escapeHTML(c.example_translation)}</p></section>`
         : '<p class="example-missing">此卡尚未加入例句，可在編輯時補上。</p>';
-      panel.innerHTML = `<span class="answer-label">${learned?'REVIEW THIS CARD':'YOU GOT IT'}</span><h3>${escapeHTML(c.meaning)}</h3><p>${escapeHTML(d.name)} · ${escapeHTML(d.native||'自訂牌組')}　<span class="confetti">✦</span></p>${example}<div class="mnemonic"><b>記憶畫面</b><br>${escapeHTML(c.cue||'為這張卡想一個自己的聯想畫面吧。')}</div><div class="answer-actions"><button class="secondary" id="againBtn">再複習一次</button><button class="primary" id="knownBtn">${learned?'下一張':'記住了 ✓'}</button></div>`;
+      const varkFallback={
+        visual:'此卡尚未提供專用視覺提示；試著把下面的原始提示想成一幅畫，再連到單字意思。',
+        auditory:'此卡尚未提供專用聽覺提示；點單字旁的喇叭播放，再跟讀原文與諧音提示。',
+        read_write:'此卡尚未提供專用讀／寫提示；先看拼字，再遮住原文寫出單字或意思。',
+        kinesthetic:'此卡尚未提供專用動作提示；可用安全的小手勢演出原始提示，再說一次單字。'
+      };
+      const varkBlock=varkMode==='normal'?'':`<section class="vark-prompt" aria-label="${escapeHTML(selectedMode.label)}"><div><b>${escapeHTML(selectedMode.label)}提示</b><small>${escapeHTML(selectedMode.prompt)}</small></div><p>${escapeHTML(specificCue||varkFallback[varkMode])}</p></section>`;
+      const cueLabel=varkMode==='normal'?'記憶畫面':'原始諧音提示';
+      panel.innerHTML = `<span class="answer-label">${learned?'REVIEW THIS CARD':'YOU GOT IT'}</span><h3>${escapeHTML(c.meaning)}</h3><p>${escapeHTML(d.name)} · ${escapeHTML(d.native||'自訂牌組')}　<span class="confetti">✦</span></p>${example}${varkBlock}<div class="mnemonic"><b>${cueLabel}</b><br>${escapeHTML(c.cue||'為這張卡想一個自己的聯想畫面吧。')}</div><div class="answer-actions"><button class="secondary" id="againBtn">再複習一次</button><button class="primary" id="knownBtn">${learned?'下一張':'記住了 ✓'}</button></div>`;
       $('speakSentenceBtn')?.addEventListener('click', () => speak(c.example_sentence,d.lang));
       $('againBtn').addEventListener('click', () => { state.revealed=false; state.reviewed+=1; save(); renderAll(); showToast('已加入本次複習'); });
       $('knownBtn').addEventListener('click', () => {
@@ -247,6 +267,12 @@
     if (choice) voicePreferences[key]=choice; else delete voicePreferences[key];
     saveVoicePreferences();
   });
+  $('varkModeSelect').addEventListener('change',()=>{
+    const selected=$('varkModeSelect').value;
+    varkMode=Object.hasOwn(VARK_MODES,selected)?selected:'normal';
+    try { localStorage.setItem(VARK_STORE,varkMode); } catch {}
+    renderPractice();
+  });
 
   const dialog = $('deckDialog');
   let managerDeckId = null;
@@ -273,7 +299,7 @@
     resetCardForm(); renderCardList(); dialog.showModal(); setTimeout(()=>$('deckNameInput').focus(),30);
   }
   function resetCardForm() {
-    for(const id of ['editingCardId','cardWordInput','cardRomanInput','cardHintInput','cardMeaningInput','cardCueInput','cardExampleInput','cardExampleTranslationInput'])$(id).value='';
+    for(const id of ['editingCardId','cardWordInput','cardRomanInput','cardHintInput','cardMeaningInput','cardCueInput','cardCueVisualInput','cardCueAuditoryInput','cardCueReadWriteInput','cardCueKinestheticInput','cardExampleInput','cardExampleTranslationInput'])$(id).value='';
     $('cardTopicInput').value='general'; fillManagerLevels(); $('cardFormTitle').textContent='新增一張卡'; $('saveCardBtn').textContent='新增卡片'; $('cancelCardEditBtn').hidden=true;
   }
   function renderCardList() {
@@ -285,6 +311,7 @@
     list.querySelectorAll('[data-edit-card]').forEach(btn=>btn.addEventListener('click',()=>{
       const card=d.cards.find(x=>x.id===btn.dataset.editCard);if(!card)return;
       $('editingCardId').value=card.id; $('cardWordInput').value=card.word; $('cardRomanInput').value=card.roman||''; $('cardHintInput').value=card.hint; $('cardMeaningInput').value=card.meaning; $('cardCueInput').value=card.cue||'';
+      $('cardCueVisualInput').value=card.cue_visual||''; $('cardCueAuditoryInput').value=card.cue_auditory||''; $('cardCueReadWriteInput').value=card.cue_read_write||''; $('cardCueKinestheticInput').value=card.cue_kinesthetic||'';
       $('cardExampleInput').value=card.example_sentence||''; $('cardExampleTranslationInput').value=card.example_translation||'';
       $('cardTopicInput').value=Tags.getTopic(card); fillManagerLevels(card);
       $('cardFormTitle').textContent='編輯這張卡'; $('saveCardBtn').textContent='儲存卡片'; $('cancelCardEditBtn').hidden=false; $('cardWordInput').focus();
@@ -325,7 +352,7 @@
     const existing=d.cards.find(c=>c.id===$('editingCardId').value),legacy=Tags.levelScheme(d)==='legacy';
     const level=Tags.normalizeLevel($('cardDifficultyInput').value,d);
     if(!legacy&&!level){$('cardDifficultyInput').reportValidity();return;}
-    const card={id:$('editingCardId').value||newId(),word,roman:$('cardRomanInput').value.trim(),hint,meaning,cue:$('cardCueInput').value.trim(),topic:Tags.normalizeTopic($('cardTopicInput').value)||'general',difficulty:legacy?(Number(level)||1):Tags.getDifficulty(existing),proficiency_level:legacy?null:level,example_sentence:sentence,example_translation:translation};
+    const card={id:$('editingCardId').value||newId(),word,roman:$('cardRomanInput').value.trim(),hint,meaning,cue:$('cardCueInput').value.trim(),cue_visual:$('cardCueVisualInput').value.trim(),cue_auditory:$('cardCueAuditoryInput').value.trim(),cue_read_write:$('cardCueReadWriteInput').value.trim(),cue_kinesthetic:$('cardCueKinestheticInput').value.trim(),topic:Tags.normalizeTopic($('cardTopicInput').value)||'general',difficulty:legacy?(Number(level)||1):Tags.getDifficulty(existing),proficiency_level:legacy?null:level,example_sentence:sentence,example_translation:translation};
     const i=d.cards.findIndex(x=>x.id===card.id);if(i>=0){d.cards[i]=card;showToast('卡片已更新');}else{d.cards.push(card);showToast('卡片已新增');}
     state.selected=d.id;state.index=Math.max(0,d.cards.findIndex(x=>x.id===card.id));state.revealed=false;resetFilters();save();resetCardForm();renderCardList();renderAll();
   });

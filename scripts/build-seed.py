@@ -59,17 +59,19 @@ def build(decks: list[dict]) -> str:
             sql(d["id"]), sql(d["name"]), sql(d["native"]), sql(d["flag"]),
             sql(d["region"]), sql(d["lang"]), pos))
     lines.append(",\n".join(deck_rows) + "\non conflict (id) do nothing;")
-    lines += ["", "insert into public.phonetic_cards (id, deck_id, word, roman, hint, meaning, cue, position, published, legacy_index, topic, difficulty, proficiency_level, example_sentence, example_translation) values"]
+    lines += ["", "insert into public.phonetic_cards (id, deck_id, word, roman, hint, meaning, cue, position, published, legacy_index, topic, difficulty, proficiency_level, example_sentence, example_translation, cue_visual, cue_auditory, cue_read_write, cue_kinesthetic) values"]
     card_rows = []
     for deck in decks:
         for index, card in enumerate(deck["cards"]):
             card_id = uuid.uuid5(NAMESPACE, f"{deck['id']}:{index}:{card['word']}")
-            card_rows.append("  (%s, %s, %s, %s, %s, %s, %s, %d, true, %d, %s, %d, %s, %s, %s)" % (
+            card_rows.append("  (%s, %s, %s, %s, %s, %s, %s, %d, true, %d, %s, %d, %s, %s, %s, %s, %s, %s, %s)" % (
                 sql(card_id), sql(deck["id"]), sql(card["word"]), sql(card.get("roman", "")),
                 sql(card["hint"]), sql(card["meaning"]), sql(card.get("cue", "")), index, index,
                 sql(card.get("topic", "general")), int(card.get("difficulty", 1)),
                 sql(card.get("proficiency_level")), sql(card.get("example_sentence", "")),
-                sql(card.get("example_translation", ""))))
+                sql(card.get("example_translation", "")), sql(card.get("cue_visual", "")),
+                sql(card.get("cue_auditory", "")), sql(card.get("cue_read_write", "")),
+                sql(card.get("cue_kinesthetic", ""))))
     lines.append(",\n".join(card_rows) + "\non conflict (id) do nothing;")
     lines += ["", "commit;", ""]
     return "\n".join(lines)

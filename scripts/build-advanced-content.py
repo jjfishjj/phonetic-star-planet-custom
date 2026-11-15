@@ -43,12 +43,15 @@ TOPICS = {
 FIELDS = (
     "word", "roman", "hint", "meaning", "cue", "topic", "difficulty",
     "proficiency_level", "example_sentence", "example_translation",
+    "cue_visual", "cue_auditory", "cue_read_write", "cue_kinesthetic",
 )
 CSV_FIELDS = (
-    "word", "roman", "hint", "meaning", "cue", "topic", "difficulty",
+    "word", "roman", "hint", "meaning", "cue", "cue_visual",
+    "cue_auditory", "cue_read_write", "cue_kinesthetic", "topic", "difficulty",
     "proficiency_level", "example_sentence", "example_translation", "published",
     "position", "id",
 )
+VARK_FIELDS = ("cue_visual", "cue_auditory", "cue_read_write", "cue_kinesthetic")
 CHINESE = re.compile(r"[\u3400-\u9fff]")
 
 
@@ -83,10 +86,10 @@ def validate_source(deck_id: str, expected_scheme: str, expected_levels: list[st
     for index, card in enumerate(cards, start=1):
         if set(card) != set(FIELDS):
             raise ValueError(f"{path}: row {index} must contain exactly {FIELDS}")
-        for field in ("word", "roman", "hint", "meaning", "cue", "topic", "proficiency_level", "example_sentence", "example_translation"):
+        for field in ("word", "roman", "hint", "meaning", "cue", "topic", "proficiency_level", "example_sentence", "example_translation", "cue_visual", "cue_auditory", "cue_read_write", "cue_kinesthetic"):
             if not isinstance(card[field], str) or not card[field].strip():
                 raise ValueError(f"{path}: row {index} has blank/non-text {field}")
-            if len(card[field]) > {"word": 300, "roman": 300, "hint": 500, "meaning": 500, "cue": 2000, "example_sentence": 500, "example_translation": 500}.get(field, 500):
+            if len(card[field]) > {"word": 300, "roman": 300, "hint": 500, "meaning": 500, "cue": 2000, "example_sentence": 500, "example_translation": 500, "cue_visual": 1000, "cue_auditory": 1000, "cue_read_write": 1000, "cue_kinesthetic": 1000}.get(field, 500):
                 raise ValueError(f"{path}: row {index} {field} exceeds its database limit")
         if card["proficiency_level"] not in expected_levels:
             raise ValueError(f"{path}: row {index} has unsupported level {card['proficiency_level']!r}")
@@ -130,8 +133,12 @@ def main() -> None:
             key = normalized(card["word"])
             if key in existing_by_word:
                 prior = existing_by_word[key]
-                if any(prior.get(field) != card[field] for field in FIELDS):
+                original_fields = [field for field in FIELDS if field not in VARK_FIELDS]
+                if any(prior.get(field) != card[field] for field in original_fields):
                     raise ValueError(f"{deck_id}: existing card conflicts with source for {card['word']!r}")
+                if any(prior.get(field) not in (None, "", card[field]) for field in VARK_FIELDS):
+                    raise ValueError(f"{deck_id}: existing VARK cue conflicts with source for {card['word']!r}")
+                prior.update({field: card[field] for field in VARK_FIELDS})
         all_sources[deck_id] = cards
 
     appended = 0

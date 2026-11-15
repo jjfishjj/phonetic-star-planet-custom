@@ -12,7 +12,11 @@
       "proficiency_level": "B1",
       "roman": "/əˈtʃiv/",
       "topic": "actions",
-      "word": "achieve"
+      "word": "achieve",
+      "cue_visual": "先把「終點線前伸手摸到獎牌，心中喊著『啊，去！』」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「達成；實現」。",
+      "cue_auditory": "先用裝置播放「achieve」，跟讀一次，再把諧音「啊，去——『啊，去』就能達成目標。」說出來，最後說出「達成；實現」。",
+      "cue_read_write": "看一遍「achieve」與「達成；實現」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「終點線前伸手摸到獎牌，心中喊著『啊，去！』」，邊做邊說「achieve」與「達成；實現」。"
     },
     {
       "cue": "小孩踮腳偷看上鎖的盒子，滿臉想知道裡面是什麼。",
@@ -24,7 +28,11 @@
       "proficiency_level": "B1",
       "roman": "/ˈkjʊriəs/",
       "topic": "descriptions",
-      "word": "curious"
+      "word": "curious",
+      "cue_visual": "先把「小孩踮腳偷看上鎖的盒子，滿臉想知道裡面是什麼。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「好奇的；求知的」。",
+      "cue_auditory": "先用裝置播放「curious」，跟讀一次，再把諧音「『Q里啊死』？好奇到一直追問。」說出來，最後說出「好奇的；求知的」。",
+      "cue_read_write": "看一遍「curious」與「好奇的；求知的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「小孩踮腳偷看上鎖的盒子，滿臉想知道裡面是什麼。」，邊做邊說「curious」與「好奇的；求知的」。"
     },
     {
       "cue": "一座準時亮起的燈塔，無論天氣如何都指引船隻。",
@@ -36,7 +44,11 @@
       "proficiency_level": "B1",
       "roman": "/rɪˈlaɪəbəl/",
       "topic": "people",
-      "word": "reliable"
+      "word": "reliable",
+      "cue_visual": "先把「一座準時亮起的燈塔，無論天氣如何都指引船隻。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「可靠的；可信賴的」。",
+      "cue_auditory": "先用裝置播放「reliable」，跟讀一次，再把諧音「『日來』又『來』，可靠的人總是準時出現。」說出來，最後說出「可靠的；可信賴的」。",
+      "cue_read_write": "看一遍「reliable」與「可靠的；可信賴的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「一座準時亮起的燈塔，無論天氣如何都指引船隻。」，邊做邊說「reliable」與「可靠的；可信賴的」。"
     },
     {
       "cue": "裂開的道路被一段段修平，車子行駛得越來越順。",
@@ -48,7 +60,11 @@
       "proficiency_level": "B1",
       "roman": "/ɪmˈpruv/",
       "topic": "study",
-      "word": "improve"
+      "word": "improve",
+      "cue_visual": "先把「裂開的道路被一段段修平，車子行駛得越來越順。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「改善；進步」。",
+      "cue_auditory": "先用裝置播放「improve」，跟讀一次，再把諧音「『音普柔夫』，每天練習讓表現更柔順、更進步。」說出來，最後說出「改善；進步」。",
+      "cue_read_write": "看一遍「improve」與「改善；進步」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「裂開的道路被一段段修平，車子行駛得越來越順。」，邊做邊說「improve」與「改善；進步」。"
     },
     {
       "cue": "會議中有人舉手，輕輕把一個名字放進討論裡。",
@@ -60,7 +76,11 @@
       "proficiency_level": "B1",
       "roman": "/ˈmɛnʃən/",
       "topic": "expressions",
-      "word": "mention"
+      "word": "mention",
+      "cue_visual": "先把「會議中有人舉手，輕輕把一個名字放進討論裡。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「提及；說起」。",
+      "cue_auditory": "先用裝置播放「mention」，跟讀一次，再把諧音「『免先』說，只要順帶提到就好。」說出來，最後說出「提及；說起」。",
+      "cue_read_write": "看一遍「mention」與「提及；說起」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「會議中有人舉手，輕輕把一個名字放進討論裡。」，邊做邊說「mention」與「提及；說起」。"
     },
     {
       "cue": "清理海灘時，一隻手高高舉起，主動接過垃圾袋。",
@@ -72,7 +92,11 @@
       "proficiency_level": "B1",
       "roman": "/ˌvɑlənˈtɪr/",
       "topic": "people",
-      "word": "volunteer"
+      "word": "volunteer",
+      "cue_visual": "先把「清理海灘時，一隻手高高舉起，主動接過垃圾袋。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「志願者；自願做」。",
+      "cue_auditory": "先用裝置播放「volunteer」，跟讀一次，再把諧音「『我來挺』，志願者主動說我來幫忙。」說出來，最後說出「志願者；自願做」。",
+      "cue_read_write": "看一遍「volunteer」與「志願者；自願做」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「清理海灘時，一隻手高高舉起，主動接過垃圾袋。」，邊做邊說「volunteer」與「志願者；自願做」。"
     },
     {
       "cue": "一個人打開門並坦白：『是我弄錯了。』",
@@ -84,7 +108,11 @@
       "proficiency_level": "B1",
       "roman": "/ədˈmɪt/",
       "topic": "expressions",
-      "word": "admit"
+      "word": "admit",
+      "cue_visual": "先把「一個人打開門並坦白：『是我弄錯了。』」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「承認；准許進入」。",
+      "cue_auditory": "先用裝置播放「admit」，跟讀一次，再把諧音「『啊，的確』，承認自己犯了錯。」說出來，最後說出「承認；准許進入」。",
+      "cue_read_write": "看一遍「admit」與「承認；准許進入」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「一個人打開門並坦白：『是我弄錯了。』」，邊做邊說「admit」與「承認；准許進入」。"
     },
     {
       "cue": "一條街上整齊排列著沒有特別裝飾的普通房子。",
@@ -96,7 +124,11 @@
       "proficiency_level": "B1",
       "roman": "/ˈɔrdəˌnɛri/",
       "topic": "descriptions",
-      "word": "ordinary"
+      "word": "ordinary",
+      "cue_visual": "先把「一條街上整齊排列著沒有特別裝飾的普通房子。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「普通的；平凡的」。",
+      "cue_auditory": "先用裝置播放「ordinary」，跟讀一次，再把諧音「『喔，日的那裡』，就是平凡日子裡的普通事物。」說出來，最後說出「普通的；平凡的」。",
+      "cue_read_write": "看一遍「ordinary」與「普通的；平凡的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「一條街上整齊排列著沒有特別裝飾的普通房子。」，邊做邊說「ordinary」與「普通的；平凡的」。"
     },
     {
       "cue": "兩方隔著桌子交換文件，最後握手達成協議。",
@@ -108,7 +140,11 @@
       "proficiency_level": "B2",
       "roman": "/nɪˈɡoʊʃiˌeɪt/",
       "topic": "actions",
-      "word": "negotiate"
+      "word": "negotiate",
+      "cue_visual": "先把「兩方隔著桌子交換文件，最後握手達成協議。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「協商；談判」。",
+      "cue_auditory": "先用裝置播放「negotiate」，跟讀一次，再把諧音「『你夠協議嗎』？雙方坐下來談條件。」說出來，最後說出「協商；談判」。",
+      "cue_read_write": "看一遍「negotiate」與「協商；談判」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「兩方隔著桌子交換文件，最後握手達成協議。」，邊做邊說「negotiate」與「協商；談判」。"
     },
     {
       "cue": "瀑布水流持續往下，沒有人能讓它停在半空。",
@@ -120,7 +156,11 @@
       "proficiency_level": "B2",
       "roman": "/ɪnˈɛvətəbəl/",
       "topic": "descriptions",
-      "word": "inevitable"
+      "word": "inevitable",
+      "cue_visual": "先把「瀑布水流持續往下，沒有人能讓它停在半空。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「不可避免的」。",
+      "cue_auditory": "先用裝置播放「inevitable」，跟讀一次，再把諧音「『一定會的』，事情怎麼躲都躲不掉。」說出來，最後說出「不可避免的」。",
+      "cue_read_write": "看一遍「inevitable」與「不可避免的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「瀑布水流持續往下，沒有人能讓它停在半空。」，邊做邊說「inevitable」與「不可避免的」。"
     },
     {
       "cue": "攝影師換到山的另一側，原本隱藏的湖泊突然出現。",
@@ -132,7 +172,11 @@
       "proficiency_level": "B2",
       "roman": "/pərˈspɛktɪv/",
       "topic": "study",
-      "word": "perspective"
+      "word": "perspective",
+      "cue_visual": "先把「攝影師換到山的另一側，原本隱藏的湖泊突然出現。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「觀點；視角」。",
+      "cue_auditory": "先用裝置播放「perspective」，跟讀一次，再把諧音「『派斯派克提夫』，換個視角看，景物就不同。」說出來，最後說出「觀點；視角」。",
+      "cue_read_write": "看一遍「perspective」與「觀點；視角」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「攝影師換到山的另一側，原本隱藏的湖泊突然出現。」，邊做邊說「perspective」與「觀點；視角」。"
     },
     {
       "cue": "屋頂的太陽能板持續供電，旁邊的樹木也安然生長。",
@@ -144,7 +188,11 @@
       "proficiency_level": "B2",
       "roman": "/səˈsteɪnəbəl/",
       "topic": "nature",
-      "word": "sustainable"
+      "word": "sustainable",
+      "cue_visual": "先把「屋頂的太陽能板持續供電，旁邊的樹木也安然生長。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「可持續的；不破壞環境的」。",
+      "cue_auditory": "先用裝置播放「sustainable」，跟讀一次，再把諧音「『是挺得住的』，長久做下去也不會耗盡。」說出來，最後說出「可持續的；不破壞環境的」。",
+      "cue_read_write": "看一遍「sustainable」與「可持續的；不破壞環境的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「屋頂的太陽能板持續供電，旁邊的樹木也安然生長。」，邊做邊說「sustainable」與「可持續的；不破壞環境的」。"
     },
     {
       "cue": "管理者把一疊預算卡分到教育、醫療和交通三個盒子。",
@@ -156,7 +204,11 @@
       "proficiency_level": "B2",
       "roman": "/ˈæləˌkeɪt/",
       "topic": "actions",
-      "word": "allocate"
+      "word": "allocate",
+      "cue_visual": "先把「管理者把一疊預算卡分到教育、醫療和交通三個盒子。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「分配；撥出」。",
+      "cue_auditory": "先用裝置播放「allocate」，跟讀一次，再把諧音「『來分配』，把資源一份份分給不同用途。」說出來，最後說出「分配；撥出」。",
+      "cue_read_write": "看一遍「allocate」與「分配；撥出」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「管理者把一疊預算卡分到教育、醫療和交通三個盒子。」，邊做邊說「allocate」與「分配；撥出」。"
     },
     {
       "cue": "孩子抓住門框，被拉去參加不想去的活動。",
@@ -168,7 +220,11 @@
       "proficiency_level": "B2",
       "roman": "/rɪˈlʌktənt/",
       "topic": "descriptions",
-      "word": "reluctant"
+      "word": "reluctant",
+      "cue_visual": "先把「孩子抓住門框，被拉去參加不想去的活動。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「不情願的；勉強的」。",
+      "cue_auditory": "先用裝置播放「reluctant」，跟讀一次，再把諧音「『你拉不動』，不情願的人怎麼拉都不想走。」說出來，最後說出「不情願的；勉強的」。",
+      "cue_read_write": "看一遍「reluctant」與「不情願的；勉強的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「孩子抓住門框，被拉去參加不想去的活動。」，邊做邊說「reluctant」與「不情願的；勉強的」。"
     },
     {
       "cue": "一張圓桌旁坐著來自不同文化、說著不同語言的人。",
@@ -180,7 +236,11 @@
       "proficiency_level": "B2",
       "roman": "/daɪˈvɝs/",
       "topic": "people",
-      "word": "diverse"
+      "word": "diverse",
+      "cue_visual": "先把「一張圓桌旁坐著來自不同文化、說著不同語言的人。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「多元的；多樣的」。",
+      "cue_auditory": "先用裝置播放「diverse」，跟讀一次，再把諧音「『大家有各式』，每個人的背景與想法都不同。」說出來，最後說出「多元的；多樣的」。",
+      "cue_read_write": "看一遍「diverse」與「多元的；多樣的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「一張圓桌旁坐著來自不同文化、說著不同語言的人。」，邊做邊說「diverse」與「多元的；多樣的」。"
     },
     {
       "cue": "工人把鋼樑焊到橋上，讓橋能承受更重的車。",
@@ -192,7 +252,11 @@
       "proficiency_level": "B2",
       "roman": "/ˌriɪnˈfɔrs/",
       "topic": "actions",
-      "word": "reinforce"
+      "word": "reinforce",
+      "cue_visual": "先把「工人把鋼樑焊到橋上，讓橋能承受更重的車。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「加強；鞏固」。",
+      "cue_auditory": "先用裝置播放「reinforce」，跟讀一次，再把諧音「『再硬撐』，加強結構讓它更堅固。」說出來，最後說出「加強；鞏固」。",
+      "cue_read_write": "看一遍「reinforce」與「加強；鞏固」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「工人把鋼樑焊到橋上，讓橋能承受更重的車。」，邊做邊說「reinforce」與「加強；鞏固」。"
     },
     {
       "cue": "一張指示牌同時指向兩條路，讓每個人都困惑。",
@@ -204,7 +268,11 @@
       "proficiency_level": "C1",
       "roman": "/æmˈbɪɡjuəs/",
       "topic": "expressions",
-      "word": "ambiguous"
+      "word": "ambiguous",
+      "cue_visual": "先把「一張指示牌同時指向兩條路，讓每個人都困惑。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「含糊不清的；有歧義的」。",
+      "cue_auditory": "先用裝置播放「ambiguous」，跟讀一次，再把諧音「『俺逼急了』也說不清，句子有不只一種解讀。」說出來，最後說出「含糊不清的；有歧義的」。",
+      "cue_read_write": "看一遍「ambiguous」與「含糊不清的；有歧義的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「一張指示牌同時指向兩條路，讓每個人都困惑。」，邊做邊說「ambiguous」與「含糊不清的；有歧義的」。"
     },
     {
       "cue": "散落的拼圖逐片接合，最後形成一幅完整的地圖。",
@@ -216,7 +284,11 @@
       "proficiency_level": "C1",
       "roman": "/koʊˈhɪrənt/",
       "topic": "study",
-      "word": "coherent"
+      "word": "coherent",
+      "cue_visual": "先把「散落的拼圖逐片接合，最後形成一幅完整的地圖。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「連貫的；條理清楚的」。",
+      "cue_auditory": "先用裝置播放「coherent」，跟讀一次，再把諧音「『口齊人』，大家的話接得整齊，論述就連貫。」說出來，最後說出「連貫的；條理清楚的」。",
+      "cue_read_write": "看一遍「coherent」與「連貫的；條理清楚的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「散落的拼圖逐片接合，最後形成一幅完整的地圖。」，邊做邊說「coherent」與「連貫的；條理清楚的」。"
     },
     {
       "cue": "一個人把耳朵靠近哭泣的朋友，溫柔地握住對方的手。",
@@ -228,7 +300,11 @@
       "proficiency_level": "C1",
       "roman": "/ˈɛmpəθi/",
       "topic": "people",
-      "word": "empathy"
+      "word": "empathy",
+      "cue_visual": "先把「一個人把耳朵靠近哭泣的朋友，溫柔地握住對方的手。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「同理心；感同身受」。",
+      "cue_auditory": "先用裝置播放「empathy」，跟讀一次，再把諧音「『欸，明白你』，先感受對方的心情再回應。」說出來，最後說出「同理心；感同身受」。",
+      "cue_read_write": "看一遍「empathy」與「同理心；感同身受」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「一個人把耳朵靠近哭泣的朋友，溫柔地握住對方的手。」，邊做邊說「empathy」與「同理心；感同身受」。"
     },
     {
       "cue": "火上又添乾柴，小火迅速變成難以控制的大火。",
@@ -240,7 +316,11 @@
       "proficiency_level": "C1",
       "roman": "/ɪɡˈzæsərˌbeɪt/",
       "topic": "nature",
-      "word": "exacerbate"
+      "word": "exacerbate",
+      "cue_visual": "先把「火上又添乾柴，小火迅速變成難以控制的大火。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「使惡化；加劇」。",
+      "cue_auditory": "先用裝置播放「exacerbate」，跟讀一次，再把諧音「『一個災禍被擴大』，原本的問題變得更糟。」說出來，最後說出「使惡化；加劇」。",
+      "cue_read_write": "看一遍「exacerbate」與「使惡化；加劇」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「火上又添乾柴，小火迅速變成難以控制的大火。」，邊做邊說「exacerbate」與「使惡化；加劇」。"
     },
     {
       "cue": "工程師在藍圖旁打勾，確認每個零件和預算都能到位。",
@@ -252,7 +332,11 @@
       "proficiency_level": "C1",
       "roman": "/ˈfizəbəl/",
       "topic": "actions",
-      "word": "feasible"
+      "word": "feasible",
+      "cue_visual": "先把「工程師在藍圖旁打勾，確認每個零件和預算都能到位。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「可行的；辦得到的」。",
+      "cue_auditory": "先用裝置播放「feasible」，跟讀一次，再把諧音「『非做不可嗎？』先確認計畫實際可行。」說出來，最後說出「可行的；辦得到的」。",
+      "cue_read_write": "看一遍「feasible」與「可行的；辦得到的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「工程師在藍圖旁打勾，確認每個零件和預算都能到位。」，邊做邊說「feasible」與「可行的；辦得到的」。"
     },
     {
       "cue": "審核員用放大鏡逐字檢查一份合約。",
@@ -264,7 +348,11 @@
       "proficiency_level": "C1",
       "roman": "/ˈskrutəˌnaɪz/",
       "topic": "study",
-      "word": "scrutinize"
+      "word": "scrutinize",
+      "cue_visual": "先把「審核員用放大鏡逐字檢查一份合約。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「仔細檢查；審視」。",
+      "cue_auditory": "先用裝置播放「scrutinize」，跟讀一次，再把諧音「『死盯乃知』，仔細盯著每個細節才看得出問題。」說出來，最後說出「仔細檢查；審視」。",
+      "cue_read_write": "看一遍「scrutinize」與「仔細檢查；審視」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「審核員用放大鏡逐字檢查一份合約。」，邊做邊說「scrutinize」與「仔細檢查；審視」。"
     },
     {
       "cue": "暴風雨後彎下的竹子重新挺直，葉片仍然翠綠。",
@@ -276,7 +364,11 @@
       "proficiency_level": "C1",
       "roman": "/rɪˈzɪliənt/",
       "topic": "nature",
-      "word": "resilient"
+      "word": "resilient",
+      "cue_visual": "先把「暴風雨後彎下的竹子重新挺直，葉片仍然翠綠。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「有韌性的；能迅速復原的」。",
+      "cue_auditory": "先用裝置播放「resilient」，跟讀一次，再把諧音「『韌性人』，被壓倒後仍能彈回來。」說出來，最後說出「有韌性的；能迅速復原的」。",
+      "cue_read_write": "看一遍「resilient」與「有韌性的；能迅速復原的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「暴風雨後彎下的竹子重新挺直，葉片仍然翠綠。」，邊做邊說「resilient」與「有韌性的；能迅速復原的」。"
     },
     {
       "cue": "螞蟻在城牆底下挖洞，牆面表面完整卻越來越不穩。",
@@ -288,7 +380,11 @@
       "proficiency_level": "C1",
       "roman": "/ˌʌndərˈmaɪn/",
       "topic": "descriptions",
-      "word": "undermine"
+      "word": "undermine",
+      "cue_visual": "先把「螞蟻在城牆底下挖洞，牆面表面完整卻越來越不穩。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「暗中削弱；逐漸損害」。",
+      "cue_auditory": "先用裝置播放「undermine」，跟讀一次，再把諧音「『暗地埋』，從底下削弱基礎卻不容易被發現。」說出來，最後說出「暗中削弱；逐漸損害」。",
+      "cue_read_write": "看一遍「undermine」與「暗中削弱；逐漸損害」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「螞蟻在城牆底下挖洞，牆面表面完整卻越來越不穩。」，邊做邊說「undermine」與「暗中削弱；逐漸損害」。"
     },
     {
       "cue": "城市每個角落都亮著同一種標誌，街頭、車站和商店都有。",
@@ -300,7 +396,11 @@
       "proficiency_level": "C2",
       "roman": "/juˈbɪkwətəs/",
       "topic": "descriptions",
-      "word": "ubiquitous"
+      "word": "ubiquitous",
+      "cue_visual": "先把「城市每個角落都亮著同一種標誌，街頭、車站和商店都有。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「無所不在的；普遍存在的」。",
+      "cue_auditory": "先用裝置播放「ubiquitous」，跟讀一次，再把諧音「『有必有它』，到處都看得到它的身影。」說出來，最後說出「無所不在的；普遍存在的」。",
+      "cue_read_write": "看一遍「ubiquitous」與「無所不在的；普遍存在的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「城市每個角落都亮著同一種標誌，街頭、車站和商店都有。」，邊做邊說「ubiquitous」與「無所不在的；普遍存在的」。"
     },
     {
       "cue": "畫廊把古老肖像和現代廣告並排，衝突感立刻浮現。",
@@ -312,7 +412,11 @@
       "proficiency_level": "C2",
       "roman": "/ˌdʒʌkstəˈpoʊz/",
       "topic": "descriptions",
-      "word": "juxtapose"
+      "word": "juxtapose",
+      "cue_visual": "先把「畫廊把古老肖像和現代廣告並排，衝突感立刻浮現。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「並置；把兩者並列對照」。",
+      "cue_auditory": "先用裝置播放「juxtapose」，跟讀一次，再把諧音「『就各自擺』，把兩件事並排放來比較。」說出來，最後說出「並置；把兩者並列對照」。",
+      "cue_read_write": "看一遍「juxtapose」與「並置；把兩者並列對照」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「畫廊把古老肖像和現代廣告並排，衝突感立刻浮現。」，邊做邊說「juxtapose」與「並置；把兩者並列對照」。"
     },
     {
       "cue": "比賽冠軍把獎杯舉起，也向失利對手伸出友善的手。",
@@ -324,7 +428,11 @@
       "proficiency_level": "C2",
       "roman": "/mæɡˈnænəməs/",
       "topic": "people",
-      "word": "magnanimous"
+      "word": "magnanimous",
+      "cue_visual": "先把「比賽冠軍把獎杯舉起，也向失利對手伸出友善的手。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「寬宏大量的；寬厚的」。",
+      "cue_auditory": "先用裝置播放「magnanimous」，跟讀一次，再把諧音「『滿腔寬容』，勝利後仍大方地原諒對手。」說出來，最後說出「寬宏大量的；寬厚的」。",
+      "cue_read_write": "看一遍「magnanimous」與「寬宏大量的；寬厚的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「比賽冠軍把獎杯舉起，也向失利對手伸出友善的手。」，邊做邊說「magnanimous」與「寬宏大量的；寬厚的」。"
     },
     {
       "cue": "記者追問答案時，受訪者在兩扇門之間來回指，始終不選邊。",
@@ -336,7 +444,11 @@
       "proficiency_level": "C2",
       "roman": "/ɪˈkwɪvəˌkeɪt/",
       "topic": "expressions",
-      "word": "equivocate"
+      "word": "equivocate",
+      "cue_visual": "先把「記者追問答案時，受訪者在兩扇門之間來回指，始終不選邊。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「含糊其辭；支吾其詞」。",
+      "cue_auditory": "先用裝置播放「equivocate」，跟讀一次，再把諧音「『一口兩邊』，故意說模稜兩可的話來閃避。」說出來，最後說出「含糊其辭；支吾其詞」。",
+      "cue_read_write": "看一遍「equivocate」與「含糊其辭；支吾其詞」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「記者追問答案時，受訪者在兩扇門之間來回指，始終不選邊。」，邊做邊說「equivocate」與「含糊其辭；支吾其詞」。"
     },
     {
       "cue": "風向標不停轉動，讓所有依賴它的人都無法預測下一步。",
@@ -348,7 +460,11 @@
       "proficiency_level": "C2",
       "roman": "/kəˈprɪʃəs/",
       "topic": "descriptions",
-      "word": "capricious"
+      "word": "capricious",
+      "cue_visual": "先把「風向標不停轉動，讓所有依賴它的人都無法預測下一步。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「反覆無常的；任性的」。",
+      "cue_auditory": "先用裝置播放「capricious」，跟讀一次，再把諧音「『可不理事』，心情一變就任意改變決定。」說出來，最後說出「反覆無常的；任性的」。",
+      "cue_read_write": "看一遍「capricious」與「反覆無常的；任性的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「風向標不停轉動，讓所有依賴它的人都無法預測下一步。」，邊做邊說「capricious」與「反覆無常的；任性的」。"
     },
     {
       "cue": "巨大的時鐘齒輪持續轉動，任何力量都無法讓時間倒退。",
@@ -360,7 +476,11 @@
       "proficiency_level": "C2",
       "roman": "/ɪnˈɛksərəbəl/",
       "topic": "time",
-      "word": "inexorable"
+      "word": "inexorable",
+      "cue_visual": "先把「巨大的時鐘齒輪持續轉動，任何力量都無法讓時間倒退。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「不可阻擋的；無情的」。",
+      "cue_auditory": "先用裝置播放「inexorable」，跟讀一次，再把諧音「『一刻不休』，不受阻擋地持續往前。」說出來，最後說出「不可阻擋的；無情的」。",
+      "cue_read_write": "看一遍「inexorable」與「不可阻擋的；無情的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「巨大的時鐘齒輪持續轉動，任何力量都無法讓時間倒退。」，邊做邊說「inexorable」與「不可阻擋的；無情的」。"
     },
     {
       "cue": "不是爭論最漂亮的方案，而是拿工具修好漏水的屋頂。",
@@ -372,7 +492,11 @@
       "proficiency_level": "C2",
       "roman": "/præɡˈmætɪk/",
       "topic": "actions",
-      "word": "pragmatic"
+      "word": "pragmatic",
+      "cue_visual": "先把「不是爭論最漂亮的方案，而是拿工具修好漏水的屋頂。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「務實的；重實效的」。",
+      "cue_auditory": "先用裝置播放「pragmatic」，跟讀一次，再把諧音「『不怕麻煩，講實際』，先找能解決問題的方法。」說出來，最後說出「務實的；重實效的」。",
+      "cue_read_write": "看一遍「pragmatic」與「務實的；重實效的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「不是爭論最漂亮的方案，而是拿工具修好漏水的屋頂。」，邊做邊說「pragmatic」與「務實的；重實效的」。"
     },
     {
       "cue": "兩位爭吵者中間出現一雙手，遞上茶並邀請雙方坐下。",
@@ -384,7 +508,11 @@
       "proficiency_level": "C2",
       "roman": "/kənˈsɪliəˌtɔri/",
       "topic": "expressions",
-      "word": "conciliatory"
+      "word": "conciliatory",
+      "cue_visual": "先把「兩位爭吵者中間出現一雙手，遞上茶並邀請雙方坐下。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「安撫的；調解性的」。",
+      "cue_auditory": "先用裝置播放「conciliatory」，跟讀一次，再把諧音「『肯息爭』，語氣柔和地促成和解。」說出來，最後說出「安撫的；調解性的」。",
+      "cue_read_write": "看一遍「conciliatory」與「安撫的；調解性的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「兩位爭吵者中間出現一雙手，遞上茶並邀請雙方坐下。」，邊做邊說「conciliatory」與「安撫的；調解性的」。"
     },
     {
       "word": "adapt",
@@ -396,7 +524,11 @@
       "difficulty": 3,
       "proficiency_level": "B1",
       "example_sentence": "We must adapt to the changing weather.",
-      "example_translation": "我們必須適應不斷變化的天氣。"
+      "example_translation": "我們必須適應不斷變化的天氣。",
+      "cue_visual": "先把「旅行遇到下雨，旅客把行程調整成室內活動。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「適應；調整」。",
+      "cue_auditory": "先用裝置播放「adapt」，跟讀一次，再把諧音「啊，得配——遇到新情況就得配合調整。」說出來，最後說出「適應；調整」。",
+      "cue_read_write": "看一遍「adapt」與「適應；調整」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「旅行遇到下雨，旅客把行程調整成室內活動。」，邊做邊說「adapt」與「適應；調整」。"
     },
     {
       "word": "maintain",
@@ -408,7 +540,11 @@
       "difficulty": 3,
       "proficiency_level": "B1",
       "example_sentence": "Regular exercise helps maintain good health.",
-      "example_translation": "規律運動有助於維持良好的健康狀態。"
+      "example_translation": "規律運動有助於維持良好的健康狀態。",
+      "cue_visual": "先把「車主定期檢查引擎，讓汽車維持良好狀態。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「維持；保養」。",
+      "cue_auditory": "先用裝置播放「maintain」，跟讀一次，再把諧音「妹，挺——持續維持原來的狀態。」說出來，最後說出「維持；保養」。",
+      "cue_read_write": "看一遍「maintain」與「維持；保養」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「車主定期檢查引擎，讓汽車維持良好狀態。」，邊做邊說「maintain」與「維持；保養」。"
     },
     {
       "word": "persuade",
@@ -420,7 +556,11 @@
       "difficulty": 3,
       "proficiency_level": "B1",
       "example_sentence": "She persuaded her brother to try the new restaurant.",
-      "example_translation": "她說服弟弟去試試那家新餐廳。"
+      "example_translation": "她說服弟弟去試試那家新餐廳。",
+      "cue_visual": "先把「她提出清楚的理由，終於說服朋友一起參加活動。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「說服；勸服」。",
+      "cue_auditory": "先用裝置播放「persuade」，跟讀一次，再把諧音「怕誰——用理由說服對方，就不怕誰反對。」說出來，最後說出「說服；勸服」。",
+      "cue_read_write": "看一遍「persuade」與「說服；勸服」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「她提出清楚的理由，終於說服朋友一起參加活動。」，邊做邊說「persuade」與「說服；勸服」。"
     },
     {
       "word": "consume",
@@ -432,7 +572,11 @@
       "difficulty": 3,
       "proficiency_level": "B1",
       "example_sentence": "This device consumes very little energy.",
-      "example_translation": "這台裝置消耗的能源非常少。"
+      "example_translation": "這台裝置消耗的能源非常少。",
+      "cue_visual": "先把「大房子裡的暖氣整晚運轉，消耗了很多電力。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「消耗；吃喝」。",
+      "cue_auditory": "先用裝置播放「consume」，跟讀一次，再把諧音「肯吃木——把食物吃掉，也可以指消耗資源。」說出來，最後說出「消耗；吃喝」。",
+      "cue_read_write": "看一遍「consume」與「消耗；吃喝」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「大房子裡的暖氣整晚運轉，消耗了很多電力。」，邊做邊說「consume」與「消耗；吃喝」。"
     },
     {
       "word": "justify",
@@ -444,7 +588,11 @@
       "difficulty": 3,
       "proficiency_level": "B2",
       "example_sentence": "The results justify further research.",
-      "example_translation": "這些結果證明進一步研究是有道理的。"
+      "example_translation": "這些結果證明進一步研究是有道理的。",
+      "cue_visual": "先把「報告列出詳細數據，為這筆額外支出提供合理解釋。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「證明正當；為……辯護」。",
+      "cue_auditory": "先用裝置播放「justify」，跟讀一次，再把諧音「就是反——提出理由，證明這件事是合理的。」說出來，最後說出「證明正當；為……辯護」。",
+      "cue_read_write": "看一遍「justify」與「證明正當；為……辯護」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「報告列出詳細數據，為這筆額外支出提供合理解釋。」，邊做邊說「justify」與「證明正當；為……辯護」。"
     },
     {
       "word": "emerge",
@@ -456,7 +604,11 @@
       "difficulty": 3,
       "proficiency_level": "B2",
       "example_sentence": "A new pattern emerged from the data.",
-      "example_translation": "資料中浮現出一個新的模式。"
+      "example_translation": "資料中浮現出一個新的模式。",
+      "cue_visual": "先把「太陽升起後，山脈從霧中逐漸浮現。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「出現；浮現」。",
+      "cue_auditory": "先用裝置播放「emerge」，跟讀一次，再把諧音「一摸去——從黑暗或隱藏處慢慢出現。」說出來，最後說出「出現；浮現」。",
+      "cue_read_write": "看一遍「emerge」與「出現；浮現」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「太陽升起後，山脈從霧中逐漸浮現。」，邊做邊說「emerge」與「出現；浮現」。"
     },
     {
       "word": "encounter",
@@ -468,7 +620,11 @@
       "difficulty": 3,
       "proficiency_level": "B2",
       "example_sentence": "We encountered heavy traffic on the way home.",
-      "example_translation": "我們回家路上遇到嚴重的交通壅塞。"
+      "example_translation": "我們回家路上遇到嚴重的交通壅塞。",
+      "cue_visual": "先把「登山客在小徑上意外遇到一隻鹿，便停下來觀察。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「遇到；遭遇」。",
+      "cue_auditory": "先用裝置播放「encounter」，跟讀一次，再把諧音「硬靠他——旅途中意外遇到某人或某件事。」說出來，最後說出「遇到；遭遇」。",
+      "cue_read_write": "看一遍「encounter」與「遇到；遭遇」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「登山客在小徑上意外遇到一隻鹿，便停下來觀察。」，邊做邊說「encounter」與「遇到；遭遇」。"
     },
     {
       "word": "substantial",
@@ -480,7 +636,11 @@
       "difficulty": 3,
       "proficiency_level": "B2",
       "example_sentence": "The project requires a substantial investment.",
-      "example_translation": "這個計畫需要一筆可觀的投資。"
+      "example_translation": "這個計畫需要一筆可觀的投資。",
+      "cue_visual": "先把「厚厚的存錢筒裡累積了一筆可觀的旅費。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「大量的；重大的；可觀的」。",
+      "cue_auditory": "先用裝置播放「substantial」，跟讀一次，再把諧音「算不少——數量或程度相當大、很可觀。」說出來，最後說出「大量的；重大的；可觀的」。",
+      "cue_read_write": "看一遍「substantial」與「大量的；重大的；可觀的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「厚厚的存錢筒裡累積了一筆可觀的旅費。」，邊做邊說「substantial」與「大量的；重大的；可觀的」。"
     },
     {
       "word": "articulate",
@@ -492,7 +652,11 @@
       "difficulty": 3,
       "proficiency_level": "C1",
       "example_sentence": "He articulated his concerns during the meeting.",
-      "example_translation": "他在會議中清楚表達了自己的疑慮。"
+      "example_translation": "他在會議中清楚表達了自己的疑慮。",
+      "cue_visual": "先把「她用精確的詞語，把複雜的想法清楚說明。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「清楚表達的；清楚表達」。",
+      "cue_auditory": "先用裝置播放「articulate」，跟讀一次，再把諧音「啊，提可來——把想法清楚地提說出來。」說出來，最後說出「清楚表達的；清楚表達」。",
+      "cue_read_write": "看一遍「articulate」與「清楚表達的；清楚表達」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「她用精確的詞語，把複雜的想法清楚說明。」，邊做邊說「articulate」與「清楚表達的；清楚表達」。"
     },
     {
       "word": "mitigate",
@@ -504,7 +668,11 @@
       "difficulty": 3,
       "proficiency_level": "C1",
       "example_sentence": "The new policy may mitigate the risk of fraud.",
-      "example_translation": "新政策可能會降低詐騙的風險。"
+      "example_translation": "新政策可能會降低詐騙的風險。",
+      "cue_visual": "先把「種樹和修築堤防，可以減輕城市的洪水風險。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「減輕；緩和」。",
+      "cue_auditory": "先用裝置播放「mitigate」，跟讀一次，再把諧音「米特給——給出措施，減輕問題的影響。」說出來，最後說出「減輕；緩和」。",
+      "cue_read_write": "看一遍「mitigate」與「減輕；緩和」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「種樹和修築堤防，可以減輕城市的洪水風險。」，邊做邊說「mitigate」與「減輕；緩和」。"
     },
     {
       "word": "prevalent",
@@ -516,7 +684,11 @@
       "difficulty": 3,
       "proficiency_level": "C1",
       "example_sentence": "Remote work is prevalent in the technology industry.",
-      "example_translation": "遠距工作在科技產業中相當普遍。"
+      "example_translation": "遠距工作在科技產業中相當普遍。",
+      "cue_visual": "先把「在乾燥地區，節省用水的觀念十分普遍。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「普遍的；盛行的」。",
+      "cue_auditory": "先用裝置播放「prevalent」，跟讀一次，再把諧音「普遍來——到處都很常見、普遍存在。」說出來，最後說出「普遍的；盛行的」。",
+      "cue_read_write": "看一遍「prevalent」與「普遍的；盛行的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「在乾燥地區，節省用水的觀念十分普遍。」，邊做邊說「prevalent」與「普遍的；盛行的」。"
     },
     {
       "word": "compelling",
@@ -528,7 +700,11 @@
       "difficulty": 3,
       "proficiency_level": "C1",
       "example_sentence": "The lawyer presented a compelling argument.",
-      "example_translation": "律師提出了很有說服力的論點。"
+      "example_translation": "律師提出了很有說服力的論點。",
+      "cue_visual": "先把「紀錄片提出有力證據，讓觀眾重新思考這個議題。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「引人入勝的；有說服力的」。",
+      "cue_auditory": "先用裝置播放「compelling」，跟讀一次，再把諧音「肯迫令——理由很有力，讓人不得不注意。」說出來，最後說出「引人入勝的；有說服力的」。",
+      "cue_read_write": "看一遍「compelling」與「引人入勝的；有說服力的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「紀錄片提出有力證據，讓觀眾重新思考這個議題。」，邊做邊說「compelling」與「引人入勝的；有說服力的」。"
     },
     {
       "word": "incongruous",
@@ -540,7 +716,11 @@
       "difficulty": 3,
       "proficiency_level": "C2",
       "example_sentence": "The modern sculpture looked incongruous in the historic square.",
-      "example_translation": "那座現代雕塑在歷史廣場上看起來很不協調。"
+      "example_translation": "那座現代雕塑在歷史廣場上看起來很不協調。",
+      "cue_visual": "先把「古老寺廟旁出現霓虹招牌，顯得格格不入。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「不協調的；不相稱的」。",
+      "cue_auditory": "先用裝置播放「incongruous」，跟讀一次，再把諧音「硬看不如——兩件事放在一起不協調、很不搭。」說出來，最後說出「不協調的；不相稱的」。",
+      "cue_read_write": "看一遍「incongruous」與「不協調的；不相稱的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「古老寺廟旁出現霓虹招牌，顯得格格不入。」，邊做邊說「incongruous」與「不協調的；不相稱的」。"
     },
     {
       "word": "fastidious",
@@ -552,7 +732,11 @@
       "difficulty": 3,
       "proficiency_level": "C2",
       "example_sentence": "The fastidious editor checked every citation twice.",
-      "example_translation": "那位一絲不苟的編輯把每個引用都檢查了兩次。"
+      "example_translation": "那位一絲不苟的編輯把每個引用都檢查了兩次。",
+      "cue_visual": "先把「他一絲不苟地整理每份文件，連紙張角度都要一致。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「一絲不苟的；過分講究的」。",
+      "cue_auditory": "先用裝置播放「fastidious」，跟讀一次，再把諧音「發死地啊——對細節要求非常嚴格，幾乎不馬虎。」說出來，最後說出「一絲不苟的；過分講究的」。",
+      "cue_read_write": "看一遍「fastidious」與「一絲不苟的；過分講究的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「他一絲不苟地整理每份文件，連紙張角度都要一致。」，邊做邊說「fastidious」與「一絲不苟的；過分講究的」。"
     },
     {
       "word": "deleterious",
@@ -564,7 +748,11 @@
       "difficulty": 3,
       "proficiency_level": "C2",
       "example_sentence": "Pollution has deleterious effects on public health.",
-      "example_translation": "污染會對公共衛生造成有害影響。"
+      "example_translation": "污染會對公共衛生造成有害影響。",
+      "cue_visual": "先把「長期缺乏睡眠會對記憶力造成不良影響。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「有害的；不利的」。",
+      "cue_auditory": "先用裝置播放「deleterious」，跟讀一次，再把諧音「得了，提瑞啊——結果會造成傷害或不良影響。」說出來，最後說出「有害的；不利的」。",
+      "cue_read_write": "看一遍「deleterious」與「有害的；不利的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「長期缺乏睡眠會對記憶力造成不良影響。」，邊做邊說「deleterious」與「有害的；不利的」。"
     },
     {
       "word": "perfunctory",
@@ -576,7 +764,11 @@
       "difficulty": 3,
       "proficiency_level": "C2",
       "example_sentence": "She gave a perfunctory apology and left.",
-      "example_translation": "她敷衍地道歉後就離開了。"
+      "example_translation": "她敷衍地道歉後就離開了。",
+      "cue_visual": "先把「他只做了草率的安全檢查，沒有真正確認設備狀況。」想成一幅清楚的畫面，找出關鍵人物、物件或動作，再連到「敷衍的；草率的」。",
+      "cue_auditory": "先用裝置播放「perfunctory」，跟讀一次，再把諧音「怕放空——只是敷衍完成，沒有投入真正的心力。」說出來，最後說出「敷衍的；草率的」。",
+      "cue_read_write": "看一遍「perfunctory」與「敷衍的；草率的」，遮住原文後寫出拼字和意思，再用例句核對。",
+      "cue_kinesthetic": "用安全的小手勢或動作演出「他只做了草率的安全檢查，沒有真正確認設備狀況。」，邊做邊說「perfunctory」與「敷衍的；草率的」。"
     }
   ]
 }

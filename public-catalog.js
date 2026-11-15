@@ -58,7 +58,7 @@
     }
     const [decks, cards] = await Promise.all([
       pages('phonetic_decks','id,name,native,flag,region,lang,position','position.asc,id.asc'),
-      pages('phonetic_cards','id,deck_id,word,roman,hint,meaning,cue,position,legacy_index,topic,difficulty,proficiency_level,example_sentence,example_translation','deck_id.asc,position.asc,id.asc')
+      pages('phonetic_cards','id,deck_id,word,roman,hint,meaning,cue,cue_visual,cue_auditory,cue_read_write,cue_kinesthetic,position,legacy_index,topic,difficulty,proficiency_level,example_sentence,example_translation','deck_id.asc,position.asc,id.asc')
     ]);
     const byDeck = new Map();
     for (const d of decks) {
@@ -73,8 +73,13 @@
       for (const field of ['example_sentence','example_translation']) {
         if (c[field] !== undefined && (typeof c[field] !== 'string' || c[field].length > 500)) throw new Error('Invalid card example');
       }
+      for (const field of ['cue_visual','cue_auditory','cue_read_write','cue_kinesthetic']) {
+        if (c[field] !== undefined && (typeof c[field] !== 'string' || c[field].length > 1000)) throw new Error('Invalid VARK cue');
+      }
       deck.cards.push({...c, proficiency_level:c.proficiency_level ?? null,
-        example_sentence:c.example_sentence ?? '', example_translation:c.example_translation ?? ''});
+        example_sentence:c.example_sentence ?? '', example_translation:c.example_translation ?? '',
+        cue_visual:c.cue_visual ?? '', cue_auditory:c.cue_auditory ?? '',
+        cue_read_write:c.cue_read_write ?? '', cue_kinesthetic:c.cue_kinesthetic ?? ''});
     }
     return Array.from(byDeck.values());
   }

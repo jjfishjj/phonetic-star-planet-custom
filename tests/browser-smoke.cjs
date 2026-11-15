@@ -109,6 +109,31 @@ test('cross-level analysis shows learned counts and jumps to a level without cha
   } finally { await browser.close(); }
 });
 
+test('optional VARK prompt modes preserve progress, retain the original cue, and fall back for older cards', async()=>{
+  const {browser,page}=await freshPage();
+  try{
+    await page.route('**/rest/v1/**',r=>r.abort('failed'));
+    await page.addInitScript(()=>{if(!localStorage.getItem('phonetic-star-planet-v1'))localStorage.setItem('phonetic-star-planet-v1',JSON.stringify({learned:['en:7'],favorites:['en:1'],xp:30,reviewed:4,selected:'en',index:0,revealed:false,unlearnedOnly:false,customDecks:[]}));});
+    await page.goto(project.url,{waitUntil:'networkidle'});
+    await page.click('#revealBtn');
+    const original=await page.locator('.mnemonic').textContent();
+    assert.match(original,/阿婆捧著一顆紅通通的蘋果/);
+    await page.locator('#varkModeSelect').selectOption('visual');
+    assert.match(await page.locator('.vark-prompt').textContent(),/尚未提供專用視覺提示/);
+    assert.match(await page.locator('.mnemonic').textContent(),/阿婆捧著一顆紅通通的蘋果/);
+    assert.equal(await page.locator('#answerPanel.empty').count(),0);
+    assert.equal(await page.evaluate(()=>localStorage.getItem('phonetic-star-planet-vark-v1')),'visual');
+    let progress=await page.evaluate(()=>JSON.parse(localStorage.getItem('phonetic-star-planet-v1')));
+    assert.deepEqual(progress.learned,['en:7']);assert.deepEqual(progress.favorites,['en:1']);assert.equal(progress.xp,30);assert.equal(progress.reviewed,4);
+    await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('phonetic-star-planet-v1'));s.index=100;s.revealed=false;localStorage.setItem('phonetic-star-planet-v1',JSON.stringify(s));});
+    await page.reload({waitUntil:'networkidle'});
+    await page.click('#revealBtn');
+    assert.match(await page.locator('.vark-prompt').textContent(),/先把/);
+    assert.match(await page.locator('.vark-prompt').textContent(),/再連到/);
+    assert.match(await page.locator('.mnemonic').textContent(),/原始諧音提示/);
+  }finally{await browser.close();}
+});
+
 test('voice choices reflect available accent voices and fall back when one disappears', async () => {
   const { browser, page } = await freshPage();
   try {
@@ -183,20 +208,27 @@ test('custom deck and card create/edit remain local and persist after reload', a
     await page.fill('#deckNativeInput','Trip');
     await page.click('#saveDeckBtn');
     await page.locator('#deckGrid [data-deck^="custom-"]').waitFor();
+    await page.locator('.vark-fields summary').click();
     await page.fill('#cardWordInput','bonjour'); await page.fill('#cardHintInput','蹦啾'); await page.fill('#cardMeaningInput','你好'); await page.fill('#cardExampleInput','Bonjour, Ana.'); await page.fill('#cardExampleTranslationInput','   ');
     await page.click('#saveCardBtn');
     assert.equal(await page.locator('#customCardList .custom-card-row').count(),0);
     await page.locator('#toast').getByText('請填寫原文例句與繁中翻譯').waitFor();
     await page.fill('#cardExampleTranslationInput','你好，安娜。');
+    await page.fill('#cardCueVisualInput','把早晨的陽光想成一幅畫。'); await page.fill('#cardCueAuditoryInput','聽一次 bonjour 再跟讀。');
     await page.click('#saveCardBtn');
     await page.locator('#customCardList strong').filter({hasText:'bonjour'}).waitFor();
+    let saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('phonetic-star-planet-v1')));
+    assert.equal(saved.customDecks[0].cards[0].cue_visual,'把早晨的陽光想成一幅畫。');assert.equal(saved.customDecks[0].cards[0].cue_auditory,'聽一次 bonjour 再跟讀。');
     await page.locator('#customCardList').getByText('編輯').click();
+    assert.equal(await page.locator('#cardCueVisualInput').inputValue(),'把早晨的陽光想成一幅畫。');
     await page.fill('#cardMeaningInput','您好'); await page.click('#saveCardBtn');
     assert.equal(await page.locator('#customCardList').getByText('您好').count(), 1);
     await page.reload({waitUntil:'networkidle'});
     await page.locator('#deckGrid [data-deck^="custom-"]').waitFor();
     await page.click('#deckGrid [data-deck^="custom-"]'); await page.click('#manageDeckBtn');
     assert.equal(await page.locator('#customCardList').getByText('您好').count(), 1);
+    await page.locator('#customCardList').getByText('編輯').click();
+    assert.equal(await page.locator('#cardCueVisualInput').inputValue(),'把早晨的陽光想成一幅畫。');
   } finally { await browser.close(); }
 });
 
@@ -256,7 +288,7 @@ test('admin session pages 1201 cards, writes whitelisted card fields, imports re
     await page.locator('#cardTable tr').first().getByText('編輯').click();
     const editor=page.locator('.card-editor'); await editor.locator('[name=word]').fill('edited'); await editor.locator('[name=hint]').fill('提示'); await editor.locator('[name=meaning]').fill('意思'); await editor.locator('button[type=submit]').click();
     await page.locator('#cardTable').waitFor();
-    const cardWrite=writes.find(x=>x.table==='cards' && x.kind==='PATCH'); assert.ok(cardWrite); assert.deepEqual(Object.keys(cardWrite.body).sort(),['cue','difficulty','example_sentence','example_translation','hint','meaning','position','proficiency_level','published','roman','topic','word']);
+    const cardWrite=writes.find(x=>x.table==='cards' && x.kind==='PATCH'); assert.ok(cardWrite); assert.deepEqual(Object.keys(cardWrite.body).sort(),['cue','cue_auditory','cue_kinesthetic','cue_read_write','cue_visual','difficulty','example_sentence','example_translation','hint','meaning','position','proficiency_level','published','roman','topic','word']);
     await page.locator('#cardTable tr').first().getByText('取消發布').click();
     assert.ok(writes.filter(x=>x.table==='cards' && x.kind==='PATCH').length >= 2);
 
@@ -266,7 +298,7 @@ test('admin session pages 1201 cards, writes whitelisted card fields, imports re
     const rpc=writes.find(x=>x.kind==='rpc'); assert.equal(rpc.body.p_rows[0].word,'imported'); assert.equal(rpc.body.p_rows[0].position,3); assert.equal(rpc.body.p_rows[0].topic,'food'); assert.equal(rpc.body.p_rows[0].difficulty,2);
     const invalid=makeXlsx([['word','hint','meaning'],['bad','','x']]); await page.setInputFiles('#importFile',{name:'bad.xlsx',buffer:invalid}); await page.locator('#previewErrors').getByText(/缺少諧音/).waitFor(); assert.equal(await page.locator('#importBtn').isDisabled(),true);
     const downloadPromise=page.waitForEvent('download'); await page.click('#exportBtn'); const download=await downloadPromise; const file=await download.path(); assert.ok(file && fs.statSync(file).size>100);
-    const exported=readXlsx(file); assert.equal(exported[0].word,'cloud-0'); assert.equal(exported[0].topic,'food'); assert.equal(exported[0].difficulty,1); assert.equal(exported[0].proficiency_level,'A1'); assert.equal(exported[0].example_sentence,'A cloud is here.');
+    const exported=readXlsx(file); assert.equal(exported[0].word,'cloud-0'); assert.equal(exported[0].topic,'food'); assert.equal(exported[0].difficulty,1); assert.equal(exported[0].proficiency_level,'A1'); assert.equal(exported[0].example_sentence,'A cloud is here.'); assert.equal(exported[0].cue_visual,''); assert.equal(exported[0].cue_kinesthetic,'');
   } finally { await browser.close(); }
 });
 
@@ -399,7 +431,7 @@ test('admin topic and difficulty filters, card edit and publish toggle preserve 
     const editor=page.locator('.card-editor'); await editor.locator('[name=topic]').selectOption('travel'); await editor.locator('[name=proficiency_level]').selectOption('B1'); await editor.locator('button[type=submit]').click(); await editor.waitFor({state:'detached'});
     const edited=writes.find(x=>x.table==='cards'&&x.kind==='PATCH'); assert.equal(edited.body.topic,'travel'); assert.equal(edited.body.difficulty,2); assert.equal(edited.body.proficiency_level,'B1'); assert.equal(edited.body.example_sentence,'A cloud is here.'); assert.equal(edited.body.published,true);
     await page.locator('#cardTable tr').first().getByText('取消發布').click(); await page.locator('#toast').getByText('發布狀態已更新。').waitFor();
-    const toggles=writes.filter(x=>x.table==='cards'&&x.kind==='PATCH'); assert.equal(toggles.at(-1).body.topic,'food'); assert.equal(toggles.at(-1).body.difficulty,2); assert.equal(toggles.at(-1).body.published,false); assert.equal(toggles.at(-1).body.proficiency_level,'A2'); assert.equal(toggles.at(-1).body.example_translation,'這裡有一朵雲。');
+    const toggles=writes.filter(x=>x.table==='cards'&&x.kind==='PATCH'); assert.deepEqual(toggles.at(-1).body,{published:false});
   } finally { await browser.close(); }
 });
 
@@ -515,17 +547,18 @@ test('example sentences and translations are displayed as text, never executable
   }finally{await browser.close();}
 });
 
-test('admin CSV export imports with UTF-8 examples and selected proficiency level intact',async()=>{
+test('admin CSV export imports with UTF-8 examples, proficiency, and VARK cues intact',async()=>{
   const {browser,page}=await freshPage();const writes=[];
   try{
-    await authRoutes(page,{session:session(),admin:true,cards:2,writes});
+    const rows=[card('csv-0',0,{cue_visual:'雲的畫面',cue_auditory:'聽 cloud 的發音',cue_read_write:'寫下 cloud',cue_kinesthetic:'手勢畫出雲'}),card('csv-1',1,{cue_visual:'雨滴畫面'})];
+    await authRoutes(page,{session:session(),admin:true,cards:2,cardRows:rows,writes});
     await page.goto(project.url+'admin/',{waitUntil:'networkidle'});
     await page.fill('#emailInput','admin@example.test');await page.fill('#passwordInput','password');await page.click('#loginForm button');
     await page.locator('#appState:not([hidden])').waitFor();await page.locator('#cardCount').filter({hasText:'2'}).waitFor();
     const downloading=page.waitForEvent('download');await page.click('#csvExportBtn');const download=await downloading;const file=await download.path();
-    const csv=fs.readFileSync(file,'utf8');assert.ok(csv.startsWith('\ufeff'));assert.match(csv,/"proficiency_level"/);assert.match(csv,/這裡有一朵雲/);
+    const csv=fs.readFileSync(file,'utf8');assert.ok(csv.startsWith('\ufeff'));assert.match(csv,/"proficiency_level"/);assert.match(csv,/"cue_visual"/);assert.match(csv,/雲的畫面/);assert.match(csv,/這裡有一朵雲/);
     await page.check('input[name="importMode"][value="update"]');await page.setInputFiles('#importFile',{name:'exported.csv',mimeType:'text/csv',buffer:fs.readFileSync(file)});
     await page.locator('#importSummary').getByText('可以匯入').waitFor();await page.click('#importBtn');await page.locator('#toast').getByText(/匯入完成/).waitFor();
-    const rpc=writes.find(w=>w.kind==='rpc');assert.equal(rpc.body.p_rows[0].proficiency_level,'A1');assert.equal(rpc.body.p_rows[0].example_translation,'這裡有一朵雲。');
+    const rpc=writes.find(w=>w.kind==='rpc');assert.equal(rpc.body.p_rows[0].proficiency_level,'A1');assert.equal(rpc.body.p_rows[0].example_translation,'這裡有一朵雲。');assert.equal(rpc.body.p_rows[0].cue_visual,'雲的畫面');assert.equal(rpc.body.p_rows[0].cue_auditory,'聽 cloud 的發音');assert.equal(rpc.body.p_rows[0].cue_read_write,'寫下 cloud');assert.equal(rpc.body.p_rows[0].cue_kinesthetic,'手勢畫出雲');
   }finally{await browser.close();}
 });

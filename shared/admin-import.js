@@ -7,7 +7,12 @@
   const {normalizeTopic, normalizeDifficulty, normalizeLevel} = tags;
   const headers = {
     word: ['word', '單字'], roman: ['roman', '音標'], hint: ['hint', '諧音'],
-    meaning: ['meaning', '中文意思'], cue: ['cue', '記憶畫面'], topic: ['topic', '主題'],
+    meaning: ['meaning', '中文意思'], cue: ['cue', '記憶畫面'],
+    cue_visual: ['cue_visual', 'visual cue', '視覺提示'],
+    cue_auditory: ['cue_auditory', 'auditory cue', '聽覺提示'],
+    cue_read_write: ['cue_read_write', 'read/write cue', '讀寫提示'],
+    cue_kinesthetic: ['cue_kinesthetic', 'kinesthetic cue', '動作提示'],
+    topic: ['topic', '主題'],
     difficulty: ['difficulty', '難度'], proficiency_level: ['proficiency_level', '程度', '檢定等級'],
     example_sentence: ['example_sentence', '例句', '原文例句'],
     example_translation: ['example_translation', '例句翻譯', '繁中翻譯'],
@@ -42,7 +47,7 @@
       mapped.forEach((key, col) => { if (key) obj[key] = normalize((cells || [])[col]); });
       if (!Object.values(obj).some(Boolean)) return;
       for (const key of required) if (!obj[key]) errors.push({row: rowNumber, message: `缺少${key === 'word' ? '單字' : key === 'hint' ? '諧音' : '中文意思'}。`});
-      const limits = {word: 300, roman: 300, hint: 500, meaning: 500, cue: 2000, example_sentence: 500, example_translation: 500};
+      const limits = {word: 300, roman: 300, hint: 500, meaning: 500, cue: 2000, cue_visual: 1000, cue_auditory: 1000, cue_read_write: 1000, cue_kinesthetic: 1000, example_sentence: 500, example_translation: 500};
       for (const [key, limit] of Object.entries(limits)) if (obj[key] && obj[key].length > limit) errors.push({row: rowNumber, message: `${key} 超過 ${limit} 字上限。`});
       if (obj.topic !== undefined && obj.topic !== '') { const value = normalizeTopic(obj.topic); if (!value) errors.push({row: rowNumber, message: '主題/topic 必須是有效 slug 或中文主題。'}); else obj.topic = value; } else delete obj.topic;
       if (obj.difficulty !== undefined && obj.difficulty !== '') { const value = normalizeDifficulty(obj.difficulty); if (value == null) errors.push({row: rowNumber, message: '難度/difficulty 必須是 1、2、3 或 入門、基礎、挑戰。'}); else obj.difficulty = value; } else delete obj.difficulty;
@@ -66,7 +71,7 @@
     return errors;
   }
   function rowsToSheet(rows) {
-    return [['word','roman','hint','meaning','cue','topic','difficulty','proficiency_level','example_sentence','example_translation','published','position','id'], ...rows.map(r => [r.word || '', r.roman || '', r.hint || '', r.meaning || '', r.cue || '', normalizeTopic(r.topic) || '', normalizeDifficulty(r.difficulty) ?? '', r.proficiency_level || '', r.example_sentence || '', r.example_translation || '', r.published !== false, r.position ?? '', r.id || ''])];
+    return [['word','roman','hint','meaning','cue','cue_visual','cue_auditory','cue_read_write','cue_kinesthetic','topic','difficulty','proficiency_level','example_sentence','example_translation','published','position','id'], ...rows.map(r => [r.word || '', r.roman || '', r.hint || '', r.meaning || '', r.cue || '', r.cue_visual || '', r.cue_auditory || '', r.cue_read_write || '', r.cue_kinesthetic || '', normalizeTopic(r.topic) || '', normalizeDifficulty(r.difficulty) ?? '', r.proficiency_level || '', r.example_sentence || '', r.example_translation || '', r.published !== false, r.position ?? '', r.id || ''])];
   }
   function safeCsvCell(value) { let s = normalize(value); if (/^[=+\-@]/.test(s)) s = "'" + s; return `"${s.replace(/"/g, '""')}"`; }
   function rowsToCsv(rows) { return rowsToSheet(rows).map(row => row.map(safeCsvCell).join(',')).join('\r\n'); }
