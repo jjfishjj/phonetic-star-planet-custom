@@ -20,8 +20,11 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE_FIELDS = (
     "id", "deck_id", "legacy_index", "word", "roman", "hint", "meaning",
     "cue", "position", "published", "topic", "difficulty", "created_at",
+    "proficiency_level", "example_sentence", "example_translation",
 )
 ADVANCED_DECKS = ("en", "es", "fr", "de", "pt", "it", "ja", "ko")
+EXPECTED_SOURCE_COUNTS = {"en": 48, "es": 48, "fr": 48, "de": 48, "pt": 48, "it": 48, "ja": 40, "ko": 48}
+EXPECTED_TOTAL_CARDS = 1576
 SOURCE_FIELDS = (
     "word", "roman", "hint", "meaning", "cue", "topic", "difficulty",
     "proficiency_level", "example_sentence", "example_translation",
@@ -70,7 +73,7 @@ def load_sources() -> dict[str, list[dict]]:
         if data.get("deck_id") != deck_id or not isinstance(data.get("cards"), list):
             raise ValueError(f"invalid advanced content source: {path}")
         cards = data["cards"]
-        if len(cards) != {"ja": 24}.get(deck_id, 32):
+        if len(cards) != EXPECTED_SOURCE_COUNTS[deck_id]:
             raise ValueError(f"{path}: unexpected card count {len(cards)}")
         for card in cards:
             if set(card) != set(SOURCE_FIELDS):
@@ -86,8 +89,11 @@ def load_sources() -> dict[str, list[dict]]:
 def check_originals(baseline_path: Path, live_cards: list[dict]) -> int:
     baseline = json.loads(baseline_path.read_text(encoding="utf-8"))
     old_cards = baseline.get("cards")
-    if not isinstance(old_cards, list) or len(old_cards) != 1200:
-        raise ValueError("baseline must be the verified 1,200-card snapshot")
+    if not isinstance(old_cards, list) or not old_cards:
+        raise ValueError("baseline must be a non-empty full public card snapshot")
+    baseline_by_id = {row.get("id"): row for row in old_cards if isinstance(row, dict)}
+    if len(baseline_by_id) != len(old_cards) or None in baseline_by_id:
+        raise ValueError("baseline contains missing or duplicate card ids")
     live_by_id = {row["id"]: row for row in live_cards}
     if len(live_by_id) != len(live_cards):
         raise ValueError("duplicate live card ids")
@@ -103,7 +109,7 @@ def check_originals(baseline_path: Path, live_cards: list[dict]) -> int:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--baseline", required=True, type=Path, help="verified pre-expansion public card snapshot (1200 cards)")
+    parser.add_argument("--baseline", required=True, type=Path, help="verified full public card snapshot matching the current live database")
     parser.add_argument("--apply", action="store_true", help="perform writes; otherwise only authenticate and report the plan")
     args = parser.parse_args()
     config = (ROOT / "supabase-config.js").read_text(encoding="utf-8")
@@ -168,15 +174,15 @@ def main() -> None:
 
     after = read_all(base, headers)
     check_originals(args.baseline, after)
-    if len(after) != 1448:
-        raise RuntimeError(f"Expected 1,448 total cards after import; found {len(after)}")
+    if len(after) != EXPECTED_TOTAL_CARDS:
+        raise RuntimeError(f"Expected {EXPECTED_TOTAL_CARDS:,} total cards after import; found {len(after)}")
     after_by_deck_word = {(c["deck_id"], c["word"]): c for c in after}
     for deck_id, cards in sources.items():
         for source in cards:
             current = after_by_deck_word.get((deck_id, source["word"]))
             if current is None or any(current.get(field) != source[field] for field in SOURCE_FIELDS):
                 raise RuntimeError(f"Post-import verification failed for {deck_id} {source['word']!r}")
-    print(json.dumps({"result": "verified", "total_cards": len(after), "original_cards_preserved": 1200,
+    print(json.dumps({"result": "verified", "total_cards": len(after), "original_cards_preserved": original_count,
                       "advanced_inserted": sum(x["inserted"] for x in outcomes), "decks": outcomes}, ensure_ascii=False), flush=True)
 
 

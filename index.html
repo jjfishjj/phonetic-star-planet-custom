@@ -7,6 +7,7 @@
   <meta name="description" content="諧音星球：依 CEFR、JLPT、TOPIK 或站內程度，用諧音與雙語短例句練習 12 種語言。">
   <title>諧音星球｜把陌生聲音變成記得住的畫面</title>
   <link rel="stylesheet" href="./levels-examples.css?v=20261113-levels1">
+  <link rel="stylesheet" href="./learning-ui.css?v=20261116-1">
   <style>
     :root{color-scheme:dark;--bg:#10142b;--panel:#191e39;--panel2:#202644;--line:rgba(221,230,255,.12);--text:#f4f6ff;--muted:#a3accb;--mint:#94f0d0;--yellow:#ffd78a;--lilac:#c5b5ff;--pink:#ffadd0;--shadow:0 24px 60px rgba(0,0,0,.25);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 84% 8%,rgba(120,98,208,.19),transparent 30%),radial-gradient(ellipse at 8% 32%,rgba(75,191,172,.09),transparent 26%),var(--bg);color:var(--text)}button{font:inherit;color:inherit;cursor:pointer}a{color:inherit;text-decoration:none}.shell{width:min(1160px,calc(100% - 44px));margin:auto}.topbar{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;font-weight:760;letter-spacing:.01em}.brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:linear-gradient(145deg,#a3f2d5,#d2c5ff);color:#181c37;font-size:19px;box-shadow:0 6px 20px rgba(148,240,208,.15)}.brand small{display:block;color:var(--muted);font-size:10px;font-weight:650;letter-spacing:.17em;margin-top:2px}.nav{display:flex;align-items:center;gap:26px;color:#c2c9e1;font-size:13px}.nav a:hover{color:var(--mint)}.profile-chip{display:flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--muted)}.profile-dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px var(--mint)}
@@ -66,6 +67,10 @@
         <button id="resetFiltersBtn" class="secondary" disabled>清除篩選</button>
         <div class="card-filter-result"><span id="cardFilterSummary" role="status" aria-live="polite">顯示 100 / 100 張</span><small id="levelReferenceNote">學習參考分級，非官方詞表或檢定保證</small></div>
       </div>
+      <div class="voice-controls" role="group" aria-label="選擇語音口音">
+        <label for="voiceSelect">朗讀口音<select id="voiceSelect" aria-label="選擇裝置提供的語音"><option value="">系統自動選擇</option></select></label>
+        <small id="voiceAvailability" role="status" aria-live="polite">正在讀取這台裝置可用的語音…</small>
+      </div>
       <div class="practice-body">
         <article class="flashcard" aria-live="polite">
           <div><div class="card-overline" id="cardCounter">CARD 01 / 05 · ENGLISH</div><div class="word" id="wordText">apple</div><div class="roman" id="romanText">/ˈæpəl/</div><div id="cardTags" class="card-tags" aria-label="卡片標籤"></div><div class="phonetic-hint">諧音提示：<b id="soundHint">阿婆</b></div></div>
@@ -74,6 +79,12 @@
         <aside id="answerPanel" class="answer-panel empty" aria-live="polite"><div class="hint-bulb">✦</div><span class="answer-label">READY WHEN YOU ARE</span><p style="margin-top:8px">用熟悉的聲音聯想陌生單字，<br>不確定也沒關係，翻開看看。</p><div class="answer-actions"><button id="revealBtn" class="primary">翻開答案</button></div></aside>
       </div>
       <div class="practice-footer"><span id="sessionProgressText">本組進度 0 / 5</span><span>點喇叭可播放原文發音</span></div><span class="progress-track"><i id="progressFill" class="progress-fill"></i></span>
+      <section id="learningAnalysis" class="learning-analysis" aria-labelledby="analysisHeading">
+        <div class="analysis-heading"><div><div class="section-kicker">LEVEL BY LEVEL</div><h3 id="analysisHeading">跨程度學習分析</h3><p id="analysisSummary">依程度比較已記住與待練卡片</p></div><strong id="analysisTotal">—</strong></div>
+        <p id="analysisNextStep" class="analysis-next" aria-live="polite"></p>
+        <div id="levelAnalysisGrid" class="level-analysis-grid"></div>
+        <small class="analysis-note">分析使用這個瀏覽器目前保存的學習進度；切換牌組只讀取資料，不會重設進度。點選一級可直接練習。</small>
+      </section>
     </section>
     <aside class="notice"><div class="lock">⌂</div><div><h3>你的練習只留在這台裝置</h3><p>作答紀錄與收藏只存在瀏覽器本機儲存，不會送到外部伺服器。諧音是記憶提示，發音以原文朗讀為準；不同口音的近似發音可能略有差異。</p></div></aside>
   </main>
@@ -1704,6 +1715,198 @@
         "roman": "/kənˈsɪliəˌtɔri/",
         "topic": "expressions",
         "word": "conciliatory"
+      },
+      {
+        "word": "adapt",
+        "roman": "/əˈdæpt/",
+        "hint": "啊，得配——遇到新情況就得配合調整。",
+        "meaning": "適應；調整",
+        "cue": "旅行遇到下雨，旅客把行程調整成室內活動。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "We must adapt to the changing weather.",
+        "example_translation": "我們必須適應不斷變化的天氣。"
+      },
+      {
+        "word": "maintain",
+        "roman": "/meɪnˈteɪn/",
+        "hint": "妹，挺——持續維持原來的狀態。",
+        "meaning": "維持；保養",
+        "cue": "車主定期檢查引擎，讓汽車維持良好狀態。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Regular exercise helps maintain good health.",
+        "example_translation": "規律運動有助於維持良好的健康狀態。"
+      },
+      {
+        "word": "persuade",
+        "roman": "/pərˈsweɪd/",
+        "hint": "怕誰——用理由說服對方，就不怕誰反對。",
+        "meaning": "說服；勸服",
+        "cue": "她提出清楚的理由，終於說服朋友一起參加活動。",
+        "topic": "expressions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "She persuaded her brother to try the new restaurant.",
+        "example_translation": "她說服弟弟去試試那家新餐廳。"
+      },
+      {
+        "word": "consume",
+        "roman": "/kənˈsuːm/",
+        "hint": "肯吃木——把食物吃掉，也可以指消耗資源。",
+        "meaning": "消耗；吃喝",
+        "cue": "大房子裡的暖氣整晚運轉，消耗了很多電力。",
+        "topic": "food",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "This device consumes very little energy.",
+        "example_translation": "這台裝置消耗的能源非常少。"
+      },
+      {
+        "word": "justify",
+        "roman": "/ˈdʒʌstəˌfaɪ/",
+        "hint": "就是反——提出理由，證明這件事是合理的。",
+        "meaning": "證明正當；為……辯護",
+        "cue": "報告列出詳細數據，為這筆額外支出提供合理解釋。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "The results justify further research.",
+        "example_translation": "這些結果證明進一步研究是有道理的。"
+      },
+      {
+        "word": "emerge",
+        "roman": "/ɪˈmɝdʒ/",
+        "hint": "一摸去——從黑暗或隱藏處慢慢出現。",
+        "meaning": "出現；浮現",
+        "cue": "太陽升起後，山脈從霧中逐漸浮現。",
+        "topic": "nature",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "A new pattern emerged from the data.",
+        "example_translation": "資料中浮現出一個新的模式。"
+      },
+      {
+        "word": "encounter",
+        "roman": "/ɪnˈkaʊntər/",
+        "hint": "硬靠他——旅途中意外遇到某人或某件事。",
+        "meaning": "遇到；遭遇",
+        "cue": "登山客在小徑上意外遇到一隻鹿，便停下來觀察。",
+        "topic": "travel",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "We encountered heavy traffic on the way home.",
+        "example_translation": "我們回家路上遇到嚴重的交通壅塞。"
+      },
+      {
+        "word": "substantial",
+        "roman": "/səbˈstænʃəl/",
+        "hint": "算不少——數量或程度相當大、很可觀。",
+        "meaning": "大量的；重大的；可觀的",
+        "cue": "厚厚的存錢筒裡累積了一筆可觀的旅費。",
+        "topic": "numbers",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "The project requires a substantial investment.",
+        "example_translation": "這個計畫需要一筆可觀的投資。"
+      },
+      {
+        "word": "articulate",
+        "roman": "/ɑrˈtɪkjələt/",
+        "hint": "啊，提可來——把想法清楚地提說出來。",
+        "meaning": "清楚表達的；清楚表達",
+        "cue": "她用精確的詞語，把複雜的想法清楚說明。",
+        "topic": "expressions",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "He articulated his concerns during the meeting.",
+        "example_translation": "他在會議中清楚表達了自己的疑慮。"
+      },
+      {
+        "word": "mitigate",
+        "roman": "/ˈmɪtəˌɡeɪt/",
+        "hint": "米特給——給出措施，減輕問題的影響。",
+        "meaning": "減輕；緩和",
+        "cue": "種樹和修築堤防，可以減輕城市的洪水風險。",
+        "topic": "nature",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "The new policy may mitigate the risk of fraud.",
+        "example_translation": "新政策可能會降低詐騙的風險。"
+      },
+      {
+        "word": "prevalent",
+        "roman": "/ˈprɛvələnt/",
+        "hint": "普遍來——到處都很常見、普遍存在。",
+        "meaning": "普遍的；盛行的",
+        "cue": "在乾燥地區，節省用水的觀念十分普遍。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "Remote work is prevalent in the technology industry.",
+        "example_translation": "遠距工作在科技產業中相當普遍。"
+      },
+      {
+        "word": "compelling",
+        "roman": "/kəmˈpɛlɪŋ/",
+        "hint": "肯迫令——理由很有力，讓人不得不注意。",
+        "meaning": "引人入勝的；有說服力的",
+        "cue": "紀錄片提出有力證據，讓觀眾重新思考這個議題。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "The lawyer presented a compelling argument.",
+        "example_translation": "律師提出了很有說服力的論點。"
+      },
+      {
+        "word": "incongruous",
+        "roman": "/ɪnˈkɑŋɡruəs/",
+        "hint": "硬看不如——兩件事放在一起不協調、很不搭。",
+        "meaning": "不協調的；不相稱的",
+        "cue": "古老寺廟旁出現霓虹招牌，顯得格格不入。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "The modern sculpture looked incongruous in the historic square.",
+        "example_translation": "那座現代雕塑在歷史廣場上看起來很不協調。"
+      },
+      {
+        "word": "fastidious",
+        "roman": "/fæˈstɪdiəs/",
+        "hint": "發死地啊——對細節要求非常嚴格，幾乎不馬虎。",
+        "meaning": "一絲不苟的；過分講究的",
+        "cue": "他一絲不苟地整理每份文件，連紙張角度都要一致。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "The fastidious editor checked every citation twice.",
+        "example_translation": "那位一絲不苟的編輯把每個引用都檢查了兩次。"
+      },
+      {
+        "word": "deleterious",
+        "roman": "/ˌdɛləˈtɪriəs/",
+        "hint": "得了，提瑞啊——結果會造成傷害或不良影響。",
+        "meaning": "有害的；不利的",
+        "cue": "長期缺乏睡眠會對記憶力造成不良影響。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "Pollution has deleterious effects on public health.",
+        "example_translation": "污染會對公共衛生造成有害影響。"
+      },
+      {
+        "word": "perfunctory",
+        "roman": "/pərˈfʌŋktəri/",
+        "hint": "怕放空——只是敷衍完成，沒有投入真正的心力。",
+        "meaning": "敷衍的；草率的",
+        "cue": "他只做了草率的安全檢查，沒有真正確認設備狀況。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "She gave a perfunctory apology and left.",
+        "example_translation": "她敷衍地道歉後就離開了。"
       }
     ]
   },
@@ -3202,6 +3405,198 @@
         "roman": "torikumu",
         "topic": "actions",
         "word": "取り組む"
+      },
+      {
+        "word": "場合",
+        "roman": "baai",
+        "hint": "「吧，愛」：遇到不同場合，吧台的安排也會不一樣。",
+        "meaning": "場合；情況",
+        "cue": "同一件事在不同場合，做法可能完全不同。",
+        "topic": "general",
+        "difficulty": 3,
+        "proficiency_level": "N3",
+        "example_sentence": "場合によっては、予定を変更します。",
+        "example_translation": "視情況而定，有時會更改行程。"
+      },
+      {
+        "word": "必要",
+        "roman": "hitsuyō",
+        "hint": "「一定要」：需要的東西就是一定要準備好。",
+        "meaning": "必要；需要",
+        "cue": "清單上圈起必要的物品，提醒自己不能漏帶。",
+        "topic": "general",
+        "difficulty": 3,
+        "proficiency_level": "N3",
+        "example_sentence": "旅行にはパスポートが必要です。",
+        "example_translation": "旅行需要護照。"
+      },
+      {
+        "word": "連絡",
+        "roman": "renraku",
+        "hint": "「聯絡」：把消息連起來，彼此保持聯絡。",
+        "meaning": "聯絡；通知",
+        "cue": "手機亮起通知，把兩個人的消息連在一起。",
+        "topic": "people",
+        "difficulty": 3,
+        "proficiency_level": "N3",
+        "example_sentence": "着いたら、連絡してください。",
+        "example_translation": "到了之後，請聯絡我。"
+      },
+      {
+        "word": "運ぶ",
+        "roman": "hakobu",
+        "hint": "「搬過」：把箱子搬過房間，送到另一邊。",
+        "meaning": "搬運；運送",
+        "cue": "兩手抱著紙箱，慢慢把它搬到倉庫。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "N3",
+        "example_sentence": "この荷物を二階まで運んでください。",
+        "example_translation": "請把這件行李搬到二樓。"
+      },
+      {
+        "word": "受ける",
+        "roman": "ukeru",
+        "hint": "「有課」：接受安排去上課或接受檢查。",
+        "meaning": "接受；參加；受到",
+        "cue": "伸手接住通知，準備接受下一項安排。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "N3",
+        "example_sentence": "来月、健康診断を受けます。",
+        "example_translation": "我下個月要接受健康檢查。"
+      },
+      {
+        "word": "決める",
+        "roman": "kimeru",
+        "hint": "「急嗎」：別再猶豫，趕快決定要選哪一個。",
+        "meaning": "決定；規定",
+        "cue": "在兩張票中選定一張，終於把計畫決定下來。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "N3",
+        "example_sentence": "今週中に旅行の日程を決めます。",
+        "example_translation": "我會在這週內決定旅行日程。"
+      },
+      {
+        "word": "解決",
+        "roman": "kaiketsu",
+        "hint": "「開結」：把打結的問題解開，事情就解決了。",
+        "meaning": "解決",
+        "cue": "手指解開繩結，象徵棘手的問題終於處理好了。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "N2",
+        "example_sentence": "みんなで話し合って問題を解決しました。",
+        "example_translation": "大家討論後解決了問題。"
+      },
+      {
+        "word": "維持",
+        "roman": "iji",
+        "hint": "「一直」：讓良好狀態一直維持下去。",
+        "meaning": "維持；保持",
+        "cue": "雙手托住平衡的積木，讓它保持原本的狀態。",
+        "topic": "general",
+        "difficulty": 3,
+        "proficiency_level": "N2",
+        "example_sentence": "健康を維持するために、毎日歩いています。",
+        "example_translation": "為了維持健康，我每天都走路。"
+      },
+      {
+        "word": "導入",
+        "roman": "dōnyū",
+        "hint": "「都用」：把新的方法導進來，大家都用得到。",
+        "meaning": "導入；引進",
+        "cue": "新系統被帶進辦公室，大家開始用它工作。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "N2",
+        "example_sentence": "学校は新しい学習システムを導入しました。",
+        "example_translation": "學校導入了新的學習系統。"
+      },
+      {
+        "word": "把握",
+        "roman": "haaku",
+        "hint": "「好啊」：先掌握狀況，才知道接下來怎麼做。",
+        "meaning": "掌握；了解",
+        "cue": "手牢牢抓住地圖，清楚掌握目前的位置。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "N2",
+        "example_sentence": "まず全体の状況を把握しましょう。",
+        "example_translation": "我們先掌握整體狀況吧。"
+      },
+      {
+        "word": "検討",
+        "roman": "kentō",
+        "hint": "「先討」：先討論、仔細考慮，再做決定。",
+        "meaning": "研議；檢討；考慮",
+        "cue": "會議桌上攤開方案，大家逐項仔細研究。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "N2",
+        "example_sentence": "来週、この提案を検討します。",
+        "example_translation": "下週我們會研議這項提案。"
+      },
+      {
+        "word": "遵守",
+        "roman": "junshu",
+        "hint": "「遵守」：遵照規則，守住應有的界線。",
+        "meaning": "遵守；遵照",
+        "cue": "行人停在紅燈前，遵守交通規則等待通行。",
+        "topic": "general",
+        "difficulty": 3,
+        "proficiency_level": "N1",
+        "example_sentence": "利用者は施設の規則を遵守してください。",
+        "example_translation": "使用者請遵守設施規則。"
+      },
+      {
+        "word": "遂行",
+        "roman": "suikō",
+        "hint": "「隨行」：跟著計畫一路隨行，把任務完成。",
+        "meaning": "遂行；執行完成",
+        "cue": "任務清單一項項打勾，代表工作確實執行到底。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "N1",
+        "example_sentence": "彼は責任を持って任務を遂行した。",
+        "example_translation": "他負責任地完成了任務。"
+      },
+      {
+        "word": "抑制",
+        "roman": "yokusei",
+        "hint": "「欲克制」：想做也先克制，抑制衝動。",
+        "meaning": "抑制；壓制",
+        "cue": "手按住即將溢出的水，控制它不要再升高。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "N1",
+        "example_sentence": "政府は物価の上昇を抑制しようとしている。",
+        "example_translation": "政府正試圖抑制物價上漲。"
+      },
+      {
+        "word": "遡る",
+        "roman": "sakanoboru",
+        "hint": "「撒卡爬」：沿著河流往回爬，回溯到更早的地方。",
+        "meaning": "回溯；追溯；逆流而上",
+        "cue": "沿著時間軸往回走，追溯事情最初的起點。",
+        "topic": "time",
+        "difficulty": 3,
+        "proficiency_level": "N1",
+        "example_sentence": "記録を十年前まで遡って調べました。",
+        "example_translation": "我回溯到十年前的紀錄進行調查。"
+      },
+      {
+        "word": "介入",
+        "roman": "kainyū",
+        "hint": "「該你」：事情失控時，該你介入協助處理。",
+        "meaning": "介入；干預",
+        "cue": "兩人爭執時，第三個人伸手介入，讓場面冷靜下來。",
+        "topic": "people",
+        "difficulty": 3,
+        "proficiency_level": "N1",
+        "example_sentence": "第三者が交渉に介入しました。",
+        "example_translation": "第三方介入了協商。"
       }
     ]
   },
@@ -4796,6 +5191,198 @@
         "roman": "gwebyeon",
         "topic": "expressions",
         "word": "궤변"
+      },
+      {
+        "word": "예약하다",
+        "roman": "yeyakhada",
+        "hint": "預約像是『耶，約好了』，先把時間留起來。",
+        "meaning": "預約；訂位",
+        "cue": "手機上出現一張訂位單，旁邊的人開心喊『耶，約好了！』。",
+        "topic": "travel",
+        "difficulty": 3,
+        "proficiency_level": "3",
+        "example_sentence": "주말에 식당을 예약했어요.",
+        "example_translation": "我預約了週末的餐廳。"
+      },
+      {
+        "word": "출발하다",
+        "roman": "chulbalhada",
+        "hint": "出發時大喊『出發啦』，記住它的起點感。",
+        "meaning": "出發",
+        "cue": "火車門關上，站務員揮手喊著『出發啦！』。",
+        "topic": "travel",
+        "difficulty": 3,
+        "proficiency_level": "3",
+        "example_sentence": "기차는 오전 아홉 시에 출발합니다.",
+        "example_translation": "火車上午九點出發。"
+      },
+      {
+        "word": "도착하다",
+        "roman": "dochakhada",
+        "hint": "抵達目的地就說『到家啦』，聲音提醒你到站了。",
+        "meaning": "抵達；到達",
+        "cue": "巴士停在終點站，乘客探頭說『到家啦！』。",
+        "topic": "travel",
+        "difficulty": 3,
+        "proficiency_level": "3",
+        "example_sentence": "비행기는 곧 서울에 도착합니다.",
+        "example_translation": "飛機很快就會抵達首爾。"
+      },
+      {
+        "word": "등록하다",
+        "roman": "deungnokhada",
+        "hint": "登記報名時，想像把名字『登錄』到名冊上。",
+        "meaning": "登記；註冊；報名",
+        "cue": "學生把名字寫進課程名冊，完成報名後亮起綠燈。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "3",
+        "example_sentence": "온라인으로 수업에 등록했어요.",
+        "example_translation": "我在線上報名了課程。"
+      },
+      {
+        "word": "문의하다",
+        "roman": "munuihada",
+        "hint": "有問題就『問你』，向櫃檯詢問清楚。",
+        "meaning": "詢問；洽詢",
+        "cue": "客人拿著問題卡走到服務櫃檯，禮貌地開口詢問。",
+        "topic": "expressions",
+        "difficulty": 3,
+        "proficiency_level": "4",
+        "example_sentence": "궁금한 점은 직원에게 문의하세요.",
+        "example_translation": "有疑問請向店員洽詢。"
+      },
+      {
+        "word": "유지하다",
+        "roman": "yujihada",
+        "hint": "維持狀態像『有持』，一直把它穩穩拿住。",
+        "meaning": "維持；保持",
+        "cue": "雙手托住平衡的球，讓它保持在同一個高度。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "4",
+        "example_sentence": "건강을 위해 규칙적인 생활을 유지하세요.",
+        "example_translation": "為了健康，請維持規律的生活。"
+      },
+      {
+        "word": "개선하다",
+        "roman": "gaeseonhada",
+        "hint": "改善就是『改先』，先改掉問題，事情就會變好。",
+        "meaning": "改善；改進",
+        "cue": "工程師替舊流程換上新齒輪，問題逐一減少。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "4",
+        "example_sentence": "회사는 서비스를 계속 개선하고 있습니다.",
+        "example_translation": "公司持續改善服務。"
+      },
+      {
+        "word": "제공하다",
+        "roman": "jegonghada",
+        "hint": "提供像『借供』，把需要的東西送到對方手上。",
+        "meaning": "提供；供應",
+        "cue": "服務人員把一杯水遞給客人，表示願意提供協助。",
+        "topic": "food",
+        "difficulty": 3,
+        "proficiency_level": "4",
+        "example_sentence": "호텔은 무료 아침 식사를 제공합니다.",
+        "example_translation": "飯店提供免費早餐。"
+      },
+      {
+        "word": "고려하다",
+        "roman": "goryeohada",
+        "hint": "考量前先『考慮喔』，把各種條件放在心上。",
+        "meaning": "考慮；斟酌",
+        "cue": "決策者把價格、時間和需求三張卡放在一起衡量。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "5",
+        "example_sentence": "여러 조건을 고려해서 계획을 세웠어요.",
+        "example_translation": "我考慮了各種條件後制定計畫。"
+      },
+      {
+        "word": "반영하다",
+        "roman": "banyeonghada",
+        "hint": "反映像『把意見反照』，讓想法出現在成果裡。",
+        "meaning": "反映；納入",
+        "cue": "鏡子映出大家的建議，設計圖也跟著更新。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "5",
+        "example_sentence": "설문 결과를 새 정책에 반영했습니다.",
+        "example_translation": "我們把問卷結果納入新政策。"
+      },
+      {
+        "word": "대처하다",
+        "roman": "daecheohada",
+        "hint": "遇到狀況要『對策好』，立刻想辦法應對。",
+        "meaning": "應對；處理",
+        "cue": "突然下大雨，旅客立刻拿出雨衣應對變化。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "5",
+        "example_sentence": "위험한 상황에 침착하게 대처해야 합니다.",
+        "example_translation": "必須冷靜應對危險情況。"
+      },
+      {
+        "word": "확대되다",
+        "roman": "hwakdaedoeda",
+        "hint": "範圍變大就是『擴大了』，畫面從小圈放成大圈。",
+        "meaning": "擴大；擴展",
+        "cue": "地圖上的小圓圈逐漸放大，涵蓋更多城市。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "5",
+        "example_sentence": "이 사업은 전국으로 확대되었습니다.",
+        "example_translation": "這項事業已擴展到全國。"
+      },
+      {
+        "word": "비롯되다",
+        "roman": "birotdoeda",
+        "hint": "事情的起點像『從此起』，追溯它是從哪裡開始。",
+        "meaning": "起源於；始於",
+        "cue": "一條細線從小小的起點延伸，最後變成完整的故事。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "6",
+        "example_sentence": "이 전통은 작은 마을에서 비롯되었습니다.",
+        "example_translation": "這項傳統起源於一座小村莊。"
+      },
+      {
+        "word": "도출하다",
+        "roman": "dochulhada",
+        "hint": "從資料中『導出』答案，把結論拉出來。",
+        "meaning": "導出；推導出",
+        "cue": "研究者從一堆數據中拉出一張寫著結論的卡片。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "6",
+        "example_sentence": "자료를 분석해 결론을 도출했습니다.",
+        "example_translation": "我們分析資料後推導出結論。"
+      },
+      {
+        "word": "상이하다",
+        "roman": "sangihada",
+        "hint": "兩份資料『相異哈』，提醒自己它們並不相同。",
+        "meaning": "相異；不同",
+        "cue": "兩張報告並排放著，數字和結論都明顯不同。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "6",
+        "example_sentence": "두 연구의 결과는 서로 상이합니다.",
+        "example_translation": "兩項研究的結果彼此不同。"
+      },
+      {
+        "word": "불가피하다",
+        "roman": "bulgapihada",
+        "hint": "無法避免就是『不可以避』，只能接受這個結果。",
+        "meaning": "不可避免",
+        "cue": "道路被巨石完全堵住，繞路成了無法避免的選擇。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "6",
+        "example_sentence": "공사로 인한 교통 지연은 불가피합니다.",
+        "example_translation": "因施工造成的交通延遲不可避免。"
       }
     ]
   },
@@ -6390,6 +6977,198 @@
         "roman": "/aðβeneˈðiθo/",
         "topic": "people",
         "word": "advenedizo"
+      },
+      {
+        "word": "mejorar",
+        "roman": "/mexoˈɾaɾ/",
+        "hint": "「美好啦」就是讓事情變得更好。",
+        "meaning": "改善；進步",
+        "cue": "每天練習後，西語發音逐漸改善。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Quiero mejorar mi pronunciación.",
+        "example_translation": "我想改善我的發音。"
+      },
+      {
+        "word": "mantener",
+        "roman": "/manteˈneɾ/",
+        "hint": "「慢點呢」也要維持原本的好習慣。",
+        "meaning": "維持；保持",
+        "cue": "即使很忙，她仍維持每天閱讀的習慣。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Es importante mantener la calma.",
+        "example_translation": "保持冷靜很重要。"
+      },
+      {
+        "word": "alcanzar",
+        "roman": "/alkanˈθaɾ/",
+        "hint": "「阿康擦」過終點線，終於達到目標。",
+        "meaning": "達到；追上；拿到",
+        "cue": "跑者加速，終於追上前面的隊伍。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Espero alcanzar mis objetivos este año.",
+        "example_translation": "我希望今年達成我的目標。"
+      },
+      {
+        "word": "descubrir",
+        "roman": "/deskuˈβɾiɾ/",
+        "hint": "「得斯庫比」掀開布幕，發現新事物。",
+        "meaning": "發現；揭開",
+        "cue": "旅途中，她在小巷裡發現一家安靜的書店。",
+        "topic": "travel",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Ayer descubrí un restaurante muy bueno.",
+        "example_translation": "昨天我發現一家很棒的餐廳。"
+      },
+      {
+        "word": "destacar",
+        "roman": "/destaˈkaɾ/",
+        "hint": "「得斯塔卡」把重點標出來，就會特別突出。",
+        "meaning": "突出；特別優秀；強調",
+        "cue": "報告用黃色標記強調最重要的數據。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Quiero destacar dos puntos importantes.",
+        "example_translation": "我想強調兩個重要的重點。"
+      },
+      {
+        "word": "gestionar",
+        "roman": "/xestjoˈnaɾ/",
+        "hint": "「接手呢」一件事，就是負責處理和管理它。",
+        "meaning": "管理；處理",
+        "cue": "專案經理有條理地處理團隊的工作。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Ella gestiona las reservas del hotel.",
+        "example_translation": "她負責管理飯店的預訂。"
+      },
+      {
+        "word": "fiable",
+        "roman": "/ˈfjaβle/",
+        "hint": "「非呀不嘞」的消息不可靠；fiable 才是可靠的。",
+        "meaning": "可靠的；可信賴的",
+        "cue": "朋友推薦一個可靠的修車師傅。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Necesitamos una fuente fiable.",
+        "example_translation": "我們需要可靠的來源。"
+      },
+      {
+        "word": "imprescindible",
+        "roman": "/impɾesθinˈdiβle/",
+        "hint": "「硬不行」的東西不能省略，就是不可或缺。",
+        "meaning": "不可或缺的；必要的",
+        "cue": "護照是出國旅行不可或缺的文件。",
+        "topic": "travel",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "El pasaporte es imprescindible para viajar.",
+        "example_translation": "護照是旅行不可或缺的。"
+      },
+      {
+        "word": "abarcar",
+        "roman": "/aβarˈkaɾ/",
+        "hint": "「阿爸卡」張開雙臂，把很大的範圍都包進來。",
+        "meaning": "涵蓋；包括；涉及",
+        "cue": "這門課涵蓋從歷史到當代藝術的內容。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "El curso abarca varios temas relacionados.",
+        "example_translation": "這門課涵蓋幾個相關主題。"
+      },
+      {
+        "word": "suscitar",
+        "roman": "/suθiˈtaɾ/",
+        "hint": "「蘇西他」一句話，引起大家的討論。",
+        "meaning": "引起；激起（反應或情感）",
+        "cue": "這項決定在社區引起熱烈討論。",
+        "topic": "expressions",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "La propuesta suscitó muchas dudas.",
+        "example_translation": "這項提案引起許多疑問。"
+      },
+      {
+        "word": "reivindicar",
+        "roman": "/rejbindiˈkaɾ/",
+        "hint": "「雷伊賓迪卡」站出來主張自己應有的權利。",
+        "meaning": "主張；捍衛（權利或立場）",
+        "cue": "工會公開主張改善勞工的安全條件。",
+        "topic": "people",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "El grupo reivindica el derecho a la vivienda.",
+        "example_translation": "這個團體主張居住的權利。"
+      },
+      {
+        "word": "arraigado",
+        "roman": "/araiˈɣaðo/",
+        "hint": "「阿來嘎豆」的樹根扎得很深，形容根深蒂固。",
+        "meaning": "根深蒂固的；根植於某地或文化的",
+        "cue": "這項節日在當地文化中已根深蒂固。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "Es una tradición muy arraigada en la región.",
+        "example_translation": "這是根植於當地的一項傳統。"
+      },
+      {
+        "word": "acuciante",
+        "roman": "/akuˈθjante/",
+        "hint": "「阿庫先得」趕著處理，形容迫切而急切。",
+        "meaning": "迫切的；急迫的",
+        "cue": "缺水是這座城市目前最迫切的問題。",
+        "topic": "nature",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "La escasez de agua es un problema acuciante.",
+        "example_translation": "缺水是個迫切的問題。"
+      },
+      {
+        "word": "ineludible",
+        "roman": "/ineluˈðiβle/",
+        "hint": "「一捏路底」也躲不開，表示無法避免。",
+        "meaning": "不可避免的；無法迴避的",
+        "cue": "面對氣候變遷，改變能源政策已不可避免。",
+        "topic": "nature",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "El cambio era ineludible.",
+        "example_translation": "這項改變是不可避免的。"
+      },
+      {
+        "word": "menoscabar",
+        "roman": "/menoskaˈβaɾ/",
+        "hint": "「沒弄死卡」反而削弱了信任與價值。",
+        "meaning": "削弱；損害；貶低",
+        "cue": "不透明的決策會損害民眾對機構的信任。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "La crítica no debe menoscabar su esfuerzo.",
+        "example_translation": "批評不應該貶低他的努力。"
+      },
+      {
+        "word": "sobriedad",
+        "roman": "/soβɾjeˈðað/",
+        "hint": "「守不列達」不追求華麗，呈現簡潔克制的風格。",
+        "meaning": "樸素；莊重；節制",
+        "cue": "設計以樸素的色彩和簡潔的線條呈現。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "El diseño destaca por su sobriedad.",
+        "example_translation": "這項設計以樸素克制著稱。"
       }
     ]
   },
@@ -7984,6 +8763,198 @@
         "roman": "/i.nɛɡ.zɔ.ʁabl/",
         "topic": "time",
         "word": "inexorable"
+      },
+      {
+        "word": "cependant",
+        "roman": "/sə.pɑ̃.dɑ̃/",
+        "hint": "像「色盼當」，想像換個角度後補一句「不過」。",
+        "meaning": "然而；不過",
+        "cue": "天氣預報說會下雨，然而她還是帶著傘出門散步。",
+        "topic": "expressions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Il est fatigué ; cependant, il continue à travailler.",
+        "example_translation": "他很累；不過，他仍然繼續工作。"
+      },
+      {
+        "word": "réussir",
+        "roman": "/ʁe.y.siʁ/",
+        "hint": "像「日又喜」，想像努力後終於露出開心笑容。",
+        "meaning": "成功；順利完成",
+        "cue": "學生解出最後一道題，舉起考卷露出成功的笑容。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Elle a réussi son examen du premier coup.",
+        "example_translation": "她一次就通過了考試。"
+      },
+      {
+        "word": "habitude",
+        "roman": "/a.bi.tyd/",
+        "hint": "像「啊，比土」，想像每天固定的小事變成生活習慣。",
+        "meaning": "習慣",
+        "cue": "他每天早上先喝水，再開始一天的工作。",
+        "topic": "time",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Lire avant de dormir est une bonne habitude.",
+        "example_translation": "睡前閱讀是個好習慣。"
+      },
+      {
+        "word": "prévenir",
+        "roman": "/pʁe.və.niʁ/",
+        "hint": "像「陪我你」，想像先提醒對方，避免他白跑一趟。",
+        "meaning": "預防；事先通知",
+        "cue": "暴雨前，工作人員先通知旅客列車會延誤。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Merci de me prévenir si tu changes d'avis.",
+        "example_translation": "如果你改變主意，請先通知我，謝謝。"
+      },
+      {
+        "word": "s'adapter",
+        "roman": "/sa.dap.te/",
+        "hint": "像「撒搭配」，想像把自己調整到能配合新環境。",
+        "meaning": "適應；調整自己以配合",
+        "cue": "搬到新城市後，她慢慢適應了不同的生活節奏。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Il faut s'adapter aux changements du marché.",
+        "example_translation": "必須適應市場的變化。"
+      },
+      {
+        "word": "fiable",
+        "roman": "/fjabl/",
+        "hint": "像「非要」，想像這個可靠的人是大家非找不可的夥伴。",
+        "meaning": "可靠的；可信賴的",
+        "cue": "這台老車雖然外表普通，卻是可靠的交通工具。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Nous avons besoin d'une source fiable.",
+        "example_translation": "我們需要一個可靠的來源。"
+      },
+      {
+        "word": "décourager",
+        "roman": "/de.ku.ʁa.ʒe/",
+        "hint": "像「得哭啊，這」，想像挫折讓人差點哭出來、失去勇氣。",
+        "meaning": "使灰心；使氣餒",
+        "cue": "第一次失敗沒有讓她灰心，她重新整理計畫再試一次。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Ne laisse pas cet échec te décourager.",
+        "example_translation": "別讓這次失敗使你灰心。"
+      },
+      {
+        "word": "éprouver",
+        "roman": "/e.pʁu.ve/",
+        "hint": "像「欸，不如」，想像人在經歷事情時感受到內心變化。",
+        "meaning": "感受到；經歷",
+        "cue": "聽到老朋友的消息，她感到既驚訝又高興。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Il éprouve une grande fierté pour sa fille.",
+        "example_translation": "他對女兒感到非常驕傲。"
+      },
+      {
+        "word": "percevoir",
+        "roman": "/pɛʁ.sə.vwaʁ/",
+        "hint": "像「碰色我」，想像察覺到遠處細微的顏色變化。",
+        "meaning": "察覺；感知；領取",
+        "cue": "即使房間很安靜，她仍察覺到窗外細微的腳步聲。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "On peut percevoir une légère tension dans la salle.",
+        "example_translation": "可以察覺到房間裡有一絲緊張。"
+      },
+      {
+        "word": "approfondir",
+        "roman": "/a.pʁɔ.fɔ̃.diʁ/",
+        "hint": "像「啊，不妨低」，想像把問題往更深處探究。",
+        "meaning": "深入探討；加深",
+        "cue": "研究小組用更多資料深入探討這個現象的原因。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "Ce cours permet d'approfondir ses connaissances.",
+        "example_translation": "這門課能讓人加深自己的知識。"
+      },
+      {
+        "word": "se méfier",
+        "roman": "/sə me.fje/",
+        "hint": "像「瑟，沒法耶」，想像先提高警覺，不輕易相信。",
+        "meaning": "提防；對……保持警覺",
+        "cue": "看到來源不明的連結，她提高警覺，沒有立刻點開。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "Il faut se méfier des promesses trop belles.",
+        "example_translation": "要提防那些好得不太真實的承諾。"
+      },
+      {
+        "word": "pertinent",
+        "roman": "/pɛʁ.ti.nɑ̃/",
+        "hint": "像「配體南」，想像把合適的觀點放進討論裡。",
+        "meaning": "切合的；中肯的；恰當的",
+        "cue": "她提出一個切合主題的問題，讓會議重新聚焦。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "Votre remarque est pertinente pour notre discussion.",
+        "example_translation": "你的意見對我們的討論很切合。"
+      },
+      {
+        "word": "éphémère",
+        "roman": "/e.fe.mɛʁ/",
+        "hint": "像「欸，飛沒了」，想像美好景象很快就消失。",
+        "meaning": "短暫的；轉瞬即逝的",
+        "cue": "夕陽的橘色光芒很短暫，幾分鐘後天空就暗了。",
+        "topic": "nature",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "La célébrité peut être éphémère.",
+        "example_translation": "名氣可能是短暫的。"
+      },
+      {
+        "word": "proliférer",
+        "roman": "/pʁɔ.li.fe.ʁe/",
+        "hint": "像「不理非了」，想像數量不斷增加，快要無法忽視。",
+        "meaning": "大量增生；迅速繁衍",
+        "cue": "春天一到，花園裡的野草迅速蔓延，幾乎蓋住小路。",
+        "topic": "nature",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "Les fausses informations prolifèrent sur les réseaux sociaux.",
+        "example_translation": "假消息在社群媒體上大量散播。"
+      },
+      {
+        "word": "dilapider",
+        "roman": "/di.la.pi.de/",
+        "hint": "像「滴啦，撇掉」，想像把資源一點一點揮霍掉。",
+        "meaning": "揮霍；浪費資源",
+        "cue": "他年輕時揮霍了積蓄，後來才發現生活沒有保障。",
+        "topic": "shopping",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "Il a dilapidé l'argent de sa famille.",
+        "example_translation": "他揮霍了家人的錢。"
+      },
+      {
+        "word": "prépondérant",
+        "roman": "/pʁe.pɔ̃.de.ʁɑ̃/",
+        "hint": "像「陪朋得讓」，想像某個因素分量特別重、左右全局。",
+        "meaning": "主要的；占優勢的；舉足輕重的",
+        "cue": "在這項決策中，安全考量占了最重要的地位。",
+        "topic": "general",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "La confiance joue un rôle prépondérant dans cette relation.",
+        "example_translation": "信任在這段關係中扮演舉足輕重的角色。"
       }
     ]
   },
@@ -9578,6 +10549,198 @@
         "roman": "/ˈapˌvɛːɡn̩/",
         "topic": "study",
         "word": "abwägen"
+      },
+      {
+        "word": "neugierig",
+        "roman": "/ˈnɔɪ̯ɡiːʁɪç/",
+        "hint": "「諾伊吉希」像看到新奇東西就湊近來看，聯想到好奇的樣子。",
+        "meaning": "好奇的",
+        "cue": "孩子聽見房間裡有聲音，便好奇地探頭查看。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Das Kind ist neugierig und stellt viele Fragen.",
+        "example_translation": "這個孩子很好奇，會問很多問題。"
+      },
+      {
+        "word": "vermeiden",
+        "roman": "/fɛɐ̯ˈmaɪ̯dn̩/",
+        "hint": "「費爾麥登」像把麻煩擋在門外，聯想到避開。",
+        "meaning": "避免；避開",
+        "cue": "為了避免塞車，司機改走另一條路。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Wir sollten unnötigen Stress vermeiden.",
+        "example_translation": "我們應該避免不必要的壓力。"
+      },
+      {
+        "word": "Fortschritt",
+        "roman": "/ˈfɔʁtˌʃʁɪt/",
+        "hint": "「佛特許里特」像一步步往前走，聯想到進步。",
+        "meaning": "進步；進展",
+        "cue": "學生把每次練習的成果記下來，看見自己的進步。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Sie macht beim Deutschlernen gute Fortschritte.",
+        "example_translation": "她在學德語方面進步很大。"
+      },
+      {
+        "word": "Empfehlung",
+        "roman": "/ɛmˈpfeːlʊŋ/",
+        "hint": "「恩普費隆」像朋友把值得一試的店指給你，聯想到推薦。",
+        "meaning": "推薦；建議",
+        "cue": "朋友推薦一家安靜的咖啡店，讓你省下搜尋時間。",
+        "topic": "expressions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Danke für deine Empfehlung.",
+        "example_translation": "謝謝你的推薦。"
+      },
+      {
+        "word": "ausführlich",
+        "roman": "/ˈaʊ̯sˌfyːɐ̯lɪç/",
+        "hint": "「奧斯夫里希」像把每個細節都說出來，聯想到詳細的。",
+        "meaning": "詳細的；詳盡的",
+        "cue": "報告附上詳細說明，讀者不必猜測步驟。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Der Bericht enthält eine ausführliche Analyse.",
+        "example_translation": "這份報告包含詳細的分析。"
+      },
+      {
+        "word": "Auswirkung",
+        "roman": "/ˈaʊ̯sˌvɪʁkʊŋ/",
+        "hint": "「奧斯維爾昆」像一件事向外產生作用，聯想到影響。",
+        "meaning": "影響；作用",
+        "cue": "研究者觀察政策改變對居民生活造成的影響。",
+        "topic": "general",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Die Entscheidung hatte große Auswirkungen auf den Alltag.",
+        "example_translation": "這項決定對日常生活造成了很大的影響。"
+      },
+      {
+        "word": "beitragen",
+        "roman": "/ˈbaɪ̯ˌtʁaːɡn̩/",
+        "hint": "「拜特拉根」像把一份力量帶到共同目標上，聯想到貢獻。",
+        "meaning": "貢獻；促成",
+        "cue": "每個人都出一份力，就能促成更好的結果。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Jeder kann zum Erfolg des Projekts beitragen.",
+        "example_translation": "每個人都能為這個專案的成功貢獻力量。"
+      },
+      {
+        "word": "Vermutung",
+        "roman": "/fɛɐ̯ˈmuːtʊŋ/",
+        "hint": "「費爾穆通」像先在心裡形成一個猜測，聯想到推測。",
+        "meaning": "推測；猜想",
+        "cue": "在證據出現前，這個想法只能算是推測。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Das ist nur eine Vermutung, keine Tatsache.",
+        "example_translation": "那只是推測，不是事實。"
+      },
+      {
+        "word": "Auseinandersetzung",
+        "roman": "/ˈaʊ̯sʔaɪ̯nandɐˌzɛtsʊŋ/",
+        "hint": "「奧斯愛南德爾賽宗」像把不同觀點攤開來交鋒，聯想到深入討論。",
+        "meaning": "深入探討；爭論",
+        "cue": "課堂上同學針對文章觀點展開深入討論。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "Die Auseinandersetzung mit dem Thema war sehr intensiv.",
+        "example_translation": "對這個主題的探討非常深入。"
+      },
+      {
+        "word": "veranschaulichen",
+        "roman": "/fɛɐ̯ˈʔanʃaʊ̯lɪçən/",
+        "hint": "「費爾安紹利希」像把抽象概念畫成看得見的圖，聯想到說明。",
+        "meaning": "使具體化；說明",
+        "cue": "講師用圖表把複雜的流程說明得更清楚。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "Die Grafik veranschaulicht den Zusammenhang.",
+        "example_translation": "這張圖表說明了其中的關聯。"
+      },
+      {
+        "word": "einschneidend",
+        "roman": "/ˈaɪ̯nˌʃnaɪ̯dənt/",
+        "hint": "「因許奈登特」像刀子切入生活，聯想到影響深遠的。",
+        "meaning": "深刻影響的；重大的",
+        "cue": "那次搬家是他人生中影響深遠的轉折。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "Die Reform hatte einschneidende Folgen.",
+        "example_translation": "這項改革帶來了重大的後果。"
+      },
+      {
+        "word": "untergraben",
+        "roman": "/ˈʊntɐˌɡʁaːbən/",
+        "hint": "「翁特格拉本」像從地基下方挖空，聯想到暗中削弱。",
+        "meaning": "削弱；破壞根基",
+        "cue": "反覆失信會逐漸削弱大家對團隊的信任。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "Solche Gerüchte untergraben das Vertrauen.",
+        "example_translation": "這類謠言會削弱信任。"
+      },
+      {
+        "word": "allgegenwärtig",
+        "roman": "/ˈalɡəɡeːnˌvɛʁtɪç/",
+        "hint": "「阿爾格根維爾提希」像四面八方都看得見，聯想到無所不在。",
+        "meaning": "無所不在的；普遍存在的",
+        "cue": "在這座城市，手機支付幾乎無所不在。",
+        "topic": "general",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "Digitale Medien sind heute allgegenwärtig.",
+        "example_translation": "數位媒體如今無所不在。"
+      },
+      {
+        "word": "konsolidieren",
+        "roman": "/kɔnzoliˈdiːʁən/",
+        "hint": "「康索利迪倫」像把分散的積木重新固定，聯想到鞏固。",
+        "meaning": "鞏固；整合",
+        "cue": "公司先整合資源，再鞏固目前的市場地位。",
+        "topic": "general",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "Das Unternehmen will seine Position konsolidieren.",
+        "example_translation": "這家公司想鞏固自己的地位。"
+      },
+      {
+        "word": "präzisieren",
+        "roman": "/pʁɛtsiˈziːʁən/",
+        "hint": "「普雷齊西倫」像用尺把模糊界線畫清楚，聯想到精確說明。",
+        "meaning": "精確說明；精確化",
+        "cue": "發言人補充細節，讓原本模糊的說法更精確。",
+        "topic": "expressions",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "Können Sie Ihre Aussage bitte präzisieren?",
+        "example_translation": "您可以請精確說明您的說法嗎？"
+      },
+      {
+        "word": "Ermessensspielraum",
+        "roman": "/ɛɐ̯ˈmɛsn̩sˌʃpiːlʁaʊ̯m/",
+        "hint": "「爾梅森斯皮爾勞姆」像規則之間留出可調整的空間，聯想到裁量餘地。",
+        "meaning": "裁量餘地；酌情處理空間",
+        "cue": "規則雖然明確，主管仍保有少量裁量餘地。",
+        "topic": "general",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "Die Behörde hat hier keinen Ermessensspielraum.",
+        "example_translation": "主管機關在這裡沒有裁量餘地。"
       }
     ]
   },
@@ -16012,6 +17175,198 @@
         "roman": "/iˈdɔnju/",
         "topic": "people",
         "word": "idóneo"
+      },
+      {
+        "word": "sugerir",
+        "roman": "/suʒɨˈɾiɾ/",
+        "hint": "像「速記」，想像快速記下別人的建議。",
+        "meaning": "建議；提出意見",
+        "cue": "朋友提出幾個週末活動的想法，請你從中挑選。",
+        "topic": "expressions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Posso sugerir um restaurante perto da estação?",
+        "example_translation": "我可以推薦車站附近的一間餐廳嗎？"
+      },
+      {
+        "word": "melhorar",
+        "roman": "/mɨʎuˈɾaɾ/",
+        "hint": "像「沒流啦」，想像把漏水的地方修好，情況就改善了。",
+        "meaning": "改善；變得更好",
+        "cue": "每天練習後，學生的發音逐漸進步。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Quero melhorar a minha pronúncia.",
+        "example_translation": "我想改善自己的發音。"
+      },
+      {
+        "word": "combinar",
+        "roman": "/kõbiˈnaɾ/",
+        "hint": "像「共比哪」，想像大家一起比較後約定時間。",
+        "meaning": "約定；搭配；相配",
+        "cue": "兩位朋友討論後，約好星期六早上見面。",
+        "topic": "expressions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Combinámos encontrar-nos às dez.",
+        "example_translation": "我們約好十點見面。"
+      },
+      {
+        "word": "alcançar",
+        "roman": "/ɐlkɐ̃ˈsaɾ/",
+        "hint": "像「阿郎上」，想像伸手向上終於拿到高處的東西。",
+        "meaning": "達到；抵達；實現",
+        "cue": "跑者最後加速，終於抵達終點並完成目標。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "A equipa alcançou o seu objetivo.",
+        "example_translation": "這支團隊達成了目標。"
+      },
+      {
+        "word": "esclarecer",
+        "roman": "/ɨʃklɐɾɨˈseɾ/",
+        "hint": "像「一時可了」，想像把疑問說清楚後，事情就明白了。",
+        "meaning": "澄清；說明",
+        "cue": "會議主持人逐點解釋規則，消除大家的疑問。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Gostaria de esclarecer uma dúvida.",
+        "example_translation": "我想澄清一個疑問。"
+      },
+      {
+        "word": "contribuir",
+        "roman": "/kõtɾiˈbwiɾ/",
+        "hint": "像「共同出力」，想像每個人都出一份力完成工作。",
+        "meaning": "貢獻；促成",
+        "cue": "每位成員都分享專長，讓團隊順利完成計畫。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Todos podem contribuir para o projeto.",
+        "example_translation": "每個人都可以為這個專案作出貢獻。"
+      },
+      {
+        "word": "sustentável",
+        "roman": "/suʃtẽˈtavɛl/",
+        "hint": "像「守成它」，想像用能長久維持的方式守護環境。",
+        "meaning": "可持續的；不破壞環境的",
+        "cue": "商店改用可重複使用的容器，減少一次性包裝。",
+        "topic": "nature",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "A cidade procura soluções de transporte sustentável.",
+        "example_translation": "這座城市正在尋找可持續的交通方案。"
+      },
+      {
+        "word": "prazo",
+        "roman": "/ˈpɾazu/",
+        "hint": "像「不拉走」，想像在期限前不能把工作拖走。",
+        "meaning": "期限；時限",
+        "cue": "日曆上圈著交件日期，提醒大家不要錯過期限。",
+        "topic": "time",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "O prazo para a inscrição termina amanhã.",
+        "example_translation": "報名期限明天截止。"
+      },
+      {
+        "word": "criterioso",
+        "roman": "/kɾitɛɾiˈozu/",
+        "hint": "像「可挑的」，想像做事前仔細挑選並檢查每個細節。",
+        "meaning": "審慎的；有判斷力的",
+        "cue": "編輯逐項核對資料後，才決定哪些內容可以刊登。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "Ela é uma leitora criteriosa e atenta.",
+        "example_translation": "她是一位審慎而專注的讀者。"
+      },
+      {
+        "word": "controverso",
+        "roman": "/kõtɾuˈvɛɾsu/",
+        "hint": "像「控訴我」，想像一個議題引發正反兩方爭論。",
+        "meaning": "有爭議的",
+        "cue": "新政策公布後，社會上出現支持與反對的聲音。",
+        "topic": "general",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "A decisão foi bastante controversa.",
+        "example_translation": "這項決定相當有爭議。"
+      },
+      {
+        "word": "inerente",
+        "roman": "/iˈnɛɾẽtɨ/",
+        "hint": "像「一定的」，想像某種特質本來就包含在事物裡。",
+        "meaning": "固有的；內在的",
+        "cue": "討論工作時，也要考量這項任務本身固有的風險。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "O risco é inerente a este tipo de atividade.",
+        "example_translation": "這類活動本身就有固有的風險。"
+      },
+      {
+        "word": "viabilizar",
+        "roman": "/vjɐbiliˈzaɾ/",
+        "hint": "像「為了實現」，想像找到資金讓計畫變得可行。",
+        "meaning": "使可行；促成",
+        "cue": "新的經費讓這項社區計畫有機會真正實施。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "O financiamento pode viabilizar a construção da escola.",
+        "example_translation": "這筆資金可以促成學校的興建。"
+      },
+      {
+        "word": "ubíquo",
+        "roman": "/uˈbikwu/",
+        "hint": "像「無比酷」，想像某種現象到處可見，酷得無所不在。",
+        "meaning": "無所不在的；到處都有的",
+        "cue": "在城市裡，手機和無線網路已經普遍存在。",
+        "topic": "general",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "A publicidade digital tornou-se ubíqua.",
+        "example_translation": "數位廣告已變得無所不在。"
+      },
+      {
+        "word": "inefável",
+        "roman": "/inɨˈfavɛl/",
+        "hint": "像「一念發不出」，想像感受太深，反而難以用言語表達。",
+        "meaning": "難以言喻的；無法形容的",
+        "cue": "看到多年未見的家人時，心中湧起難以形容的喜悅。",
+        "topic": "expressions",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "Sentiu uma alegria inefável ao reencontrar a família.",
+        "example_translation": "與家人重逢時，他感到難以言喻的喜悅。"
+      },
+      {
+        "word": "condescendente",
+        "roman": "/kõdɨʃẽˈdẽtɨ/",
+        "hint": "像「看低先」，想像說話者自以為高人一等，語氣帶有輕視。",
+        "meaning": "居高臨下的；自以為是的",
+        "cue": "主管用居高臨下的口吻回答新同事，讓對方感到不舒服。",
+        "topic": "people",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "O seu tom condescendente irritou os colegas.",
+        "example_translation": "他居高臨下的語氣惹惱了同事。"
+      },
+      {
+        "word": "peremptório",
+        "roman": "/pɨɾẽpˈtɔɾju/",
+        "hint": "像「必然通過」，想像語氣斬釘截鐵，不容反駁。",
+        "meaning": "斬釘截鐵的；不容置疑的",
+        "cue": "發言人用非常明確的語氣表示，截止日期不會改變。",
+        "topic": "expressions",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "A diretora deu uma resposta peremptória.",
+        "example_translation": "主管給了一個斬釘截鐵的回答。"
       }
     ]
   },
@@ -17606,6 +18961,198 @@
         "roman": "/proˈlisso/",
         "topic": "descriptions",
         "word": "prolisso"
+      },
+      {
+        "word": "riuscire",
+        "roman": "/riuˈʃiːre/",
+        "hint": "又試了，終於做得到",
+        "meaning": "成功做到；設法完成",
+        "cue": "再試一次，終於成功做到原本困難的事。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Nonostante la pioggia, siamo riusciti a partire in tempo.",
+        "example_translation": "儘管下雨，我們還是成功及時出發了。"
+      },
+      {
+        "word": "prenotare",
+        "roman": "/prenoˈtaːre/",
+        "hint": "先預約，位置才保留",
+        "meaning": "預訂；預約",
+        "cue": "先把名字記在名單上，餐廳的位置就保留好了。",
+        "topic": "travel",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Vorrei prenotare un tavolo per due persone.",
+        "example_translation": "我想預訂一張兩人桌。"
+      },
+      {
+        "word": "speranza",
+        "roman": "/speˈrantsa/",
+        "hint": "心裡存著一線希望",
+        "meaning": "希望；期望",
+        "cue": "黑暗中仍留著一盞小燈，代表對好結果的希望。",
+        "topic": "expressions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Abbiamo ancora la speranza di trovare una soluzione.",
+        "example_translation": "我們仍然希望能找到解決辦法。"
+      },
+      {
+        "word": "rumoroso",
+        "roman": "/rumoˈroːzo/",
+        "hint": "一大群人吵得很熱鬧",
+        "meaning": "吵鬧的；喧鬧的",
+        "cue": "街上的車聲、人聲和音樂混在一起，變得非常吵鬧。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "B1",
+        "example_sentence": "Il bar è troppo rumoroso per parlare tranquilli.",
+        "example_translation": "這間酒吧太吵了，沒辦法好好聊天。"
+      },
+      {
+        "word": "consigliare",
+        "roman": "/konsiʎˈʎaːre/",
+        "hint": "給你一個好建議",
+        "meaning": "建議；推薦",
+        "cue": "朋友指著菜單，推薦一道他覺得值得一試的菜。",
+        "topic": "expressions",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Quale ristorante mi puoi consigliare?",
+        "example_translation": "你可以推薦哪一家餐廳給我？"
+      },
+      {
+        "word": "affidabile",
+        "roman": "/affiˈdaːbile/",
+        "hint": "可以放心把事情交給他",
+        "meaning": "可靠的；值得信賴的",
+        "cue": "時鐘準時運作、朋友守信用，讓人覺得可靠。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Cerchiamo un collaboratore affidabile.",
+        "example_translation": "我們正在找一位可靠的合作夥伴。"
+      },
+      {
+        "word": "rimandare",
+        "roman": "/rimanˈdaːre/",
+        "hint": "把事情往後再放",
+        "meaning": "延期；把事情推遲",
+        "cue": "行事曆上的工作被箭頭往後推到下週。",
+        "topic": "time",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Dobbiamo rimandare la riunione a lunedì.",
+        "example_translation": "我們必須把會議延期到星期一。"
+      },
+      {
+        "word": "dettagliato",
+        "roman": "/dettaˈʎaːto/",
+        "hint": "每個小細節都交代清楚",
+        "meaning": "詳細的；細節完整的",
+        "cue": "地圖把每條小路和每個轉彎都標示得很清楚。",
+        "topic": "study",
+        "difficulty": 3,
+        "proficiency_level": "B2",
+        "example_sentence": "Il rapporto contiene un'analisi dettagliata dei costi.",
+        "example_translation": "這份報告包含詳細的成本分析。"
+      },
+      {
+        "word": "meticoloso",
+        "roman": "/metiˈkoːlo/",
+        "hint": "每一毫米都仔細檢查",
+        "meaning": "一絲不苟的；極其仔細的",
+        "cue": "檢查員拿著放大鏡，逐項確認每個細節都沒有錯。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "È un ricercatore meticoloso e controlla ogni fonte.",
+        "example_translation": "他是一位一絲不苟的研究者，會檢查每個來源。"
+      },
+      {
+        "word": "sostenibilità",
+        "roman": "/sosteniˌbiliˈta/",
+        "hint": "能長久維持，不讓地球負擔太重",
+        "meaning": "永續性；可持續性",
+        "cue": "工廠降低耗能，讓環境和經濟都能長久維持。",
+        "topic": "nature",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "La sostenibilità deve guidare le nostre scelte energetiche.",
+        "example_translation": "永續性應該引導我們的能源選擇。"
+      },
+      {
+        "word": "negoziare",
+        "roman": "/nedzoˈtsjaːre/",
+        "hint": "雙方坐下來談條件",
+        "meaning": "協商；談判",
+        "cue": "兩邊把條件寫在桌上，透過討論找出都能接受的方案。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "Le due parti devono negoziare un nuovo accordo.",
+        "example_translation": "雙方必須協商一份新協議。"
+      },
+      {
+        "word": "plausibile",
+        "roman": "/plauˈziːbile/",
+        "hint": "聽起來合理，值得相信",
+        "meaning": "合理可信的；似乎可能的",
+        "cue": "證據拼成一條合理的線索，讓這個解釋聽起來可信。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C1",
+        "example_sentence": "La sua spiegazione è plausibile, ma servono altre prove.",
+        "example_translation": "他的解釋合理可信，但還需要更多證據。"
+      },
+      {
+        "word": "inequivocabile",
+        "roman": "/inekwiˈvoːkabile/",
+        "hint": "沒有任何模稜兩可的空間",
+        "meaning": "明確無誤的；不容置疑的",
+        "cue": "標誌只有一個清楚方向，任何人都不會解讀錯。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "Le immagini offrono una prova inequivocabile.",
+        "example_translation": "這些影像提供了明確無誤的證據。"
+      },
+      {
+        "word": "onnipresente",
+        "roman": "/onniˈprɛzente/",
+        "hint": "到處都看得到它",
+        "meaning": "無所不在的；到處存在的",
+        "cue": "同一個標誌出現在城市的每個角落，彷彿無所不在。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "La pubblicità è ormai onnipresente nella vita quotidiana.",
+        "example_translation": "廣告如今已無所不在於日常生活中。"
+      },
+      {
+        "word": "sovvertire",
+        "roman": "/soverˈtiːre/",
+        "hint": "把原本的秩序整個翻轉",
+        "meaning": "顛覆；推翻原有秩序",
+        "cue": "一股力量把原本穩定的積木結構推倒並重新排列。",
+        "topic": "actions",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "La nuova tecnologia potrebbe sovvertire il mercato.",
+        "example_translation": "這項新科技可能顛覆市場。"
+      },
+      {
+        "word": "pretestuoso",
+        "roman": "/preteˈstuːoːzo/",
+        "hint": "表面有理由，其實只是藉口",
+        "meaning": "藉口性的；似是而非的",
+        "cue": "一個看似合理的理由背後，藏著真正想達成的目的。",
+        "topic": "descriptions",
+        "difficulty": 3,
+        "proficiency_level": "C2",
+        "example_sentence": "Ha rifiutato la richiesta con un motivo pretestuoso.",
+        "example_translation": "他用一個似是而非的理由拒絕了這項要求。"
       }
     ]
   }
@@ -17613,7 +19160,7 @@
 
   </script>
   <script src="./shared/card-tags.js?v=20261113-levels1"></script>
-  <script src="./app.js?v=20261113-levels1"></script>
+  <script src="./app.js?v=20261116-analysis-voices1"></script>
   <script src="./supabase-config.js"></script>
   <script src="./public-catalog.js?v=20261113-levels1"></script>
 </body>

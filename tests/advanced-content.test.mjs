@@ -8,19 +8,19 @@ const importer=require('../shared/admin-import.js');
 const read=path=>fs.readFileSync(new URL(path,import.meta.url),'utf8');
 const decks=JSON.parse(read('../index.html').match(/const decks\s*=\s*([\s\S]*?)\s*;\s*<\/script>/)[1]);
 const advanced={
-  en:{scheme:'cefr',levels:['B1','B2','C1','C2'],count:32},
-  es:{scheme:'cefr',levels:['B1','B2','C1','C2'],count:32},
-  fr:{scheme:'cefr',levels:['B1','B2','C1','C2'],count:32},
-  de:{scheme:'cefr',levels:['B1','B2','C1','C2'],count:32},
-  pt:{scheme:'cefr',levels:['B1','B2','C1','C2'],count:32},
-  it:{scheme:'cefr',levels:['B1','B2','C1','C2'],count:32},
-  ja:{scheme:'jlpt',levels:['N3','N2','N1'],count:24},
-  ko:{scheme:'topik',levels:['3','4','5','6'],count:32}
+  en:{scheme:'cefr',levels:['B1','B2','C1','C2'],counts:{B1:12,B2:12,C1:12,C2:12},count:48},
+  es:{scheme:'cefr',levels:['B1','B2','C1','C2'],counts:{B1:12,B2:12,C1:12,C2:12},count:48},
+  fr:{scheme:'cefr',levels:['B1','B2','C1','C2'],counts:{B1:12,B2:12,C1:12,C2:12},count:48},
+  de:{scheme:'cefr',levels:['B1','B2','C1','C2'],counts:{B1:12,B2:12,C1:12,C2:12},count:48},
+  pt:{scheme:'cefr',levels:['B1','B2','C1','C2'],counts:{B1:12,B2:12,C1:12,C2:12},count:48},
+  it:{scheme:'cefr',levels:['B1','B2','C1','C2'],counts:{B1:12,B2:12,C1:12,C2:12},count:48},
+  ja:{scheme:'jlpt',levels:['N3','N2','N1'],counts:{N3:14,N2:13,N1:13},count:40},
+  ko:{scheme:'topik',levels:['3','4','5','6'],counts:{3:12,4:12,5:12,6:12},count:48}
 };
 const keys=['word','roman','hint','meaning','cue','topic','difficulty','proficiency_level','example_sentence','example_translation'];
 const norm=s=>String(s).normalize('NFKC').trim().toLocaleLowerCase();
 
-test('eight advanced sources add 248 complete cards without changing the original 1200',()=>{
+test('eight advanced sources add 376 complete cards without changing the original 1200',()=>{
   let total=0;
   for(const [id,meta] of Object.entries(advanced)){
     const deck=decks.find(d=>d.id===id);
@@ -28,7 +28,7 @@ test('eight advanced sources add 248 complete cards without changing the origina
     assert.equal(source.deck_id,id);assert.equal(source.level_scheme,meta.scheme);
     assert.equal(source.cards.length,meta.count);
     assert.equal(deck.cards.length,100+meta.count,`${id} bundled total`);
-    const expectedByLevel=Object.fromEntries(meta.levels.map(level=>[level,8]));
+    const expectedByLevel=meta.counts;
     const actualByLevel={};
     const originalWords=new Set(deck.cards.slice(0,100).map(c=>norm(c.word)));
     const sourceWords=new Set();
@@ -48,8 +48,8 @@ test('eight advanced sources add 248 complete cards without changing the origina
     }
     assert.deepEqual(actualByLevel,expectedByLevel,`${id} level distribution`);
   }
-  assert.equal(total,248);
-  assert.equal(decks.reduce((n,d)=>n+d.cards.length,0),1448);
+  assert.equal(total,376);
+  assert.equal(decks.reduce((n,d)=>n+d.cards.length,0),1576);
 });
 
 test('all eight generated CSV spreadsheets round-trip through the actual admin importer',()=>{

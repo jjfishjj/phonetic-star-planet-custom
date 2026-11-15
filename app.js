@@ -6,6 +6,35 @@
   const STORE = 'phonetic-star-planet-v1';
   const defaultState = {learned:[], favorites:[], xp:0, reviewed:0, selected:'en', index:0, revealed:false, unlearnedOnly:false, customDecks:[]};
   function safeRead() { try { return JSON.parse(localStorage.getItem(STORE)); } catch { return null; } }
+  const VOICE_STORE = 'phonetic-star-planet-voice-v1';
+  function safeReadVoices() { try { const value=JSON.parse(localStorage.getItem(VOICE_STORE)); return value && typeof value==='object' && !Array.isArray(value) ? value : {}; } catch { return {}; } }
+  const voicePreferences = safeReadVoices();
+  const speechApi = window.speechSynthesis || null;
+  let deviceVoices = [];
+  const languageKey = language => String(language||'zh-TW').trim().replace(/_/g,'-').split('-')[0].toLowerCase();
+  const voiceKey = voice => JSON.stringify([voice.voiceURI||'',voice.lang||'',voice.name||'']);
+  function saveVoicePreferences() { try { localStorage.setItem(VOICE_STORE,JSON.stringify(voicePreferences)); } catch {} }
+  function refreshVoiceOptions(deck=getDeck()) {
+    const select=$('voiceSelect'), status=$('voiceAvailability');
+    if (!select || !status) return;
+    select.replaceChildren(new Option('系統自動選擇',''));
+    if (!speechApi) { select.disabled=true; status.textContent='此瀏覽器不支援語音合成，無法播放語音。'; return; }
+    try { deviceVoices=speechApi.getVoices()||[]; } catch { deviceVoices=[]; }
+    const language=String(deck?.lang||'zh-TW').trim().replace(/_/g,'-'), prefix=languageKey(language);
+    const matching=deviceVoices.filter(v=>v && languageKey(v.lang)===prefix);
+    const unique=Array.from(new Map(matching.map(v=>[voiceKey(v),v])).values()).sort((a,b)=>String(a.lang).localeCompare(String(b.lang))||String(a.name).localeCompare(String(b.name)));
+    unique.forEach(v=>select.add(new Option(`${v.name||'裝置語音'} · ${v.lang||language}${v.default?'（系統預設）':''}`,voiceKey(v))));
+    select.disabled=false;
+    const preferred=voicePreferences[prefix];
+    if (preferred && unique.some(v=>voiceKey(v)===preferred)) select.value=preferred;
+    else {
+      if (preferred) { delete voicePreferences[prefix]; saveVoicePreferences(); }
+      select.value='';
+    }
+    status.textContent=unique.length
+      ? `這台裝置目前提供 ${unique.length} 種 ${language} 語音；口音依語音地區標示。`
+      : `此裝置目前沒有 ${language} 語音，朗讀會回退到瀏覽器或系統預設聲音。`;
+  }
   const state = {...defaultState, ...(safeRead() || {})};
   if (!Array.isArray(state.learned)) state.learned = [];
   if (!Array.isArray(state.favorites)) state.favorites = [];
@@ -104,6 +133,7 @@
   }
   function renderPractice() {
     const d = getDeck(), matching = matchingEntries(d), entries = activeEntries(d), entry = currentEntry(d,entries), c = entry?.card;
+    refreshVoiceOptions(d);
     const position = entry ? entries.findIndex(e => e.index === entry.index) : -1;
     renderCardFilters(d,entries,matching);
     $('currentDeckLabel').textContent = `${d.flag||'📚'} ${d.name}`;
@@ -166,7 +196,33 @@
     $('learnedStat').textContent=`${state.learned.length} 張`; $('xpStat').textContent=`${state.xp} XP`; $('favoriteStat').textContent=`${state.favorites.length} 張`;
     $('headerProgress').textContent=`今日 ${state.xp} XP`; $('streakStat').textContent=state.xp>0?'探索中':'第 1 天';
   }
-  function renderAll() { renderDecks(document.querySelector('.filter.active')?.dataset.filter||'all'); renderPractice(); renderStats(); }
+  function renderLevelAnalysis(d=getDeck()) {
+    const grid=$('levelAnalysisGrid'); if (!grid) return;
+    const rows=Tags.levelOptions(d).map(item=>({value:String(item.value),label:item.label,total:0,learned:0}));
+    const byValue=new Map(rows.map(row=>[row.value,row]));
+    d.cards.forEach((card,index)=>{
+      const level=filterLevel(card,d);
+      if (!byValue.has(level)) {
+        const row={value:level,label:level==='unrated'?'未分級':Tags.levelLabel(level,d),total:0,learned:0};
+        rows.push(row); byValue.set(level,row);
+      }
+      const row=byValue.get(level); row.total++;
+      if (state.learned.includes(cardKey(d,index))) row.learned++;
+    });
+    const total=d.cards.length, learned=rows.reduce((sum,row)=>sum+row.learned,0), percent=total?Math.round(learned/total*100):0;
+    $('analysisSummary').textContent=`${d.name} · 全部 ${total} 張（不受目前篩選影響）`;
+    $('analysisTotal').textContent=total?`${percent}% 已記住`:'0 張';
+    const next=rows.find(row=>row.total>0&&row.learned<row.total);
+    $('analysisNextStep').textContent=next
+      ? `建議下一步：先練「${next.label}」，還有 ${next.total-next.learned} 張待記住。`
+      : total ? '這副牌組各級都已記住；可選一級重複複習，或切換其他語言。' : '選擇或新增詞卡後，就會顯示各程度的學習比較。';
+    grid.innerHTML=rows.map(row=>{
+      const ratio=row.total?Math.round(row.learned/row.total*100):0;
+      const action=!row.total?'尚無卡片':row.learned===row.total?'再複習':'練這一級';
+      return `<button type="button" class="level-analysis-row" data-analysis-level="${escapeHTML(row.value)}" ${row.total?'':'disabled'} aria-label="${escapeHTML(row.label)}：已記住 ${row.learned} 張，共 ${row.total} 張；${action}"><span class="level-analysis-main"><b>${escapeHTML(row.label)}</b><small>${row.learned} / ${row.total} 已記住 · ${row.total-row.learned} 待練</small></span><span class="level-analysis-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${ratio}" aria-label="${escapeHTML(row.label)} 已記住比例"><i style="width:${ratio}%"></i></span><span class="level-analysis-percent">${ratio}%</span><span class="level-analysis-action">${action}</span></button>`;
+    }).join('');
+  }
+  function renderAll() { renderDecks(document.querySelector('.filter.active')?.dataset.filter||'all'); renderPractice(); renderLevelAnalysis(); renderStats(); }
   document.querySelectorAll('.filter').forEach(btn => btn.addEventListener('click', () => {
     document.querySelector('.filter.active')?.classList.remove('active'); btn.classList.add('active'); renderDecks(btn.dataset.filter);
   }));
@@ -177,6 +233,20 @@
   for (const [id,key] of [['topicFilter','topic'],['difficultyFilter','difficulty']]) {
     $(id).addEventListener('change', () => { cardFilters[key]=$(id).value; state.revealed=false; getCard(); save(); renderAll(); });
   }
+  $('levelAnalysisGrid').addEventListener('click',event=>{
+    const button=event.target.closest('[data-analysis-level]'); if (!button || button.disabled) return;
+    const d=getDeck(), level=button.dataset.analysisLevel;
+    cardFilters.difficulty=level; practiceMode.unlearned=false; state.unlearnedOnly=false; state.revealed=false;
+    const matching=matchingEntries(d).filter(entry=>filterLevel(entry.card,d)===level);
+    const target=matching.find(entry=>!state.learned.includes(cardKey(d,entry.index)))||matching[0];
+    if (target) state.index=target.index;
+    save(); renderAll(); $('practice').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  $('voiceSelect').addEventListener('change',()=>{
+    const key=languageKey(getDeck().lang), choice=$('voiceSelect').value;
+    if (choice) voicePreferences[key]=choice; else delete voicePreferences[key];
+    saveVoicePreferences();
+  });
 
   const dialog = $('deckDialog');
   let managerDeckId = null;
@@ -265,9 +335,14 @@
     if(i>=0){state.favorites.splice(i,1);showToast('已取消收藏');}else{state.favorites.push(id);showToast('已加入收藏');}save();renderAll();
   });
   function speak(value,language) {
-    if(!('speechSynthesis' in window)){showToast('此瀏覽器暫不支援語音播放');return;}
+    if(!speechApi || typeof SpeechSynthesisUtterance==='undefined'){showToast('此瀏覽器暫不支援語音播放');return;}
     if(!value)return;
-    window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(value);u.lang=language||'zh-TW';u.rate=.84;window.speechSynthesis.speak(u);
+    try { deviceVoices=speechApi.getVoices()||deviceVoices; } catch {}
+    const prefix=languageKey(language), available=deviceVoices.filter(v=>v&&languageKey(v.lang)===prefix), preferred=voicePreferences[prefix];
+    let voice=preferred?available.find(v=>voiceKey(v)===preferred):null;
+    if (preferred&&!voice) { delete voicePreferences[prefix]; saveVoicePreferences(); refreshVoiceOptions(getDeck()); }
+    if (!voice) voice=available.find(v=>v.default)||available[0]||null;
+    speechApi.cancel();const u=new SpeechSynthesisUtterance(value);u.lang=voice?.lang||language||'zh-TW';u.rate=.84;if(voice)u.voice=voice;speechApi.speak(u);
   }
   $('speakBtn').addEventListener('click',()=>{const d=getDeck(),c=getCard();if(c)speak(c.word,d.lang);});
   let toastTimer;
@@ -282,5 +357,6 @@
     if(!available.has(cardFilters.difficulty))cardFilters.difficulty='all';
     renderAll();
   }};
+  if (speechApi && typeof speechApi.addEventListener==='function') speechApi.addEventListener('voiceschanged',()=>refreshVoiceOptions(getDeck()));
   renderAll();
 })();

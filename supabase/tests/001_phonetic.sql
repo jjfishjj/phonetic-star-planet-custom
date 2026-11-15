@@ -6,7 +6,7 @@ create or replace function public.test_assert(p_ok boolean, p_message text)
 returns void language plpgsql as $$ begin if not p_ok then raise exception 'TEST FAILED: %', p_message; end if; end $$;
 
 select public.test_assert((select count(*) = 12 from public.phonetic_decks), 'seed must contain 12 decks');
-select public.test_assert((select count(*) = 1448 from public.phonetic_cards), 'seed must contain 1448 cards');
+select public.test_assert((select count(*) = 1576 from public.phonetic_cards), 'seed must contain 1576 cards');
 select public.test_assert(to_regprocedure('public.phonetic_import_cards(text,jsonb,boolean)') is not null, 'import RPC exists');
 select public.test_assert((select column_default like '%gen_random_uuid%' from information_schema.columns where table_schema='public' and table_name='phonetic_cards' and column_name='id'), 'UUID default uses pg_catalog');
 
@@ -21,7 +21,7 @@ select public.test_assert(not has_function_privilege('anon', 'public.phonetic_im
 -- Anonymous can read published data, but cannot see drafts or write.
 set local role anon;
 select public.test_assert((select count(*) = 12 from public.phonetic_decks), 'anon sees published decks');
-select public.test_assert((select count(*) = 1448 from public.phonetic_cards), 'anon sees published cards');
+select public.test_assert((select count(*) = 1576 from public.phonetic_cards), 'anon sees published cards');
 do $$ begin
   begin insert into public.phonetic_cards(deck_id,word,hint,meaning,position) values ('english','__anon_denied__','x','x',99999); raise exception 'TEST FAILED: anon write succeeded'; exception when insufficient_privilege or check_violation or foreign_key_violation then null; end;
 end $$;

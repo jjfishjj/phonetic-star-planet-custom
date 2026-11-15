@@ -5,7 +5,7 @@ returns void language plpgsql as $$ begin if not p_ok then raise exception 'TEST
 create temporary table original_card_fields as
 select c.id, to_jsonb(c) - array['proficiency_level','example_sentence','example_translation','updated_at'] as original
 from public.phonetic_cards c;
-select public.test_assert((select count(*)=1448 from original_card_fields), 'backfill fixture has 1448 cards');
+select public.test_assert((select count(*)=1576 from original_card_fields), 'backfill fixture has 1576 cards');
 update public.phonetic_cards set proficiency_level=null, example_sentence='', example_translation='';
 update public.phonetic_cards set proficiency_level='B2', example_sentence='An authored example stays.', example_translation='保留人工編輯的例句。'
 where deck_id='en' and legacy_index=0;

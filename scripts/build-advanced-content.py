@@ -25,7 +25,16 @@ DECKS = {
     "ja": ("jlpt", ["N3", "N2", "N1"]),
     "ko": ("topik", ["3", "4", "5", "6"]),
 }
-PER_LEVEL = 8
+EXPECTED_LEVEL_COUNTS = {
+    "en": {"B1": 12, "B2": 12, "C1": 12, "C2": 12},
+    "es": {"B1": 12, "B2": 12, "C1": 12, "C2": 12},
+    "fr": {"B1": 12, "B2": 12, "C1": 12, "C2": 12},
+    "de": {"B1": 12, "B2": 12, "C1": 12, "C2": 12},
+    "pt": {"B1": 12, "B2": 12, "C1": 12, "C2": 12},
+    "it": {"B1": 12, "B2": 12, "C1": 12, "C2": 12},
+    "ja": {"N3": 14, "N2": 13, "N1": 13},
+    "ko": {"3": 12, "4": 12, "5": 12, "6": 12},
+}
 TOPICS = {
     "general", "greetings", "people", "home", "food", "travel", "time",
     "numbers", "expressions", "nature", "study", "shopping", "actions",
@@ -92,7 +101,7 @@ def validate_source(deck_id: str, expected_scheme: str, expected_levels: list[st
             raise ValueError(f"{path}: duplicate new headword {card['word']!r}")
         words.add(key)
         counts[card["proficiency_level"]] += 1
-    expected_counts = {level: PER_LEVEL for level in expected_levels}
+    expected_counts = EXPECTED_LEVEL_COUNTS[deck_id]
     if dict(counts) != expected_counts:
         raise ValueError(f"{path}: expected exactly {expected_counts}, found {dict(counts)}")
     return cards
@@ -144,7 +153,7 @@ def main() -> None:
     if args.check:
         if appended:
             raise ValueError(f"index.html is missing {appended} source cards; run without --check")
-        print("Validated 248 advanced cards; index.html is in sync (1,448 bundled cards).")
+        print("Validated 376 advanced cards; index.html is in sync (1,576 bundled cards).")
         return
 
     (ROOT / "index.html").write_text(new_text, encoding="utf-8")
@@ -157,7 +166,7 @@ def main() -> None:
             writer.writeheader()
             for card in cards:
                 writer.writerow({**card, "published": "true", "position": "", "id": ""})
-    print(f"Validated all 248 source cards; appended {appended} to the static catalogue and refreshed 8 admin-import CSV files.")
+    print(f"Validated all 376 source cards; appended {appended} to the static catalogue and refreshed 8 admin-import CSV files.")
 
 
 if __name__ == "__main__":

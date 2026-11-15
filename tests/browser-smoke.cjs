@@ -53,7 +53,7 @@ async function installPublicRoutes(page, { cloud=false, xss=false, requests=null
     const limit = Number(u.searchParams.get('limit') || 1000);
     if (table === 'phonetic_decks') return json(r, [deck()], 200, {'content-range':'0-0/*'});
     if (table === 'phonetic_cards') {
-      const rows = cards || Array.from({ length: 1448 }, (_, i) => card(`c-${i}`, i, {legacy_index:i, topic:i%2?'study':'food', difficulty:i%3+1}));
+      const rows = cards || Array.from({ length: 1576 }, (_, i) => card(`c-${i}`, i, {legacy_index:i, topic:i%2?'study':'food', difficulty:i%3+1}));
       if (xss) rows[0] = card('xss',0,{word:'<img src=x onerror=window.__xss=1>',meaning:'<b>not html</b>'});
       return json(r, rows.slice(offset, offset + limit));
     }
@@ -70,7 +70,7 @@ async function freshPage() {
   return { browser, context, page };
 }
 
- test('public fallback renders 1448 bundled cards and preserves legacy local state', async () => {
+ test('public fallback renders 1576 bundled cards and preserves legacy local state', async () => {
   const { browser, page } = await freshPage();
   try {
     await page.route('**/rest/v1/**', r => r.abort('failed'));
@@ -79,7 +79,7 @@ async function freshPage() {
     await page.locator('#deckGrid .deck').first().waitFor({state:'attached'});
     assert.equal(await page.locator('#deckGrid .deck').count(), 12);
     assert.equal(await page.locator('#deckGrid .deck').first().getAttribute('data-deck'), 'en');
-    assert.match(await page.locator('#publicCardCount').textContent(), /1,448/);
+    assert.match(await page.locator('#publicCardCount').textContent(), /1,576/);
     await page.locator('[data-deck="en"]').click();
     assert.equal(await page.locator('#favoriteStat').textContent(), '1 張');
     await page.locator('#favoriteBtn').click();
@@ -89,15 +89,73 @@ async function freshPage() {
   } finally { await browser.close(); }
 });
 
-test('public cloud loads 1448 cards with limit/offset paging, omits auth, renders new card text safely, and handles empty cloud', async () => {
+test('cross-level analysis shows learned counts and jumps to a level without changing existing progress', async () => {
+  const { browser, page } = await freshPage();
+  const learned = ['en:0','en:100','en:132'];
+  try {
+    await page.route('**/rest/v1/**', r => r.abort('failed'));
+    await page.addInitScript(value => localStorage.setItem('phonetic-star-planet-v1', JSON.stringify({learned:value,favorites:['en:1'],xp:40,reviewed:2,selected:'en',index:0,revealed:false,unlearnedOnly:false,customDecks:[]})), learned);
+    await page.goto(project.url, {waitUntil:'networkidle'});
+    const row=page.locator('#levelAnalysisGrid [data-analysis-level="B1"]');
+    await row.waitFor();
+    assert.match(await row.textContent(),/2 \/ 12 已記住/);
+    assert.match(await page.locator('#analysisSummary').textContent(),/英語 · 全部 148 張/);
+    await row.click();
+    assert.equal(await page.locator('#difficultyFilter').inputValue(),'B1');
+    const stored=await page.evaluate(()=>JSON.parse(localStorage.getItem('phonetic-star-planet-v1')));
+    assert.deepEqual(stored.learned,learned);
+    assert.deepEqual(stored.favorites,['en:1']);
+    assert.equal(stored.xp,40);
+  } finally { await browser.close(); }
+});
+
+test('voice choices reflect available accent voices and fall back when one disappears', async () => {
+  const { browser, page } = await freshPage();
+  try {
+    await page.route('**/rest/v1/**', r => r.abort('failed'));
+    await page.addInitScript(() => {
+      window.__speechVoices=[
+        {name:'English US',lang:'en-US',voiceURI:'en-us',default:true},
+        {name:'English UK',lang:'en-GB',voiceURI:'en-gb',default:false},
+        {name:'French',lang:'fr-FR',voiceURI:'fr-fr',default:false}
+      ];
+      Object.defineProperty(window,'speechSynthesis',{configurable:true,value:{getVoices:()=>window.__speechVoices,addEventListener:()=>{},cancel:()=>{},speak:u=>{window.__lastSpeech={text:u.text,lang:u.lang,voice:u.voice?.voiceURI||null};}}});
+      Object.defineProperty(window,'SpeechSynthesisUtterance',{configurable:true,writable:true,value:function(text){this.text=text;this.lang='';this.rate=1;this.voice=null;}});
+    });
+    await page.goto(project.url,{waitUntil:'networkidle'});
+    const options=await page.locator('#voiceSelect option').allTextContents();
+    assert.equal(options.length,3);
+    assert.ok(options.some(text=>text.includes('en-GB')));
+    assert.ok(options.some(text=>text.includes('en-US')));
+    assert.ok(!options.some(text=>text.includes('fr-FR')));
+    const uk=await page.locator('#voiceSelect option').filter({hasText:'en-GB'}).getAttribute('value');
+    await page.locator('#voiceSelect').selectOption(uk);
+    await page.locator('#speakBtn').click();
+    assert.equal(await page.evaluate(()=>window.__lastSpeech.voice),'en-gb');
+    assert.equal(await page.evaluate(()=>window.__lastSpeech.lang),'en-GB');
+    await page.evaluate(()=>{window.__speechVoices=window.__speechVoices.filter(v=>v.lang!=='en-GB');});
+    await page.locator('#speakBtn').click();
+    assert.equal(await page.evaluate(()=>window.__lastSpeech.voice),'en-us');
+    assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('phonetic-star-planet-voice-v1')).en),undefined);
+    await page.locator('[data-deck="ar"]').click();
+    assert.equal(await page.locator('#voiceSelect option').count(),1);
+    assert.match(await page.locator('#voiceAvailability').textContent(),/回退/);
+    await page.locator('#speakBtn').click();
+    assert.equal(await page.evaluate(()=>window.__lastSpeech.voice),null);
+    assert.match(await page.evaluate(()=>window.__lastSpeech.lang),/^ar(?:-|$)/);
+  } finally { await browser.close(); }
+});
+
+test('public cloud loads 1576 cards with limit/offset paging, omits auth, renders new card text safely, and handles empty cloud', async () => {
   const { browser, context, page } = await freshPage();
   const requests = [];
   try {
     await installPublicRoutes(page, {cloud:true, xss:true, requests});
         await page.goto(project.url, {waitUntil:'networkidle'});
+    await page.waitForFunction(() => document.querySelector('#catalogStatus')?.textContent.includes('公開牌組已同步'), null, {timeout:15000});
     await page.locator('#deckGrid .deck').first().waitFor();
     assert.equal(await page.locator('#deckGrid .deck').count(), 1);
-    assert.equal(await page.locator('#publicCardCount').textContent(), '1,448');
+    assert.equal(await page.locator('#publicCardCount').textContent(), '1,576');
     assert.equal(requests.filter(x => x.url.includes('phonetic_cards')).length, 2);
     for (const req of requests) { assert.equal(req.headers.authorization, undefined); assert.equal(req.headers.cookie, undefined); }
     await page.locator('[data-deck="en"]').click();

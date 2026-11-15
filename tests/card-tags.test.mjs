@@ -14,7 +14,7 @@ test('stable tag vocabulary canonicalizes labels and rejects unknown values',()=
   for(const value of [0,4,1.5,'easy',''])assert.equal(tags.normalizeDifficulty(value),null);
   assert.equal(tags.getTopic({}),'general');assert.equal(tags.getDifficulty({}),1);
 });
-test('all 1448 bundled cards have valid metadata while keeping the 12 original decks',()=>{
+test('all 1576 bundled cards have valid metadata while keeping the 12 original decks',()=>{
   const text=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
   const match=text.match(/const decks\s*=\s*([\s\S]*?)\s*;\s*<\/script>/);
   const decks=JSON.parse(match[1]);
@@ -27,7 +27,7 @@ test('all 1448 bundled cards have valid metadata while keeping the 12 original d
     else {assert.equal(c.difficulty,3);assert.ok(c.proficiency_level);advancedCount++;}
     count++;
   }}
-  assert.equal(originalCount,1200);assert.equal(advancedCount,248);assert.equal(count,1448);
+  assert.equal(originalCount,1200);assert.equal(advancedCount,376);assert.equal(count,1576);
 });
 test('additive metadata migration keeps identifiers protected and validates the same slugs',()=>{
   const sql=fs.readFileSync(new URL('../supabase/migrations/002_card_tags.sql',import.meta.url),'utf8');
