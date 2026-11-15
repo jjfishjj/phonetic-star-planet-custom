@@ -13,8 +13,8 @@ def parse(source: Path) -> list[dict]:
     if not match:
         raise ValueError("could not find const decks = in source")
     value, _ = json.JSONDecoder().raw_decode(text[match.end():].lstrip())
-    if len(value) != 12 or any(len(d.get("cards", [])) != 100 for d in value):
-        raise ValueError("expected exactly 12 decks with 100 cards each")
+    if len(value) != 12 or any(len(d.get("cards", [])) < 100 for d in value):
+        raise ValueError("expected 12 decks with at least the original 100 cards each")
     return value
 
 def sql(value: object) -> str:

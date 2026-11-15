@@ -3,7 +3,7 @@
 前台：<https://jjfishjj.github.io/phonetic-star-planet-custom/>  
 管理後台：<https://jjfishjj.github.io/phonetic-star-planet-custom/admin/>
 
-GitHub Pages 提供學習網站與管理介面，Supabase 提供管理員登入、雲端牌組與資料權限。原有 12 組、1,200 張詞卡、諧音、主題、收藏、學習紀錄與本機自訂牌組均保留；每張內建卡另有原文短例句與繁體中文翻譯。
+GitHub Pages 提供學習網站與管理介面，Supabase 提供管理員登入、雲端牌組與資料權限。現在共有 12 組、1,448 張詞卡：原有 1,200 張完全保留，另外新增 248 張英、西、法、德、葡、義、日、韓進階詞卡；新卡附諧音、記憶畫面、程度、短例句與繁體中文翻譯。
 
 ## 依語言程度練習
 
@@ -16,7 +16,7 @@ GitHub Pages 提供學習網站與管理介面，Supabase 提供管理員登入�
 | 韓語 | TOPIK | 字串 `1`–`6` |
 | 阿拉伯語、印尼語、泰語、越南語及其他語言 | 原有站內難度 | `difficulty`：`1` 入門、`2` 基礎、`3` 挑戰 |
 
-程度是依字詞與用法編寫的**學習參考標註，不是官方完整詞表或檢定保證**。現有題庫原本偏入門，主要分布於 CEFR A1/A2、JLPT N5/N4、TOPIK 1/2；介面支援所有等級，但不會為填滿高階程度而錯標簡單單字。沒有卡片的前台選項顯示 0 並停用。
+程度是依字詞與用法編寫的**學習參考標註，不是官方完整詞表或檢定保證**。原始 1,200 張仍主要分布於 CEFR A1/A2、JLPT N5/N4、TOPIK 1/2；新增內容每個高階級別各 8 張，提供 B1–C2、N3–N1 與 TOPIK 3–6 的起步牌組。沒有卡片的前台選項顯示 0 並停用。
 
 分級系統由牌組的 `lang` 語言前綴判斷，支援 `en-US` 或 `ja_JP` 等格式；只有語碼缺少時才回看牌組 ID。新分級放在 `proficiency_level`，不會把舊的 1–3 練習難度硬轉成檢定程度。舊卡缺少新分級時顯示「未分級」，不影響原始卡片識別或學習紀錄。
 
@@ -37,6 +37,8 @@ GitHub Pages 提供學習網站與管理介面，Supabase 提供管理員登入�
 ## Excel／CSV 匯入
 
 先選目標牌組，再選檔案與匯入模式。支援 `.xlsx`、`.xls`、`.csv`，只讀第一個工作表；每檔最多 5 MB、2,000 筆資料（不含標題列）。
+
+管理後台也直接提供八份已填妥的進階詞卡 CSV。選擇相符的語言牌組並使用「追加模式」；每份檔案只含該語言的新卡，不會覆寫原卡。更新來源或修正詞卡時，以 `content/advanced/<語言代碼>.json` 為準，再執行建置器重新產生前台牌組與 CSV。
 
 | 英文欄位 | 中文標題／別名 | 說明 |
 | --- | --- | --- |
@@ -94,7 +96,7 @@ bash scripts/run-sql-tests.sh
 SEED_FILE=supabase/seed_compact.sql bash scripts/run-sql-tests.sh
 ```
 
-單元測試涵蓋程度字典、1,200 組例句、原欄位雜湊不變、匯入解析與匿名傳輸。隔離瀏覽器測試涵蓋四種程度系統、手機版／阿拉伯文方向、安全文字渲染、原始學習鍵、舊本機資料、管理權限、XLSX/CSV 實際匯入匯出、發布切換及草稿保留。SQL 測試另驗證省略欄位保留、跨語言錯誤分級拒絕、整批回滾、原始識別不變、人工內容優先，以及回填第二次為零變更。
+單元測試涵蓋 1,448 張牌組、248 張新卡的各級分布與 CSV 匯入 round-trip、原始 1,200 張欄位雜湊不變、匯入解析與匿名傳輸。隔離瀏覽器測試涵蓋四種程度系統、手機版／阿拉伯文方向、安全文字渲染、原始學習鍵、舊本機資料、管理權限、XLSX/CSV 實際匯入匯出、發布切換及草稿保留。SQL 測試另驗證省略欄位保留、跨語言錯誤分級拒絕、整批回滾、原始識別不變、人工內容優先，以及回填第二次為零變更。
 
 ## Supabase 維護與部署
 
@@ -106,9 +108,11 @@ GitHub Pages 使用 `main` 分支根目錄；`admin/index.html` 對應 `/admin/`
 
 新環境依序套用 migrations，再執行一份 seed。`supabase/seed.sql` 與 `seed_compact.sql` 僅供首次初始化，不是正式資料同步工具。`scripts/build-seed.py` 與 `build-seed-json.py` 保持原 UUID 演算法並包含新欄位。
 
-`content/<語言>.json` 保存逐卡的分級與雙語例句；`scripts/build-level-content.py` 檢查原單字與索引、更新內建備援資料並產生 `005`。修改內容後執行：
+`content/<語言>.json` 保存原有 1,200 張卡的分級與雙語例句；`content/advanced/<語言代碼>.json` 是新增詞卡的來源。`scripts/build-level-content.py` 只檢查原卡並產生舊卡回填 SQL；`scripts/build-advanced-content.py` 驗證並追加 248 張新卡，產生前台資料與八份後台 CSV。修改內容後執行：
 
 ```bash
+python3 scripts/build-advanced-content.py
+python3 scripts/build-advanced-content.py --check
 python3 scripts/build-level-content.py
 python3 scripts/build-level-content.py --check
 python3 scripts/build-seed.py
@@ -116,6 +120,8 @@ python3 scripts/build-seed-json.py
 npm test
 ```
 
-內容升級不會自動覆寫正式環境的人工編輯。若要修改已非空白的正式例句，請用管理台或先匯出再更新匯入。新增管理員須透過私人管理通道，不得在公開 repo 寫入實際帳戶 Email、密碼或 UUID。
+新環境可用兩個 seed 檔首次初始化；**不要在正式環境重跑 seed**。既有正式環境新增進階卡，使用管理後台對應 CSV 的追加模式，或執行受保護的 `scripts/import-advanced-cards.py --baseline <私人 1,200 卡快照> --apply`。匯入程式先驗證全部原卡與基線吻合、確認管理員身分並預覽計畫，之後才以既有原子 RPC 逐牌組追加；成功後會驗證總數為 1,448，並逐張核對新增欄位。憑證只由安全環境變數提供，禁止寫入程式碼或提交。若要修改正式環境已非空白的人工內容，請用管理台或先匯出再更新匯入。
+
+新增管理員須透過私人管理通道，不得在公開 repo 寫入實際帳戶 Email、密碼或 UUID。
 
 `vendor/` 自管 Supabase JavaScript 2.119.0 與 SheetJS 0.20.3，附授權檔，避免依賴浮動 CDN。

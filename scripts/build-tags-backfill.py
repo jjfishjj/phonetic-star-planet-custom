@@ -14,11 +14,11 @@ def build():
     source = (ROOT / 'index.html').read_text(encoding='utf-8')
     start = re.search(r'\bconst\s+decks\s*=', source).end()
     decks, _ = json.JSONDecoder().raw_decode(source[start:].lstrip())
-    if len(decks) != 12 or any(len(d['cards']) != 100 for d in decks):
-        raise ValueError('Expected the original 12 x 100 bundled cards')
+    if len(decks) != 12 or any(len(d['cards']) < 100 for d in decks):
+        raise ValueError('Expected 12 decks with their original 100 cards')
     rows = []
     for deck in decks:
-        for index, card in enumerate(deck['cards']):
+        for index, card in enumerate(deck['cards'][:100]):
             if card.get('topic') not in TOPICS or card.get('difficulty') not in (1,2,3):
                 raise ValueError(f"Invalid metadata at {deck['id']}:{index}")
             rows.append(f"  ({quote(deck['id'])},{index},{quote(card['word'])},{quote(card['topic'])},{card['difficulty']})")

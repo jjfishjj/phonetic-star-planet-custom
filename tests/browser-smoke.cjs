@@ -53,7 +53,7 @@ async function installPublicRoutes(page, { cloud=false, xss=false, requests=null
     const limit = Number(u.searchParams.get('limit') || 1000);
     if (table === 'phonetic_decks') return json(r, [deck()], 200, {'content-range':'0-0/*'});
     if (table === 'phonetic_cards') {
-      const rows = cards || Array.from({ length: 1200 }, (_, i) => card(`c-${i}`, i, {legacy_index:i, topic:i%2?'study':'food', difficulty:i%3+1}));
+      const rows = cards || Array.from({ length: 1448 }, (_, i) => card(`c-${i}`, i, {legacy_index:i, topic:i%2?'study':'food', difficulty:i%3+1}));
       if (xss) rows[0] = card('xss',0,{word:'<img src=x onerror=window.__xss=1>',meaning:'<b>not html</b>'});
       return json(r, rows.slice(offset, offset + limit));
     }
@@ -70,7 +70,7 @@ async function freshPage() {
   return { browser, context, page };
 }
 
- test('public fallback renders bundled 12 decks x 100 cards and preserves legacy local state', async () => {
+ test('public fallback renders 1448 bundled cards and preserves legacy local state', async () => {
   const { browser, page } = await freshPage();
   try {
     await page.route('**/rest/v1/**', r => r.abort('failed'));
@@ -79,7 +79,7 @@ async function freshPage() {
     await page.locator('#deckGrid .deck').first().waitFor({state:'attached'});
     assert.equal(await page.locator('#deckGrid .deck').count(), 12);
     assert.equal(await page.locator('#deckGrid .deck').first().getAttribute('data-deck'), 'en');
-    assert.match(await page.locator('#publicCardCount').textContent(), /1,200/);
+    assert.match(await page.locator('#publicCardCount').textContent(), /1,448/);
     await page.locator('[data-deck="en"]').click();
     assert.equal(await page.locator('#favoriteStat').textContent(), '1 張');
     await page.locator('#favoriteBtn').click();
@@ -89,7 +89,7 @@ async function freshPage() {
   } finally { await browser.close(); }
 });
 
-test('public cloud loads 1200 cards with limit/offset paging, omits auth, renders new card text safely, and handles empty cloud', async () => {
+test('public cloud loads 1448 cards with limit/offset paging, omits auth, renders new card text safely, and handles empty cloud', async () => {
   const { browser, context, page } = await freshPage();
   const requests = [];
   try {
@@ -97,7 +97,7 @@ test('public cloud loads 1200 cards with limit/offset paging, omits auth, render
         await page.goto(project.url, {waitUntil:'networkidle'});
     await page.locator('#deckGrid .deck').first().waitFor();
     assert.equal(await page.locator('#deckGrid .deck').count(), 1);
-    assert.equal(await page.locator('#publicCardCount').textContent(), '1,200');
+    assert.equal(await page.locator('#publicCardCount').textContent(), '1,448');
     assert.equal(requests.filter(x => x.url.includes('phonetic_cards')).length, 2);
     for (const req of requests) { assert.equal(req.headers.authorization, undefined); assert.equal(req.headers.cookie, undefined); }
     await page.locator('[data-deck="en"]').click();

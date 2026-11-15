@@ -2,7 +2,7 @@
 begin;
 create or replace function public.test_assert(p_ok boolean, p_message text)
 returns void language plpgsql as $$ begin if not p_ok then raise exception 'TEST FAILED: %', p_message; end if; end $$;
-select public.test_assert((select count(*)=1200 from public.phonetic_cards where topic<>'general' and difficulty between 1 and 3), 'all original seed cards have metadata');
+select public.test_assert((select count(*)=1448 and bool_and(topic in ('general','greetings','people','home','food','travel','time','numbers','expressions','nature','study','shopping','actions','descriptions')) and bool_and(difficulty between 1 and 3) from public.phonetic_cards), 'all seed cards have valid topic and difficulty metadata');
 select public.test_assert(has_column_privilege('authenticated','public.phonetic_cards','topic','UPDATE'), 'topic update is granted');
 select public.test_assert(has_column_privilege('authenticated','public.phonetic_cards','difficulty','INSERT'), 'difficulty insert is granted');
 select public.test_assert(not has_column_privilege('anon','public.phonetic_cards','topic','UPDATE'), 'anonymous cannot update metadata');

@@ -40,9 +40,9 @@ def read_content(deck: dict) -> list[dict]:
     if data.get('deck_id') != deck['id'] or data.get('level_scheme') != expected_scheme:
         raise ValueError(f'{path}: deck or scheme mismatch')
     rows = data.get('cards', [])
-    if len(rows) != len(deck['cards']) or len(rows) != 100:
-        raise ValueError(f'{path}: expected 100 matching cards')
-    for i, (row, card) in enumerate(zip(rows, deck['cards'])):
+    if len(rows) != 100 or len(deck['cards']) < 100:
+        raise ValueError(f'{path}: expected 100 original cards')
+    for i, (row, card) in enumerate(zip(rows, deck['cards'][:100])):
         if set(row) != CARD_KEYS or row['legacy_index'] != i or row['word'] != card['word']:
             raise ValueError(f'{path}: original card mismatch at {i}')
         if row['proficiency_level'] not in ALLOWED[expected_scheme]:
@@ -92,7 +92,7 @@ def main() -> None:
     changed = 0
     for deck in decks:
         rows = read_content(deck)
-        for card, row in zip(deck['cards'], rows):
+        for card, row in zip(deck['cards'][:100], rows):
             for field in FIELDS:
                 if args.check and card.get(field) != row[field]:
                     raise ValueError(f'embedded data is stale: {deck["id"]} {row["legacy_index"]} {field}')
@@ -112,7 +112,7 @@ def main() -> None:
     else:
         source.write_text(text[:start] + json.dumps(decks, ensure_ascii=False, indent=2) + text[end:], encoding='utf-8')
         output.write_text(backfill, encoding='utf-8')
-    print(f'Validated 12 decks / 1,200 example pairs; {changed} embedded metadata fields updated.')
+    print(f'Validated 12 decks / 1,200 original example pairs; {changed} embedded metadata fields updated.')
 
 
 if __name__ == '__main__':

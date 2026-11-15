@@ -5,14 +5,14 @@ returns void language plpgsql as $$ begin if not p_ok then raise exception 'TEST
 create temporary table original_card_fields as
 select c.id, to_jsonb(c) - array['proficiency_level','example_sentence','example_translation','updated_at'] as original
 from public.phonetic_cards c;
-select public.test_assert((select count(*)=1200 from original_card_fields), 'backfill fixture has 1200 original cards');
+select public.test_assert((select count(*)=1448 from original_card_fields), 'backfill fixture has 1448 cards');
 update public.phonetic_cards set proficiency_level=null, example_sentence='', example_translation='';
 update public.phonetic_cards set proficiency_level='B2', example_sentence='An authored example stays.', example_translation='保留人工編輯的例句。'
 where deck_id='en' and legacy_index=0;
 
 \i :backfill_file
 
-select public.test_assert((select count(*)=1200 from public.phonetic_cards where btrim(example_sentence)<>'' and btrim(example_translation)<>''), 'all original cards receive example pairs');
+select public.test_assert((select count(*)=1200 from public.phonetic_cards where legacy_index < 100 and btrim(example_sentence)<>'' and btrim(example_translation)<>''), 'all 1200 original cards receive example pairs');
 select public.test_assert((select count(*)=800 from public.phonetic_cards where proficiency_level is not null), 'only CEFR/JLPT/TOPIK receive proficiency levels');
 select public.test_assert((select count(*)=400 from public.phonetic_cards where deck_id in ('ar','id','th','vi') and proficiency_level is null), 'legacy proficiency stays null');
 select public.test_assert(not exists (

@@ -38,8 +38,8 @@ def parse_decks(source: Path) -> list[dict]:
         raise ValueError(f"expected 12 decks, found {len(decks)}")
     for deck in decks:
         cards = deck.get("cards")
-        if not isinstance(cards, list) or len(cards) != 100:
-            raise ValueError(f"deck {deck.get('id')} does not contain 100 cards")
+        if not isinstance(cards, list) or len(cards) < 100:
+            raise ValueError(f"deck {deck.get('id')} does not contain the 100 original cards")
         words = [card.get("word") for card in cards]
         if len(words) != len(set(words)):
             raise ValueError(f"duplicate word in deck {deck.get('id')}")

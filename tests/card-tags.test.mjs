@@ -14,17 +14,20 @@ test('stable tag vocabulary canonicalizes labels and rejects unknown values',()=
   for(const value of [0,4,1.5,'easy',''])assert.equal(tags.normalizeDifficulty(value),null);
   assert.equal(tags.getTopic({}),'general');assert.equal(tags.getDifficulty({}),1);
 });
-test('all 1200 bundled cards have valid metadata while keeping the 12 original decks',()=>{
+test('all 1448 bundled cards have valid metadata while keeping the 12 original decks',()=>{
   const text=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
   const match=text.match(/const decks\s*=\s*([\s\S]*?)\s*;\s*<\/script>/);
   const decks=JSON.parse(match[1]);
   assert.deepEqual(decks.map(d=>d.id),['en','ja','ko','es','fr','de','ar','id','th','vi','pt','it']);
-  let count=0;
-  for(const d of decks){assert.equal(d.cards.length,100);for(const c of d.cards){
+  let count=0, originalCount=0, advancedCount=0;
+  for(const d of decks){assert.ok(d.cards.length>=100);for(const [index,c] of d.cards.entries()){
     assert.equal(tags.normalizeTopic(c.topic),c.topic);assert.equal(tags.normalizeDifficulty(c.difficulty),c.difficulty);
-    assert.notEqual(c.topic,'general');assert.ok(c.word&&c.hint&&c.meaning);count++;
+    assert.ok(c.word&&c.hint&&c.meaning);
+    if(index<100){assert.notEqual(c.topic,'general');originalCount++;}
+    else {assert.equal(c.difficulty,3);assert.ok(c.proficiency_level);advancedCount++;}
+    count++;
   }}
-  assert.equal(count,1200);
+  assert.equal(originalCount,1200);assert.equal(advancedCount,248);assert.equal(count,1448);
 });
 test('additive metadata migration keeps identifiers protected and validates the same slugs',()=>{
   const sql=fs.readFileSync(new URL('../supabase/migrations/002_card_tags.sql',import.meta.url),'utf8');
