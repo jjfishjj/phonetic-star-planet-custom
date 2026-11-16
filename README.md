@@ -18,12 +18,15 @@
 - [管理後台與 Excel／CSV 匯入指南](docs/ADMIN.md)
 - [本機開發、資料來源與測試](docs/DEVELOPMENT.md)
 - [GitHub Pages、Supabase 與正式資料維護](docs/OPERATIONS.md)
+- [版本變更紀錄](CHANGELOG.md)
+- [產品路線圖（候選方向，非交付承諾）](ROADMAP.md)
 
 ## 專案結構
 
 ```text
 admin/                 管理後台介面
 content/               12 組原始牌組、進階內容與匯入 CSV
+examples/              管理匯入用虛構 CSV 範例
 shared/                前後台共用程式（匯入解析、主題標籤）
 scripts/               內容建置、檢查、匯入及安全維護工具
 supabase/migrations/   資料庫結構與權限變更
