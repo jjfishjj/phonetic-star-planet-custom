@@ -1,0 +1,93 @@
+name: Validate and publish release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'New release tag (for example, v1.1.0)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate release candidate
+    runs-on: ubuntu-latest
+    outputs:
+      commit_sha: ${{ steps.commit.outputs.sha }}
+    steps:
+      - name: Check branch and release tag
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        shell: bash
+        run: |
+          if [[ "$GITHUB_REF" != "refs/heads/main" ]]; then
+            echo "::error::Run this workflow from the main branch."
+            exit 1
+          fi
+          if [[ ! "$RELEASE_TAG" =~ ^v(0|[1-9][0-9]*)[.](0|[1-9][0-9]*)[.](0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "::error::Tag must use vMAJOR.MINOR.PATCH, optionally followed by a prerelease suffix."
+            exit 1
+          fi
+      - name: Check out the exact dispatched commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Run the same checks required by CI and Pages
+        uses: ./.github/actions/validate
+      - name: Record the validated commit
+        id: commit
+        shell: bash
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  publish:
+    name: Publish GitHub release
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the validated commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.validate.outputs.commit_sha }}
+          persist-credentials: false
+      - name: Ensure the tag and release are new
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        shell: bash
+        run: |
+          if gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "::error::A release with this tag already exists."
+            exit 1
+          fi
+          set +e
+          git ls-remote --exit-code --tags origin "refs/tags/$RELEASE_TAG" >/dev/null
+          tag_status=$?
+          set -e
+          if [[ "$tag_status" -eq 0 ]]; then
+            echo "::error::A Git tag with this name already exists."
+            exit 1
+          elif [[ "$tag_status" -ne 2 ]]; then
+            echo "::error::Could not verify whether the Git tag already exists."
+            exit "$tag_status"
+          fi
+      - name: Create the new tag at the validated commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.tag }}
+          VALIDATED_SHA: ${{ needs.validate.outputs.commit_sha }}
+        shell: bash
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" -f "ref=refs/tags/$RELEASE_TAG" -f "sha=$VALIDATED_SHA" > /dev/null
+      - name: Create release at the validated commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        shell: bash
+        run: |
+          extra=()
+          if [[ "$RELEASE_TAG" == *-* ]]; then extra+=(--prerelease); fi
+          gh release create "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --verify-tag --title "$RELEASE_TAG" --generate-notes "${extra[@]}"
