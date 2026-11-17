@@ -4,11 +4,14 @@
 
 ## 架構與部署
 
-- GitHub Pages 使用 `main` 分支根目錄；`admin/index.html` 對應 `/admin/`。
+- GitHub Pages 的來源設為 GitHub Actions；`.github/workflows/ci.yml` 只會在驗證工作成功後部署 `main` 分支根目錄。其他分支與 tag push 只執行驗證，不會部署正式網站。
 - `.nojekyll` 讓 Pages 直接提供專案中的靜態檔案。
+- `admin/index.html` 對應 `/admin/`；Pages workflow 將 repository 根目錄上傳，保留既有網站路徑與資產。
 - GitHub Pages 發佈網站與靜態管理介面；Supabase 負責管理員登入、資料表、RLS 和已發布的雲端內容。
 - 前台匿名讀取雲端已發布內容，不讀取管理員 session。同步失敗時保留內建資料。
 - 學習進度、收藏及個人自訂牌組只存於瀏覽器 `localStorage`，不寫入 Supabase。
+
+新版本發佈請依[受驗證的發版流程](RELEASING.md)執行。
 
 `supabase-config.js` 僅包含公開 project URL 與 publishable／anon key。RLS 在資料庫驗證權限：一般訪客不能寫入，只有 `phonetic_admins` 中已授權管理員可新增或修改。管理端不可更改既有卡片 ID、`deck_id`、`legacy_index`。取消發布只隱藏雲端公開內容，並非刪除或保密。
 

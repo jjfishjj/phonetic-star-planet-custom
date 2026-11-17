@@ -18,6 +18,7 @@
 - [管理後台與 Excel／CSV 匯入指南](docs/ADMIN.md)
 - [本機開發、資料來源與測試](docs/DEVELOPMENT.md)
 - [GitHub Pages、Supabase 與正式資料維護](docs/OPERATIONS.md)
+- [CI、網站部署與發版流程](docs/RELEASING.md)
 - [版本變更紀錄](CHANGELOG.md)
 - [產品路線圖（候選方向，非交付承諾）](ROADMAP.md)
 
