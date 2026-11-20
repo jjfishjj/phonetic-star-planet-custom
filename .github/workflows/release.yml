@@ -32,7 +32,7 @@ jobs:
             exit 1
           fi
       - name: Check out the exact dispatched commit
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.sha }}
       - name: Run the same checks required by CI and Pages
@@ -50,7 +50,7 @@ jobs:
       contents: write
     steps:
       - name: Check out the validated commit
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ needs.validate.outputs.commit_sha }}
           persist-credentials: false
