@@ -232,7 +232,7 @@ test('custom deck and card create/edit remain local and persist after reload', a
   } finally { await browser.close(); }
 });
 
-function authRoutes(page, { session=null, admin=false, invalid=false, cards=1201, cardRows=null, draftIndex=-1, writes=[] } = {}) {
+function authRoutes(page, { session=null, admin=false, invalid=false, cards=1201, cardRows=null, decks=null, draftIndex=-1, writes=[] } = {}) {
   return page.route('**/*', async r => {
     const req = r.request(), u = new URL(req.url());
     if (u.pathname.endsWith('/supabase-config.js')) return r.fulfill({status:200,contentType:'application/javascript',body:PUBLIC_CONFIG});
@@ -246,7 +246,7 @@ function authRoutes(page, { session=null, admin=false, invalid=false, cards=1201
     if (u.pathname.includes('/rest/v1/rpc/phonetic_is_admin')) return json(r,admin);
     if (u.pathname.includes('/rest/v1/rpc/phonetic_import_cards')) { const body=req.postDataJSON(); writes.push({kind:'rpc',body}); return json(r,{inserted:body.p_rows.length,updated:0}); }
     if (u.pathname.includes('/rest/v1/phonetic_decks')) {
-      if (req.method()==='GET') return json(r,[deck()]);
+      if (req.method()==='GET') return json(r,decks||[deck()]);
       writes.push({kind:req.method(),table:'decks',body:req.postDataJSON()}); return json(r,[]);
     }
     if (u.pathname.includes('/rest/v1/phonetic_cards')) {
@@ -299,6 +299,42 @@ test('admin session pages 1201 cards, writes whitelisted card fields, imports re
     const invalid=makeXlsx([['word','hint','meaning'],['bad','','x']]); await page.setInputFiles('#importFile',{name:'bad.xlsx',buffer:invalid}); await page.locator('#previewErrors').getByText(/缺少諧音/).waitFor(); assert.equal(await page.locator('#importBtn').isDisabled(),true);
     const downloadPromise=page.waitForEvent('download'); await page.click('#exportBtn'); const download=await downloadPromise; const file=await download.path(); assert.ok(file && fs.statSync(file).size>100);
     const exported=readXlsx(file); assert.equal(exported[0].word,'cloud-0'); assert.equal(exported[0].topic,'food'); assert.equal(exported[0].difficulty,1); assert.equal(exported[0].proficiency_level,'A1'); assert.equal(exported[0].example_sentence,'A cloud is here.'); assert.equal(exported[0].cue_visual,''); assert.equal(exported[0].cue_kinesthetic,'');
+  } finally { await browser.close(); }
+});
+
+test('admin question bank filters stored multilingual cards, marks options absent, renders text safely, and exports a distinct report', async () => {
+  const {browser,page}=await freshPage();
+  const decks=[deck('en'),{...deck('ja',1),name:'日語',native:'日本語',lang:'ja-JP'}];
+  const cardRows=[
+    card('stored-en',0,{deck_id:'en',legacy_index:10,word:'<img src=x onerror=window.__xss=1>',meaning:'=2+2',hint:'cloud cue',proficiency_level:'B1',difficulty:2}),
+    card('stored-ja',1,{deck_id:'ja',legacy_index:7,word:'雲',meaning:'cloud',hint:'kum o',proficiency_level:'N4',difficulty:3})
+  ];
+  try {
+    const writes=[]; await authRoutes(page,{session:session(),admin:true,cardRows,decks,writes});
+    await page.goto(project.url+'admin/',{waitUntil:'networkidle'});
+    await page.fill('#emailInput','admin@example.test'); await page.fill('#passwordInput','password'); await page.click('#loginForm button');
+    await page.locator('#appState:not([hidden])').waitFor(); await page.locator('#questionBankCount').filter({hasText:'2'}).waitFor();
+    assert.equal(await page.locator('#questionBankTable tr').count(),2);
+    assert.match(await page.locator('.question-bank-note').textContent(),/目前未儲存；前台採翻卡模式/);
+    assert.equal(await page.locator('#questionBankTable img').count(),0);
+    assert.equal(await page.evaluate(()=>window.__xss||null),null);
+    assert.equal(await page.locator('#questionBankTable tr').first().locator('td').nth(2).locator('strong').textContent(),'<img src=x onerror=window.__xss=1>');
+    assert.match(await page.locator('#questionBankTable tr').first().locator('td').nth(4).textContent(),/未儲存.*翻卡模式/);
+
+    await page.selectOption('#questionBankLanguage','ja');
+    await page.selectOption('#questionBankLevel','jlpt:N4');
+    assert.equal(await page.locator('#questionBankCount').textContent(),'1');
+    const japaneseRow=page.locator('#questionBankTable tr').first();
+    assert.match(await japaneseRow.textContent(),/JLPT N4.*雲.*cloud.*未儲存/s);
+    assert.match(await japaneseRow.locator('td').nth(0).textContent(),/日語|日本語/);
+
+    await page.selectOption('#questionBankLanguage','en'); await page.selectOption('#questionBankLevel','cefr:B1');
+    const reportPromise=page.waitForEvent('download'); await page.click('#questionBankCsv');
+    const report=await reportPromise, reportPath=await report.path(), csv=fs.readFileSync(reportPath,'utf8');
+    assert.match(report.suggestedFilename(),/question-bank-overview\.csv/);
+    assert.match(csv,/options_status/); assert.match(csv,/未儲存（目前採翻卡模式）/);
+    assert.match(csv,/"'=2\+2"/); assert.match(csv,/legacy_index/);
+    assert.equal(writes.length,0,'browsing and reporting must not write to Supabase');
   } finally { await browser.close(); }
 });
 
