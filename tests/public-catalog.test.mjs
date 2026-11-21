@@ -2,13 +2,22 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 const require=createRequire(import.meta.url);
-const {load,publicKey}=require('../public-catalog.js');
+const {load,publicKey,validDistractors}=require('../public-catalog.js');
 const config={supabaseUrl:'https://example.supabase.co',supabaseAnonKey:'sb_publishable_test'};
 test('accepts only public keys',()=>{
  assert.equal(publicKey('sb_secret_test'),false);
  const token=role=>'x.'+btoa(JSON.stringify({role}))+'.x';
  assert.equal(publicKey(token('anon')),true);
  assert.equal(publicKey(token('service_role')),false);
+});
+test('accepts exactly three distinct wrong distractors and safely falls back for old or invalid cards',()=>{
+ assert.deepEqual(validDistractors(['一','二','三'],'答案'),['一','二','三']);
+ assert.deepEqual(validDistractors(undefined,'答案'),[]);
+ assert.deepEqual(validDistractors(['一','一','三'],'答案'),[]);
+ assert.deepEqual(validDistractors(['一','答案','三'],'答案'),[]);
+ assert.deepEqual(validDistractors(['一','二'],'答案'),[]);
+ assert.deepEqual(validDistractors(['Foo','foo','bar'],'答案'),[]);
+ assert.deepEqual(validDistractors(['answer','wrong-1','wrong-2'],'Answer'),[]);
 });
 test('loads all paginated cards and never carries user credentials',async()=>{
  const requests=[];
@@ -18,7 +27,7 @@ test('loads all paginated cards and never carries user credentials',async()=>{
 	 assert.equal(decks[0].cards[0].topic,'food');assert.equal(decks[0].cards[0].difficulty,2);
 	 assert.equal(decks[0].cards[0].cue_visual,'');assert.equal(decks[0].cards[0].cue_kinesthetic,'');
 	 const cardRequest=requests.find(r=>r.url.includes('phonetic_cards'));assert.match(new URL(cardRequest.url).searchParams.get('select'),/topic,difficulty/);
-	 assert.match(new URL(cardRequest.url).searchParams.get('select'),/cue_visual,cue_auditory,cue_read_write,cue_kinesthetic/);
+	 assert.match(new URL(cardRequest.url).searchParams.get('select'),/meaning,distractors/);
  assert.equal(requests.length,3);
  for(const r of requests){assert.equal(r.options.credentials,'omit');assert.equal(r.options.headers.Authorization,undefined);assert.equal(new URL(r.url).searchParams.get('published'),'eq.true');}
 });

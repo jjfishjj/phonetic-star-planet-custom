@@ -49,7 +49,7 @@ SEED_FILE=supabase/seed_compact.sql bash scripts/run-sql-tests.sh
 
 單元測試涵蓋 1,576 張卡、376 張進階卡逐級分布與 VARK 欄位 CSV round-trip、原有 1,200 張欄位雜湊不變、匯入解析與匿名傳輸。瀏覽器測試涵蓋四種程度系統、跨級進度比較、裝置語音與口音回退、VARK 切換及缺少提示時的回退、手機版與阿拉伯文 RTL、安全文字渲染、原始學習鍵與舊本機資料、管理權限、XLSX／CSV 實際匯入匯出、發布切換、草稿保留與原有進度保存。SQL 測試驗證 VARK 欄位權限、提示省略保留／明確清空、跨語言錯誤分級拒絕、整批回滾、原始識別不變、人工內容優先及回填第二次為零變更。
 
-GitHub Actions 會在目標為 `main` 的 PR 執行 `Validate tests and generated content` 檢查，包含單元與瀏覽器測試，以及進階內容和程度內容的生成檔一致性驗證。
+GitHub Actions 會在所有分支的 push，以及目標為 `main` 的 PR 執行 `Validate tests and generated content` 檢查，包含單元與瀏覽器測試，以及進階內容和程度內容的生成檔一致性驗證。只有推送至 `main` 且通過檢查才會部署正式網站。
 
 ## 目錄索引
 

@@ -7,7 +7,7 @@
   const {normalizeTopic, normalizeDifficulty, normalizeLevel} = tags;
   const headers = {
     word: ['word', '單字'], roman: ['roman', '音標'], hint: ['hint', '諧音'],
-    meaning: ['meaning', '中文意思'], cue: ['cue', '記憶畫面'],
+    meaning: ['meaning', '中文意思'], distractors: ['distractors', '干擾選項', '錯誤選項'], cue: ['cue', '記憶畫面'],
     cue_visual: ['cue_visual', 'visual cue', '視覺提示'],
     cue_auditory: ['cue_auditory', 'auditory cue', '聽覺提示'],
     cue_read_write: ['cue_read_write', 'read/write cue', '讀寫提示'],
@@ -47,6 +47,17 @@
       mapped.forEach((key, col) => { if (key) obj[key] = normalize((cells || [])[col]); });
       if (!Object.values(obj).some(Boolean)) return;
       for (const key of required) if (!obj[key]) errors.push({row: rowNumber, message: `缺少${key === 'word' ? '單字' : key === 'hint' ? '諧音' : '中文意思'}。`});
+      if (obj.distractors !== undefined) {
+        if (obj.distractors === '') obj.distractors = [];
+        else {
+          try {
+            const parsed = JSON.parse(obj.distractors), answer = normalize(obj.meaning).toLocaleLowerCase(), seen = new Set();
+            if (!Array.isArray(parsed) || parsed.length > 3 || parsed.some(v => typeof v !== 'string' || !normalize(v) || normalize(v).length > 500 || /[\r\n]/.test(v))) throw new Error();
+            for (const value of parsed) { const item = normalize(value), key = item.toLocaleLowerCase(); if (seen.has(key) || key === answer) throw new Error(); seen.add(key); }
+            obj.distractors = parsed.map(normalize);
+          } catch { errors.push({row: rowNumber, message: '干擾選項/distractors 必須是最多 3 個、每個 500 字內、不可空白或含換行，且不可大小寫重複或等於中文意思的 JSON 字串陣列。'}); }
+        }
+      }
       const limits = {word: 300, roman: 300, hint: 500, meaning: 500, cue: 2000, cue_visual: 1000, cue_auditory: 1000, cue_read_write: 1000, cue_kinesthetic: 1000, example_sentence: 500, example_translation: 500};
       for (const [key, limit] of Object.entries(limits)) if (obj[key] && obj[key].length > limit) errors.push({row: rowNumber, message: `${key} 超過 ${limit} 字上限。`});
       if (obj.topic !== undefined && obj.topic !== '') { const value = normalizeTopic(obj.topic); if (!value) errors.push({row: rowNumber, message: '主題/topic 必須是有效 slug 或中文主題。'}); else obj.topic = value; } else delete obj.topic;
@@ -71,7 +82,7 @@
     return errors;
   }
   function rowsToSheet(rows) {
-    return [['word','roman','hint','meaning','cue','cue_visual','cue_auditory','cue_read_write','cue_kinesthetic','topic','difficulty','proficiency_level','example_sentence','example_translation','published','position','id'], ...rows.map(r => [r.word || '', r.roman || '', r.hint || '', r.meaning || '', r.cue || '', r.cue_visual || '', r.cue_auditory || '', r.cue_read_write || '', r.cue_kinesthetic || '', normalizeTopic(r.topic) || '', normalizeDifficulty(r.difficulty) ?? '', r.proficiency_level || '', r.example_sentence || '', r.example_translation || '', r.published !== false, r.position ?? '', r.id || ''])];
+    return [['word','roman','hint','meaning','distractors','cue','cue_visual','cue_auditory','cue_read_write','cue_kinesthetic','topic','difficulty','proficiency_level','example_sentence','example_translation','published','position','id'], ...rows.map(r => [r.word || '', r.roman || '', r.hint || '', r.meaning || '', r.distractors == null ? '' : JSON.stringify(r.distractors), r.cue || '', r.cue_visual || '', r.cue_auditory || '', r.cue_read_write || '', r.cue_kinesthetic || '', normalizeTopic(r.topic) || '', normalizeDifficulty(r.difficulty) ?? '', r.proficiency_level || '', r.example_sentence || '', r.example_translation || '', r.published !== false, r.position ?? '', r.id || ''])];
   }
   function safeCsvCell(value) { let s = normalize(value); if (/^[=+\-@]/.test(s)) s = "'" + s; return `"${s.replace(/"/g, '""')}"`; }
   function rowsToCsv(rows) { return rowsToSheet(rows).map(row => row.map(safeCsvCell).join(',')).join('\r\n'); }
