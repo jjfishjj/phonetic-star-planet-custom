@@ -198,6 +198,45 @@ test('public cloud loads 1576 cards with limit/offset paging, omits auth, render
   } finally { await browser.close(); }
 });
 
+test('valid distractors use four-choice mode, report correct and incorrect answers without learning early, while old cards use flashcards', async () => {
+  const {browser,page} = await freshPage();
+  const rows = [
+    card('choice',0,{legacy_index:0,word:'choice',meaning:'正確',distractors:['錯一','錯二','錯三']}),
+    card('old',1,{legacy_index:1,word:'old',meaning:'舊卡'})
+  ];
+  try {
+    await installPublicRoutes(page,{cloud:true,cards:rows}); await page.goto(project.url,{waitUntil:'networkidle'});
+    assert.equal(await page.locator('#answerPanel .choice-option').count(),4);
+    assert.equal(await page.locator('#answerPanel h3').count(),0);
+    let state=await page.evaluate(()=>JSON.parse(localStorage.getItem('phonetic-star-planet-v1'))||{learned:[]}); assert.deepEqual(state.learned,[]);
+    await page.locator('.choice-option').filter({hasText:'錯一'}).click();
+    assert.match(await page.locator('#answerPanel').textContent(),/答錯了|正確答案是「正確」/); state=await page.evaluate(()=>JSON.parse(localStorage.getItem('phonetic-star-planet-v1'))||{learned:[]}); assert.deepEqual(state.learned,[]);
+    await page.click('#againBtn'); await page.locator('.choice-option').filter({hasText:'正確'}).click();
+    assert.match(await page.locator('#answerPanel').textContent(),/答對了/); state=await page.evaluate(()=>JSON.parse(localStorage.getItem('phonetic-star-planet-v1'))||{learned:[]}); assert.deepEqual(state.learned,[]);
+    await page.click('#knownBtn'); assert.equal(await page.locator('#wordText').textContent(),'old'); await page.click('#revealBtn'); assert.match(await page.locator('#answerPanel').textContent(),/舊卡/); assert.equal(await page.locator('.choice-option').count(),0);
+  } finally { await browser.close(); }
+});
+
+test('choice feedback is cleared when switching cards and using flashcard mode', async () => {
+  const {browser,page} = await freshPage();
+  const rows = [card('choice-a',0,{legacy_index:0,word:'first',meaning:'第一',distractors:['錯一','錯二','錯三']})];
+  try {
+    await installPublicRoutes(page,{cloud:true,cards:rows}); await page.goto(project.url,{waitUntil:'networkidle'});
+    await page.locator('.choice-option').filter({hasText:'錯一'}).click();
+    assert.match(await page.locator('#answerPanel').textContent(),/答錯了/);
+    await page.evaluate((catalogRows) => window.PhoneticApp.applyCatalog([
+      {id:'en',name:'英語',native:'English',flag:'🇬🇧',region:'europe',lang:'en-US',published:true,cards:[{...catalogRows[0]}]},
+      {id:'ja',name:'日語',native:'日本語',flag:'🇯🇵',region:'asia',lang:'ja-JP',published:true,cards:[{id:'choice-b',legacy_index:0,word:'second',roman:'/second/',hint:'第二',meaning:'第二',cue:'',distractors:['誤一','誤二','誤三'],published:true}]}
+    ]), rows);
+    await page.locator('[data-deck="ja"]').click(); await page.locator('[data-deck="en"]').click();
+    await page.locator('#revealBtn').click();
+    assert.doesNotMatch(await page.locator('#answerPanel').textContent(),/答對了|答錯了/);
+    assert.match(await page.locator('#answerPanel').textContent(),/第一/);
+    const state = await page.evaluate(() => JSON.parse(localStorage.getItem('phonetic-star-planet-v1')));
+    assert.deepEqual(state.learned,[]);
+  } finally { await browser.close(); }
+});
+
 test('custom deck and card create/edit remain local and persist after reload', async () => {
   const { browser, page } = await freshPage();
   try {
@@ -288,7 +327,7 @@ test('admin session pages 1201 cards, writes whitelisted card fields, imports re
     await page.locator('#cardTable tr').first().getByText('編輯').click();
     const editor=page.locator('.card-editor'); await editor.locator('[name=word]').fill('edited'); await editor.locator('[name=hint]').fill('提示'); await editor.locator('[name=meaning]').fill('意思'); await editor.locator('button[type=submit]').click();
     await page.locator('#cardTable').waitFor();
-    const cardWrite=writes.find(x=>x.table==='cards' && x.kind==='PATCH'); assert.ok(cardWrite); assert.deepEqual(Object.keys(cardWrite.body).sort(),['cue','cue_auditory','cue_kinesthetic','cue_read_write','cue_visual','difficulty','example_sentence','example_translation','hint','meaning','position','proficiency_level','published','roman','topic','word']);
+    const cardWrite=writes.find(x=>x.table==='cards' && x.kind==='PATCH'); assert.ok(cardWrite); assert.deepEqual(Object.keys(cardWrite.body).sort(),['cue','cue_auditory','cue_kinesthetic','cue_read_write','cue_visual','difficulty','distractors','example_sentence','example_translation','hint','meaning','position','proficiency_level','published','roman','topic','word']);
     await page.locator('#cardTable tr').first().getByText('取消發布').click();
     assert.ok(writes.filter(x=>x.table==='cards' && x.kind==='PATCH').length >= 2);
 
@@ -315,11 +354,11 @@ test('admin question bank filters stored multilingual cards, marks options absen
     await page.fill('#emailInput','admin@example.test'); await page.fill('#passwordInput','password'); await page.click('#loginForm button');
     await page.locator('#appState:not([hidden])').waitFor(); await page.locator('#questionBankCount').filter({hasText:'2'}).waitFor();
     assert.equal(await page.locator('#questionBankTable tr').count(),2);
-    assert.match(await page.locator('.question-bank-note').textContent(),/目前未儲存；前台採翻卡模式/);
+    assert.match(await page.locator('.question-bank-note').textContent(),/翻卡模式/);
     assert.equal(await page.locator('#questionBankTable img').count(),0);
     assert.equal(await page.evaluate(()=>window.__xss||null),null);
     assert.equal(await page.locator('#questionBankTable tr').first().locator('td').nth(2).locator('strong').textContent(),'<img src=x onerror=window.__xss=1>');
-    assert.match(await page.locator('#questionBankTable tr').first().locator('td').nth(4).textContent(),/未儲存.*翻卡模式/);
+    assert.match(await page.locator('#questionBankTable tr').first().locator('td').nth(4).textContent(),/翻卡模式/);
 
     await page.selectOption('#questionBankLanguage','ja');
     await page.selectOption('#questionBankLevel','jlpt:N4');

@@ -45,6 +45,10 @@
 .vark-prompt b { color: #e8e0ff; font-size: 11px; }
 .vark-prompt small { color: #aeb7d0; font-size: 10px; line-height: 1.5; text-align: right; }
 .vark-prompt p { margin: 8px 0 0; color: #d7dcef; font-size: 12px; line-height: 1.7; }
+.choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; width: 100%; margin-top: 14px; }
+.choice-option { min-height: 44px; padding: 9px 10px; border: 1px solid rgba(148, 240, 208, .28); border-radius: 10px; background: rgba(148, 240, 208, .07); color: #e9f7f2; font-size: 12px; text-align: center; }
+.choice-option:hover, .choice-option:focus-visible { border-color: var(--mint); background: rgba(148, 240, 208, .16); outline: 2px solid rgba(148, 240, 208, .35); outline-offset: 2px; }
+.choice-feedback { margin-top: 8px !important; color: var(--yellow) !important; font-weight: 650; }
 .learning-analysis {
   position: relative;
   z-index: 1;
@@ -146,6 +150,7 @@
 }
 @media (max-width: 640px) {
   .voice-controls { grid-template-columns: 1fr; gap: 7px; margin-bottom: 13px; padding: 10px; }
+  .choice-grid { grid-template-columns: 1fr; }
   .learning-analysis { padding: 12px; }
   .level-analysis-grid { grid-template-columns: 1fr; gap: 6px; }
   .level-analysis-row { grid-template-columns: minmax(92px, .9fr) minmax(52px, 1.1fr) auto auto; gap: 7px; padding: 8px; }

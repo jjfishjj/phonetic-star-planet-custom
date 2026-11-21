@@ -55,6 +55,7 @@
   // Filters are view preferences, not a migration of the persisted learning data.
   const cardFilters = {topic:'all', difficulty:'all'};
   const practiceMode = {unlearned:state.unlearnedOnly};
+  let choiceCardKey = null;
   const hasCardFilters = () => cardFilters.topic !== 'all' || cardFilters.difficulty !== 'all';
   const hasAnyFilters = () => hasCardFilters() || practiceMode.unlearned;
   function save() { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch { showToast('瀏覽器儲存空間不足，資料尚未保存'); } }
@@ -84,6 +85,15 @@
   function getCard() { return currentEntry()?.card || null; }
   function resetFilters() { cardFilters.topic = 'all'; cardFilters.difficulty = 'all'; practiceMode.unlearned = false; state.unlearnedOnly = false; }
   function escapeHTML(value) { return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+  function usableDistractors(card) {
+    if (!card || !Array.isArray(card.distractors) || card.distractors.length !== 3) return [];
+    const values = card.distractors.map(value => typeof value === 'string' ? value.trim() : ''), normalized = values.map(value => value.toLowerCase()), answer = String(card.meaning || '').trim().toLowerCase();
+    return values.every(Boolean) && new Set(normalized).size === 3 && normalized.every(value => value !== answer) ? values : [];
+  }
+  function choiceOptions(card) {
+    const distractors = usableDistractors(card);
+    return distractors.length === 3 ? [...distractors, String(card.meaning).trim()].sort(() => Math.random() - .5) : [];
+  }
   function newId() { return crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2); }
 
   function renderFilters() {
@@ -146,6 +156,11 @@
     refreshVoiceOptions(d);
     $('varkModeSelect').value=varkMode;
     const position = entry ? entries.findIndex(e => e.index === entry.index) : -1;
+    const currentKey = c ? cardKey(d,entry.index) : null;
+    if (choiceCardKey !== currentKey) {
+      if (c) c.choiceResult = null;
+      choiceCardKey = currentKey;
+    }
     renderCardFilters(d,entries,matching);
     $('currentDeckLabel').textContent = `${d.flag||'📚'} ${d.name}`;
     const allMatchingRemembered = practiceMode.unlearned && matching.length > 0 && entries.length === 0;
@@ -160,11 +175,11 @@
         const tag = document.createElement('span'); tag.className = `card-tag ${kind}`; tag.textContent = label; $('cardTags').append(tag);
       }
     }
-    const id = c ? cardKey(d,entry.index) : null;
+    const id = currentKey;
     const favorite = !!id && state.favorites.includes(id), learned = !!id && state.learned.includes(id);
     $('favoriteBtn').textContent = favorite ? '♥' : '♡'; $('favoriteBtn').classList.toggle('is-fav',favorite); $('favoriteBtn').disabled = !c;
     $('favoriteBtn').setAttribute('aria-label',favorite ? '取消收藏' : '收藏此卡'); $('speakBtn').disabled = !c;
-    $('cardPrompt').textContent = c ? (learned ? '這張卡已記住，還可以再複習。' : '先猜猜看它的意思是什麼？') : (allMatchingRemembered ? '這個範圍的卡片都已記住。' : (hasCardFilters() ? '調整主題或難度，就能繼續練習。' : '先新增自己的詞彙卡，再開始練習。'));
+    $('cardPrompt').textContent = c ? (learned ? '這張卡已記住，還可以再複習。' : (usableDistractors(c).length ? '選一個你認為正確的意思。' : '先猜猜看它的意思是什麼？')) : (allMatchingRemembered ? '這個範圍的卡片都已記住。' : (hasCardFilters() ? '調整主題或難度，就能繼續練習。' : '先新增自己的詞彙卡，再開始練習。'));
     const panel = $('answerPanel');
     if (!c) {
       panel.classList.add('empty');
@@ -179,6 +194,7 @@
       $('emptyResetBtn')?.addEventListener('click', clearCardFilters);
     } else if (state.revealed) {
       panel.classList.remove('empty');
+      const options = usableDistractors(c), result = c.choiceResult;
       const selectedMode=VARK_MODES[varkMode], specificCue=selectedMode.field ? String(c[selectedMode.field]||'').trim() : '';
       const example = c.example_sentence && c.example_translation
         ? `<section class="example-block" aria-label="短例句與繁中翻譯"><div class="example-heading"><b>短例句</b><button id="speakSentenceBtn" class="sentence-speak" aria-label="播放例句發音" title="朗讀例句">朗讀</button></div><p class="example-sentence" lang="${escapeHTML(d.lang||'zh-TW')}" dir="auto">${escapeHTML(c.example_sentence)}</p><p class="example-translation" lang="zh-Hant">${escapeHTML(c.example_translation)}</p></section>`
@@ -191,19 +207,25 @@
       };
       const varkBlock=varkMode==='normal'?'':`<section class="vark-prompt" aria-label="${escapeHTML(selectedMode.label)}"><div><b>${escapeHTML(selectedMode.label)}提示</b><small>${escapeHTML(selectedMode.prompt)}</small></div><p>${escapeHTML(specificCue||varkFallback[varkMode])}</p></section>`;
       const cueLabel=varkMode==='normal'?'記憶畫面':'原始諧音提示';
-      panel.innerHTML = `<span class="answer-label">${learned?'REVIEW THIS CARD':'YOU GOT IT'}</span><h3>${escapeHTML(c.meaning)}</h3><p>${escapeHTML(d.name)} · ${escapeHTML(d.native||'自訂牌組')}　<span class="confetti">✦</span></p>${example}${varkBlock}<div class="mnemonic"><b>${cueLabel}</b><br>${escapeHTML(c.cue||'為這張卡想一個自己的聯想畫面吧。')}</div><div class="answer-actions"><button class="secondary" id="againBtn">再複習一次</button><button class="primary" id="knownBtn">${learned?'下一張':'記住了 ✓'}</button></div>`;
+      panel.innerHTML = `${result ? `<span class="answer-label">${result.correct ? '答對了！' : '答錯了'}</span><p class="choice-feedback">${result.correct ? '這次選對了，可以繼續練習。' : `正確答案是「${escapeHTML(c.meaning)}」，再試下一張。`}</p>` : `<span class="answer-label">${learned?'REVIEW THIS CARD':'YOU GOT IT'}</span>`}<h3>${escapeHTML(c.meaning)}</h3><p>${escapeHTML(d.name)} · ${escapeHTML(d.native||'自訂牌組')}　<span class="confetti">✦</span></p>${example}${varkBlock}<div class="mnemonic"><b>${cueLabel}</b><br>${escapeHTML(c.cue||'為這張卡想一個自己的聯想畫面吧。')}</div><div class="answer-actions"><button class="secondary" id="againBtn">再複習一次</button><button class="primary" id="knownBtn">${learned?'下一張':'記住了 ✓'}</button></div>`;
       $('speakSentenceBtn')?.addEventListener('click', () => speak(c.example_sentence,d.lang));
-      $('againBtn').addEventListener('click', () => { state.revealed=false; state.reviewed+=1; save(); renderAll(); showToast('已加入本次複習'); });
+      $('againBtn').addEventListener('click', () => { c.choiceResult=null; state.revealed=false; state.reviewed+=1; save(); renderAll(); showToast('已加入本次複習'); });
       $('knownBtn').addEventListener('click', () => {
         const key = cardKey(d,entry.index), firstLearning = !state.learned.includes(key);
         if (firstLearning) { state.learned.push(key); state.xp+=10; } else { state.reviewed+=1; }
+        c.choiceResult = null;
         state.index = entries[(position+1)%entries.length].index; state.revealed=false; save(); renderAll();
         showToast(firstLearning ? '記憶已更新 +10 XP' : '已前往下一張');
       });
     } else {
       panel.classList.add('empty');
-      panel.innerHTML = '<div class="hint-bulb">✦</div><span class="answer-label">READY WHEN YOU ARE</span><p style="margin-top:8px">用熟悉的聲音聯想陌生單字，<br>不確定也沒關係，翻開看看。</p><div class="answer-actions"><button id="revealBtn" class="primary">翻開答案</button></div>';
-      $('revealBtn').addEventListener('click', () => { state.revealed=true; save(); renderPractice(); });
+      const options = choiceOptions(c);
+      panel.innerHTML = options.length ? `<span class="answer-label">CHOOSE THE MEANING</span><p style="margin-top:8px">選出你認為正確的意思；作答後才會顯示答案。</p><div class="choice-grid" role="group" aria-label="四選一意思選項">${options.map((option,index)=>`<button type="button" class="choice-option" data-choice-index="${index}">${escapeHTML(option)}</button>`).join('')}</div><div class="answer-actions"><button id="revealBtn" class="secondary" type="button">改用翻卡</button></div>` : '<div class="hint-bulb">✦</div><span class="answer-label">READY WHEN YOU ARE</span><p style="margin-top:8px">用熟悉的聲音聯想陌生單字，<br>不確定也沒關係，翻開看看。</p><div class="answer-actions"><button id="revealBtn" class="primary">翻開答案</button></div>';
+      $('revealBtn').addEventListener('click', () => { c.choiceResult=null; state.revealed=true; save(); renderPractice(); });
+      panel.querySelectorAll('[data-choice-index]').forEach(button => button.addEventListener('click', () => {
+        const selected = options[Number(button.dataset.choiceIndex)];
+        c.choiceResult = {correct:selected === String(c.meaning).trim()}; state.revealed=true; renderPractice();
+      }));
     }
     const completed = matching.filter(e => state.learned.includes(cardKey(d,e.index))).length;
     $('sessionProgressText').textContent = practiceMode.unlearned
@@ -352,7 +374,7 @@
     const existing=d.cards.find(c=>c.id===$('editingCardId').value),legacy=Tags.levelScheme(d)==='legacy';
     const level=Tags.normalizeLevel($('cardDifficultyInput').value,d);
     if(!legacy&&!level){$('cardDifficultyInput').reportValidity();return;}
-    const card={id:$('editingCardId').value||newId(),word,roman:$('cardRomanInput').value.trim(),hint,meaning,cue:$('cardCueInput').value.trim(),cue_visual:$('cardCueVisualInput').value.trim(),cue_auditory:$('cardCueAuditoryInput').value.trim(),cue_read_write:$('cardCueReadWriteInput').value.trim(),cue_kinesthetic:$('cardCueKinestheticInput').value.trim(),topic:Tags.normalizeTopic($('cardTopicInput').value)||'general',difficulty:legacy?(Number(level)||1):Tags.getDifficulty(existing),proficiency_level:legacy?null:level,example_sentence:sentence,example_translation:translation};
+    const card={id:$('editingCardId').value||newId(),word,roman:$('cardRomanInput').value.trim(),hint,meaning,cue:$('cardCueInput').value.trim(),cue_visual:$('cardCueVisualInput').value.trim(),cue_auditory:$('cardCueAuditoryInput').value.trim(),cue_read_write:$('cardCueReadWriteInput').value.trim(),cue_kinesthetic:$('cardCueKinestheticInput').value.trim(),topic:Tags.normalizeTopic($('cardTopicInput').value)||'general',difficulty:legacy?(Number(level)||1):Tags.getDifficulty(existing),proficiency_level:legacy?null:level,example_sentence:sentence,example_translation:translation,...(existing && Array.isArray(existing.distractors) ? {distractors:existing.distractors} : {})};
     const i=d.cards.findIndex(x=>x.id===card.id);if(i>=0){d.cards[i]=card;showToast('卡片已更新');}else{d.cards.push(card);showToast('卡片已新增');}
     state.selected=d.id;state.index=Math.max(0,d.cards.findIndex(x=>x.id===card.id));state.revealed=false;resetFilters();save();resetCardForm();renderCardList();renderAll();
   });

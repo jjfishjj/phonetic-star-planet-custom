@@ -96,10 +96,10 @@ test('CSV protects formula-like values', () => {
 test('export includes canonical tags and can be parsed back', () => {
   const rows = [{word:'hello', roman:'/h/', hint:'h', meaning:'你好', topic:'greetings', difficulty:2, published:true, position:4, id:'c1'}];
   const sheet = parser.rowsToSheet(rows);
-  assert.deepEqual(sheet[0], ['word','roman','hint','meaning','cue','cue_visual','cue_auditory','cue_read_write','cue_kinesthetic','topic','difficulty','proficiency_level','example_sentence','example_translation','published','position','id']);
+  assert.deepEqual(sheet[0], ['word','roman','hint','meaning','distractors','cue','cue_visual','cue_auditory','cue_read_write','cue_kinesthetic','topic','difficulty','proficiency_level','example_sentence','example_translation','published','position','id']);
   const parsed = parser.parseRows(sheet);
   assert.equal(parsed.errors.length, 0);
-  assert.deepEqual(parsed.rows[0], {...rows[0], cue:'', cue_visual:'', cue_auditory:'', cue_read_write:'', cue_kinesthetic:'', example_sentence:'', example_translation:'', _row: 2});
+  assert.deepEqual(parsed.rows[0], {...rows[0], distractors:[], cue:'', cue_visual:'', cue_auditory:'', cue_read_write:'', cue_kinesthetic:'', example_sentence:'', example_translation:'', _row: 2});
   assert.equal(Object.hasOwn(parsed.rows[0], 'proficiency_level'), false);
   assert.match(parser.rowsToCsv(rows), /"topic"/);
   assert.match(parser.rowsToCsv(rows), /"greetings"/);
@@ -169,4 +169,44 @@ test('legacy difficulty remains 1-3 and does not require proficiency', () => {
   assert.equal(good.rows[0].difficulty, 3);
   const bad = parser.parseRows([['word','hint','meaning','difficulty'],['x','h','m','4']], {deck:{lang:'vi'}});
   assert.equal(bad.errors.length, 1);
+});
+
+
+test('parses and losslessly roundtrips distractors, while omitted and blank differ', () => {
+  const parsed = parser.parseRows([['word','hint','meaning','distractors'], ['apple','阿婆','蘋果','["香蕉","葡萄","梨子"]']]);
+  assert.equal(parsed.errors.length, 0);
+  assert.deepEqual(parsed.rows[0].distractors, ['香蕉','葡萄','梨子']);
+  const reparsed = parser.parseRows(parser.rowsToSheet(parsed.rows));
+  assert.deepEqual(reparsed.rows[0].distractors, parsed.rows[0].distractors);
+  const omitted = parser.parseRows([['word','hint','meaning'], ['x','h','m']]);
+  assert.equal(Object.hasOwn(omitted.rows[0], 'distractors'), false);
+  const blank = parser.parseRows([['word','hint','meaning','distractors'], ['x','h','m','']]);
+  assert.deepEqual(blank.rows[0].distractors, []);
+});
+
+test('rejects invalid distractor arrays and permits partial arrays', () => {
+  for (const value of ['not json', '["m","x","y"]', '["x","x"]', '["x",2]']) {
+    const result = parser.parseRows([['word','hint','meaning','distractors'], ['w','h','m',value]]);
+    assert.ok(result.errors.some(e => e.message.includes('干擾選項')));
+  }
+  const partial = parser.parseRows([['word','hint','meaning','distractors'], ['w','h','m','["x"]']]);
+  assert.equal(partial.errors.length, 0);
+  assert.deepEqual(partial.rows[0].distractors, ['x']);
+});
+
+test('rejects distractor overflow, long/newline values, case-insensitive duplicates and answer matches', () => {
+  const cases = [
+    '["a","b","c","d"]',
+    `["${'x'.repeat(501)}"]`,
+    '["a\\nb"]',
+    '["Wrong","wrong"]',
+    '["M","x"]'
+  ];
+  for (const value of cases) {
+    const result = parser.parseRows([['word','hint','meaning','distractors'], ['w','h','m',value]]);
+    assert.ok(result.errors.some(e => e.message.includes('干擾選項')), value);
+  }
+  const good = parser.parseRows([['word','hint','meaning','distractors'], ['w','h','m','["A","b","C"]']]);
+  assert.equal(good.errors.length, 0);
+  assert.deepEqual(good.rows[0].distractors, ['A','b','C']);
 });
